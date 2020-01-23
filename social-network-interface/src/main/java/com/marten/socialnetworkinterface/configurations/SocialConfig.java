@@ -28,6 +28,10 @@ public class SocialConfig {
     @Value("${twitter.accessTokenSecret}")
     private String twitterAccessTokenSecret;
 
+    private final String ENV_NAME = "dev";
+
+    private final String 
+
 
 //    @PostConstruct
 //    public void makeWebhookRequest() {
@@ -35,6 +39,16 @@ public class SocialConfig {
 //        template.postForObject("")
 //    }
 
+
+    public twitter4j.conf.Configuration config() {
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthConsumerKey(twitterConsumerKey)
+                .setOAuthConsumerSecret(twitterConsumerSecret)
+                .setOAuthAccessToken(twitterAccessToken)
+                .setOAuthAccessTokenSecret(twitterAccessTokenSecret);
+        return cb.build();
+    }
 
 
     @Bean
@@ -46,6 +60,8 @@ public class SocialConfig {
                 .setOAuthAccessToken(twitterAccessToken)
                 .setOAuthAccessTokenSecret(twitterAccessTokenSecret);
 
+
+
         return new TwitterFactory(cb.build()).getInstance();
     }
 
@@ -53,6 +69,13 @@ public class SocialConfig {
 
     public String getTwitterConsumerSecret() {
         return this.twitterConsumerSecret;
+    }
+
+
+    public void registerWebhook() {
+        HttpClient httpClient = HttpClientFactory.getInstance(config().getHttpClientConfiguration());
+        httpClient.post(String.format("https://api.twitter.com/1.1/account_activity/all/%s/webhooks.json?url=%s", ));
+
     }
 
 
