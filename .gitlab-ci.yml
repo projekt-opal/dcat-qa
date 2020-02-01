@@ -1,0 +1,35 @@
+stages:
+  - build-docker
+
+
+build-nginx-docker:
+  stage: build-docker
+  before_script:
+    - cd nginx-config
+    - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot .
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot
+  after_script:
+    - docker logout
+  tags:
+    - shared
+  only:
+    changes:
+      - nginx-config/**/*
+
+build-twitter-docker:
+  stage: build-docker
+  before_script:
+    - cd sninterface-twitter
+    - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter
+  after_script:
+    - docker logout
+  tags:
+    - shared
+  only:
+    changes:
+      - sninterface-twitter/**/*

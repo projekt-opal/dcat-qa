@@ -1,0 +1,20 @@
+{
+  "name": "twitter-autohook-tutorial",
+  "version": "1.0.0",
+  "description": "Build a DM autoresponder using Autohook and the Account Activity API from Twitter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "http": "0.0.0",
+    "request": "^2.88.0",
+    "twitter-autohook": "^1.4.1",
+    "url": "^0.11.0",
+    "util": "^0.12.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
