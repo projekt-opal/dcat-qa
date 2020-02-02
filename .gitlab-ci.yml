@@ -6,30 +6,32 @@ build-nginx-docker:
   stage: build-docker
   before_script:
     - cd nginx-config
+    - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot .
-    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot .
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot:$VERSION
   after_script:
     - docker logout $CI_REGISTRY
   tags:
     - shared
   only:
     changes:
-      - nginx-config/**/*
+      - nginx-config/version.txt
 
 build-twitter-docker:
   stage: build-docker
   before_script:
     - cd sninterface-twitter
+    - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
-    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION
   after_script:
     - docker logout $CI_REGISTRY
   tags:
     - shared
   only:
     changes:
-      - sninterface-twitter/**/*
+      - sninterface-twitter/version.txt
