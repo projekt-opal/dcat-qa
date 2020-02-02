@@ -1,0 +1,18 @@
+# docker-compose file intented for deployment of nginx and sninterface on openbot vm
+version: "3"
+services:
+  nginx:
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/nginx-openbot:latest
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/etc/nginx/ssl:/etc/nginx/ssl"
+  sninterface-twitter:
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-twitter:latest
+    container_name: sninterface-twitter
+    restart: unless-stopped
+    env_file: .env
+

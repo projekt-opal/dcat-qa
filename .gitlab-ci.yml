@@ -11,7 +11,7 @@ build-nginx-docker:
     - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/nginx-openbot
   after_script:
-    - docker logout
+    - docker logout $CI_REGISTRY
   tags:
     - shared
   only:
@@ -27,7 +27,7 @@ build-twitter-docker:
     - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter
   after_script:
-    - docker logout
+    - docker logout $CI_REGISTRY
   tags:
     - shared
   only:
