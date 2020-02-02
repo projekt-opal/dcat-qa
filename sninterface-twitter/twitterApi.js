@@ -13,16 +13,16 @@ Twitter API functions
  * @param {*} auth 
  */
 async function markAsRead(messageId, senderId, auth) {
-const requestConfig = {
+  const requestConfig = {
     url: 'https://api.twitter.com/1.1/direct_messages/mark_read.json',
     form: {
-    last_read_event_id: messageId,
-    recipient_id: senderId,
+      last_read_event_id: messageId,
+      recipient_id: senderId,
     },
     oauth: auth,
-};
+  };
 
-await post(requestConfig);
+  await post(requestConfig);
 }
 
 /**
@@ -31,15 +31,15 @@ await post(requestConfig);
  * @param {*} auth 
  */
 async function indicateTyping(senderId, auth) {
-const requestConfig = {
+  const requestConfig = {
     url: 'https://api.twitter.com/1.1/direct_messages/indicate_typing.json',
     form: {
-    recipient_id: senderId,
+      recipient_id: senderId,
     },
     oauth: auth,
-};
+  };
 
-await post(requestConfig);
+  await post(requestConfig);
 }
 
 /**
@@ -47,25 +47,27 @@ await post(requestConfig);
  * @param {number | string} recipientID 
  * @param {string} message 
  */
-async function sendDM(recipientID, message) {
-const requestConfig = {
+async function sendDM(recipientID, message, auth) {
+  const requestConfig = {
     url: 'https://api.twitter.com/1.1/direct_messages/events/new.json',
-    oauth: oAuthConfig,
+    oauth: auth,
     json: {
-    event: {
+      event: {
         type: 'message_create',
         message_create: {
-        target: {
+          target: {
             recipient_id: recipientID,
-        },
-        message_data: {
+          },
+          message_data: {
             text: message,
+          },
         },
-        },
+      },
     },
-    },
-};
-await post(requestConfig);
+  };
+  await post(requestConfig).then((res) =>{
+    console.error(JSON.stringify(res.body));
+  });
 }
 
 /**
@@ -73,19 +75,19 @@ await post(requestConfig);
  * @param {number | string} statusID 
  * @param {string} reply 
  */
-async function tweetReply(statusID, reply) {
-const requestConfig = {
+async function tweetReply(statusID, reply, auth) {
+  const requestConfig = {
     url: 'https://api.twitter.com/1.1/statuses/update.json',
-    oauth: oAuthConfig,
+    oauth: auth,
     form: {
-    status: reply,
-    in_reply_to_status_id: statusID,
-    auto_populate_reply_metadata: true,
+      status: reply,
+      in_reply_to_status_id: statusID,
+      auto_populate_reply_metadata: true,
     }
-};
-await post(requestConfig).then((res) => {
+  };
+  await post(requestConfig).then((res) => {
     console.log(JSON.stringify(res, null, 2))
-});
+  });
 }
 
-module.exports = {markAsRead, indicateTyping, sendDM, tweetReply}
+module.exports = { markAsRead, indicateTyping, sendDM, tweetReply }

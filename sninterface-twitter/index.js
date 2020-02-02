@@ -1,7 +1,8 @@
 const { Autohook } = require('twitter-autohook');
 const url = require('url');
 const http = require('http');
-const api = require('./twitterApi');
+const twitterApi = require('./twitterApi');
+const qa = require('./qa');
 require('dotenv').config();
 
 
@@ -36,13 +37,16 @@ async function sayHi(event) {
     return;
   }
 
-  await api.markAsRead(message.message_create.id, message.message_create.sender_id, oAuthConfig);
-  await api.indicateTyping(message.message_create.sender_id, oAuthConfig);
+  await twitterApi.markAsRead(message.message_create.id, message.message_create.sender_id, oAuthConfig);
+  await twitterApi.indicateTyping(message.message_create.sender_id, oAuthConfig);
 
   const senderScreenName = event.users[message.message_create.sender_id].screen_name;
   console.log(`${senderScreenName} says ${message.message_create.message_data.text}`);
 
-  await api.sendDM(message.message_create.sender_id, `Hi @${senderScreenName}! 👋👋👋`)
+
+  const answer = await qa.askQuestion(message.message_create.message_data.text);
+
+  await twitterApi.sendDM(message.message_create.sender_id, answer, oAuthConfig)
  
 }
 
@@ -59,7 +63,7 @@ async function tweetHi(event){
     return;
   }
 
-  await api.tweetReply(tweet.id_str, `Hi ${tweet.user.screen_name}! 👋👋👋`);
+  await twitterApi.tweetReply(tweet.id_str, `Hi ${tweet.user.screen_name}! 👋👋👋`, oAuthConfig);
 
 }
 
@@ -101,3 +105,4 @@ function sleep(ms){
     }
   }
 })();
+
