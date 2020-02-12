@@ -1,5 +1,5 @@
 # docker-compose file intented for deployment of nginx and sninterface on openbot vm
-version: "3"
+version: "3.5"
 services:
   nginx:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/nginx-openbot:latest
@@ -10,9 +10,26 @@ services:
       - "443:443"
     volumes:
       - "/etc/nginx/ssl:/etc/nginx/ssl"
+    networks:
+      - compose_overlay
   sninterface-twitter:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-twitter:latest
     container_name: sninterface-twitter
     restart: unless-stopped
     env_file: .env
+    networks:
+      - compose_overlay
+  fuseki:
+    image: hub.cs.upb.de/martenls/stain/jena-fuseki:latest
+    container_name: fuseki
+    volumes:
+      - "/srv/fuseki:/fuseki"
+    environment: 
+      - ADMIN_PASSWORD=pw123
+    networks:
+      - compose_overlay
 
+networks:
+  compose_overlay:
+    name: compose_overlay
+    
