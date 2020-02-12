@@ -20,7 +20,7 @@ services:
     networks:
       - compose_overlay
   fuseki:
-    image: hub.cs.upb.de/martenls/stain/jena-fuseki:latest
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/stain/jena-fuseki:latest
     container_name: fuseki
     volumes:
       - "/srv/fuseki:/fuseki"
