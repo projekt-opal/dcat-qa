@@ -10,6 +10,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const USERID = process.env.TWITTER_USER_ID;
 const WEBHOOKURL = process.env.WEBHOOKURL;
+const ENV = process.env.TWITTER_WEBHOOK_ENV;
 
 
 const oAuthConfig = {
@@ -79,7 +80,7 @@ function sleep(ms){
 (async start => {
   try {
 
-    const webhook = new Autohook({ port: PORT });
+    const webhook = new Autohook({ port: PORT, env:  ENV });
     await webhook.removeWebhooks();
     if (WEBHOOKURL) {
       webhook.startServer();
