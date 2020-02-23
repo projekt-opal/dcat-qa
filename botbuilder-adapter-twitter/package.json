@@ -1,0 +1,46 @@
+{
+  "name": "botbuilder-adapter-twitter",
+  "version": "0.0.1",
+  "description": "Connect Botkit or BotBuilder to Twitter",
+  "main": "lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "files": [
+    "/lib",
+    "/src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc ; nyc mocha tests/*.tests.js",
+    "eslint": "./node_modules/.bin/eslint --fix src/*"
+  },
+  "author": "Microsoft Corp.",
+  "license": "MIT",
+  "keywords": [
+    "twitter",
+    "botkit",
+    "botbuilder",
+    "botframework",
+    "bots",
+    "chatbots",
+    "azure"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/howdyai/botkit.git"
+  },
+  "dependencies": {
+    "@types/request-promise-native": "^1.0.17",
+    "botbuilder": "^4.7.1",
+    "botkit": "^4.6.2",
+    "debug": "^4.1.0",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}

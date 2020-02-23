@@ -1,0 +1,17 @@
+{
+  "name": "botkit-mybot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "concurrently \"npm start --prefix twitter-bot\" \"npm start --prefix web-bot\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "botbuilder-storage-mongodb": "^0.9.5",
+    "botkit": "^4.6.2",
+    "botkit-plugin-cms": "^1.0.3",
+    "concurrently": "^5.1.0",
+    "dotenv": "^7.0.0"
+  }
+}
