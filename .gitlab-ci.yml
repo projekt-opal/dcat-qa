@@ -2,9 +2,8 @@ stages:
   - build
   - build-docker
 
-
 build-nginx-docker:
-  stage: build-docker
+  stage: build
   before_script:
     - cd nginx-config
     - export VERSION=$(cat version.txt)
@@ -56,8 +55,9 @@ build-qasystem:
 
 build-qasystem-docker:
   stage: build-docker
-  dependencies:
-    - build-qasystem
+  needs:
+    - job: build-qasystem
+      artifacts: true
   before_script:
     - cd qa-system
     - export VERSION=$(cat version.txt)
@@ -72,7 +72,7 @@ build-qasystem-docker:
     - shared
 
 build-sninterface-botkit-twitter-docker:
-  stage: build-docker
+  stage: build
   before_script:
     - cd sninterface-botkit
     - export VERSION=$(cat version.txt)
@@ -87,7 +87,7 @@ build-sninterface-botkit-twitter-docker:
     - shared
 
 build-sninterface-botkit-web-docker:
-  stage: build-docker
+  stage: build
   before_script:
     - cd sninterface-botkit
     - export VERSION=$(cat version.txt)
