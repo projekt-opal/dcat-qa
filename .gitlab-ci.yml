@@ -78,7 +78,7 @@ build-sninterface-botkit-twitter-docker:
     - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter .
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter --file twitter.Dockerfile .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION
   after_script:
@@ -93,7 +93,7 @@ build-sninterface-botkit-web-docker:
     - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web .
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web --file web.Dockerfile .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION
   after_script:
