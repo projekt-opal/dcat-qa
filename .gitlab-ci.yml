@@ -58,6 +58,7 @@ build-qasystem-docker:
   stage: build-docker
   before_script:
     - cd qa-system
+    - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
     - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system .
