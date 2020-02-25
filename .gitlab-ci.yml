@@ -1,4 +1,5 @@
 stages:
+  - build
   - build-docker
 
 
@@ -20,20 +21,48 @@ build-nginx-docker:
     changes:
       - nginx-config/version.txt
 
-build-twitter-docker:
+# build-twitter-docker:
+#   stage: build-docker
+#   before_script:
+#     - cd sninterface-twitter
+#     - export VERSION=$(cat version.txt)
+#     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
+#   script:
+#     - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
+#     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter
+#     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION
+#   after_script:
+#     - docker logout $CI_REGISTRY
+#   tags:
+#     - shared
+#   only:
+#     changes:
+#       - sninterface-twitter/version.txt
+
+
+build-qasystem:
+  stage: build
+  image: maven:latest
+  before_script:
+    cd qa-system
+  script:
+    - mvn package
+  artifacts:
+    - target/qa-system-0.0.1-SNAPSHOT.jar
+  tags:
+    - shared
+
+
+build-qasystem-docker:
   stage: build-docker
   before_script:
-    - cd sninterface-twitter
-    - export VERSION=$(cat version.txt)
+    - cd qa-system
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter .
-    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter
-    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-twitter:$VERSION
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system .
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system
+    - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/qa-system:$VERSION
   after_script:
     - docker logout $CI_REGISTRY
   tags:
     - shared
-  only:
-    changes:
-      - sninterface-twitter/version.txt

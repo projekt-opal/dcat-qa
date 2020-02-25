@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class Question {
     private String question;
-
+    private int tries;
 
 }
