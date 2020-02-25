@@ -44,11 +44,12 @@ build-qasystem:
   stage: build
   image: maven:latest
   before_script:
-    cd qa-system
+    - cd qa-system
   script:
     - mvn package
   artifacts:
-    - target/qa-system-0.0.1-SNAPSHOT.jar
+    paths:
+      - target/qa-system-0.0.1-SNAPSHOT.jar
   tags:
     - shared
 
