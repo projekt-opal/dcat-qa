@@ -13,10 +13,26 @@ services:
     networks:
       - compose_overlay
   sninterface-twitter:
-    image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-twitter:latest
-    container_name: sninterface-twitter
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-twitter:latest
+    container_name: sninterface-botkit-twitter
     restart: unless-stopped
     env_file: .env
+    environment: 
+      - QA_URL=http://qa-system:8080/qa
+    networks:
+      - compose_overlay
+  sninterface-web:
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-web:latest
+    container_name: sninterface-botkit-web
+    restart: unless-stopped
+    environment: 
+      - QA_URL=http://qa-system:8080/qa
+    networks:
+      - compose_overlay
+  qa-system:
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/qa-system:latest
+    container_name: qa-system
+    restart: unless-stopped
     networks:
       - compose_overlay
   fuseki:

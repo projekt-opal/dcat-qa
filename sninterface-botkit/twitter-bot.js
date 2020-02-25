@@ -38,7 +38,7 @@ const adapter = new TwitterAdapter({
 
 
 const controller = new Botkit({
-    webhook_uri: '/api/twitter/messages',
+    webhook_uri: '/sninterface/twitter/webhook',
     adapter: adapter,
     debug: true
 
@@ -50,7 +50,7 @@ const controller = new Botkit({
 controller.ready(() => {
 
     // load traditional developer-created local custom feature modules
-    controller.loadModules(path.join(__dirname, '..', 'common_features_en'));
+    controller.loadModules(path.join(__dirname,'common_features_de'));
 
 
 });

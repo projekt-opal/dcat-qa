@@ -8,17 +8,27 @@ const qaURL = process.env.QA_URL;
  * Gets answer to query from qa system.
  * @param {string} query to send to qa system
  */
-async function askQuestion(query) {
+async function askQuestion(query, tries) {
   const requestConfig = {
     url: qaURL,
     json: {
-      question: query
+      question: query,
+      tries: tries
     }
   };
-  return request.post(requestConfig)
-    // post(requestConfig)
-    //   .then(res => resolve(stringfyResultsJSON(res.body)))
-    //   .catch(reject);
+  return new Promise((resolve, reject) => {
+    request.post(requestConfig)
+      .then(res => 
+        resolve(stringfyResultsJSON(res))
+      )
+      .catch(err => {
+        if (err.statusCode == 500) {
+          reject()
+        } else {
+          resolve('Sorry anscheinend ist das QA-System gerade nicht erreichbar.')
+        }
+      })
+  });
   
 
 }

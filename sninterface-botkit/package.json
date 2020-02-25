@@ -4,14 +4,17 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "concurrently \"npm start --prefix twitter-bot\" \"npm start --prefix web-bot\"",
+    "start": "concurrently \"node twitter-bot\" \"node web-bot\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "botbuilder-storage-mongodb": "^0.9.5",
+    "botbuilder-adapter-web": "^1.0.6",
+    "botbuilder-adapter-twitter": "file:../botbuilder-adapter-twitter",
     "botkit": "^4.6.2",
     "botkit-plugin-cms": "^1.0.3",
     "concurrently": "^5.1.0",
-    "dotenv": "^7.0.0"
+    "dotenv": "^7.0.0",
+    "request-promise-native": "^1.0.8"
   }
 }

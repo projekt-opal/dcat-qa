@@ -17,12 +17,11 @@ const { WebAdapter } = require('botbuilder-adapter-web');
 require('dotenv').config();
 
 
-const adapter = new WebAdapter({});
+const adapter = new WebAdapter();
 
 
 const controller = new Botkit({
     webhook_uri: '/api/messages',
-    port: process.env.WEB_PORT,
     adapter: adapter,
 
     // storage
@@ -32,13 +31,13 @@ const controller = new Botkit({
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
     // load traditional developer-created local custom feature modules
-    controller.loadModules(path.join(__dirname, '..', 'common_features_en'));
+    controller.loadModules(path.join(__dirname,'common_features_de'));
 
     // make public/index.html available as localhost/index.html
     // by making the /public folder a static/public asset
     controller.publicFolder('/', path.join(__dirname, 'public'));
 
-    console.log('Chat with me: http://localhost:' + (process.env.PORT || 3000));
+    console.log('Chat with me: http://localhost:' + (process.env.WEB_PORT || 3000));
 
 });
 
