@@ -2,8 +2,23 @@ stages:
   - build
   - build-docker
 
-build-nginx-docker:
+noNeeds:
   stage: build
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "This job is a workaround for 'https://gitlab.com/gitlab-org/gitlab/issues/30631'"
+  cache:
+    key: noNeeds
+    paths: []
+  dependencies: []
+  tags:
+    - shared
+  
+
+build-nginx-docker:
+  stage: build-docker
+  needs: ["noNeeds"]
   before_script:
     - cd nginx-config
     - export VERSION=$(cat version.txt)
@@ -51,6 +66,9 @@ build-qasystem:
       - qa-system/target/qa-system-0.0.1-SNAPSHOT.jar
   tags:
     - shared
+  only:
+    changes:
+      - qa-system/version.txt
 
 
 build-qasystem-docker:
@@ -70,33 +88,44 @@ build-qasystem-docker:
     - docker logout $CI_REGISTRY
   tags:
     - shared
+  only:
+    changes:
+      - qa-system/version.txt
 
 build-sninterface-botkit-twitter-docker:
-  stage: build
+  stage: build-docker
+  needs: ["noNeeds"]
   before_script:
-    - cd sninterface-botkit
+    - cd sninterface-botkit/twitter-bot
     - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter --file twitter.Dockerfile .
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter  .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-twitter:$VERSION
   after_script:
     - docker logout $CI_REGISTRY
   tags:
     - shared
+  only:
+    changes:
+      - sninterface-botkit/twitter-bot/version.txt
 
 build-sninterface-botkit-web-docker:
-  stage: build
+  stage: build-docker
+  needs: ["noNeeds"]
   before_script:
-    - cd sninterface-botkit
+    - cd sninterface-botkit/web-bot
     - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web --file web.Dockerfile .
+    - docker build -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION -t $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web  .
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web
     - docker push $CI_REGISTRY/martenls/bachelor-thesis-code/sninterface-botkit-web:$VERSION
   after_script:
     - docker logout $CI_REGISTRY
   tags:
     - shared
+  only:
+    changes:
+      - sninterface-botkit/web-bot/version.txt

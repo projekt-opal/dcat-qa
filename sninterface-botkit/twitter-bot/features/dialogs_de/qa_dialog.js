@@ -1,5 +1,7 @@
-const qa = require('../qa');
-const { BotkitConversation } = require("botkit");
+const { BotkitConversation } = require('botkit');
+
+const qa = require('../../qa');
+
 
 
 module.exports = function(controller) {
@@ -29,7 +31,13 @@ module.exports = function(controller) {
         } else {
             convo.vars.tries = 0;
         }
-        const answer = await qa.askQuestion('test', convo.vars.tries).catch(err => convo.gotoThread('fail_thread'));
+        const answer = await qa.askQuestion('test', convo.vars.tries).catch(err => {
+            if (err.message == 'noanswer') {
+                convo.gotoThread('fail_noanswer_thread');
+            } else {
+                convo.gotoThread('fail_noconnect_thread')
+            }
+        });        
         convo.setVar('qa_answer', answer);
     });
 
@@ -41,28 +49,24 @@ module.exports = function(controller) {
             text: 'War diese Antwort hilfreich?',
             quick_replies: [
                 {
-                    label: 'yes',
-                    description: 'yes',
-                    title: 'yes',
-                    payload: 'yes'
+                    label: 'ja',
+                    description: 'ja'
                 },
                 {
-                    label: 'no',
-                    description: 'no',
-                    title: 'no',
-                    payload: 'no'
+                    label: 'nein',
+                    description: 'nein'
                 }
             ]
         },
         [
             {
-                pattern: 'yes',
+                pattern: 'ja',
                 handler: async(res, convo, bot) => {
                     await convo.gotoThread('succ_thread');
                 }
             },
             {
-                pattern: 'no',
+                pattern: 'nein',
                 handler: async(res, convo, bot) => {
                     await convo.gotoThread('answer_thread');
                 }
@@ -72,10 +76,13 @@ module.exports = function(controller) {
     // success thread    
     qa_dialog.addMessage('OK, hast du noch weitere Fragen?', 'succ_thread'); 
 
-    // failure thread
-    qa_dialog.addMessage('Sorry leider konnte ich die Frage nicht beantworten.', 'fail_thread');
-    qa_dialog.addMessage('Hast du trotzdem noch andere Fragen?', 'fail_thread');
+    // noanswer failure thread
+    qa_dialog.addMessage('Sorry leider konnte ich die Frage nicht beantworten.', 'fail_noanswer_thread');
+    qa_dialog.addMessage('Hast du trotzdem noch andere Fragen?', 'fail_noanswer_thread');
 
+    // noconnect failure thread
+    qa_dialog.addMessage('Sorry anscheinend ist das QA-System gerade nicht erreichbar.','fail_noconnect_thread');
+    qa_dialog.addMessage('Versuch es später noch einmal.','fail_noconnect_thread');
 
     controller.addDialog(qa_dialog);
 

@@ -1,0 +1,22 @@
+{
+    "watch": [
+        "../common_features_de/",
+        "bot.js"
+    ],
+    "execMap": {
+        "js": "node bot.js"
+    }
+}
+
+{
+    "question": "",
+    "head": {
+        "vars": ["book", "title"]
+    },
+    "results": {
+        "bindings": [
+            
+        ]
+    }
+
+}

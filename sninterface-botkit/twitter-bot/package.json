@@ -8,6 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "botbuilder-adapter-twitter": "file:../../botbuilder-adapter-twitter"
+    "botbuilder-adapter-twitter": "file:botbuilder-adapter-twitter",
+    "botkit": "^4.6.2",
+    "dotenv": "^7.0.0",
+    "request-promise-native": "^1.0.8"
   }
 }

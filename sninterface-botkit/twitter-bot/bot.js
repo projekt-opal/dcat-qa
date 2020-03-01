@@ -6,7 +6,6 @@
 
 // Import Botkit's core features
 const { Botkit } = require('botkit');
-const { BotkitCMSHelper } = require('botkit-plugin-cms');
 
 // Import a platform-specific adapter for facebook.
 
@@ -15,13 +14,6 @@ const { TwitterAdapter } = require('botbuilder-adapter-twitter');
 const path = require('path');
 // Load process.env values from .env file
 require('dotenv').config();
-
-// let storage = null;
-// if (process.env.MONGO_URI) {
-//     storage = mongoStorage = new MongoDbStorage({
-//         url : process.env.MONGO_URI,
-//     });
-// }
 
 
 const adapter = new TwitterAdapter({
@@ -50,7 +42,7 @@ const controller = new Botkit({
 controller.ready(() => {
 
     // load traditional developer-created local custom feature modules
-    controller.loadModules(path.join(__dirname,'common_features_de'));
+    controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'));
 
 
 });

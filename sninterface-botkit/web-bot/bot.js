@@ -31,13 +31,14 @@ const controller = new Botkit({
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
     // load traditional developer-created local custom feature modules
-    controller.loadModules(path.join(__dirname,'common_features_de'));
 
     // make public/index.html available as localhost/index.html
     // by making the /public folder a static/public asset
     controller.publicFolder('/', path.join(__dirname, 'public'));
 
-    console.log('Chat with me: http://localhost:' + (process.env.WEB_PORT || 3000));
+    controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'))
+
+    console.log('Chat with me: http://localhost:' + (process.env.PORT || 3000));
 
 });
 
