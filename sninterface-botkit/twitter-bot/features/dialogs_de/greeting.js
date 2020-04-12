@@ -16,11 +16,11 @@ module.exports = function(controller) {
         /^hallo$/i,
         /^moin$/i
     ],['message', 'tweet'], async (bot, message) => {
-        
         await bot.reply(message, 
             {
-                 text: greetings[Math.floor(Math.random() * greetings.length)],
-                 quick_replies: [
+                type: message.type,
+                text: greetings[Math.floor(Math.random() * greetings.length)],
+                quick_replies: [
                     {
                         label: 'opal?',
                         description: 'opal?',
@@ -34,6 +34,7 @@ module.exports = function(controller) {
                         payload: 'open data?'
                     }
                 ]
-            })
+            }
+        )
     });
 }

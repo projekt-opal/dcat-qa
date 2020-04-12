@@ -30,7 +30,7 @@ const adapter = new TwitterAdapter({
 
 
 const controller = new Botkit({
-    webhook_uri: '/sninterface/twitter/webhook',
+    webhook_uri: process.env.WEBHOOK_URI || '/',
     adapter: adapter,
     debug: true
 
@@ -40,9 +40,11 @@ const controller = new Botkit({
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
-
-    // load traditional developer-created local custom feature modules
-    controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'));
+    if (process.env.BOT_LANG && process.env.BOT_LANG === 'en') {
+        controller.loadModules(path.join(__dirname, 'features', 'dialogs_en'))
+    } else {
+        controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'))
+    }
 
 
 });

@@ -7,7 +7,7 @@ module.exports = function(controller) {
         /^was (meinst du|meinen sie) mit opal\??$/i,
         /^was ist mit opal gemeint\??$/i,
     ], ['message', 'tweet'], async (bot, message) => {
-        await bot.reply(message, 'OPAL steht für "Open Data Portal Germany" und ist ganzheitliches Portal für offene Daten. (http://projekt-opal.de/)');
+        await bot.reply(message, 'OPAL steht für "Open Data Portal Germany" und ist ein ganzheitliches Portal für offene Daten. (http://projekt-opal.de/)');
     });
     controller.hears([
         /^open data\??$/i,

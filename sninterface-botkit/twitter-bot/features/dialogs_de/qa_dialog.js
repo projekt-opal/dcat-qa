@@ -26,12 +26,7 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        if (typeof convo.vars.tries !== 'undefined') {
-            convo.vars.tries++;
-        } else {
-            convo.vars.tries = 0;
-        }
-        const answer = await qa.askQuestion('test', convo.vars.tries).catch(err => {
+        const answer = await qa.askQuestion('test').catch(err => {
             if (err.message == 'noanswer') {
                 convo.gotoThread('fail_noanswer_thread');
             } else {
@@ -42,36 +37,9 @@ module.exports = function(controller) {
     });
 
     
-    qa_dialog.addMessage('{{vars.qa_answer}}', 'answer_thread');
+    qa_dialog.addMessage('{{{vars.qa_answer}}}', 'answer_thread');
+    qa_dialog.addAction('succ_thread', 'answer_thread');
 
-    qa_dialog.addQuestion(
-        { 
-            text: 'War diese Antwort hilfreich?',
-            quick_replies: [
-                {
-                    label: 'ja',
-                    description: 'ja'
-                },
-                {
-                    label: 'nein',
-                    description: 'nein'
-                }
-            ]
-        },
-        [
-            {
-                pattern: 'ja',
-                handler: async(res, convo, bot) => {
-                    await convo.gotoThread('succ_thread');
-                }
-            },
-            {
-                pattern: 'nein',
-                handler: async(res, convo, bot) => {
-                    await convo.gotoThread('answer_thread');
-                }
-            }
-        ] , 'user_feedback', 'answer_thread');
 
     // success thread    
     qa_dialog.addMessage('OK, hast du noch weitere Fragen?', 'succ_thread'); 
@@ -86,7 +54,7 @@ module.exports = function(controller) {
 
     controller.addDialog(qa_dialog);
 
-    controller.on(['message', 'tweet'], async(bot, message) => {
+    controller.on(['message'], async(bot, message) => {
         await bot.beginDialog('qa', message);
 
     });

@@ -7,6 +7,10 @@ const post = util.promisify(request.post);
 
 const qaURL = process.env.QA_URL;
 
+/**
+ * Gets answer to query from qa system.
+ * @param {string} query to send to qa system
+ */
 async function askQuestion(query) {
   return new Promise((resolve, reject) => {
     const requestConfig = {

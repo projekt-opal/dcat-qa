@@ -203,7 +203,7 @@ export class TwitterAdapter extends BotAdapter {
      * @param activity The activity to be converted to tweet objects.
      */
     private activityToTweets(activity: any): any {
-        let texts = activity.text.match(/.{1,280}/g);
+        let texts = activity.text.match(/(.|\n|\r){1,280}/g);
         return texts.map((text) => {return {
             status: text,
             auto_populate_reply_metadata: true,

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "botbuilder-adapter-twitter": "file:botbuilder-adapter-twitter",
-    "botkit": "^4.6.2",
+    "botkit": "^4.8.1",
     "dotenv": "^7.0.0",
     "request-promise-native": "^1.0.8"
   }

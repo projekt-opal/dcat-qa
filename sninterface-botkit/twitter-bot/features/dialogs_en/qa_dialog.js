@@ -10,12 +10,11 @@ module.exports = function(controller) {
     let qa_dialog = new BotkitConversation('qa', controller);
 
     const stalling_phrases = [
-        'Ich schaue mal nach...',
-        'Gib mir einen Moment...',
-        'Ich gucke mal eben...',
-        'Warte eine Sekunde...',
-        'Gute Frage! Lass mich das nachschlagen...',
-        'Lass mich das nachschlagen...'
+        'I\'ll look that up',
+        'Give me a moment...',
+        'Wait a second...',
+        'Good question! I\'ll look that up.',
+        'Let me look that up...'
     ];
 
     qa_dialog.say(stalling_phrases[Math.floor(Math.random() * stalling_phrases.length)]);
@@ -32,8 +31,8 @@ module.exports = function(controller) {
             } else {
                 convo.gotoThread('fail_noconnect_thread')
             }
-        });
-        convo.setVar('qa_answer', answer);
+        });        
+        convo.setVar('qa_answer', answer)
     });
 
     
@@ -41,20 +40,21 @@ module.exports = function(controller) {
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
 
+
     // success thread    
-    qa_dialog.addMessage('OK, hast du noch weitere Fragen?', 'succ_thread'); 
+    qa_dialog.addMessage('OK, do you have more questions?', 'succ_thread'); 
 
     // noanswer failure thread
-    qa_dialog.addMessage('Sorry leider konnte ich die Frage nicht beantworten.', 'fail_noanswer_thread');
-    qa_dialog.addMessage('Hast du trotzdem noch andere Fragen?', 'fail_noanswer_thread');
+    qa_dialog.addMessage('Sorry unfortunately I could not answer your question.', 'fail_noanswer_thread');
+    qa_dialog.addMessage('Do you have other questions anyway?', 'fail_noanswer_thread');
 
     // noconnect failure thread
-    qa_dialog.addMessage('Sorry anscheinend ist das QA-System gerade nicht erreichbar.','fail_noconnect_thread');
-    qa_dialog.addMessage('Versuch es später noch einmal.','fail_noconnect_thread');
+    qa_dialog.addMessage('Sorry unfortunately the QA system is currently unavailable.','fail_noconnect_thread');
+    qa_dialog.addMessage('Maybe try again later.','fail_noconnect_thread');
 
     controller.addDialog(qa_dialog);
 
-    controller.on(['message', 'tweet'], async(bot, message) => {
+    controller.on(['message'], async(bot, message) => {
         await bot.beginDialog('qa', message);
 
     });

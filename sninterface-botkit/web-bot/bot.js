@@ -36,7 +36,12 @@ controller.ready(() => {
     // by making the /public folder a static/public asset
     controller.publicFolder('/', path.join(__dirname, 'public'));
 
-    controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'))
+    if (process.env.LANGUAGE == 'en') {
+        controller.loadModules(path.join(__dirname, 'features', 'dialogs_en'))
+    } else {
+        controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'))
+    }
+    
 
     console.log('Chat with me: http://localhost:' + (process.env.PORT || 3000));
 

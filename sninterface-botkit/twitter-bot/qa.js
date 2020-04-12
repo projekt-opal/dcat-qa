@@ -8,12 +8,11 @@ const qaURL = process.env.QA_URL;
  * Gets answer to query from qa system.
  * @param {string} query to send to qa system
  */
-async function askQuestion(query, tries) {
+async function askQuestion(query) {
   const requestConfig = {
     url: qaURL,
     json: {
-      question: query,
-      tries: tries
+      question: query
     }
   };
   return new Promise((resolve, reject) => {
@@ -29,8 +28,6 @@ async function askQuestion(query, tries) {
         }
       })
   });
-  
-
 }
 
 /**
