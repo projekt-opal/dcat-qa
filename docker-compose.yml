@@ -44,6 +44,14 @@ services:
       - ADMIN_PASSWORD=pw123
     networks:
       - compose_overlay
+  elastic:
+    image: elasticsearch:7.7.0
+    container_name: elastic
+    restart: unless-stopped
+    environment: 
+      - "discovery.type=single-node"
+    networks: 
+      - compose_overlay
 
 networks:
   compose_overlay:
