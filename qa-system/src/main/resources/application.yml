@@ -1,0 +1,26 @@
+
+
+es:
+  host: 131.234.28.184
+  port: 9200
+  property_index: propdcat3
+  class_index: classdcat3
+  launuts_index: launuts
+
+ontology:
+  file: src\main\resources\dcat2+german-labels.rdf
+
+launuts:
+  file: src\main\resources\launuts.ttl
+
+templates:
+  file: src\main\resources\templates.txt
+
+sparql:
+  endpoint: https://openbot.cs.upb.de/fuseki/opal/query
+
+logging:
+  level:
+    com:
+      martenls:
+        DEBUG
