@@ -16,6 +16,18 @@ public class Question {
     private Set<String> ontologyProperties;
     private Set<String> ontologyClasses;
     private Set<String> locations;
+    private Set<Question.properties> additionProperties;
+    private List<TemplateRated> templateCandidates;
+    private List<Query> queryCandidates;
+    private String answer;
+
+    public enum properties {
+        COUNT,
+        ASC_ORDERED,
+        DESC_ORDERED,
+        FILTER,
+
+    }
 
     public Question(String question) {
         this.question = question;
@@ -26,6 +38,13 @@ public class Question {
         this.ontologyProperties = new HashSet<>();
         this.ontologyClasses = new HashSet<>();
         this.locations = new HashSet<>();
+        this.additionProperties = new HashSet<>();
+        this.templateCandidates = new ArrayList<>();
+        this.queryCandidates = new ArrayList<>();
+    }
+
+    public boolean hasProperty(Question.properties property) {
+        return this.additionProperties.contains(property);
     }
 
 

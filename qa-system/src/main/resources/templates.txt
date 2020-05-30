@@ -30,3 +30,8 @@ WHERE {
 GROUP BY ?var0
 ORDER BY DESC(?var2)
 LIMIT 1
+---
+SELECT (COUNT(DISTINCT ?var0) AS ?count)
+WHERE {
+    ?var0 <prop0> <entity0>
+}

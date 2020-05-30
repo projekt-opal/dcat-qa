@@ -16,7 +16,7 @@ public class QAController {
 
     @GetMapping("/qa")
     public String answerQuestion(@RequestParam String q) {
-        String answer = this.qaService.answerQuestion(new Question(q)).toString();
+        String answer = this.qaService.answerQuestion(new Question(q)).getAnswer();
         if (answer == null || answer.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         } else {

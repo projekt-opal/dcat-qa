@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 @Data
 public class Template {
 
-    @NonNull private String templateStr;
+    @NonNull protected String templateStr;
     private int propertyCount;
     private int entityCount;
     private int stringArrayCount;
@@ -20,9 +20,9 @@ public class Template {
     private boolean limitModifier;
     private boolean distinctModifier;
 
-    private final static Pattern PROPERTY_PATTERN = Pattern.compile("<prop\\d>");
-    private final static Pattern ENTITY_PATTERN = Pattern.compile("<entity\\d>");
-    private final static Pattern STRING_PATTERN = Pattern.compile("<stringArray\\d>");
+    private static final Pattern PROPERTY_PATTERN = Pattern.compile("<prop\\d>");
+    private static final Pattern ENTITY_PATTERN = Pattern.compile("<entity\\d>");
+    private static final Pattern STRING_PATTERN = Pattern.compile("<stringArray\\d>");
 
 
     public Template(String templateStr) {
@@ -48,4 +48,32 @@ public class Template {
 
     }
 
+
+    public boolean hasCountAggregate() {
+        return countAggregate;
+    }
+
+    public boolean hasGroupByAggregate() {
+        return groupByAggregate;
+    }
+
+    public boolean hasHavingAggregate() {
+        return havingAggregate;
+    }
+
+    public boolean hasOrderDescModifier() {
+        return orderDescModifier;
+    }
+
+    public boolean hasOrderAscModifier() {
+        return orderAscModifier;
+    }
+
+    public boolean hasLimitModifier() {
+        return limitModifier;
+    }
+
+    public boolean hasDistinctModifier() {
+        return distinctModifier;
+    }
 }

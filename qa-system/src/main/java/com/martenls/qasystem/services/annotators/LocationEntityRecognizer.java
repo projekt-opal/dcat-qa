@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Log4j2
 @Service
-public class LocationRecognizer implements QuestionAnnotator{
+public class LocationEntityRecognizer implements QuestionAnnotator{
 
     @Autowired
     private ElasticSearchService searchService;

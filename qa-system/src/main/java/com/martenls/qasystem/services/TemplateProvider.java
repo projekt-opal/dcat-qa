@@ -24,7 +24,7 @@ public class TemplateProvider {
 
 
     @PostConstruct
-    public void loadTemplates() {
+    private void loadTemplates() {
         String templateFile = "";
         try {
              templateFile = new String(Files.readAllBytes(Paths.get(templateFilePath)));
@@ -37,7 +37,7 @@ public class TemplateProvider {
         log.debug("Successfully loaded " + templates.size() + " templates");
     }
 
-
-
-
+    public List<Template> getTemplates() {
+        return templates;
+    }
 }

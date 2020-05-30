@@ -3,20 +3,19 @@ package com.martenls.qasystem.services.annotators;
 import com.martenls.qasystem.models.Question;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static java.lang.String.join;
 
 @Service
-public class SemanticAnalysis implements QuestionAnnotator{
+public class SemanticAnalyzer implements QuestionAnnotator{
 
 
     @Override
     public Question annotate(Question question) {
         question.setWords(getWordsFromString(question.getQuestion()));
         question.setWShingles(getShingles(question.getWords()));
+        question.getAdditionProperties().addAll(getAdditionalProperties(question));
         return question;
     }
 
@@ -34,6 +33,22 @@ public class SemanticAnalysis implements QuestionAnnotator{
             }
         }
         return shingles;
+    }
+
+    private Set<Question.properties> getAdditionalProperties(Question question) {
+        Set<Question.properties> propertiesSet = new HashSet<>();
+        for (String countIndicator : SemanticPropertyIndicatorsEn.COUNT_INDICATORS) {
+            if (question.getQuestion().toLowerCase().startsWith(countIndicator)) {
+                propertiesSet.add(Question.properties.COUNT);
+            }
+        }
+        if (question.getWords().stream().anyMatch(SemanticPropertyIndicatorsEn.ASC_INDICATORS::contains)) {
+            propertiesSet.add(Question.properties.ASC_ORDERED);
+        }
+        if (question.getWords().stream().anyMatch(SemanticPropertyIndicatorsEn.DESC_INDICATORS::contains)) {
+            propertiesSet.add(Question.properties.DESC_ORDERED);
+        }
+        return propertiesSet;
     }
 
 
