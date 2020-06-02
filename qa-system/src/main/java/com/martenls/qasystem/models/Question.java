@@ -1,5 +1,7 @@
 package com.martenls.qasystem.models;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -30,7 +32,9 @@ public class Question {
         FILTER,
     }
 
-    public Question(String questionStr) {
+
+    @JsonCreator
+    public Question(@JsonProperty("question") String questionStr) {
         this.questionStr = questionStr;
         this.words = new ArrayList<>();
         this.posTags = new HashMap<>();
