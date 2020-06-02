@@ -8,13 +8,13 @@ es:
   launuts_index: launuts
 
 ontology:
-  file: src\main\resources\dcat2+german-labels.rdf
+  file: src/main/data/dcat2+german-labels.rdf
 
 launuts:
-  file: src\main\resources\launuts.ttl
+  file: src/main/data/launuts.ttl
 
 templates:
-  file: src\main\resources\templates.txt
+  file: src/main/data/templates.txt
 
 sparql:
   endpoint: https://openbot.cs.upb.de/fuseki/opal/query
