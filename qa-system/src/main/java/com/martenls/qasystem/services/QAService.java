@@ -3,12 +3,12 @@ package com.martenls.qasystem.services;
 import com.martenls.qasystem.models.Query;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.annotators.*;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import java.util.List;
-
+@Log4j2
 @Service
 public class QAService {
 
@@ -39,19 +39,22 @@ public class QAService {
 
 
     public Question answerQuestion(Question question) {
+        try {
+            languageRecognizer.annotate(question);
+            semanticAnalyzer.annotate(question);
+            locationEntityRecognizer.annotate(question);
+            ontologyRecognizer.annotate(question);
+            templateSelector.annotate(question);
+            queryBuilder.annotate(question);
 
-        languageRecognizer.annotate(question);
-        semanticAnalyzer.annotate(question);
-        locationEntityRecognizer.annotate(question);
-        ontologyRecognizer.annotate(question);
-        templateSelector.annotate(question);
-        queryBuilder.annotate(question);
+            for (Query queryCandidate : question.getQueryCandidates()) {
+                queryCandidate.setResultSet(sparqlService.executeQueryRS(queryCandidate.getQueryStr()));
+            }
 
-        for (Query queryCandidate : question.getQueryCandidates()) {
-            queryCandidate.setResultSet(sparqlService.executeQueryRS(queryCandidate.getQueryStr()));
+            resultSelector.annotate(question);
+        } catch(Exception e) {
+            log.error(question.toString(), e);
         }
-
-        resultSelector.annotate(question);
 
 
 

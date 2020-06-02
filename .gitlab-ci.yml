@@ -2,23 +2,12 @@ stages:
   - build
   - build-docker
 
-noNeeds:
-  stage: build
-  variables:
-    GIT_STRATEGY: none
-  script:
-    - echo "This job is a workaround for 'https://gitlab.com/gitlab-org/gitlab/issues/30631'"
-  cache:
-    key: noNeeds
-    paths: []
-  dependencies: []
-  tags:
-    - shared
+
   
 
 build-nginx-docker:
   stage: build-docker
-  needs: ["noNeeds"]
+  needs: []
   before_script:
     - cd nginx-config
     - export VERSION=$(cat version.txt)
@@ -94,7 +83,7 @@ build-qasystem-docker:
 
 build-sninterface-botkit-twitter-docker:
   stage: build-docker
-  needs: ["noNeeds"]
+  needs: []
   before_script:
     - cd sninterface-botkit/twitter-bot
     - export VERSION=$(cat version.txt)
@@ -113,7 +102,7 @@ build-sninterface-botkit-twitter-docker:
 
 build-sninterface-botkit-web-docker:
   stage: build-docker
-  needs: ["noNeeds"]
+  needs: []
   before_script:
     - cd sninterface-botkit/web-bot
     - export VERSION=$(cat version.txt)

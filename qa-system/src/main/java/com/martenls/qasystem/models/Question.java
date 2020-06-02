@@ -57,14 +57,19 @@ public class Question {
     @Override
     public String toString() {
         return "Question{" +
-                "question='" + questionStr + '\'' +
+                "questionStr='" + questionStr + '\'' +
                 ",\n language='" + language + '\'' +
                 ",\n words=" + words +
                 ",\n posTags=" + posTags +
                 ",\n wShingles=" + wShingles +
                 ",\n ontologyProperties=" + ontologyProperties +
                 ",\n ontologyClasses=" + ontologyClasses +
-                ",\n locations=" + locationEntities +
+                ",\n locationEntities=" + locationEntities +
+                ",\n additionalProperties=" + additionalProperties +
+                ",\n stringLiterals=" + stringLiterals +
+                ",\n templateCandidates=" + templateCandidates +
+                ",\n queryCandidates=" + queryCandidates +
+                ",\n answer='" + answer + '\'' +
                 '}';
     }
 }

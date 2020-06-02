@@ -33,14 +33,17 @@ public class QueryBuilder implements QuestionAnnotator{
         List<String> queryStrings = new ArrayList<>();
 
         // create queryStrings with all possible permutations of filling in properties
-        List<List<String>> propertyCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(new ArrayList<>(question.getOntologyProperties()), template.getPropertyCount());
-        for (List<String> propertyCombination : propertyCombinations) {
-            String queryStr = template.getTemplateStr();
-            for (int i = 0; i < template.getPropertyCount(); i++) {
-                queryStr = queryStr.replaceAll("<prop" + i + ">", "<" + propertyCombination.get(i) + ">");
+        if (!question.getOntologyProperties().isEmpty() && template.getPropertyCount() > 0) {
+            List<List<String>> propertyCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(new ArrayList<>(question.getOntologyProperties()), template.getPropertyCount());
+            for (List<String> propertyCombination : propertyCombinations) {
+                String queryStr = template.getTemplateStr();
+                for (int i = 0; i < template.getPropertyCount(); i++) {
+                    queryStr = queryStr.replaceAll("<prop" + i + ">", "<" + propertyCombination.get(i) + ">");
+                }
+                queryStrings.add(queryStr);
             }
-            queryStrings.add(queryStr);
         }
+
 
         // create queryStrings with all possible permutations of filling in entities
         if (!question.getLocationEntities().isEmpty() && template.getEntityCount() > 0) {
@@ -52,7 +55,6 @@ public class QueryBuilder implements QuestionAnnotator{
                     for (int i = 0; i < template.getEntityCount(); i++) {
                         queryStringsWithEntities.add(queryString.replaceAll("<entity" + i + ">", "<" + entityCombination.get(i) + ">"));
                     }
-
                 }
             }
             queryStrings = queryStringsWithEntities;
@@ -68,7 +70,6 @@ public class QueryBuilder implements QuestionAnnotator{
                     for (int i = 0; i < template.getStringArrayCount(); i++) {
                         queryStringsWithStringEntities.add(queryString.replaceAll("<stringArray" + i + ">", "\"" + stringCombination.get(i) + "\""));
                     }
-
                 }
             }
             queryStrings = queryStringsWithStringEntities;
@@ -76,9 +77,10 @@ public class QueryBuilder implements QuestionAnnotator{
 
         // create queries from queryStrings
         for (String queryString : queryStrings) {
-            queries.add(new Query(template, queryString));
+            if (!queryString.contains("<prop") && !queryString.contains("<entity") && !queryString.contains("<stringArray")) {
+                queries.add(new Query(template, queryString));
+            }
         }
-
 
         return queries;
     }
