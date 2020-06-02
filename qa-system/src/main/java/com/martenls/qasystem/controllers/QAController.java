@@ -24,5 +24,15 @@ public class QAController {
         }
     }
 
+    @PostMapping("/qa")
+    public String answerQuestion(@RequestBody Question q) {
+        String answer = this.qaService.answerQuestion(q).getAnswer();
+        if (answer == null || answer.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        } else {
+            return answer;
+        }
+    }
+
 
 }
