@@ -17,7 +17,7 @@ WHERE {
     ?var0 <prop0> <entity0> 
 }
 ---
-SELECT DISCTINCT ( str(?var0) as ?var1)
+SELECT DISTINCT ( str(?var0) as ?var1)
 WHERE {
     ?var2 <prop0> ?var0
 }

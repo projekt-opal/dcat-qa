@@ -5,7 +5,6 @@ import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.models.Template;
 import com.martenls.qasystem.models.TemplateRated;
 import com.martenls.qasystem.services.TemplateProvider;
-import com.martenls.qasystem.services.annotators.QuestionAnnotator;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,24 +42,33 @@ public class TemplateSelector implements QuestionAnnotator {
             rating += 10;
         }
 
-        if (template.getEntityCount() == question.getLocations().size()) {
+        if (template.getEntityCount() == question.getLocationEntities().size()) {
             rating += 10;
         }
 
+        // count indicator -> template with count
         if (template.hasCountAggregate() == question.hasProperty(Question.properties.COUNT)) {
             rating += 10;
         }
 
+        // asc indicator -> template with order by and asc
         if (template.hasOrderAscModifier() == question.hasProperty(Question.properties.ASC_ORDERED)) {
             rating += 10;
         }
 
+        // desc indicator -> template with order by and desc
         if (template.hasOrderDescModifier() == question.hasProperty(Question.properties.DESC_ORDERED)) {
             rating += 10;
         }
 
+        // count indicator -> template with group by
         if (template.hasGroupByAggregate() == question.hasProperty(Question.properties.COUNT)) {
             rating += 5;
+        }
+
+        // string literals -> template with filter
+        if (template.hasStringMatchingFilter() == !question.getStringLiterals().isEmpty()) {
+            rating += 10;
         }
 
         // TODO: add more rules

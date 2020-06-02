@@ -73,7 +73,7 @@ public class OntologyRecognizer implements QuestionAnnotator{
             }
         }
 
-        if (!question.getLocations().isEmpty()) {
+        if (!question.getLocationEntities().isEmpty()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/spatial");
         }
 

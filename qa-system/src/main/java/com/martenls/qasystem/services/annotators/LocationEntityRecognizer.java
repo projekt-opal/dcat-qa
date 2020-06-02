@@ -50,7 +50,7 @@ public class LocationEntityRecognizer implements QuestionAnnotator{
     public Question annotate(Question question) {
         if (question.getWShingles() != null) {
             for (String shingle : question.getWShingles()) {
-                question.getLocations().addAll(recognizeLocations(shingle));
+                question.getLocationEntities().addAll(recognizeLocations(shingle));
             }
         }
         return question;
