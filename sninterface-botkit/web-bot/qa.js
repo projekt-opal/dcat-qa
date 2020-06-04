@@ -1,4 +1,4 @@
-const request = require('request-promise-native');
+const axios = require('axios');
 require('dotenv').config();
 
 
@@ -8,18 +8,17 @@ const qaURL = process.env.QA_URL;
  * Gets answer to query from qa system.
  * @param {string} query to send to qa system
  */
-async function askQuestion(query, tries) {
+async function askQuestion(query) {
   const requestConfig = {
-    url: qaURL,
-    json: {
-      question: query,
-      tries: tries
-    }
+    timeout: 10000
+  };
+  const data = {
+    question: query
   };
   return new Promise((resolve, reject) => {
-    request.post(requestConfig)
+    axios.post(qaURL, data, requestConfig)
       .then(res => 
-        resolve(stringfyResultsJSON(res))
+        resolve(stringfyResultsJSON(res.data, query))
       )
       .catch(err => {
         if (err.statusCode == 500) {
@@ -36,15 +35,17 @@ async function askQuestion(query, tries) {
 /**
  * Formats SPARQL 1.1 Query Results JSON as string.
  */
-function stringfyResultsJSON(results) {
+function stringfyResultsJSON(results, question) {
   answersString = '';
   for (let binding of results.results.bindings) {
     for (let varName of results.head.vars) {
-      answersString += `${varName}: ${binding[varName].value}\n`
+      if (binding[varName] !== undefined) {
+        answersString += `${varName}: ${binding[varName].value}\n`
+      }
     }
 
   }
-  return `Question: ${results.question}\nAnswers:\n${answersString}`
+  return `Question: ${question}\nAnswers:\n${answersString}`
 }
 
 

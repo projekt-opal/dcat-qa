@@ -26,7 +26,7 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        const answer = await qa.askQuestion('test').catch(err => {
+        const answer = await qa.askQuestion(convo.vars.text).catch(err => {
             if (err.message == 'noanswer') {
                 convo.gotoThread('fail_noanswer_thread');
             } else {

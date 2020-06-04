@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "botbuilder-adapter-web": "^1.0.6",
-    "dotenv": "^8.2.0",
-    "request-promise-native": "^1.0.8"
+    "axios": "^0.19.2",
+    "botbuilder-adapter-web": "^1.0.8",
+    "dotenv": "^8.2.0"
   }
 }
