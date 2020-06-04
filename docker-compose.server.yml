@@ -1,4 +1,4 @@
-# docker-compose file intented for deployment of nginx and sninterface on openbot vm
+# docker-compose file intended for deployment of nginx and sninterface on openbot vm
 version: "3.5"
 services:
   nginx:
@@ -33,6 +33,11 @@ services:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/qa-system:latest
     container_name: qa-system
     restart: unless-stopped
+    environment:
+      - TEMPLATES_FILE=/qa/data/templates.txt
+      - ONTOLOGY_FILE=/qa/data/dcat2+german-labels.rdf
+      - LAUNUTS_FILE=/qa/data/launuts.ttl
+      - SPARQL_ENDPOINT=http://fuseki/opal/query
     networks:
       - compose_overlay
   fuseki:

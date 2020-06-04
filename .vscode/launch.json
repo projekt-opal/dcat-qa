@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug web-bot",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "envFile": "${workspaceFolder}\\sninterface-botkit\\web-bot\\.env",
+            "program": "${workspaceFolder}\\sninterface-botkit\\web-bot\\bot.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug twitter-bot",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "envFile": "${workspaceFolder}\\sninterface-botkit\\twitter-bot\\.env",
+            "program": "${workspaceFolder}\\sninterface-botkit\\twitter-bot\\bot.js"
+        }
+    ]
+}
