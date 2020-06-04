@@ -15,23 +15,33 @@ public class QAController {
     private QAService qaService;
 
     @GetMapping("/qa")
-    public String answerQuestion(@RequestParam String q) {
-        String answer = this.qaService.answerQuestion(new Question(q)).getAnswer();
-        if (answer == null || answer.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+    public String answerQuestion(@RequestParam String question) {
+        if (question != null) {
+            String answer = this.qaService.answerQuestion(new Question(question)).getAnswer();
+            if (answer == null || answer.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+            } else {
+                return answer;
+            }
         } else {
-            return answer;
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
+
     }
 
     @PostMapping("/qa")
-    public String answerQuestion(@RequestBody Question q) {
-        String answer = this.qaService.answerQuestion(q).getAnswer();
-        if (answer == null || answer.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+    public String answerQuestion(@RequestBody Question question) {
+        if (question != null && question.getQuestionStr() != null) {
+            String answer = this.qaService.answerQuestion(question).getAnswer();
+            if (answer == null || answer.isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+            } else {
+                return answer;
+            }
         } else {
-            return answer;
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
+
     }
 
 

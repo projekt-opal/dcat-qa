@@ -33,7 +33,7 @@ public class Combinatorics {
 
     public static List<int[]> getCombinationsKOutOfN(int n, int k) {
         List<int[]> combinations =  new ArrayList<>();
-        Iterator<int[]> iterator = CombinatoricsUtils.combinationsIterator(n, k);
+        Iterator<int[]> iterator = org.apache.commons.math3.util.CombinatoricsUtils.combinationsIterator(n, k);
         while (iterator.hasNext()) {
             combinations.add(iterator.next());
         }

@@ -15,20 +15,13 @@ public class SPARQLService {
     private String endpoint;
 
 
-    public String executeQueryStr(String queryStr) {
-        ResultSet rs = this.executeQueryRS(queryStr);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ResultSetFormatter.outputAsJSON(baos, rs);
-        return baos.toString();
-    }
-
     public static String resultSetToString(ResultSet rs) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ResultSetFormatter.outputAsJSON(baos, rs);
         return baos.toString();
     }
 
-    public ResultSet executeQueryRS(String queryStr) {
+    public ResultSet executeQuery(String queryStr) {
         if (!queryStr.toLowerCase().contains("limit")) {
             queryStr += " LIMIT 10";
         }

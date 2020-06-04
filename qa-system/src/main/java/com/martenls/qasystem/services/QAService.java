@@ -48,7 +48,7 @@ public class QAService {
             queryBuilder.annotate(question);
 
             for (Query queryCandidate : question.getQueryCandidates()) {
-                queryCandidate.setResultSet(sparqlService.executeQueryRS(queryCandidate.getQueryStr()));
+                queryCandidate.setResultSet(sparqlService.executeQuery(queryCandidate.getQueryStr()));
             }
 
             resultSelector.annotate(question);

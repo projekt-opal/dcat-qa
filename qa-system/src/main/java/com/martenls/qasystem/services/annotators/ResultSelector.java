@@ -3,7 +3,7 @@ package com.martenls.qasystem.services.annotators;
 import com.martenls.qasystem.models.Query;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.SPARQLService;
-import com.martenls.qasystem.utlis.SPARQL;
+import com.martenls.qasystem.utlis.SPARQLUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class ResultSelector implements QuestionAnnotator {
 
         resultCanditates = resultCanditates.stream().filter(x -> {
             if (x.getTemplate().hasCountAggregate())
-                return SPARQL.getCountFromRS(x.getResultSet()) > 0;
+                return SPARQLUtils.getCountFromRS(x.getResultSet()) > 0;
             else
                 return true;
         }).collect(Collectors.toList());
