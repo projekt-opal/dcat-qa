@@ -61,5 +61,5 @@ Improvements:
 
 - add indexing and recognition of formats
 - add indexing and recognition of themes
-
+- add tests
 
