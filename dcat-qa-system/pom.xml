@@ -13,7 +13,7 @@
 
 
     <groupId>com.martenls</groupId>
-    <artifactId>qa-system</artifactId>
+    <artifactId>dcat-qa-system</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>qa-system</name>
 
