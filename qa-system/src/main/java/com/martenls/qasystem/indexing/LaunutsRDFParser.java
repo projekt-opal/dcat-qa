@@ -46,12 +46,15 @@ public class LaunutsRDFParser {
             if (object.equals("http://projekt-opal.de/launuts/LAU")) {
                 parsedLocations.put(subject, new Location(subject));
             }
-            if (predicate.equals("http://www.w3.org/2004/02/skos/core#prefLabel") && parsedLocations.containsKey(subject)) {
-                parsedLocations.get(subject).setPref_label(object);
+            if (parsedLocations.containsKey(subject)) {
+                if (predicate.equals("http://www.w3.org/2004/02/skos/core#prefLabel")) {
+                    parsedLocations.get(subject).setPref_label(object);
+                }
+                if (predicate.equals("http://www.w3.org/2004/02/skos/core#altLabel")) {
+                    parsedLocations.get(subject).setAlt_label(object);
+                }
             }
-            if (predicate.equals("http://www.w3.org/2004/02/skos/core#altLabel") && parsedLocations.containsKey(subject)) {
-                parsedLocations.get(subject).setAlt_label(object);
-            }
+
         }
     }
 

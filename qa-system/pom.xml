@@ -33,6 +33,37 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
+<!--            <exclusions>
+                <exclusion>
+                    <artifactId>lucene-analyzers-common</artifactId>
+                    <groupId>org.apache.lucene</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>lucene-core</artifactId>
+                    <groupId>org.apache.lucene</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>joda-time</artifactId>
+                    <groupId>joda-time</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>lucene-queries</artifactId>
+                    <groupId>org.apache.lucene</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>lucene-queryparser</artifactId>
+                    <groupId>org.apache.lucene</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>lucene-sandbox</artifactId>
+                    <groupId>org.apache.lucene</groupId>
+                </exclusion>
+            </exclusions>-->
+        </dependency>
+        <dependency>
+            <artifactId>lucene-core</artifactId>
+            <groupId>org.apache.lucene</groupId>
+            <version>8.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
@@ -48,6 +79,28 @@
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-rio-turtle</artifactId>
             <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pemistahl</groupId>
+            <artifactId>lingua</artifactId>
+            <version>0.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.0.0</version>
+            <classifier>models</classifier>
+        </dependency>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-corenlp</artifactId>
+            <version>4.0.0</version>
+            <classifier>models-german</classifier>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

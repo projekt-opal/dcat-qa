@@ -1,11 +1,13 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.indexing.OntologyIndexer;
 import com.martenls.qasystem.indexing.OntologyRDFParser;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
+import org.apache.jena.riot.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -35,7 +37,7 @@ public class OntologyRecognizer implements QuestionAnnotator{
     private String ontologyFilePath;
 
     /**
-     * Connects to ESIndex when created. Retries connection every 2 seconds if it fails.
+     * Checks if necessary indices exist and starts parsing and indexing if they are not present  .
      */
     @PostConstruct
     private void initIndices() {
@@ -72,16 +74,23 @@ public class OntologyRecognizer implements QuestionAnnotator{
                 question.getOntologyClasses().addAll(recognizeDcatClasses(shingle, question.getLanguage()));
             }
         }
-
+        // infer ontology properties from found entities
         if (!question.getLocationEntities().isEmpty()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/spatial");
         }
-
+        if (!question.getFileFormatEntities().isEmpty()) {
+            question.getOntologyProperties().add("http://purl.org/dc/terms/format");
+        }
+        if (!question.getLanguageEntities().isEmpty()) {
+            question.getOntologyProperties().add("http://purl.org/dc/terms/language");
+        }
+        if (!question.getThemeEntities().isEmpty()) {
+            question.getOntologyProperties().add("http://www.w3.org/ns/dcat#theme");
+        }
         // TODO: more inference rules like this
 
         // temporal entities -> dcat:issued/dct:modified
 
-        // language entities -> dct:language
 
         return question;
     }
@@ -92,9 +101,9 @@ public class OntologyRecognizer implements QuestionAnnotator{
      * @param language to query in
      * @return list of matched properties
      */
-    private List<String> recognizeDcatProperties(String word, String language) {
+    private List<String> recognizeDcatProperties(String word, Language language) {
         try {
-            return searchService.queryIndex("label_" + language, word, propertyIndex, 10, "1").stream()
+            return searchService.queryIndex("label_" + language.getIsoCode639_1().toString(), word.toLowerCase(), propertyIndex, 10, "2").stream()
                     .map(x -> x.get("uri"))
                     .collect(Collectors.toList());
         } catch (ESIndexUnavailableException e) {
@@ -109,9 +118,9 @@ public class OntologyRecognizer implements QuestionAnnotator{
      * @param language to query in
      * @return list of matched classes
      */
-    private List<String> recognizeDcatClasses(String word, String language) {
+    private List<String> recognizeDcatClasses(String word, Language language) {
         try {
-            return searchService.queryIndex("label_" + language, word, classIndex, 10, "1").stream()
+            return searchService.queryIndex("label_" + language.getIsoCode639_1().toString(), word.toLowerCase(), classIndex, 10, "1").stream()
                     .map(x -> x.get("uri"))
                     .collect(Collectors.toList());
         } catch (ESIndexUnavailableException e) {

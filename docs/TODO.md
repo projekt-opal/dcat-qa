@@ -40,7 +40,7 @@ ESIndex:
 
 
 QA-Pipeline:
-- recognize language of question
+- recognize language of question✅ (uses lingua instead of opennlp)
 - annotate questions with dcat properties✅
 - annotate questions with location entities✅
 - annotate question with string literals extracted from the question text✅
@@ -61,5 +61,10 @@ Improvements:
 
 - add indexing and recognition of formats
 - add indexing and recognition of themes
+- add indexing and recognition of languages✅
 - add tests
-
+- add more comments
+- recognize temporal words like month, year etc
+- word stemming for better entity recognition
+- add more labels to dcat properties (dcat:modified -> modified)
+- removing stop words

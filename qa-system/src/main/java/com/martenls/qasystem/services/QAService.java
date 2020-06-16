@@ -25,6 +25,12 @@ public class QAService {
     private LocationEntityRecognizer locationEntityRecognizer;
 
     @Autowired
+    private LanguageEntityRecognizer languageEntityRecognizer;
+
+    @Autowired
+    private TimeEntityRecognizer timeEntityRecognizer;
+
+    @Autowired
     private TemplateSelector templateSelector;
 
     @Autowired
@@ -42,7 +48,9 @@ public class QAService {
         try {
             languageRecognizer.annotate(question);
             semanticAnalyzer.annotate(question);
+            timeEntityRecognizer.annotate(question);
             locationEntityRecognizer.annotate(question);
+            languageEntityRecognizer.annotate(question);
             ontologyRecognizer.annotate(question);
             templateSelector.annotate(question);
             queryBuilder.annotate(question);

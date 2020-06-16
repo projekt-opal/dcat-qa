@@ -3666,7 +3666,7 @@
     <rdf:Description rdf:about="http://purl.org/dc/terms/identifier">
         <dct:description xml:lang="en">Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs.</dct:description>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/terms/"/>
-        <rdfs:label xml:lang="de">ID</rdfs:label>
+        <rdfs:label xml:lang="de">Kennung</rdfs:label>
         <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
         <rdfs:label xml:lang="en">Identifier</rdfs:label>
     </rdf:Description>

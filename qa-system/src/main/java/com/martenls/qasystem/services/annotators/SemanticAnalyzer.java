@@ -1,10 +1,13 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.martenls.qasystem.config.SemanticPropertyIndicators;
+import com.martenls.qasystem.exceptions.LanguageNotSupportedException;
 import com.martenls.qasystem.models.Question;
+import com.martenls.qasystem.services.NLPService;
+import edu.stanford.nlp.pipeline.CoreDocument;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -13,6 +16,11 @@ import static java.lang.String.join;
 @Service
 public class SemanticAnalyzer implements QuestionAnnotator{
 
+    private NLPService nlpService;
+
+    public SemanticAnalyzer(NLPService nlpService) {
+        this.nlpService = nlpService;
+    }
 
     @Override
     public Question annotate(Question question) {
@@ -59,15 +67,15 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      */
     private Set<Question.properties> getAdditionalProperties(Question question) {
         Set<Question.properties> propertiesSet = new HashSet<>();
-        for (String countIndicator : SemanticPropertyIndicatorsEn.COUNT_INDICATORS) {
+        for (String countIndicator : SemanticPropertyIndicators.getCountIndicators(question.getLanguage())) {
             if (question.getQuestionStr().toLowerCase().startsWith(countIndicator)) {
                 propertiesSet.add(Question.properties.COUNT);
             }
         }
-        if (question.getWords().stream().anyMatch(SemanticPropertyIndicatorsEn.ASC_INDICATORS::contains)) {
+        if (question.getWords().stream().anyMatch(SemanticPropertyIndicators.getAscIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.ASC_ORDERED);
         }
-        if (question.getWords().stream().anyMatch(SemanticPropertyIndicatorsEn.DESC_INDICATORS::contains)) {
+        if (question.getWords().stream().anyMatch(SemanticPropertyIndicators.getDescIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.DESC_ORDERED);
         }
         return propertiesSet;
@@ -79,12 +87,12 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      * @return list of extracted string literals
      */
     private List<String> getStringLiterals(String string) {
-        List<String> results = Pattern.compile("\"([\\w\\d\\s]*)\"")
+        List<String> results = Pattern.compile("\"([^\"]*)\"")
                 .matcher(string)
                 .results()
                 .map(x -> x.group(1))
                 .collect(Collectors.toList());
-        results.addAll(Pattern.compile("'([\\w\\d\\s]*)'")
+        results.addAll(Pattern.compile("\'([^\"]*)\'")
                 .matcher(string)
                 .results()
                 .map(x -> x.group(1))

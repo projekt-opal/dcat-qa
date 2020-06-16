@@ -37,7 +37,8 @@ services:
       - TEMPLATES_FILE=/qa/data/templates.txt
       - ONTOLOGY_FILE=/qa/data/dcat2+german-labels.rdf
       - LAUNUTS_FILE=/qa/data/launuts.ttl
-      - SPARQL_ENDPOINT=http://fuseki/opal/query
+      - SPARQL_ENDPOINT=http://fuseki:3030/opal/query
+      - ES_HOST=elastic
     networks:
       - compose_overlay
   fuseki:

@@ -47,7 +47,7 @@ public class ElasticSearchService {
     }
 
     @PostConstruct
-    private void createBulkProcessor() {
+    private void init() {
         boolean esUnavailable = true;
         while (esUnavailable) {
             try {

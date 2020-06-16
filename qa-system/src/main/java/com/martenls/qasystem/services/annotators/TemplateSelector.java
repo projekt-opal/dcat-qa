@@ -30,7 +30,7 @@ public class TemplateSelector implements QuestionAnnotator {
         }
         candidates.sort(Comparator.comparing(TemplateRated::getRating));
         Collections.reverse(candidates);
-        question.getTemplateCandidates().addAll(candidates.subList(0,2));
+        question.getTemplateCandidates().addAll(candidates.subList(0,1));
         return question;
     }
 
@@ -38,36 +38,46 @@ public class TemplateSelector implements QuestionAnnotator {
     private int rateTemplateQuestionPair(Template template, Question question) {
         int rating = 0;
 
-        if (template.getPropertyCount() == question.getOntologyProperties().size()) {
-            rating += 10;
+        // more property placeholders than properties -> can not build valid query
+        if (template.getPropertyCount() > question.getOntologyProperties().size()) {
+            return 0;
+        }
+        // same amount of placeholders and properties -> 10 points else 10 points - difference
+        if (template.getPropertyCount() <= question.getOntologyProperties().size()) {
+            rating += Math.max(0, 10 - Math.abs(template.getPropertyCount() - question.getOntologyProperties().size()));
         }
 
-        if (template.getEntityCount() == question.getLocationEntities().size()) {
-            rating += 10;
+        if (template.getEntityCount() <= question.getEntityCount()) {
+            rating += Math.max(0, 10 - Math.abs(template.getEntityCount() - question.getEntityCount()));
         }
+
 
         // count indicator -> template with count
-        if (template.hasCountAggregate() == question.hasProperty(Question.properties.COUNT)) {
-            rating += 10;
+        if (template.hasCountAggregate() != question.hasProperty(Question.properties.COUNT)) {
+            return 0;
         }
 
         // asc indicator -> template with order by and asc
-        if (template.hasOrderAscModifier() == question.hasProperty(Question.properties.ASC_ORDERED)) {
+        if (template.hasOrderAscModifier() && question.hasProperty(Question.properties.ASC_ORDERED)) {
             rating += 10;
         }
 
         // desc indicator -> template with order by and desc
-        if (template.hasOrderDescModifier() == question.hasProperty(Question.properties.DESC_ORDERED)) {
+        if (template.hasOrderDescModifier() && question.hasProperty(Question.properties.DESC_ORDERED)) {
             rating += 10;
         }
 
         // count indicator -> template with group by
-        if (template.hasGroupByAggregate() == question.hasProperty(Question.properties.COUNT)) {
+        if (template.hasGroupByAggregate() && question.hasProperty(Question.properties.COUNT)) {
             rating += 5;
         }
 
         // string literals -> template with filter
-        if (template.hasStringMatchingFilter() == !question.getStringLiterals().isEmpty()) {
+        if (template.hasStringMatchingFilter() && !question.getStringLiterals().isEmpty()) {
+            rating += 10;
+        }
+        // temporal entity with interval -> template with interval filter
+        if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
             rating += 10;
         }
 

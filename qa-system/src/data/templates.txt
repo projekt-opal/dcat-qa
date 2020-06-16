@@ -1,3 +1,62 @@
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> <entity0>
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1
+    FILTER ( ?var1 IN (<stringArray0>) )
+}
+---
+SELECT DISTINCT ( str(?var0) as ?var1)
+WHERE {
+    ?var2 <prop0> ?var0
+}
+---
+SELECT (COUNT(DISTINCT ?var0) AS ?count)
+WHERE {
+    ?var0 <prop0> <entity0>
+}
+---
+SELECT (COUNT(DISTINCT ?var0) AS ?count)
+WHERE {
+    ?var0 <prop0> ?var1
+    FILTER ( ?var1 IN (<stringArray0>) )
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2
+    FILTER ( ?var2 IN (<stringArray0>) )
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2
+    FILTER ( ?var2 IN (<stringArray0>) )
+}
+---
+SELECT (COUNT(DISTINCT ?var0) AS ?count)
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>
+}
+---
 SELECT (COUNT(DISTINCT ?var0) AS ?count)
 WHERE {
     ?var0 <prop0> ?var1.
@@ -11,27 +70,53 @@ WHERE {
     ?var1 <prop1> ?var2
     FILTER ( ?var2 IN (<stringArray0>) )
 }
+
 ---
-SELECT ?var0
-WHERE { 
-    ?var0 <prop0> <entity0> 
-}
----
-SELECT DISTINCT ( str(?var0) as ?var1)
-WHERE {
-    ?var2 <prop0> ?var0
-}
----
-SELECT ?var0 (COUNT(?var1) AS ?var2)
+SELECT ?var0 (COUNT(?var1) AS ?count)
 WHERE {
      ?var1 <prop0> ?var0 ;
      <prop1> <entity0> 
 }
 GROUP BY ?var0
-ORDER BY DESC(?var2)
+ORDER BY DESC(?count)
 LIMIT 1
 ---
-SELECT (COUNT(DISTINCT ?var0) AS ?count)
+SELECT ?var0
 WHERE {
-    ?var0 <prop0> <entity0>
+    ?var0 <prop0> ?var1.
+    FILTER ( ?var1 >= <lbound0> && ?var1 <= <rbound0>)
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    FILTER ( ?var2 >= <lbound0> && ?var2 <= <rbound0>)
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var0 <prop1> <entity0>.
+    FILTER ( ?var1 >= <lbound0> && ?var1 <= <rbound0>)
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    FILTER ( ?var1 = <value0> )
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    FILTER ( ?var2 = <value0> )
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var0 <prop1> <entity0>.
+    FILTER ( ?var1 = <value0> )
 }

@@ -1,11 +1,12 @@
 
 
 es:
-  host: 131.234.28.184
-  port: 9200
+  host: localhost
+  port: 3030
   property_index: propdcat3
   class_index: classdcat3
   launuts_index: launuts
+  language_index: lang
 
 ontology:
   file: src/data/dcat2+german-labels.rdf
@@ -15,6 +16,9 @@ launuts:
 
 templates:
   file: src/data/templates.txt
+
+languages:
+  file: src/data/languages-skos-ap-act.rdf
 
 sparql:
   endpoint: https://openbot.cs.upb.de/fuseki/opal/query

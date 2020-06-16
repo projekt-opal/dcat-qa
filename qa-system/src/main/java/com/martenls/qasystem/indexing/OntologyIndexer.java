@@ -2,7 +2,7 @@ package com.martenls.qasystem.indexing;
 
 
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
-import com.martenls.qasystem.models.DcatElement;
+import com.martenls.qasystem.models.LabeledURI;
 import com.martenls.qasystem.models.DcatClass;
 import com.martenls.qasystem.models.DcatProperty;
 import com.martenls.qasystem.services.ElasticSearchService;
@@ -109,17 +109,17 @@ public class OntologyIndexer {
 
     /**
      * Builds an IndexRequest for a DCAT property or class according to the properties set in createIndex().
-     * @param dcatElement DCAT property or class
+     * @param labeledURI DCAT property or class
      * @param index name of the index
      * @return IndexRequest for the DCAT property or class
      * @throws IOException if json object can not be build
      */
-    private void indexDcatElement(DcatElement dcatElement, String index) throws IOException {
+    private void indexDcatElement(LabeledURI labeledURI, String index) throws IOException {
         XContentBuilder mapping = jsonBuilder()
                     .startObject()
-                        .field("uri", dcatElement.getUri())
-                        .field("label_en", dcatElement.getLabel_en())
-                        .field("label_de", dcatElement.getLabel_de())
+                        .field("uri", labeledURI.getUri())
+                        .field("label_en", labeledURI.getLabel_en())
+                        .field("label_de", labeledURI.getLabel_de())
                     .endObject();
         elasticSearch.makeIndexRequest(index, mapping);
     }

@@ -3,7 +3,7 @@ package com.martenls.qasystem.services.annotators;
 import com.martenls.qasystem.models.Query;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.SPARQLService;
-import com.martenls.qasystem.utlis.SPARQLUtils;
+import com.martenls.qasystem.utils.SPARQLUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,12 +29,20 @@ public class ResultSelector implements QuestionAnnotator {
 
         // TODO: check if count > 0 for count queries
 
-        resultCanditates = resultCanditates.stream().filter(x -> {
-            if (x.getTemplate().hasCountAggregate())
-                return SPARQLUtils.getCountFromRS(x.getResultSet()) > 0;
-            else
-                return true;
-        }).collect(Collectors.toList());
+        // sort descending
+        if (question.getAdditionalProperties().contains(Question.properties.COUNT)) {
+            resultCanditates.sort((x,y) -> {
+                if (x.getTemplate().hasCountAggregate() && y.getTemplate().hasCountAggregate()) {
+                    if (SPARQLUtils.getCountFromRS(x.getResultSet()) > SPARQLUtils.getCountFromRS(y.getResultSet())) {
+                        return -1;
+                    } else if (SPARQLUtils.getCountFromRS(x.getResultSet()) < SPARQLUtils.getCountFromRS(y.getResultSet())){
+                        return 1;
+                    }
+                }
+                return 0;
+            });
+        }
+
 
 
         if (!question.getQueryCandidates().isEmpty()) {
