@@ -9,7 +9,7 @@ es:
   language_index: lang
 
 ontology:
-  file: src/data/dcat2+german-labels.rdf
+  file: src/data/dcat+labels.json
 
 launuts:
   file: src/data/launuts.ttl

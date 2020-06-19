@@ -12,6 +12,7 @@ public class Template {
     private int propertyCount;
     private int entityCount;
     private int stringArrayCount;
+    private int valueCount;
     private boolean countAggregate;
     private boolean groupByAggregate;
     private boolean havingAggregate;
@@ -21,13 +22,16 @@ public class Template {
     private boolean distinctModifier;
     private boolean stringMatchingFilter;
     private boolean intervalFilter;
+    private boolean valueFilter;
 
     private static final Pattern PROPERTY_PATTERN = Pattern.compile("<prop\\d>");
     private static final Pattern ENTITY_PATTERN = Pattern.compile("<entity\\d>");
     private static final Pattern STRING_PATTERN = Pattern.compile("<stringArray\\d>");
+    private static final Pattern VALUE_PATTERN = Pattern.compile("<value\\d>");
 
     private static final Pattern FILTERSTR_PATTERN = Pattern.compile("filter\\s*\\(\\s*\\?var\\d\\s*in\\s*\\(.*\\)\\s*\\)");
     private static final Pattern FILTERINTERVAL_PATTERN = Pattern.compile("filter\\s*\\(\\s*\\?var\\d\\s*(>=|>)\\s*<lbound\\d>\\s*&&\\s*\\?var\\d\\s*(<=|<)\\s*<rbound\\d>\\s*\\)");
+    private static final Pattern FILTERVALUE_PATTERN = Pattern.compile("filter\\s*\\(\\s*\\?var\\d\\s*(=|>|<|>=|<=)\\s*<value\\d>\\s*\\)");
 
 
     public Template(String templateStr) {
@@ -37,6 +41,7 @@ public class Template {
         this.propertyCount = (int) PROPERTY_PATTERN.matcher(templateStr).results().count();
         this.entityCount = (int) ENTITY_PATTERN.matcher(templateStr).results().count();
         this.stringArrayCount = (int) STRING_PATTERN.matcher(templateStr).results().count();
+        this.valueCount = (int) VALUE_PATTERN.matcher(templateStr).results().count();
 
         this.countAggregate = templateStrLowerCase.contains("count");
         this.groupByAggregate = templateStrLowerCase.contains("group by");
@@ -52,6 +57,7 @@ public class Template {
         this.distinctModifier = templateStrLowerCase.contains("distinct");
         this.stringMatchingFilter = FILTERSTR_PATTERN.matcher(templateStrLowerCase).find();
         this.intervalFilter = FILTERINTERVAL_PATTERN.matcher(templateStrLowerCase).find();
+        this.valueFilter = FILTERVALUE_PATTERN.matcher(templateStrLowerCase).find();
 
     }
 
@@ -89,4 +95,6 @@ public class Template {
     public boolean hasIntervalFilter() {
         return intervalFilter;
     }
+
+    public boolean hasValueFilter() { return valueFilter; }
 }

@@ -1,0 +1,519 @@
+[
+  {
+    "uri": "http://www.w3.org/ns/dcat#downloadURL",
+    "labels_en": [
+      "download url",
+      "download",
+      "load",
+      "url"
+    ],
+    "labels_de": [
+      "download-url",
+      "download",
+      "url",
+      "runterladen"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/isPartOf",
+    "labels_en": [
+      "is part of"
+    ],
+    "labels_de": [
+      "ist teilkatalog"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/spatial",
+    "labels_en": [
+      "spatial coverage"
+    ],
+    "labels_de": [
+      "räumliche abdeckung"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#contactPoint",
+    "labels_en": [
+      "contact point",
+      "contact"
+    ],
+    "labels_de": [
+      "kontakt",
+      "kontaktperson",
+      "kontaktpunkt"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#dataset",
+    "labels_en": [
+      "dataset"
+    ],
+    "labels_de": [
+      "datensatz",
+      "datensätze"
+
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#service",
+    "labels_en": [
+      "service"
+    ],
+    "labels_de": [
+      "service"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/relation",
+    "labels_en": [
+      "relation"
+    ],
+    "labels_de": [
+      "verwandte ressource"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/creator",
+    "labels_en": [
+      "creator",
+      "author",
+      "producer"
+    ],
+    "labels_de": [
+      "erzeuger",
+      "schöpfer",
+      "urheber",
+      "erschaffer"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/type",
+    "labels_en": [
+      "type"
+    ],
+    "labels_de": [
+      "typ"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#mediaType",
+    "labels_en": [
+      "media type"
+    ],
+    "labels_de": [
+      "medientyp"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/isVersionOf",
+    "labels_en": [
+      "is version of"
+    ],
+    "labels_de": [
+      "ist version von"
+    ]
+  },
+  {
+    "uri": "http://xmlns.com/foaf/0.1/homepage",
+    "labels_en": [
+      "homepage",
+      "website",
+      "home page",
+      "web site"
+    ],
+    "labels_de": [
+      "homepage",
+      "website",
+      "web page"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#themeTaxonomy",
+    "labels_en": [
+      "theme taxonomy"
+    ],
+    "labels_de": [
+      "kategorie"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#landingPage",
+    "labels_en": [
+      "landing page"
+    ],
+    "labels_de": [
+      "ursprüngliche website"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/isReferencedBy",
+    "labels_en": [
+      "is referenced by"
+    ],
+    "labels_de": [
+      null
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#endpointURL",
+    "labels_en": [
+      "service end-point"
+    ],
+    "labels_de": [
+      null
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#record",
+    "labels_en": [
+      "record"
+    ],
+    "labels_de": [
+      "eintrag"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/modified",
+    "labels_en": [
+      "date modified"
+    ],
+    "labels_de": [
+      "aktualisierungsdatum"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#compressFormat",
+    "labels_en": [
+      "compression format",
+      "compression",
+      "compressed"
+    ],
+    "labels_de": [
+      "kompressions format",
+      "kompression",
+      "komprimiert"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/temporal",
+    "labels_en": [
+      "temporal coverage",
+      "period",
+      "timescale",
+      "stretch of time"
+    ],
+    "labels_de": [
+      "abgedeckter zeitraum",
+      "zeitraum"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/identifier",
+    "labels_en": [
+      "identifier",
+      "label",
+      "identification"
+    ],
+    "labels_de": [
+      "kennung",
+      "identifizierung",
+      "bezeichnung",
+      "bezeichner"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/hasFormat",
+    "labels_en": [
+      "has format"
+    ],
+    "labels_de": [
+      "hat format"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/language",
+    "labels_en": [
+      "language"
+    ],
+    "labels_de": [
+      "sprache"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/format",
+    "labels_en": [
+      "format",
+      "file format"
+    ],
+    "labels_de": [
+      "format",
+      "dateiformat"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/issued",
+    "labels_en": [
+      "date issued",
+      "issued",
+      "issue date",
+      "issue time"
+    ],
+    "labels_de": [
+      "veröffentlichungsdatum",
+      "veröffentlichungszeitpunkt",
+      "veröffentlichungszeitraum",
+      "veröffentlicht"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/provenance",
+    "labels_en": [
+      "provenance",
+      "origin",
+      "derivation"
+    ],
+    "labels_de": [
+      "provenienz",
+      "herkunft",
+      "ursprung"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/title",
+    "labels_en": [
+      "title",
+      "heading",
+      "caption",
+      "name"
+    ],
+    "labels_de": [
+      "titel",
+      "überschrift",
+      "betitelung",
+      "schlagzeile",
+      "titelzeile"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/rights",
+    "labels_en": [
+      "rights",
+      "usage conditions",
+      "terms of use",
+      "terms of service"
+
+    ],
+    "labels_de": [
+      "nutzungsbestimmungen",
+      "rechte",
+      "nutzungsbedingungen",
+      "nutzungsvertrag",
+      "nutzungsrecht"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/hasVersion",
+    "labels_en": [
+      "has version"
+    ],
+    "labels_de": [
+      "weitere version"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/source",
+    "labels_en": [
+      "source"
+    ],
+    "labels_de": [
+      "quelle der datenstruktur"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/accessRights",
+    "labels_en": [
+      "access rights"
+    ],
+    "labels_de": [
+      "grad der zugänglichkeit"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/description",
+    "labels_en": [
+      "description"
+    ],
+    "labels_de": [
+      "beschreibung"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#qualifiedRelation",
+    "labels_en": [
+      "qualified relation"
+    ],
+    "labels_de": [
+      "qualifizierte beziehung"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/conformsTo",
+    "labels_en": [
+      "conforms to"
+    ],
+    "labels_de": [
+      "application profile der metadaten",
+      "konform mit"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#accessURL",
+    "labels_en": [
+      "access address",
+      "access url",
+      "access website",
+      "access"
+    ],
+    "labels_de": [
+      "zugangs-url",
+      "zugang",
+      "zugangs website",
+      "access url"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/publisher",
+    "labels_en": [
+      "publisher",
+      "editor"
+    ],
+    "labels_de": [
+      "herausgeber",
+      "herausgebering",
+      "editor",
+      "editorin",
+      "verleger",
+      "verlegerin"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#accessService",
+    "labels_en": [
+      "data access service",
+      "access service"
+    ],
+    "labels_de": [
+      "datenzugriffsdienst"
+    ]
+  },
+  {
+    "uri": "http://xmlns.com/foaf/0.1/primaryTopic",
+    "labels_en": [
+      "primary topic",
+      "main topic"
+    ],
+    "labels_de": [
+      "hauptthema"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#servesDataset",
+    "labels_en": [
+      "serves dataset"
+    ],
+    "labels_de": [
+      null
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/instructionalMethod",
+    "labels_en": [
+      "instructional method"
+    ],
+    "labels_de": [
+      null
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/license",
+    "labels_en": [
+      "license",
+      "authorization",
+      "certificate"
+    ],
+    "labels_de": [
+      "lizenz",
+      "befugnis",
+      "berechtigung"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/accrualPeriodicity",
+    "labels_en": [
+      "accrual periodicity",
+      "period",
+      "how often"
+    ],
+    "labels_de": [
+      "aktualisierungsfrequenz",
+      "aktualisierungszeitraum",
+      "wie oft",
+      "wie häufig",
+      "periode"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#catalog",
+    "labels_en": [
+      "catalog"
+    ],
+    "labels_de": [
+      "katalog",
+      "verzeichnis"
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#distribution",
+    "labels_en": [
+      "distribution"
+    ],
+    "labels_de": [
+      "distribution",
+      "verteilung",
+      "verbreitung",
+      "vertrieb"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/hasPart",
+    "labels_en": [
+      "has part"
+    ],
+    "labels_de": [
+      "hat teilkatalog"
+    ]
+  },
+  {
+    "uri": "http://purl.org/dc/terms/contributor",
+    "labels_en": [
+      "contributor"
+    ],
+    "labels_de": [
+      null
+    ]
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#theme",
+    "labels_en": [
+      "theme",
+      "topic",
+      "subject"
+    ],
+    "labels_de": [
+      "thema",
+      "thematik",
+      "betreff"
+    ]
+  }
+]

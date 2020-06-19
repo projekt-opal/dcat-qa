@@ -22,7 +22,7 @@ public class QueryBuilder implements QuestionAnnotator{
 
     @Override
     public Question annotate(Question question) {
-        for (TemplateRated templateCandidate : question.getTemplateCandidates()) {
+        for (TemplateRated templateCandidate : question.getTemplateCandidates().subList(0, 2)) {
             question.getQueryCandidates().addAll(buildQueriesfromTemplateQuestionPairs(templateCandidate.getTemplate(), question));
         }
         return question;
@@ -59,11 +59,12 @@ public class QueryBuilder implements QuestionAnnotator{
             List<String> queryStringsWithEntities = new ArrayList<>();
             List<List<String>> entityCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(question.getEntities(), template.getEntityCount());
 
-            for (String queryString : queryStrings) {
+            for (String queryStr : queryStrings) {
                 for (List<String> entityCombination : entityCombinations) {
                     for (int i = 0; i < template.getEntityCount(); i++) {
-                        queryStringsWithEntities.add(queryString.replaceAll("<entity" + i + ">", "<" + entityCombination.get(i) + ">"));
+                        queryStr = queryStr.replaceAll("<entity" + i + ">", "<" + entityCombination.get(i) + ">");
                     }
+                    queryStringsWithEntities.add(queryStr);
                 }
             }
             queryStrings = queryStringsWithEntities;

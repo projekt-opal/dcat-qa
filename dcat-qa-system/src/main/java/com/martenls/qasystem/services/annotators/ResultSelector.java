@@ -1,5 +1,6 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.martenls.qasystem.models.Answer;
 import com.martenls.qasystem.models.Query;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.SPARQLService;
@@ -20,6 +21,7 @@ public class ResultSelector implements QuestionAnnotator {
         // discard query with empty result set
         resultCanditates = question.getQueryCandidates()
                 .stream()
+                .filter(x -> x.getResultSet() != null)
                 .filter(x -> x.getResultSet().hasNext())
                 .collect(Collectors.toList());
 
@@ -27,7 +29,6 @@ public class ResultSelector implements QuestionAnnotator {
 
         // TODO: compare answer type predicted from question with result
 
-        // TODO: check if count > 0 for count queries
 
         // sort descending
         if (question.getAdditionalProperties().contains(Question.properties.COUNT)) {
@@ -45,8 +46,8 @@ public class ResultSelector implements QuestionAnnotator {
 
 
 
-        if (!question.getQueryCandidates().isEmpty()) {
-            question.setAnswer(SPARQLService.resultSetToString(resultCanditates.get(0).getResultSet()));
+        if (!question.getQueryCandidates().isEmpty() && !resultCanditates.isEmpty()) {
+            question.setAnswer(new Answer(SPARQLService.resultSetToString(resultCanditates.get(0).getResultSet()), resultCanditates.get(0)));
         }
 
         return question;

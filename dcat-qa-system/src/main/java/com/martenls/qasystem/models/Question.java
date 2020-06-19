@@ -3,10 +3,10 @@ package com.martenls.qasystem.models;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.pemistahl.lingua.api.Language;
-import edu.stanford.nlp.time.Timex;
+import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.util.Pair;
 import lombok.Data;
-import lombok.Getter;
+
 import lombok.NonNull;
 
 import java.util.*;
@@ -32,9 +32,11 @@ public class Question {
     private Set<Question.properties> additionalProperties;
     private List<String> stringLiterals;
 
+    private CoreDocument nlpAnnotations;
+
     private List<TemplateRated> templateCandidates;
     private List<Query> queryCandidates;
-    private String answer;
+    private Answer answer;
 
 
     public enum properties {
@@ -61,7 +63,6 @@ public class Question {
         this.timeIntervalEntities = new ArrayList<>();
         this.additionalProperties = new HashSet<>();
         this.stringLiterals = new ArrayList<>();
-
 
 
         this.templateCandidates = new ArrayList<>();

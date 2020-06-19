@@ -1,5 +1,9 @@
 package com.martenls.qasystem.indexing;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.martenls.qasystem.models.DcatClass;
 import com.martenls.qasystem.models.DcatProperty;
 import lombok.extern.log4j.Log4j2;
@@ -10,10 +14,8 @@ import org.eclipse.rdf4j.rio.helpers.AbstractRDFHandler;
 
 import org.eclipse.rdf4j.rio.rdfxml.RDFXMLParser;
 
-import java.io.FileInputStream;
+import java.io.*;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -36,6 +38,7 @@ public class OntologyRDFParser {
         } catch (IOException e) {
             log.error(e.getMessage());
         }
+
 
     }
 

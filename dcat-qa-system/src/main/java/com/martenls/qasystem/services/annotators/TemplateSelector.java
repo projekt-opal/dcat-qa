@@ -30,7 +30,7 @@ public class TemplateSelector implements QuestionAnnotator {
         }
         candidates.sort(Comparator.comparing(TemplateRated::getRating));
         Collections.reverse(candidates);
-        question.getTemplateCandidates().addAll(candidates.subList(0,1));
+        question.getTemplateCandidates().addAll(candidates);
         return question;
     }
 
@@ -38,18 +38,20 @@ public class TemplateSelector implements QuestionAnnotator {
     private int rateTemplateQuestionPair(Template template, Question question) {
         int rating = 0;
 
-        // more property placeholders than properties -> can not build valid query
-        if (template.getPropertyCount() > question.getOntologyProperties().size()) {
-            return 0;
-        }
+
         // same amount of placeholders and properties -> 10 points else 10 points - difference
         if (template.getPropertyCount() <= question.getOntologyProperties().size()) {
             rating += Math.max(0, 10 - Math.abs(template.getPropertyCount() - question.getOntologyProperties().size()));
+        } else {
+            return 0;
         }
 
         if (template.getEntityCount() <= question.getEntityCount()) {
             rating += Math.max(0, 10 - Math.abs(template.getEntityCount() - question.getEntityCount()));
+        } else {
+            return 0;
         }
+
 
 
         // count indicator -> template with count
@@ -79,6 +81,14 @@ public class TemplateSelector implements QuestionAnnotator {
         // temporal entity with interval -> template with interval filter
         if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
             rating += 10;
+        } else {
+            return 0;
+        }
+
+        if (template.hasValueFilter() == !question.getTimeEntities().isEmpty()) {
+            rating += 10;
+        } else {
+            return 0;
         }
 
         // TODO: add more rules

@@ -2,6 +2,7 @@ package com.martenls.qasystem.indexing;
 
 
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
+import com.martenls.qasystem.models.DcatPropertySynonyms;
 import com.martenls.qasystem.models.LabeledURI;
 import com.martenls.qasystem.models.DcatClass;
 import com.martenls.qasystem.models.DcatProperty;
@@ -48,6 +49,18 @@ public class OntologyIndexer {
             this.createDcatIndex(propertyIndex);
             for (DcatProperty property : properties) {
                 this.indexDcatElement(property, propertyIndex);
+            }
+        }  catch (IOException e) {
+            throw new ESIndexUnavailableException();
+        }
+        log.debug("Added " + properties.size() + " properties to the index " + propertyIndex);
+    }
+
+    public void indexPropertiesWithSynonyms(List<DcatPropertySynonyms> properties) throws ESIndexUnavailableException {
+        try {
+            this.createDcatIndex(propertyIndex);
+            for (DcatPropertySynonyms property : properties) {
+                this.indexDcatPropertySynonyms(property, propertyIndex);
             }
         }  catch (IOException e) {
             throw new ESIndexUnavailableException();
@@ -121,6 +134,16 @@ public class OntologyIndexer {
                         .field("label_en", labeledURI.getLabel_en())
                         .field("label_de", labeledURI.getLabel_de())
                     .endObject();
+        elasticSearch.makeIndexRequest(index, mapping);
+    }
+
+    private void indexDcatPropertySynonyms(DcatPropertySynonyms property, String index) throws IOException {
+        XContentBuilder mapping = jsonBuilder()
+                .startObject()
+                .field("uri", property.getUri())
+                .field("label_en", property.getLabels_en())
+                .field("label_de", property.getLabels_de())
+                .endObject();
         elasticSearch.makeIndexRequest(index, mapping);
     }
 

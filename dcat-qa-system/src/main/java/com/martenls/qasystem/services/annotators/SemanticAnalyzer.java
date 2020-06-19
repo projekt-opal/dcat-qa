@@ -1,10 +1,10 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.config.SemanticPropertyIndicators;
-import com.martenls.qasystem.exceptions.LanguageNotSupportedException;
+import com.martenls.qasystem.config.Stopwords;
 import com.martenls.qasystem.models.Question;
-import com.martenls.qasystem.services.NLPService;
-import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.ling.CoreLabel;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -16,16 +16,23 @@ import static java.lang.String.join;
 @Service
 public class SemanticAnalyzer implements QuestionAnnotator{
 
-    private NLPService nlpService;
 
-    public SemanticAnalyzer(NLPService nlpService) {
-        this.nlpService = nlpService;
-    }
+    public SemanticAnalyzer() { }
 
     @Override
     public Question annotate(Question question) {
         question.setWords(getWordsFromString(question.getQuestionStr()));
-        question.setWShingles(getShingles(question.getWords(), 5));
+        List<String> words = Collections.emptyList();
+        if (question.getLanguage() == Language.ENGLISH) {
+            words = question.getNlpAnnotations().tokens().stream()
+                    .map(CoreLabel::lemma)
+                    .collect(Collectors.toList());
+        } else if (question.getLanguage() == Language.GERMAN) {
+            words = question.getWords();
+        }
+        // filter out stopwords
+        words.removeIf(x -> Stopwords.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()));
+        question.setWShingles(getShingles(words, 5));
         question.getAdditionalProperties().addAll(getAdditionalProperties(question));
         question.getStringLiterals().addAll(getStringLiterals(question.getQuestionStr()));
         return question;
@@ -37,7 +44,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      * @return list of single words from string
      */
     public List<String> getWordsFromString(String string) {
-        return Arrays.asList(string.replaceAll("[\\-.?¿!,;\"']", "").split("\\s+"));
+        return new ArrayList<>(Arrays.asList(string.replaceAll("[\\-.?¿!,;\"']", "").split("\\s+")));
     }
 
     /**

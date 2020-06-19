@@ -17,7 +17,7 @@ public class QAController {
     @GetMapping("/qa")
     public String answerQuestion(@RequestParam String question) {
         if (question != null) {
-            String answer = this.qaService.answerQuestion(new Question(question)).getAnswer();
+            String answer = this.qaService.answerQuestion(new Question(question)).getAnswer().getAnswerJsonStr();
             if (answer == null || answer.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {
@@ -32,7 +32,7 @@ public class QAController {
     @PostMapping("/qa")
     public String answerQuestion(@RequestBody Question question) {
         if (question != null && question.getQuestionStr() != null) {
-            String answer = this.qaService.answerQuestion(question).getAnswer();
+            String answer = this.qaService.answerQuestion(question).getAnswer().getAnswerJsonStr();
             if (answer == null || answer.isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {

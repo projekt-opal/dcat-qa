@@ -4,8 +4,6 @@ import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.indexing.LanguageIndexer;
 import com.martenls.qasystem.indexing.LanguageRDFParser;
-import com.martenls.qasystem.indexing.OntologyIndexer;
-import com.martenls.qasystem.indexing.OntologyRDFParser;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -78,9 +75,7 @@ public class LanguageEntityRecognizer implements QuestionAnnotator{
      */
     private List<String> recognizeLanguageEntities(String word, Language language) {
         try {
-            return searchService.queryIndex("label_" + language.getIsoCode639_1().toString(), word.toLowerCase(), languageIndex, 10, "1").stream()
-                    .map(x -> x.get("uri"))
-                    .collect(Collectors.toList());
+            return searchService.queryIndexForLabeledUri("label_" + language.getIsoCode639_1().toString(), word, languageIndex, 10, "1");
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch language entities: ESIndex not available");
             return Collections.emptyList();

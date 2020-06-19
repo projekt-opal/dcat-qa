@@ -64,7 +64,7 @@ Improvements:
 - add indexing and recognition of languages✅
 - add tests
 - add more comments
-- recognize temporal words like month, year etc
+- recognize temporal words like month, year etc✅
 - word stemming for better entity recognition
-- add more labels to dcat properties (dcat:modified -> modified)
-- removing stop words
+- add more labels to dcat properties (dcat:modified -> modified)✅
+- removing stop words✅

@@ -2,12 +2,12 @@ package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.indexing.OntologyIndexer;
+import com.martenls.qasystem.indexing.OntologyJsonParser;
 import com.martenls.qasystem.indexing.OntologyRDFParser;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
-import org.apache.jena.riot.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Enables the recognition of dcat properties and classes among words.
@@ -43,15 +42,26 @@ public class OntologyRecognizer implements QuestionAnnotator{
     private void initIndices() {
         try {
             if (!searchService.checkIndexExistence(propertyIndex) || !searchService.checkIndexExistence(classIndex)) {
-                OntologyRDFParser parser = new OntologyRDFParser();
-                parser.parse(ontologyFilePath);
-                OntologyIndexer indexer = new OntologyIndexer(searchService, propertyIndex, classIndex);
-                if (!searchService.checkIndexExistence(propertyIndex)) {
-                    indexer.indexProperties(parser.getParsedProperties());
+                if (ontologyFilePath.endsWith(".json")) {
+                    OntologyJsonParser parser = new OntologyJsonParser();
+                    parser.parse(ontologyFilePath);
+                    OntologyIndexer indexer = new OntologyIndexer(searchService, propertyIndex, classIndex);
+                    if (!searchService.checkIndexExistence(propertyIndex)) {
+                        indexer.indexPropertiesWithSynonyms(parser.getParsedProperties());
+                    }
+                } else if (ontologyFilePath.endsWith(".xml")) {
+                    OntologyRDFParser parser = new OntologyRDFParser();
+                    parser.parse(ontologyFilePath);
+                    OntologyIndexer indexer = new OntologyIndexer(searchService, propertyIndex, classIndex);
+                    if (!searchService.checkIndexExistence(propertyIndex)) {
+                        indexer.indexProperties(parser.getParsedProperties());
+                    }
+                    if (!searchService.checkIndexExistence(classIndex)) {
+                        indexer.indexClasses(parser.getParsedClasses());
+                    }
                 }
-                if (!searchService.checkIndexExistence(classIndex)) {
-                    indexer.indexClasses(parser.getParsedClasses());
-                }
+
+
             } else {
                 log.debug("Both class-index and property-index present, nothing to be done");
             }
@@ -71,7 +81,7 @@ public class OntologyRecognizer implements QuestionAnnotator{
         if (question.getWShingles() != null) {
             for (String shingle : question.getWShingles()) {
                 question.getOntologyProperties().addAll(recognizeDcatProperties(shingle, question.getLanguage()));
-                question.getOntologyClasses().addAll(recognizeDcatClasses(shingle, question.getLanguage()));
+                //question.getOntologyClasses().addAll(recognizeDcatClasses(shingle, question.getLanguage()));
             }
         }
         // infer ontology properties from found entities
@@ -103,9 +113,7 @@ public class OntologyRecognizer implements QuestionAnnotator{
      */
     private List<String> recognizeDcatProperties(String word, Language language) {
         try {
-            return searchService.queryIndex("label_" + language.getIsoCode639_1().toString(), word.toLowerCase(), propertyIndex, 10, "2").stream()
-                    .map(x -> x.get("uri"))
-                    .collect(Collectors.toList());
+            return searchService.queryIndexForLabeledUri("label_" + language.getIsoCode639_1().toString(), word, propertyIndex, 10, "2");
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch dcat properties: ESIndex not available");
             return Collections.emptyList();
@@ -120,9 +128,7 @@ public class OntologyRecognizer implements QuestionAnnotator{
      */
     private List<String> recognizeDcatClasses(String word, Language language) {
         try {
-            return searchService.queryIndex("label_" + language.getIsoCode639_1().toString(), word.toLowerCase(), classIndex, 10, "1").stream()
-                    .map(x -> x.get("uri"))
-                    .collect(Collectors.toList());
+            return searchService.queryIndexForLabeledUri("label_" + language.getIsoCode639_1().toString(), word, classIndex, 10, "1");
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch dcat classes: ESIndex not available");
             return Collections.emptyList();

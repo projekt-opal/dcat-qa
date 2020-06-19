@@ -33,8 +33,8 @@ public class LaunutsIndexer {
                 XContentBuilder mapping = jsonBuilder()
                         .startObject()
                             .field("uri", location.getUri())
-                            .field("prefLabel", location.getPref_label())
-                            .field("altLabel", location.getAlt_label())
+                            .field("prefLabel", location.getPref_label()!= null ? location.getPref_label().toLowerCase() : null)
+                            .field("altLabel", location.getAlt_label() != null ? location.getAlt_label().toLowerCase() : null)
                         .endObject();
                 elasticSearch.makeIndexRequest(launutsIndex, mapping);
             }

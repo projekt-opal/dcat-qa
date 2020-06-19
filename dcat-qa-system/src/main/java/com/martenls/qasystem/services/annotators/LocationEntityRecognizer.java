@@ -60,14 +60,8 @@ public class LocationEntityRecognizer implements QuestionAnnotator{
     private List<String> recognizeLocations(String word) {
         List<String> results = new ArrayList<>();
         try {
-            results.addAll(searchService.queryIndex("prefLabel", word, locationIndex, 10, "0").stream()
-                    .map(x -> x.get("uri"))
-                    .collect(Collectors.toList())
-            );
-            results.addAll(searchService.queryIndex("altLabel", word, locationIndex, 10, "0").stream()
-                    .map(x -> x.get("uri"))
-                    .collect(Collectors.toList())
-            );
+            results.addAll(searchService.queryIndexForLabeledUri("prefLabel", word, locationIndex, 10, "0"));
+            results.addAll(searchService.queryIndexForLabeledUri("altLabel", word, locationIndex, 10, "0"));
             return results;
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch dcat properties: ESIndex not available");

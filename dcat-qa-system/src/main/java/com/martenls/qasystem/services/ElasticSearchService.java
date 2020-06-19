@@ -46,47 +46,42 @@ public class ElasticSearchService {
         this.elasticSearchClient = elasticSearchClient;
     }
 
+    /**
+     * Establishes connection to ES instance. Retries if it is not available and terminates app after ten failed attempts.
+     * Inits bulkprocessor.
+     * @throws InterruptedException if thread sleep is interrupted.
+     */
     @PostConstruct
-    private void init() {
+    private void init() throws InterruptedException {
         boolean esUnavailable = true;
-        while (esUnavailable) {
+        int i = 0;
+        while (esUnavailable && i < 10) {
             try {
                 elasticSearchClient.ping(RequestOptions.DEFAULT);
                 esUnavailable = false;
             } catch (IOException e) {
-                log.error("ElasticSearch index can not be reached. Will try again in 2 seconds... ", e);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException interruptedException) {
-                    log.error(interruptedException.getMessage());
-                }
+                log.error("ElasticSearch index can not be reached. Will try again in 2 seconds... ");
+                i++;
+                Thread.sleep(2000);
             }
         }
-
+        if (esUnavailable) {
+            log.error("ElasticSearch index can not be reached. Shutting down...");
+            System.exit(1);
+        }
 
         BulkProcessor.Builder builder = BulkProcessor.builder(
                 (req, bulkListener) ->
                         elasticSearchClient.bulkAsync(req, RequestOptions.DEFAULT, bulkListener),
                 new BulkProcessor.Listener() {
                     @Override
-                    public void beforeBulk(long executionId,
-                                           BulkRequest request) {
-                        // not needed
-                    }
+                    public void beforeBulk(long executionId, BulkRequest request) { /*not needed*/ }
 
                     @Override
-                    public void afterBulk(long executionId,
-                                          BulkRequest request,
-                                          BulkResponse response) {
-                        // not needed
-                    }
+                    public void afterBulk(long executionId, BulkRequest request, BulkResponse response) { /*not needed*/ }
 
                     @Override
-                    public void afterBulk(long executionId,
-                                          BulkRequest request,
-                                          Throwable failure) {
-                        // not needed
-                    }
+                    public void afterBulk(long executionId, BulkRequest request, Throwable failure) { /*not needed*/ }
                 });
         builder.setBulkActions(1000);
         builder.setBulkSize(new ByteSizeValue(1L, ByteSizeUnit.MB));
@@ -96,15 +91,32 @@ public class ElasticSearchService {
     }
 
     /**
+     * Query index with given name for given key and value pair and return
+     * @param key of key value pair that is wanted
+     * @param value of key value pair that is wanted
+     * @param index name of the index to query
+     * @param maxNumberOfResults maximum number of results that should be returned
+     * @return list of uris
+     * @throws ESIndexUnavailableException when index not available
+     */
+    public List<String> queryIndexForLabeledUri(String key, String value, String index, int maxNumberOfResults, String fuzziness) throws ESIndexUnavailableException {
+        return queryIndex(key, value.toLowerCase(), index, maxNumberOfResults, fuzziness).stream()
+                .map(x -> x.get("uri"))
+                .filter(x -> x instanceof String)
+                .map(x -> (String) x)
+                .collect(Collectors.toList());
+    }
+
+    /**
      * Query index with given name for given key and value pair.
      * @param key of key value pair that is wanted
      * @param value of key value pair that is wanted
-     * @param index to query
-     * @param maxNumberOfResults
-     * @return
-     * @throws ESIndexUnavailableException
+     * @param index name of the index to query
+     * @param maxNumberOfResults maximum number of results that should be returned
+     * @return list of result mappings
+     * @throws ESIndexUnavailableException when index not available
      */
-    public List<Map<String,String>> queryIndex(String key, String value, String index, int maxNumberOfResults, String fuzziness) throws ESIndexUnavailableException {
+    public List<Map<String,Object>> queryIndex(String key, String value, String index, int maxNumberOfResults, String fuzziness) throws ESIndexUnavailableException {
         QueryBuilder queryBuilder = QueryBuilders.matchQuery(key, value)
                 .fuzziness(fuzziness)
                 .fuzzyTranspositions(false)
@@ -127,24 +139,27 @@ public class ElasticSearchService {
         if (hits.getHits().length == 0)
             return Collections.emptyList();
 
-        List<Map<String,String>> results = new ArrayList<>();
+        List<Map<String,Object>> results = new ArrayList<>();
 
         for (SearchHit hit : hits.getHits()) {
-            Map<String, String> hitMap = new HashMap<>();
+            Map<String, Object> hitMap = new HashMap<>();
             for (Map.Entry<String, Object> entry : hit.getSourceAsMap().entrySet()) {
-                hitMap.put(entry.getKey(), (String) entry.getValue());
+                hitMap.put(entry.getKey(), entry.getValue());
             }
             results.add(hitMap);
         }
 
         return results;
 
-//        return Arrays.stream(hits.getHits())
-//                .map(SearchHit::getSourceAsMap)
-//                .map(x -> x.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, e -> e == null? null : (String) e.getValue())))
-//                .collect(Collectors.toList());
+
     }
 
+    /**
+     * Checks if an index with the given name exists.
+     * @param index name of the index to check
+     * @return if index exists
+     * @throws ESIndexUnavailableException if es instance not available
+     */
     public boolean checkIndexExistence(String index) throws ESIndexUnavailableException {
         GetIndexRequest getIndexRequest = new GetIndexRequest(index);
         try {

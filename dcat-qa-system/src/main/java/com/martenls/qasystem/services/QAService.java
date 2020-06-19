@@ -31,6 +31,9 @@ public class QAService {
     private TimeEntityRecognizer timeEntityRecognizer;
 
     @Autowired
+    private NLPAnnotator nlpAnnotator;
+
+    @Autowired
     private TemplateSelector templateSelector;
 
     @Autowired
@@ -47,6 +50,7 @@ public class QAService {
     public Question answerQuestion(Question question) {
         try {
             languageRecognizer.annotate(question);
+            nlpAnnotator.annotate(question);
             semanticAnalyzer.annotate(question);
             timeEntityRecognizer.annotate(question);
             locationEntityRecognizer.annotate(question);
