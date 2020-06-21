@@ -1,4 +1,4 @@
-package com.martenls.qasystem.indexing;
+package com.martenls.qasystem.indexers;
 
 
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
@@ -36,7 +36,7 @@ public class LaunutsIndexer {
                             .field("prefLabel", location.getPref_label()!= null ? location.getPref_label().toLowerCase() : null)
                             .field("altLabel", location.getAlt_label() != null ? location.getAlt_label().toLowerCase() : null)
                         .endObject();
-                elasticSearch.makeIndexRequest(launutsIndex, mapping);
+                elasticSearch.makeIndexRequest(launutsIndex, Strings.toString(mapping));
             }
         }  catch (IOException e) {
             throw new ESIndexUnavailableException();
@@ -64,9 +64,7 @@ public class LaunutsIndexer {
                             .endObject()
                         .endObject()
                     .endObject();
-            log.debug(Strings.toString(mapping));
-
-            elasticSearch.createIndex(launutsIndex, mapping);
+            elasticSearch.createIndexXContent(launutsIndex, mapping);
         } catch (IOException e) {
             log.error(e);
             throw new ESIndexUnavailableException();

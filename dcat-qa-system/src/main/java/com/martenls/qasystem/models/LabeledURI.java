@@ -1,23 +1,34 @@
 package com.martenls.qasystem.models;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
 
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+
 @Data
-public abstract class LabeledURI {
+public class LabeledURI {
 
-    @NonNull
     private String uri;
-    private String label_en;
-    private String label_de;
+    private Map<String, List<String>> labels;
 
-
-    public void setLabel_en(String label_en) {
-        this.label_en = label_en.toLowerCase();
+    @JsonCreator
+    public LabeledURI(@NonNull @JsonProperty("uri") String uri) {
+        this.uri = uri;
+        this.labels = new HashMap<>();
     }
 
-    public void setLabel_de(String label_de) {
-        this.label_de = label_de.toLowerCase();
+    @JsonAnySetter
+    public void setLabels(String name, List<String> value) {
+        this.labels.put(name, value);
     }
+
 }
 

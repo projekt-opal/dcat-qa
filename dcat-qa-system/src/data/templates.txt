@@ -141,3 +141,10 @@ WHERE {
     ?var1 <prop1> <entity0>.
     ?var1 <prop2> <entity1>.
 }
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>.
+    ?var1 <prop2> <entity1>.
+}

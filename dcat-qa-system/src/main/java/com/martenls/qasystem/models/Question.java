@@ -26,6 +26,7 @@ public class Question {
     private Set<String> locationEntities;
     private Set<String> languageEntities;
     private Set<String> themeEntities;
+    private Set<String> licenseEntities;
     private Set<String> fileFormatEntities;
     private List<Calendar> timeEntities;
     private List<Pair<Calendar, Calendar>> timeIntervalEntities;
@@ -58,6 +59,7 @@ public class Question {
         this.locationEntities = new HashSet<>();
         this.languageEntities = new HashSet<>();
         this.themeEntities = new HashSet<>();
+        this.licenseEntities = new HashSet<>();
         this.fileFormatEntities = new HashSet<>();
         this.timeEntities = new ArrayList<>();
         this.timeIntervalEntities = new ArrayList<>();
@@ -74,11 +76,11 @@ public class Question {
     }
 
     public List<String> getEntities() {
-        return Stream.of(this.locationEntities, this.languageEntities, this.themeEntities, this.fileFormatEntities).flatMap(Collection::stream).collect(Collectors.toList());
+        return Stream.of(this.locationEntities, this.languageEntities, this.themeEntities, this.licenseEntities, this.fileFormatEntities).flatMap(Collection::stream).collect(Collectors.toList());
     }
 
     public int getEntityCount() {
-        return this.locationEntities.size() + this.languageEntities.size() + this.themeEntities.size() + this.fileFormatEntities.size() + this.timeEntities.size();
+        return this.locationEntities.size() + this.languageEntities.size() + this.themeEntities.size() + this.licenseEntities.size() + this.fileFormatEntities.size() + this.timeEntities.size();
     }
 
     @Override

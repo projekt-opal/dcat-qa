@@ -1,8 +1,8 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
-import com.martenls.qasystem.indexing.LaunutsIndexer;
-import com.martenls.qasystem.indexing.LaunutsRDFParser;
+import com.martenls.qasystem.indexers.LaunutsIndexer;
+import com.martenls.qasystem.parsers.LaunutsRDFParser;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
@@ -14,7 +14,6 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -26,7 +25,7 @@ public class LocationEntityRecognizer implements QuestionAnnotator{
     @Value("${es.launuts_index}")
     private String locationIndex;
 
-    @Value("${launuts.file}")
+    @Value("${launuts}")
     private String launutsFilePath;
 
 

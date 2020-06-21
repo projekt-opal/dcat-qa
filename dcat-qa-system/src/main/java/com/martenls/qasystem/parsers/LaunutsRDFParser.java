@@ -1,4 +1,4 @@
-package com.martenls.qasystem.indexing;
+package com.martenls.qasystem.parsers;
 
 import com.martenls.qasystem.models.Location;
 import lombok.extern.log4j.Log4j2;

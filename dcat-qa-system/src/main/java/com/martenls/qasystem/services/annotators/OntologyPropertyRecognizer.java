@@ -1,9 +1,8 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
-import com.martenls.qasystem.indexing.OntologyIndexer;
-import com.martenls.qasystem.indexing.OntologyJsonParser;
-import com.martenls.qasystem.indexing.OntologyRDFParser;
+import com.martenls.qasystem.indexers.LabeledURIIndexer;
+import com.martenls.qasystem.parsers.OntologyJsonParser;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.services.ElasticSearchService;
@@ -15,13 +14,14 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Enables the recognition of dcat properties and classes among words.
  */
 @Log4j2
 @Service
-public class OntologyRecognizer implements QuestionAnnotator{
+public class OntologyPropertyRecognizer implements QuestionAnnotator {
 
     @Autowired
     private ElasticSearchService searchService;
@@ -29,11 +29,11 @@ public class OntologyRecognizer implements QuestionAnnotator{
     @Value("${es.property_index}")
     private String propertyIndex;
 
-    @Value("${es.class_index}")
-    private String classIndex;
-
-    @Value("${ontology.file}")
+    @Value("${ontology}")
     private String ontologyFilePath;
+
+    @Value("${properties.languages}")
+    private String[] languages;
 
     /**
      * Checks if necessary indices exist and starts parsing and indexing if they are not present  .
@@ -41,26 +41,13 @@ public class OntologyRecognizer implements QuestionAnnotator{
     @PostConstruct
     private void initIndices() {
         try {
-            if (!searchService.checkIndexExistence(propertyIndex) || !searchService.checkIndexExistence(classIndex)) {
-                if (ontologyFilePath.endsWith(".json")) {
-                    OntologyJsonParser parser = new OntologyJsonParser();
-                    parser.parse(ontologyFilePath);
-                    OntologyIndexer indexer = new OntologyIndexer(searchService, propertyIndex, classIndex);
-                    if (!searchService.checkIndexExistence(propertyIndex)) {
-                        indexer.indexPropertiesWithSynonyms(parser.getParsedProperties());
-                    }
-                } else if (ontologyFilePath.endsWith(".xml")) {
-                    OntologyRDFParser parser = new OntologyRDFParser();
-                    parser.parse(ontologyFilePath);
-                    OntologyIndexer indexer = new OntologyIndexer(searchService, propertyIndex, classIndex);
-                    if (!searchService.checkIndexExistence(propertyIndex)) {
-                        indexer.indexProperties(parser.getParsedProperties());
-                    }
-                    if (!searchService.checkIndexExistence(classIndex)) {
-                        indexer.indexClasses(parser.getParsedClasses());
-                    }
+            if (!searchService.checkIndexExistence(propertyIndex)) {
+                OntologyJsonParser parser = new OntologyJsonParser(languages);
+                parser.parse(ontologyFilePath);
+                LabeledURIIndexer indexer = new LabeledURIIndexer(searchService, propertyIndex, languages);
+                if (!searchService.checkIndexExistence(propertyIndex)) {
+                    indexer.indexEntities(parser.getParsedEntities());
                 }
-
 
             } else {
                 log.debug("Both class-index and property-index present, nothing to be done");
@@ -97,6 +84,9 @@ public class OntologyRecognizer implements QuestionAnnotator{
         if (!question.getThemeEntities().isEmpty()) {
             question.getOntologyProperties().add("http://www.w3.org/ns/dcat#theme");
         }
+        if (!question.getLicenseEntities().isEmpty()) {
+            question.getOntologyProperties().add("http://purl.org/dc/terms/license");
+        }
         // TODO: more inference rules like this
 
         // temporal entities -> dcat:issued/dct:modified
@@ -113,27 +103,13 @@ public class OntologyRecognizer implements QuestionAnnotator{
      */
     private List<String> recognizeDcatProperties(String word, Language language) {
         try {
-            return searchService.queryIndexForLabeledUri("label_" + language.getIsoCode639_1().toString(), word, propertyIndex, 10, "2");
+            return searchService.queryIndexForLabeledUri("labels" + language.getIsoCode639_1().toString().toUpperCase(), word, propertyIndex, 1, "2");
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch dcat properties: ESIndex not available");
             return Collections.emptyList();
         }
     }
 
-    /**
-     * Queries the class index for the given word in the given language.
-     * @param word to query
-     * @param language to query in
-     * @return list of matched classes
-     */
-    private List<String> recognizeDcatClasses(String word, Language language) {
-        try {
-            return searchService.queryIndexForLabeledUri("label_" + language.getIsoCode639_1().toString(), word, classIndex, 10, "1");
-        } catch (ESIndexUnavailableException e) {
-            log.error("Could not fetch dcat classes: ESIndex not available");
-            return Collections.emptyList();
-        }
-    }
 
 
 }

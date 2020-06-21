@@ -3,25 +3,30 @@
 es:
   host: localhost
   port: 3030
-  property_index: propdcat3
-  class_index: classdcat3
+  property_index: dcatprops
   launuts_index: launuts
   language_index: lang
+  theme_index: themes
+  license_index: licenses
 
-ontology:
-  file: src/data/dcat+labels.json
 
-launuts:
-  file: src/data/launuts.ttl
+ontology: src/data/dcat+labels.json
 
-templates:
-  file: src/data/templates.txt
+launuts: src/data/launuts.ttl
 
-languages:
-  file: src/data/languages-skos-ap-act.rdf
+templates: src/data/templates.txt
+
+languageEntities: src/data/languages-skos-ap-act.rdf
+
+themeEntities: src/data/data-theme-skos-ap-act.rdf
+
+licenseEntities: src/data/licences-skos-ap-act.rdf
 
 sparql:
   endpoint: https://openbot.cs.upb.de/fuseki/opal/query
+
+properties:
+  languages: "en, de"
 
 logging:
   level:

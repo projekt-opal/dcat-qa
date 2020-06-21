@@ -3,33 +3,30 @@ package com.martenls.qasystem.services.annotators;
 import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.indexers.LabeledURIIndexer;
-import com.martenls.qasystem.parsers.LanguagesRDFParser;
 import com.martenls.qasystem.models.Question;
+import com.martenls.qasystem.parsers.ThemesRDFParser;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 @Log4j2
 @Service
-public class LanguageEntityRecognizer implements QuestionAnnotator{
+public class ThemeEntityRecognizer implements QuestionAnnotator {
 
     @Autowired
     private ElasticSearchService searchService;
 
-    @Value("${es.language_index}")
-    private String languageIndex;
+    @Value("${es.theme_index}")
+    private String themeIndex;
 
-    @Value("${languageEntities}")
-    private String languageRDFPath;
+    @Value("${themeEntities}")
+    private String themesRDFPath;
 
     @Value("${properties.languages}")
     private String[] languages;
@@ -41,16 +38,16 @@ public class LanguageEntityRecognizer implements QuestionAnnotator{
     @PostConstruct
     private void initIndices() {
         try {
-            if (!searchService.checkIndexExistence(languageIndex)) {
-                LanguagesRDFParser parser = new LanguagesRDFParser(languages);
-                parser.parse(languageRDFPath);
-                LabeledURIIndexer indexer = new LabeledURIIndexer(searchService, languageIndex, languages);
-                if (!searchService.checkIndexExistence(languageIndex)) {
+            if (!searchService.checkIndexExistence(themeIndex)) {
+                ThemesRDFParser parser = new ThemesRDFParser(languages);
+                parser.parse(themesRDFPath);
+                LabeledURIIndexer indexer = new LabeledURIIndexer(searchService, themeIndex, languages);
+                if (!searchService.checkIndexExistence(themeIndex)) {
                     indexer.indexEntities(parser.getParsedEntities());
                 }
 
             } else {
-                log.debug("Language-index present, nothing to be done");
+                log.debug("Theme-index present, nothing to be done");
             }
         } catch (ESIndexUnavailableException e) {
             log.error("Could not init indices: ESIndex not available");
@@ -67,7 +64,7 @@ public class LanguageEntityRecognizer implements QuestionAnnotator{
     public Question annotate(Question question) {
         if (question.getWShingles() != null) {
             for (String shingle : question.getWShingles()) {
-                question.getLanguageEntities().addAll(recognizeLanguageEntities(shingle, question.getLanguage()));
+                question.getThemeEntities().addAll(recognizeThemeEntities(shingle, question.getLanguage()));
             }
         }
         return question;
@@ -80,14 +77,12 @@ public class LanguageEntityRecognizer implements QuestionAnnotator{
      * @param language to query in
      * @return list of matched properties
      */
-    private List<String> recognizeLanguageEntities(String word, Language language) {
+    private List<String> recognizeThemeEntities(String word, Language language) {
         try {
-            return searchService.queryIndexForLabeledUri("labels" + language.getIsoCode639_1().toString().toUpperCase(), word, languageIndex, 1, "1");
+            return searchService.queryIndexForLabeledUri("labels" + language.getIsoCode639_1().toString().toUpperCase(), word, themeIndex, 1, "1");
         } catch (ESIndexUnavailableException e) {
-            log.error("Could not fetch language entities: ESIndex not available");
+            log.error("Could not fetch theme entities: ESIndex not available");
             return Collections.emptyList();
         }
     }
-
-
 }

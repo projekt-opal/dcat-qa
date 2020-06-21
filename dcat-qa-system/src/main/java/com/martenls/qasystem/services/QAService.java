@@ -19,13 +19,19 @@ public class QAService {
     private SemanticAnalyzer semanticAnalyzer;
 
     @Autowired
-    private OntologyRecognizer ontologyRecognizer;
+    private OntologyPropertyRecognizer ontologyPropertyRecognizer;
 
     @Autowired
     private LocationEntityRecognizer locationEntityRecognizer;
 
     @Autowired
     private LanguageEntityRecognizer languageEntityRecognizer;
+
+    @Autowired
+    private ThemeEntityRecognizer themeEntityRecognizer;
+
+    @Autowired
+    private LicenseEntityRecognizer licenseEntityRecognizer;
 
     @Autowired
     private TimeEntityRecognizer timeEntityRecognizer;
@@ -52,10 +58,16 @@ public class QAService {
             languageRecognizer.annotate(question);
             nlpAnnotator.annotate(question);
             semanticAnalyzer.annotate(question);
+
             timeEntityRecognizer.annotate(question);
             locationEntityRecognizer.annotate(question);
             languageEntityRecognizer.annotate(question);
-            ontologyRecognizer.annotate(question);
+            themeEntityRecognizer.annotate(question);
+            licenseEntityRecognizer.annotate(question);
+
+
+            ontologyPropertyRecognizer.annotate(question);
+
             templateSelector.annotate(question);
             queryBuilder.annotate(question);
 

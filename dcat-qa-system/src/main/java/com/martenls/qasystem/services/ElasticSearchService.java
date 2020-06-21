@@ -16,6 +16,7 @@ import org.elasticsearch.common.unit.ByteSizeValue;
 import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
@@ -91,7 +92,7 @@ public class ElasticSearchService {
     }
 
     /**
-     * Query index with given name for given key and value pair and return
+     * Query index with given name for given key and value pair and return list of uris
      * @param key of key value pair that is wanted
      * @param value of key value pair that is wanted
      * @param index name of the index to query
@@ -177,7 +178,25 @@ public class ElasticSearchService {
      * @param mapping with properties of the index
      * @throws ESIndexUnavailableException if ES index can not be reached
      */
-    public void createIndex(String index, XContentBuilder mapping) throws ESIndexUnavailableException {
+    public void createIndex(String index, String mapping) throws ESIndexUnavailableException {
+        CreateIndexRequest request = new CreateIndexRequest(index);
+        request.mapping(mapping, XContentType.JSON);
+        try {
+            elasticSearchClient.indices().create(request, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            throw new ESIndexUnavailableException();
+        }
+        log.debug("Index " + index + " was created with response");
+
+    }
+
+    /**
+     * Sends an index creation request with the given name and mapping to the ES instance.
+     * @param index name of the index that should be created
+     * @param mapping with properties of the index
+     * @throws ESIndexUnavailableException if ES index can not be reached
+     */
+    public void createIndexXContent(String index, XContentBuilder mapping) throws ESIndexUnavailableException {
         CreateIndexRequest request = new CreateIndexRequest(index);
         request.mapping(mapping);
         try {
@@ -194,9 +213,9 @@ public class ElasticSearchService {
      * @param index name of the index where the mapping should be indexed
      * @param mapping that should be indexed
      */
-    public void makeIndexRequest(String index, XContentBuilder mapping) {
+    public void makeIndexRequest(String index, String mapping) {
         IndexRequest indexRequest = new IndexRequest(index);
-        indexRequest.source(mapping);
+        indexRequest.source(mapping, XContentType.JSON);
         this.bulkProcessor.add(indexRequest);
     }
 

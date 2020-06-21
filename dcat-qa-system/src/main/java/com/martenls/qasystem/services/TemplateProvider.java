@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class TemplateProvider {
 
-    @Value("${templates.file}")
+    @Value("${templates}")
     private String templateFilePath;
 
     private List<Template> templates;

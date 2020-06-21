@@ -1,5 +1,6 @@
 package com.martenls.qasystem.controllers;
 
+import com.martenls.qasystem.models.Answer;
 import com.martenls.qasystem.services.QAService;
 import com.martenls.qasystem.models.Question;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class QAController {
 
     @GetMapping("/qa")
     public String answerQuestion(@RequestParam String question) {
-        if (question != null) {
-            String answer = this.qaService.answerQuestion(new Question(question)).getAnswer().getAnswerJsonStr();
-            if (answer == null || answer.isEmpty()) {
+        if (question != null && !question.isBlank()) {
+            Answer answer = this.qaService.answerQuestion(new Question(question)).getAnswer();
+            if (answer == null || answer.getAnswerJsonStr().isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {
-                return answer;
+                return answer.getAnswerJsonStr();
             }
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -31,12 +32,12 @@ public class QAController {
 
     @PostMapping("/qa")
     public String answerQuestion(@RequestBody Question question) {
-        if (question != null && question.getQuestionStr() != null) {
-            String answer = this.qaService.answerQuestion(question).getAnswer().getAnswerJsonStr();
-            if (answer == null || answer.isEmpty()) {
+        if (question != null && !question.getQuestionStr().isBlank()) {
+            Answer answer = this.qaService.answerQuestion(question).getAnswer();
+            if (answer == null || answer.getAnswerJsonStr().isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {
-                return answer;
+                return answer.getAnswerJsonStr();
             }
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
