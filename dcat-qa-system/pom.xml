@@ -33,32 +33,6 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-<!--            <exclusions>
-                <exclusion>
-                    <artifactId>lucene-analyzers-common</artifactId>
-                    <groupId>org.apache.lucene</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>lucene-core</artifactId>
-                    <groupId>org.apache.lucene</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>joda-time</artifactId>
-                    <groupId>joda-time</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>lucene-queries</artifactId>
-                    <groupId>org.apache.lucene</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>lucene-queryparser</artifactId>
-                    <groupId>org.apache.lucene</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>lucene-sandbox</artifactId>
-                    <groupId>org.apache.lucene</groupId>
-                </exclusion>
-            </exclusions>-->
         </dependency>
         <dependency>
             <artifactId>lucene-core</artifactId>

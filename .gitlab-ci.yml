@@ -17,7 +17,7 @@ cache:
 
 stages:
   - build
-  - test
+  # - test
   - build-docker
 
 
@@ -74,33 +74,33 @@ build-qasystem:
     - shared
 
 
-test-qasystem:
-  stage: test
-  image: maven:3-openjdk-11
-  services:
-    - name: elasticsearch:7.7.0
-      alias: es
-      command: [ "bin/elasticsearch", "-Ediscovery.type=single-node" ]
-  before_script:
-    - cd dcat-qa-system
-  script:
-    - mvn $MAVEN_CLI_OPTS -Des.host=es -Des.port=9200 org.jacoco:jacoco-maven-plugin:0.8.5:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.5:report
-    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "%covered" }' target/site/jacoco/jacoco.csv
-  artifacts:
-    paths:
-      - dcat-qa-system/target/dcat-qa-system-0.0.1-SNAPSHOT.jar
-    reports:
-      junit:
-        - target/surefire-reports/TEST-*.xml
-  coverage: '/Code coverage: \d+.\d+ \% covered/'
-  tags:
-    - shared
+# test-qasystem:
+#   stage: test
+#   image: maven:3-openjdk-11
+#   services:
+#     - name: elasticsearch:7.7.0
+#       alias: es
+#       command: [ "bin/elasticsearch", "-Ediscovery.type=single-node" ]
+#   before_script:
+#     - cd dcat-qa-system
+#   script:
+#     - mvn $MAVEN_CLI_OPTS -Des.host=es -Des.port=9200 org.jacoco:jacoco-maven-plugin:0.8.5:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.5:report
+#     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "%covered" }' target/site/jacoco/jacoco.csv
+#   artifacts:
+#     paths:
+#       - dcat-qa-system/target/dcat-qa-system-0.0.1-SNAPSHOT.jar
+#     reports:
+#       junit:
+#         - target/surefire-reports/TEST-*.xml
+#   coverage: '/Code coverage: \d+.\d+ \% covered/'
+#   tags:
+#     - shared
 
 
 build-qasystem-docker:
   stage: build-docker
   needs:
-    - job: test-qasystem
+    - job: build-qasystem
       artifacts: true
   before_script:
     - cd dcat-qa-system
@@ -116,7 +116,7 @@ build-qasystem-docker:
     - shared
   only:
     changes:
-      - qa-system/version.txt
+      - dcat-qa-system/version.txt
 
 build-sninterface-botkit-twitter-docker:
   stage: build-docker
