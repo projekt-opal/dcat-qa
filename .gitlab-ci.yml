@@ -84,7 +84,7 @@ test-qasystem:
   before_script:
     - cd dcat-qa-system
   script:
-    - mvn $MAVEN_CLI_OPTS -Des.host=es org.jacoco:jacoco-maven-plugin:0.8.5:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.5:report
+    - mvn $MAVEN_CLI_OPTS -Des.host=es -Des.port=9200 org.jacoco:jacoco-maven-plugin:0.8.5:prepare-agent test org.jacoco:jacoco-maven-plugin:0.8.5:report
     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "%covered" }' target/site/jacoco/jacoco.csv
   artifacts:
     paths:
