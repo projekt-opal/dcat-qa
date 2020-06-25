@@ -17,7 +17,7 @@ cache:
 
 stages:
   - build
-  # - test
+  - test
   - build-docker
 
 
