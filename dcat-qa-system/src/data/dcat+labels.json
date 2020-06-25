@@ -257,7 +257,9 @@
       "date issued",
       "issued",
       "issue date",
-      "issue time"
+      "issue time",
+      "published",
+      "publish"
     ],
     "de": [
       "veröffentlichungsdatum",

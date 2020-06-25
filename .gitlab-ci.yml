@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
   - build-docker
 
 
@@ -47,26 +48,47 @@ build-qasystem:
   stage: build
   image: maven:latest
   before_script:
-    - cd qa-system
+    - cd dcat-qa-system
   script:
-    - mvn package
+    - mvn -DskipTests package
   artifacts:
     paths:
       - qa-system/target/qa-system-0.0.1-SNAPSHOT.jar
   tags:
     - shared
-  only:
-    changes:
-      - qa-system/version.txt
+
+
+test-qasystem:
+  stage: test
+  image: maven:latest
+  services:
+    - name: elasticsearch:7.7.0
+      alias: es
+  variables:
+    DISCOVERY_TYPE: "single-node"
+  before_script:
+    - cd dcat-qa-system
+  script:
+    - mvn -Des.host=es test
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "%covered" }' target/site/jacoco/jacoco.csv
+  artifacts:
+    paths:
+      - qa-system/target/qa-system-0.0.1-SNAPSHOT.jar
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+  coverage: '/Code coverage: \d+.\d+ \% covered/'
+  tags:
+    - shared
 
 
 build-qasystem-docker:
   stage: build-docker
   needs:
-    - job: build-qasystem
+    - job: test-qasystem
       artifacts: true
   before_script:
-    - cd qa-system
+    - cd dcat-qa-system
     - export VERSION=$(cat version.txt)
     - docker login -u martenls -p $DOCKER_REGISTRY_TOKEN $CI_REGISTRY
   script:

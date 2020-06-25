@@ -60,7 +60,7 @@ Templates:
 Improvements:
 
 - add indexing and recognition of formats
-- add indexing and recognition of themes
+- add indexing and recognition of themes✅
 - add indexing and recognition of languages✅
 - add tests
 - add more comments

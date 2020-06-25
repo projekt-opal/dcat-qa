@@ -10,17 +10,19 @@ es:
   license_index: licenses
 
 
-ontology: src/data/dcat+labels.json
+data-path: src/data
 
-launuts: src/data/launuts.ttl
+ontology: ${data-path}/dcat+labels.json
 
-templates: src/data/templates.txt
+launuts: ${data-path}/launuts.ttl
 
-languageEntities: src/data/languages-skos-ap-act.rdf
+templates: ${data-path}/templates.txt
 
-themeEntities: src/data/data-theme-skos-ap-act.rdf
+languageEntities: ${data-path}/languages-skos-ap-act.rdf
 
-licenseEntities: src/data/licences-skos-ap-act.rdf
+themeEntities: ${data-path}/data-theme-skos-ap-act.rdf
+
+licenseEntities: ${data-path}/licences-skos-ap-act.rdf
 
 sparql:
   endpoint: https://openbot.cs.upb.de/fuseki/opal/query
