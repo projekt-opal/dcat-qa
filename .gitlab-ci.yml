@@ -65,7 +65,7 @@ test-qasystem:
     - name: elasticsearch:7.7.0
       alias: es
   variables:
-    DISCOVERY_TYPE: "single-node"
+    discovery.type: "single-node"
   before_script:
     - cd dcat-qa-system
   script:
