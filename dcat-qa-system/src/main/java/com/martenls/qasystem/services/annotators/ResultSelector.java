@@ -47,7 +47,7 @@ public class ResultSelector implements QuestionAnnotator {
 
 
         if (!question.getQueryCandidates().isEmpty() && !resultCanditates.isEmpty()) {
-            question.setAnswer(new Answer(SPARQLService.resultSetToString(resultCanditates.get(0).getResultSet()), resultCanditates.get(0)));
+            question.setAnswer(new Answer(SPARQLService.resultSetToString(resultCanditates.get(0).getResultSet()), resultCanditates.get(0).getQueryStr()));
         }
 
         return question;

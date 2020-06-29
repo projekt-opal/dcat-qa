@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Log4j2
 @Service
@@ -42,6 +44,22 @@ public class SPARQLService {
             log.error(e);
         }
         return null;
+    }
+
+    public String increaseOffsetByX(String queryStr, int x) {
+        if (!queryStr.toLowerCase().contains("offset")) {
+            queryStr += "\n OFFSET 10";
+        } else {
+            Pattern offsetPattern = Pattern.compile("offset\\s*(\\d+)");
+            Matcher matcher = offsetPattern.matcher(queryStr.toLowerCase());
+            if (matcher.find()) {
+                int offset = Integer.parseInt(matcher.group(1));
+                offset += x;
+                queryStr = queryStr.replaceAll("(?i)offset\\s*(\\d+)", String.format("OFFSET %d", offset));
+            }
+
+        }
+        return queryStr;
     }
 
 }

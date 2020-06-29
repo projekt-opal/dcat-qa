@@ -31,7 +31,7 @@ public class TemplateProvider {
         } catch (IOException e) {
             log.error("Could not read template file: " + e.getMessage());
         }
-        this.templates = Arrays.stream(templateFile.replaceAll("[\n\r]", " ").split("---"))
+        this.templates = Arrays.stream(templateFile.replaceAll("\r", "").split("\n---\n"))
                 .map(Template::new)
                 .collect(Collectors.toList());
         log.debug("Successfully loaded " + templates.size() + " templates");
