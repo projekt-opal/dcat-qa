@@ -2,7 +2,9 @@ const { BotkitConversation } = require('botkit');
 
 const qa = require('../../qa');
 
-
+const formatResults = (results) => {
+    return `<pre style="width:inherit;overflow:auto">Results:\n${results}</pre>`;
+}
 
 module.exports = function(controller) {
 
@@ -31,26 +33,98 @@ module.exports = function(controller) {
             } else {
                 convo.gotoThread('fail_noconnect_thread')
             }
-        });        
+        });
+        answer.answer = formatResults(answer.answer);
         convo.setVar('qa_answer', answer);
     });
 
     
-    qa_dialog.addMessage('{{vars.qa_answer}}', 'answer_thread');
+    qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'answer_thread');
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
 
 
     // success thread    
-    qa_dialog.addMessage('OK, do you have more questions?', 'succ_thread'); 
+    qa_dialog.addQuestion(
+        {
+            text: 'OK, do you have more questions or do want to see more results for your last question?',
+            quick_replies: [
+                {
+                    label: 'more results',
+                    description: 'show me more results',
+                    title: 'more results',
+                    payload: 'show me more results'
+                },
+                {
+                    label: 'all results',
+                    description: 'show me all results',
+                    title: 'all results',
+                    payload: 'show me all results'
+                },
+            ]
+        },
+        [
+            {
+                pattern: 'show me more results',
+                handler: async function(response, convo, bot) {
+                    const query = convo.vars.more_results ? convo.vars.more_results.query : convo.vars.qa_answer.query;
+                    const results = await qa.getMoreResults(query).catch(err => {
+                        if (err == 'noanswer') {
+                            convo.gotoThread('fail_no_more_results_thread');
+                        } else {
+                            convo.gotoThread('fail_noconnect_thread')
+                        }
+                    });
+                    results.answer = formatResults(results.answer)
+                    convo.setVar('more_results', results);
+                    await convo.gotoThread('more_results_thread');
+                },
+            },
+            {
+                pattern: 'show me all results',
+                handler: async function(response, convo, bot) {
+                    const link = await qa.getLinkToFusekiWithQuery(convo.vars.qa_answer.query).catch(err => {
+                        if (err == 'noanswer') {
+                            convo.gotoThread('fail_no_more_results_thread');
+                        } else {
+                            convo.gotoThread('fail_noconnect_thread')
+                        }
+                    });
+                    convo.setVar('all_results_link', link);
+                    await convo.gotoThread('all_results_thread');
+                },
+            },
+            {
+                default: true,
+                handler: async function(response, convo, bot) {
+                    convo.vars.text = response;     
+                    convo.gotoThread('qa');
+                },
+            }
+        ],
+        'answer', 'succ_thread'); 
+
+    qa_dialog.addMessage('{{{vars.more_results.answer}}}', 'more_results_thread');
+    qa_dialog.addAction('succ_thread', 'more_results_thread')
+
+    qa_dialog.addMessage('<a target="_blank" rel="noopener noreferrer" href="{{{vars.all_results_link}}}">Link to Fuseki with Query</a>', 'all_results_thread');
+    qa_dialog.addAction('complete', 'all_results_thread')
+
+    // no more results thread
+    qa_dialog.addMessage('Sorry apparently there no more results.', 'fail_no_more_results_thread');
+    qa_dialog.addMessage('Do you have other questions anyway?', 'fail_no_more_results_thread');
+    qa_dialog.addAction('complete', 'fail_no_more_results_thread')
 
     // noanswer failure thread
     qa_dialog.addMessage('Sorry unfortunately I could not answer your question.', 'fail_noanswer_thread');
     qa_dialog.addMessage('Do you have other questions anyway?', 'fail_noanswer_thread');
+    qa_dialog.addAction('complete', 'fail_noanswer_thread');
+
 
     // noconnect failure thread
     qa_dialog.addMessage('Sorry unfortunately the QA system is currently unavailable.','fail_noconnect_thread');
     qa_dialog.addMessage('Maybe try again later.','fail_noconnect_thread');
+    qa_dialog.addAction('complete', 'fail_noconnect_thread');
 
     controller.addDialog(qa_dialog);
 
