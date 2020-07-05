@@ -14,11 +14,11 @@ public class SemanticPropertyIndicators {
 
     // copied from tebaqa
     private static final List<String> ASC_INDICATORS_EN = List.of("first", "oldest", "smallest", "lowest", "shortest", "least");
-    private static final List<String> DESC_INDICATORS_EN = List.of("largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest");
+    private static final List<String> DESC_INDICATORS_EN = List.of("largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent");
     private static final List<String> COUNT_INDICATORS_EN = List.of("how many", "how much");
 
     private static final List<String> ASC_INDICATORS_DE = List.of("erste", "älteste", "kleinste", "niedrigste", "kürzeste", "wenigste");
-    private static final List<String> DESC_INDICATORS_DE = List.of("letzte", "jüngste", "neueste", "größte", "höchste", "längste", "meiste");
+    private static final List<String> DESC_INDICATORS_DE = List.of("letzte", "jüngste", "neueste", "größte", "höchste", "längste", "meiste", "zuletzt", "letztes", "neulich", "vor kurzem");
     private static final List<String> COUNT_INDICATORS_DE = List.of("wie viele", "wie viel");
 
 

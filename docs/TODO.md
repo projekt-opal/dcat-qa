@@ -56,15 +56,42 @@ Templates:
 - parse templates from file and analyze properties✅
 - add more templates
 
+Web-Bot:
+- better message formatting for results
+- more results/ all results quick replies
 
-Improvements:
+Twitter-Bot:
+- more results quick reply
+- all results cta
+- new qa dialog flow
+- more results/ all results for tweets?
+- 
+
+
+QA-Improvements:
 
 - add indexing and recognition of formats
 - add indexing and recognition of themes✅
 - add indexing and recognition of languages✅
 - add tests
 - add more comments
-- recognize temporal words like month, year etc✅
+- recognize temporal words like month, year etc (in english)✅
 - word stemming for better entity recognition
 - add more labels to dcat properties (dcat:modified -> modified)✅
 - removing stop words✅
+- support for 'exists' queries
+- recognition of german time entities
+- recognize 'how big/the biggest file/...' -> byte size
+
+QA-Bugs:
+
+- recognition of relative time entities
+
+
+Bot-Improvements:
+
+- better chat interface
+  - message formatting in frontend
+  - design
+  - language switch
+  - input sanitation (html/js injection possible atm)

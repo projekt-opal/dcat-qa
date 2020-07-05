@@ -34,7 +34,10 @@
         "spatial coverage"
       ],
       "de": [
-        "räumliche abdeckung"
+        "räumliche abdeckung",
+        "ort",
+        "statdt",
+        ""
       ]
     }
   },
@@ -210,10 +213,21 @@
     "uri": "http://purl.org/dc/terms/modified",
     "labels": {
       "en": [
-        "date modified"
+        "date modified",
+        "modified",
+        "modify",
+        "modification",
+        "change",
+        "changed",
+        "changed",
+        "altered"
       ],
       "de": [
-        "aktualisierungsdatum"
+        "aktualisierungsdatum",
+        "geändert",
+        "änderung",
+        "modifiziert",
+        "modifizierung"
       ]
     }
   },
@@ -256,6 +270,7 @@
         "identification"
       ],
       "de": [
+        "identifier",
         "kennung",
         "identifizierung",
         "bezeichnung",
@@ -294,7 +309,8 @@
       ],
       "de": [
         "format",
-        "dateiformat"
+        "dateiformat",
+        "datenformat"
       ]
     }
   },

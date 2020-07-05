@@ -3,6 +3,11 @@ WHERE {
     ?var0 <prop0> <entity0>
 }
 ---
+SELECT DISTINCT ?var1
+WHERE {
+    ?var0 <prop0> ?var1
+}
+---
 SELECT ?var0
 WHERE {
     ?var0 <prop0> ?var1
@@ -28,7 +33,25 @@ WHERE {
 SELECT ?var0
 WHERE {
     ?var0 <prop0> ?var1.
+    ?var0 <prop1> <entity0>
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
     ?var1 <prop1> <entity0>
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2
+}
+---
+SELECT ?var2
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2
 }
 ---
 SELECT ?var0
@@ -44,6 +67,12 @@ WHERE {
     ?var1 <prop1> <entity0>
 }
 ---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> <entity0>.
+    ?var0 <prop1> <entity1>
+}
+---
 SELECT ?var1
 WHERE {
     ?var0 <prop0> ?var1.
@@ -51,6 +80,30 @@ WHERE {
     FILTER ( ?var2 IN (<stringArray0>) )
 }
 ---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>.
+    ?var1 <prop2> ?var2
+    FILTER ( ?var2 IN (<stringArray0>) )
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>.
+    ?var1 <prop2> ?var2.
+    ?var2 <prop3> ?var3
+    FILTER ( ?var3 IN (<stringArray0>) )
+}
+---
+SELECT ?var0
+WHERE {
+    ?var0 <prop0> <entity0>.
+    ?var0 <prop1> ?var1
+    FILTER ( ?var1 IN (<stringArray0>) )
+}
+---
 SELECT (COUNT(DISTINCT ?var0) AS ?count)
 WHERE {
     ?var0 <prop0> ?var1.
@@ -76,7 +129,6 @@ WHERE {
     ?var1 <prop1> ?var2
     FILTER ( ?var2 IN (<stringArray0>) )
 }
-
 ---
 SELECT ?var0 (COUNT(?var1) AS ?count)
 WHERE {
@@ -101,6 +153,20 @@ WHERE {
 }
 ---
 SELECT ?var0
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var0 <prop1> <entity0>.
+    FILTER ( ?var1 >= <lbound0> && ?var1 <= <rbound0>)
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    FILTER ( ?var2 >= <lbound0> && ?var2 <= <rbound0>)
+}
+---
+SELECT ?var1
 WHERE {
     ?var0 <prop0> ?var1.
     ?var0 <prop1> <entity0>.
@@ -155,4 +221,34 @@ WHERE {
     ?var0 <prop0> ?var1.
     ?var1 <prop1> <entity0>.
     ?var1 <prop2> <entity1>.
+}
+---
+SELECT (COUNT(DISTINCT ?var1) AS ?count)
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>.
+    ?var1 <prop2> <entity1>.
+}
+---
+SELECT (COUNT(DISTINCT ?var1) AS ?count)
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    ?var2 <prop1> ?var3.
+    FILTER ( ?var3 IN (<stringArray0>) )
+}
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> <entity0>.
+    ?var1 <prop2> ?var2.
+}
+ORDER BY DESC(?var2)
+---
+SELECT ?var1
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    ?var2 <prop2> <entity0>.
 }

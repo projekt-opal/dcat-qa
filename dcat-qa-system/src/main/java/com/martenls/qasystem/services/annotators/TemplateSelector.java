@@ -75,8 +75,10 @@ public class TemplateSelector implements QuestionAnnotator {
         }
 
         // string literals -> template with filter
-        if (template.hasStringMatchingFilter() && !question.getStringLiterals().isEmpty()) {
+        if (template.hasStringMatchingFilter() == !question.getStringLiterals().isEmpty()) {
             rating += 10;
+        } else {
+            return 0;
         }
         // temporal entity with interval -> template with interval filter
         if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
