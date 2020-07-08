@@ -16,32 +16,39 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        const answer = await qa.askQuestion(convo.vars.text).catch(err => {
-            if (err.message == 'noanswer') {
+        const question = convo.vars.text.replace(/\B@[a-z0-9_-]+/gi, '').trim();
+        const answer = await qa.askQuestion(question).catch(err => {
+            if (err == 'noanswer') {
                 convo.gotoThread('fail_noanswer_thread');
             } else {
-                convo.gotoThread('fail_noconnect_thread')
+                convo.gotoThread('fail_noconnect_thread');
             }
-        });        
+        });
+        const link = await qa.getLinkToFusekiWithQuery(answer.query).catch(err => {
+            if (err == 'noanswer') {
+                convo.gotoThread('fail_no_more_results_thread');
+            } else {
+                convo.gotoThread('fail_noconnect_thread');
+            }
+        });
+        convo.setVar('all_results_link', link);
         convo.setVar('qa_answer', answer);
     });
 
     
-    qa_dialog.addMessage({type: 'tweet', text: '{{{vars.qa_answer}}}'}, 'answer_thread');
-    qa_dialog.addAction('succ_thread', 'answer_thread');
+    qa_dialog.addMessage({type: 'tweet', text: '{{{vars.qa_answer.answer}}}'}, 'answer_thread');
+    qa_dialog.addMessage({type: 'tweet', text: 'Hier kannst du dir alle Ergebnisse angucken: {{{vars.all_results_link}}}'}, 'answer_thread');
+    qa_dialog.addAction('complete', 'answer_thread');
 
 
-
-    // success thread    
-    qa_dialog.addMessage({type: 'tweet', text: 'OK, hast du noch weitere Fragen?'}, 'succ_thread'); 
 
     // noanswer failure thread
     qa_dialog.addMessage({type: 'tweet', text: 'Sorry leider konnte ich die Frage nicht beantworten.'}, 'fail_noanswer_thread');
-    qa_dialog.addMessage({type: 'tweet', text: 'Hast du trotzdem noch andere Fragen?'}, 'fail_noanswer_thread');
-
+    qa_dialog.addAction('complete', 'fail_noanswer_thread');
     // noconnect failure thread
     qa_dialog.addMessage({type: 'tweet', text: 'Sorry anscheinend ist das QA-System gerade nicht erreichbar.'}, 'fail_noconnect_thread');
     qa_dialog.addMessage({type: 'tweet', text: 'Versuch es später noch einmal.'}, 'fail_noconnect_thread');
+    qa_dialog.addAction('complete', 'fail_noconnect_thread');
 
     controller.addDialog(qa_dialog);
 

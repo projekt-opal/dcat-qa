@@ -65,7 +65,7 @@ async function getMoreResults(query) {
 
 async function getLinkToFusekiWithQuery(query) {
   return new Promise((resolve, reject) => {
-    resolve(`${fusekiURL}/dataset.html?tab=query&ds=/${fusekiDatasetName}&query=${encodeURIComponent(query)}`)
+    resolve(fusekiURL + '/dataset.html?tab=query&ds=/' + fusekiDatasetName + '&query=' + encodeURIComponent(query))
   });
 }
 
@@ -78,7 +78,7 @@ function stringfyResultsJSON(results) {
     for (let varName of results.head.vars) {
       if (binding[varName] !== undefined) {
         answersString += 
-        `${varName}: ${binding[varName].value}\n`
+        `${varName}: ${binding[varName].value}` + '\n'
       }
     }
 

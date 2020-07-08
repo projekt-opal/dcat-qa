@@ -7,6 +7,7 @@
  */
 import * as url from 'url';
 import * as Debug from 'debug';
+import * as twitter_text from 'twitter-text';
 
 import { TwitterAPI, TwitterOAuth, AuthType, PayloadType } from './twitter_api';
 import { TwitterWebhookHelper } from './twitter_webhook_helper';
@@ -203,7 +204,24 @@ export class TwitterAdapter extends BotAdapter {
      * @param activity The activity to be converted to tweet objects.
      */
     private activityToTweets(activity: any): any {
-        let texts = activity.text.match(/(.|\n|\r){1,280}/g);
+        let text = activity.text;
+        let texts = [];
+
+        let startIndex = 0;
+        let endIndex = 0;
+        let validEndIndex = 0;
+
+        while (startIndex < activity.text.length - 1) {
+            validEndIndex = twitter_text.parseTweet(text.substring(startIndex)).validRangeEnd + startIndex
+            endIndex = text.substring(startIndex, validEndIndex).lastIndexOf('\n') + startIndex;
+            if (endIndex === -1 || endIndex === startIndex) {
+                endIndex = validEndIndex;
+            }
+            texts.push(text.substring(startIndex, endIndex + 1));
+            startIndex = endIndex;
+            
+        }
+       
         return texts.map((text) => {return {
             status: text,
             auto_populate_reply_metadata: true,
@@ -312,16 +330,16 @@ export class TwitterAdapter extends BotAdapter {
                 await this.processSingleDM(event.direct_message_events[i], logic);
             }
         }
-        if (event.direct_message_indicate_typing_events) {
-            for (let i = 0; i < event.direct_message_indicate_typing_events.length; i++) {
-                await this.processSingleDMTypingEvent(event.direct_message_indicate_typing_events[i], logic);
-            }
-        }
-        if (event.direct_message_mark_read_events) {
-            for (let i = 0; i < event.direct_message_mark_read_events.length; i++) {
-                await this.processSingleMarkReadEvent(event.direct_message_mark_read_events[i], logic);
-            }
-        }
+        // if (event.direct_message_indicate_typing_events) {
+        //     for (let i = 0; i < event.direct_message_indicate_typing_events.length; i++) {
+        //         await this.processSingleDMTypingEvent(event.direct_message_indicate_typing_events[i], logic);
+        //     }
+        // }
+        // if (event.direct_message_mark_read_events) {
+        //     for (let i = 0; i < event.direct_message_mark_read_events.length; i++) {
+        //         await this.processSingleMarkReadEvent(event.direct_message_mark_read_events[i], logic);
+        //     }
+        // }
         res.status(200);
         res.end();
     }
@@ -425,7 +443,7 @@ export class TwitterAdapter extends BotAdapter {
      */
     private async processSingleMentionTweet(tweet: any, logic: any) {
         // filter out messages sent by the bot
-        if (tweet.user.id_str != this.user.id_str && tweet.in_reply_to_user_id_str == this.user.id_str) {
+        if (tweet.user.id_str != this.user.id_str && (tweet.in_reply_to_user_id_str == this.user.id_str || this.doesTweetMentionUser(tweet, this.user.id_str)) ) {
             const activity: Activity = {
                 channelId: 'twitter',
                 timestamp: new Date(),
@@ -455,7 +473,21 @@ export class TwitterAdapter extends BotAdapter {
         }     
     }
 
-
+    /**
+     * Checks wether the given tweet mentions the user with the given id.
+     * @param tweet to check
+     * @param userid of user
+     */
+    private doesTweetMentionUser(tweet: any, userid: string) {
+        if (tweet.entities && tweet.entities.user_mentions && tweet.entities.user_mentions.length > 0) {
+            for (const mention of tweet.entities.user_mentions) {
+                if (mention.id_str === userid) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 
 /**
