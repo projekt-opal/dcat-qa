@@ -30,25 +30,21 @@ module.exports = function(controller) {
     const quick_replies = [
         {
             label: 'opal?',
-            description: 'opal?',
             title: 'opal?',
             payload: 'opal?'
         },
         {
             label: 'open data?',
-            description: 'open data?',
             title: 'open data?',
             payload: 'open data?'
         },
         {
             label: 'for example?',
-            description: '',
             title: 'for example?',
             payload: 'for example?'
         },
         {
             label: 'themes?',
-            description: '',
             title: 'themes?',
             payload: 'themes?'
         }
@@ -82,7 +78,7 @@ module.exports = function(controller) {
         /^what do you mean with opal\??$/i,
         /^what is the meaning of opal\??$/i,
     ], ['message', 'tweet'], async (bot, message) => {
-        bot.reply(message, 
+        await bot.reply(message, 
             {
                 type: message.type,
                 text: 'OPAL means "Open Data Portal Germany" and is a central platform that provides open data published by various german government agencies',
@@ -107,31 +103,44 @@ module.exports = function(controller) {
         )
     });
     controller.hears([
-        /^for example\?$/i
+        /^for example\?$/i,
+        /^show me an example\?$/,
+        /^can you give me an example\?$/,
     ], ['message', 'tweet'], async (bot, message) => {
         const question = questions[Math.floor(Math.random() * questions.length)];
         await qa.askQuestion(question).then(
             async answer => {
-                await bot.reply(message, question);
-                await bot.say(answer.answer);
+                await bot.reply(message, {
+                    type: message.type,
+                    text: question
+                });
+                await bot.say({
+                    type: message.type,
+                    text: answer.answer
+                });
             }
-        );
-        
-    });
+        ).catch(async err => {
+            await bot.say({
+                type: message.type,
+                text: 'Sorry unfortunately the QA system is currently unavailable.'
+            });
+        });
+    })
     controller.hears([
         /^themes\??$/i,
         /^what (themes|topics) does the data cover\??$/i,
         /^for what (themes|topics) is data available\??$/i,
     ], ['message', 'tweet'], async (bot, message) => {
-        themes.forEach(async theme => {
-            await bot.reply(message, theme)
+        await bot.reply(message, {
+            type: message.type,
+            text: themes.join('\n')
         });
         await bot.say(
             {
+                type: message.type,
                 text: 'Those are the available themes.',
                 quick_replies: quick_replies
             }
         )
-        
     });
 }

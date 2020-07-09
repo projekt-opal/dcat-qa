@@ -29,20 +29,22 @@ module.exports = function(controller) {
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
         if (convo.vars.text) {
-            const answer = await qa.askQuestion(convo.vars.text).catch(err => {
+            await qa.askQuestion(convo.vars.text).then(answer => {
+                answer.answer = formatResults(answer.answer);
+                convo.setVar('qa_answer', answer);
+            }).catch(err => {
                 if (err == 'noanswer') {
                     convo.gotoThread('fail_noanswer_thread');
                 } else {
                     convo.gotoThread('fail_noconnect_thread')
                 }
             });
-            answer.answer = formatResults(answer.answer);
-            convo.setVar('qa_answer', answer);
+            
         } 
     });
 
     
-    qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'answer_thread');
+    qa_dialog.addMessage('Ergebnisse:\n{{{vars.qa_answer.answer}}}', 'answer_thread');
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
 

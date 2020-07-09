@@ -1,9 +1,13 @@
+const qa = require('../../qa');
+const { BotkitTestClient } = require('botkit');
+
+
 module.exports = function(controller) {
     const greetings = [
         'Hallo! Ich bin der OPAL Open Data Bot. Du kannst mir Fragen zu Metadaten in der OPAL Datenbank fragen.',
         'Hi! Ich bin der OPAL Open Data Bot und beantworte Fragen zu Metadaten in der OPAL Datenbank.',
         'Hey 👋 Der OPAL Open Data Bot hier. Ich beantworte Fragen zu Metadaten in der OPAL Datenbank.'
-        ];
+    ];
     const questions = [
         'Was für Datensätze existieren für Rostock?',
         'Was für Datensätze gibt es mit dem Thema Verkehr?',
@@ -24,6 +28,29 @@ module.exports = function(controller) {
         'Gesundheit',
         'Internationale Themen'
     ];
+    const quick_replies = [
+        {
+            label: 'opal?',
+            title: 'opal?',
+            payload: 'opal?'
+        },
+        {
+            label: 'open data?',
+            title: 'open data?',
+            payload: 'open data?'
+        },
+        {
+            label: 'zum beispiel?',
+            title: 'zum beispiel?',
+            payload: 'zum beispiel?'
+        },
+        {
+            label: 'themen?',
+            title: 'themen?',
+            payload: 'themen?'
+        }
+    ];
+
     controller.hears([
         /^hi$/i,
         /^hello$/i,
@@ -40,32 +67,7 @@ module.exports = function(controller) {
             {
                 type: message.type,
                 text: greetings[Math.floor(Math.random() * greetings.length)],
-                quick_replies: [
-                    {
-                        label: 'opal?',
-                        description: 'opal?',
-                        title: 'opal?',
-                        payload: 'opal?'
-                    },
-                    {
-                        label: 'open data?',
-                        description: 'open data?',
-                        title: 'open data?',
-                        payload: 'open data?'
-                    },
-                    {
-                        label: 'zum beispiel?',
-                        description: '',
-                        title: 'zum beispiel?',
-                        payload: 'zum beispiel?'
-                    },
-                    {
-                        label: 'themen?',
-                        description: '',
-                        title: 'themen?',
-                        payload: 'themen?'
-                    }
-                ]
+                quick_replies: quick_replies
             }
         )
     });
@@ -80,7 +82,9 @@ module.exports = function(controller) {
         await bot.reply(message, 
             {
                 type: message.type,
-                text:'OPAL steht für "Open Data Portal Germany" und ist ein ganzheitliches Portal für offene Daten. (http://projekt-opal.de/)'
+                text:'OPAL steht für "Open Data Portal Germany" und ist ein ganzheitliches Portal für offene Daten. (http://projekt-opal.de/)',
+                quick_replies: quick_replies
+
             });
     });
     controller.hears([
@@ -94,11 +98,15 @@ module.exports = function(controller) {
         await bot.reply(message, 
             {
                 type: message.type,
-                text: 'Als Open Data (aus englisch open data ‚offene Daten‘) werden Daten bezeichnet, die von jedermann zu jedem Zweck genutzt, weiterverbreitet und weiterverwendet werden dürfen. (https://de.wikipedia.org/wiki/Open_Data)'
+                text: 'Als Open Data (aus englisch open data ‚offene Daten‘) werden Daten bezeichnet, die von jedermann zu jedem Zweck genutzt, weiterverbreitet und weiterverwendet werden dürfen. (https://de.wikipedia.org/wiki/Open_Data)',
+                quick_replies: quick_replies
             })
     });
     controller.hears([
-        /^zum beispiel\?$/i
+        /^zum beispiel\?$/i,
+        /^zeig mir ein beispiel\?$/i,
+        /^was wäre ein beispiel\?$/i,
+        /^kannst du mir ein beispiel zeigen\?$/i,
     ], ['message', 'tweet'], async (bot, message) => {
         const question = questions[Math.floor(Math.random() * questions.length)];
         await qa.askQuestion(question).then(
@@ -112,20 +120,28 @@ module.exports = function(controller) {
                     text: answer.answer
                 });
             }
-        );
-        
+        ).catch(async err => {
+            await bot.say({
+                type: message.type,
+                text: 'Sorry anscheinend ist das QA-System gerade nicht erreichbar.'
+            })
+        });
     });
     controller.hears([
         /^themen\??$/i,
         /^zu was für themen gibt es daten\??$/i,
         /^was für themenbereiche gibt es\??$/i,
     ], ['message', 'tweet'], async (bot, message) => {
-        themes.forEach(async theme => {
-            await bot.reply(message, {
-                type: message.type,
-                text: theme
-            })
+        await bot.reply(message, {
+            type: message.type,
+            text: themes.join('\n')
         });
-        
+        await bot.say(
+            {
+                type: message.type,
+                text: 'Das sind die verfügbaren Themen.',
+                quick_replies: quick_replies
+            }
+        );
     });
 }

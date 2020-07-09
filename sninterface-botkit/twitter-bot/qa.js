@@ -28,7 +28,7 @@ async function askQuestion(question) {
         }
       )
       .catch(err => {
-        if (err.response.status == 500) {
+        if (err.response && err.response.status == 500) {
           reject('noanswer');
         } else {
           reject('other');
@@ -54,7 +54,7 @@ async function getMoreResults(query) {
         }
       )
       .catch(err => {
-        if (err.response.status == 500) {
+        if (err.response && err.response.status == 500) {
           reject('noanswer');
         } else {
           reject('other');

@@ -1,11 +1,7 @@
 const { BotkitConversation } = require('botkit');
 
 const qa = require('../../qa');
-
-const formatResults = (results) => {
-    return `<pre style="width:inherit;overflow:auto">Ergebnisse:\n${results}</pre>`;
-}
-
+const utils = require('../../utils');
 
 module.exports = function(controller) {
 
@@ -29,15 +25,17 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        const answer = await qa.askQuestion(convo.vars.text).catch(err => {
-            if (err == 'noanswer') {
-                convo.gotoThread('fail_noanswer_thread');
-            } else {
-                convo.gotoThread('fail_noconnect_thread')
-            }
-        });
-        answer.answer = formatResults(answer.answer);
-        convo.setVar('qa_answer', answer);
+        await qa.askQuestion(convo.vars.text).then(
+            answer => {
+                answer.answer = utils.formatAsPre('Ergebnisse:\n' + answer.answer);
+                convo.setVar('qa_answer', answer);
+            }).catch(err => {
+                if (err == 'noanswer') {
+                    convo.gotoThread('fail_noanswer_thread');
+                } else {
+                    convo.gotoThread('fail_noconnect_thread')
+                }
+            });
     });
 
     
@@ -77,7 +75,7 @@ module.exports = function(controller) {
                             convo.gotoThread('fail_noconnect_thread')
                         }
                     });
-                    results.answer = formatResults(results.answer)
+                    results.answer = utils.formatAsPre('Ergebnisse:\n' + results.answer)
                     convo.setVar('more_results', results);
                     await convo.gotoThread('more_results_thread');
                 },

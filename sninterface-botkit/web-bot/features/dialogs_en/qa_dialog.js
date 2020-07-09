@@ -1,10 +1,8 @@
 const { BotkitConversation } = require('botkit');
 
 const qa = require('../../qa');
+const utils = require('../../utils')
 
-const formatResults = (results) => {
-    return `<pre style="width:inherit;overflow:auto">Results:\n${results}</pre>`;
-}
 
 module.exports = function(controller) {
 
@@ -27,15 +25,19 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        const answer = await qa.askQuestion(convo.vars.text).catch(err => {
-            if (err.message == 'noanswer') {
+        const answer = await qa.askQuestion(convo.vars.text).then(
+            answer => {
+                answer.answer = utils.formatAsPre('Results:\n' + answer.answer);
+                convo.setVar('qa_answer', answer);
+            })
+            .catch(err => {
+            if (err == 'noanswer') {
                 convo.gotoThread('fail_noanswer_thread');
             } else {
                 convo.gotoThread('fail_noconnect_thread')
             }
         });
-        answer.answer = formatResults(answer.answer);
-        convo.setVar('qa_answer', answer);
+        
     });
 
     
@@ -75,7 +77,7 @@ module.exports = function(controller) {
                             convo.gotoThread('fail_noconnect_thread')
                         }
                     });
-                    results.answer = formatResults(results.answer)
+                    results.answer = utils.formatAsPre('Results:\n' + results.answer)
                     convo.setVar('more_results', results);
                     await convo.gotoThread('more_results_thread');
                 },
@@ -111,7 +113,7 @@ module.exports = function(controller) {
     qa_dialog.addAction('complete', 'all_results_thread')
 
     // no more results thread
-    qa_dialog.addMessage('Sorry apparently there no more results.', 'fail_no_more_results_thread');
+    qa_dialog.addMessage('Sorry apparently there are no more results.', 'fail_no_more_results_thread');
     qa_dialog.addMessage('Do you have other questions anyway?', 'fail_no_more_results_thread');
     qa_dialog.addAction('complete', 'fail_no_more_results_thread')
 

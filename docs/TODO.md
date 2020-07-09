@@ -57,14 +57,14 @@ Templates:
 - add more templates
 
 Web-Bot:
-- better message formatting for results
-- more results/ all results quick replies
+- better message formatting for results✅
+- more results/ all results quick replies✅
 
 Twitter-Bot:
-- more results quick reply
-- all results cta
-- new qa dialog flow
-- more results/ all results for tweets?
+- more results quick reply✅
+- all results cta❌
+- new qa dialog flow✅
+- more results/ all results for tweets?❌
 - 
 
 

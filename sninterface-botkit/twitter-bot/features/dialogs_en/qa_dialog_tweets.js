@@ -36,7 +36,7 @@ module.exports = function(controller) {
     });
 
     
-    qa_dialog.addMessage({type: 'tweet', text: '{{{vars.qa_answer.answer}}}'}, 'answer_thread');
+    qa_dialog.addMessage({type: 'tweet', text: 'Results:\n{{{vars.qa_answer.answer}}}'}, 'answer_thread');
     qa_dialog.addMessage({type: 'tweet', text: '{{{vars.all_results_link}}}'}, 'answer_thread');
     qa_dialog.addAction('complete', 'answer_thread');
 

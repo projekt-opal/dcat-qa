@@ -28,20 +28,22 @@ module.exports = function(controller) {
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
         if (convo.vars.text) {
-            const answer = await qa.askQuestion(convo.vars.text).catch(err => {
-                if (err.message == 'noanswer') {
+            await qa.askQuestion(convo.vars.text).then(answer => {
+                answer.answer = formatResults(answer.answer);
+                convo.setVar('qa_answer', answer);
+            }).catch(err => {
+                if (err == 'noanswer') {
                     convo.gotoThread('fail_noanswer_thread');
                 } else {
                     convo.gotoThread('fail_noconnect_thread')
                 }
             });
-            answer.answer = formatResults(answer.answer);
-            convo.setVar('qa_answer', answer);
+            
         }
     });
 
     
-    qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'answer_thread');
+    qa_dialog.addMessage('Results:\n{{{vars.qa_answer.answer}}}', 'answer_thread');
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
 
@@ -115,7 +117,7 @@ module.exports = function(controller) {
     qa_dialog.addAction('complete', 'all_results_thread');
 
     // no more results thread
-    qa_dialog.addMessage('Sorry apparently there no more results.', 'fail_no_more_results_thread');
+    qa_dialog.addMessage('Sorry apparently there are no more results.', 'fail_no_more_results_thread');
     qa_dialog.addMessage('Do you have other questions anyway?', 'fail_no_more_results_thread');
     qa_dialog.addAction('complete', 'fail_no_more_results_thread');
     // noanswer failure thread
