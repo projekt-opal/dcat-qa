@@ -9,6 +9,7 @@ RUN npm install
 
 COPY bot.js .
 COPY qa.js .
+COPY utils.js .
 
 COPY public public
 COPY sass sass
