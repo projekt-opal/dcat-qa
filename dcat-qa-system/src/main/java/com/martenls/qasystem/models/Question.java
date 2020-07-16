@@ -27,9 +27,10 @@ public class Question {
     private Set<String> languageEntities;
     private Set<String> themeEntities;
     private Set<String> licenseEntities;
-    private Set<String> fileFormatEntities;
+    private Set<String> filetypeEntities;
     private List<Calendar> timeEntities;
     private List<Pair<Calendar, Calendar>> timeIntervalEntities;
+    private Set<String> frequencyEntities;
     private Set<Question.properties> additionalProperties;
     private List<String> stringLiterals;
 
@@ -60,9 +61,10 @@ public class Question {
         this.languageEntities = new HashSet<>();
         this.themeEntities = new HashSet<>();
         this.licenseEntities = new HashSet<>();
-        this.fileFormatEntities = new HashSet<>();
+        this.filetypeEntities = new HashSet<>();
         this.timeEntities = new ArrayList<>();
         this.timeIntervalEntities = new ArrayList<>();
+        this.frequencyEntities = new HashSet<>();
         this.additionalProperties = new HashSet<>();
         this.stringLiterals = new ArrayList<>();
 
@@ -76,11 +78,11 @@ public class Question {
     }
 
     public List<String> getEntities() {
-        return Stream.of(this.locationEntities, this.languageEntities, this.themeEntities, this.licenseEntities, this.fileFormatEntities).flatMap(Collection::stream).collect(Collectors.toList());
+        return Stream.of(this.ontologyClasses, this.locationEntities, this.languageEntities, this.themeEntities, this.licenseEntities, this.filetypeEntities, this.frequencyEntities).flatMap(Collection::stream).collect(Collectors.toList());
     }
 
     public int getEntityCount() {
-        return this.locationEntities.size() + this.languageEntities.size() + this.themeEntities.size() + this.licenseEntities.size() + this.fileFormatEntities.size() + this.timeEntities.size();
+        return this.ontologyClasses.size() + this.locationEntities.size() + this.languageEntities.size() + this.themeEntities.size() + this.licenseEntities.size() + this.filetypeEntities.size() + this.timeEntities.size() + this.frequencyEntities.size();
     }
 
     @Override

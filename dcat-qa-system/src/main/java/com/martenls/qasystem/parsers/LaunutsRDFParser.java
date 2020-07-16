@@ -1,6 +1,6 @@
 package com.martenls.qasystem.parsers;
 
-import com.martenls.qasystem.models.Location;
+import com.martenls.qasystem.models.LabeledURI;
 import lombok.extern.log4j.Log4j2;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.rio.helpers.AbstractRDFHandler;
@@ -9,21 +9,19 @@ import org.eclipse.rdf4j.rio.turtle.TurtleParser;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+
 
 
 @Log4j2
-public class LaunutsRDFParser {
+public class LaunutsRDFParser extends EntityRDFParser{
 
-    private final Map<String, Location> parsedLocations;
 
     public LaunutsRDFParser() {
-        this.parsedLocations = new HashMap<>();
+        super(new String[]{"de"});
     }
 
+    @Override
     public void parse(String path) {
         TurtleParser parser = new TurtleParser();
         parser.setRDFHandler(new LaunutsRDFParser.LaunutsStatementHandler());
@@ -44,23 +42,18 @@ public class LaunutsRDFParser {
             String object = st.getObject().stringValue();
 
             if (object.equals("http://projekt-opal.de/launuts/LAU")) {
-                parsedLocations.put(subject, new Location(subject));
+                parsedEntities.put(subject, new LabeledURI(subject));
             }
-            if (parsedLocations.containsKey(subject)) {
-                if (predicate.equals("http://www.w3.org/2004/02/skos/core#prefLabel")) {
-                    parsedLocations.get(subject).setPref_label(object);
-                }
-                if (predicate.equals("http://www.w3.org/2004/02/skos/core#altLabel")) {
-                    parsedLocations.get(subject).setAlt_label(object);
-                }
+            if (parsedEntities.containsKey(subject) &&
+                    (predicate.equals("http://www.w3.org/2004/02/skos/core#prefLabel") ||
+                            predicate.equals("http://www.w3.org/2004/02/skos/core#altLabel"))) {
+                parsedEntities.get(subject).getLabels().putIfAbsent("de", new ArrayList<>());
+                parsedEntities.get(subject).getLabels().get("de").add(object);
+
             }
 
         }
     }
 
-    public List<Location> getParsedLocations() {
-        return parsedLocations.values().stream()
-                .filter(x -> x.getPref_label() != null || x.getAlt_label() != null)
-                .collect(Collectors.toList());
-    }
+
 }

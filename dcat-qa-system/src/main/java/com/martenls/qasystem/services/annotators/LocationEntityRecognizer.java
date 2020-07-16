@@ -1,5 +1,6 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.indexers.LaunutsIndexer;
 import com.martenls.qasystem.parsers.LaunutsRDFParser;
@@ -17,55 +18,24 @@ import java.util.List;
 
 @Log4j2
 @Service
-public class LocationEntityRecognizer implements QuestionAnnotator{
-
-    @Autowired
-    private ElasticSearchService searchService;
-
-    @Value("${es.launuts_index}")
-    private String locationIndex;
-
-    @Value("${launuts}")
-    private String launutsFilePath;
+public class LocationEntityRecognizer extends EntityRecognizer {
 
 
-    @PostConstruct
-    private void initIndices() {
-        try {
-            if (!searchService.checkIndexExistence(locationIndex)) {
-                LaunutsRDFParser parser = new LaunutsRDFParser();
-                parser.parse(launutsFilePath);
-                LaunutsIndexer indexer = new LaunutsIndexer(searchService, locationIndex);
-                indexer.indexLocations(parser.getParsedLocations());
-            } else {
-                log.debug("Launuts index is present, nothing to be done");
-            }
-        } catch (ESIndexUnavailableException e) {
-            log.error("Could not init indices: ESIndex not available");
-        }
+    public LocationEntityRecognizer(@Value("${es.launuts_index}") String indexName, @Value("${launuts}") String rdfFilePath, @Value("${properties.languages}") String[] languages) {
+        super(indexName, rdfFilePath, languages, new LaunutsRDFParser());
     }
+
 
     @Override
     public Question annotate(Question question) {
         if (question.getWShingles() != null) {
             for (String shingle : question.getWShingles()) {
-                question.getLocationEntities().addAll(recognizeLocations(shingle));
+                question.getLocationEntities().addAll(recognizeEntities(shingle, Language.GERMAN, 10, "0"));
             }
         }
         return question;
     }
 
 
-    private List<String> recognizeLocations(String word) {
-        List<String> results = new ArrayList<>();
-        try {
-            results.addAll(searchService.queryIndexForLabeledUri("prefLabel", word, locationIndex, 10, "0"));
-            results.addAll(searchService.queryIndexForLabeledUri("altLabel", word, locationIndex, 10, "0"));
-            return results;
-        } catch (ESIndexUnavailableException e) {
-            log.error("Could not fetch dcat properties: ESIndex not available");
-            return Collections.emptyList();
-        }
-    }
 
 }

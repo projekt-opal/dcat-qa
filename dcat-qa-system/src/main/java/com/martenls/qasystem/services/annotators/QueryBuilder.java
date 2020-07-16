@@ -89,8 +89,8 @@ public class QueryBuilder implements QuestionAnnotator{
         if ( !question.getTimeIntervalEntities().isEmpty() && template.hasIntervalFilter()) {
             List<String> queryStringsWithIntervalEntities = new ArrayList<>();
             for (String queryString : queryStrings) {
-                queryString = queryString.replaceAll("<lbound0>", Utils.calendarToXsdDateTime(question.getTimeIntervalEntities().get(0).first));
-                queryStringsWithIntervalEntities.add(queryString.replaceAll("<rbound0>", Utils.calendarToXsdDateTime(question.getTimeIntervalEntities().get(0).second)));
+                queryString = queryString.replaceAll("<lbound0>", Utils.calendarToXsdDate(question.getTimeIntervalEntities().get(0).first));
+                queryStringsWithIntervalEntities.add(queryString.replaceAll("<rbound0>", Utils.calendarToXsdDate(question.getTimeIntervalEntities().get(0).second)));
             }
             queryStrings = queryStringsWithIntervalEntities;
         }

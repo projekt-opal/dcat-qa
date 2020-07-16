@@ -1,14 +1,14 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.github.pemistahl.lingua.api.LanguageDetector;
+import com.github.pemistahl.lingua.api.LanguageDetectorBuilder;
 import com.martenls.qasystem.models.Question;
 import org.springframework.stereotype.Service;
 
-
-import com.github.pemistahl.lingua.api.*;
-
 import javax.annotation.PostConstruct;
 
-import static com.github.pemistahl.lingua.api.Language.*;
+import static com.github.pemistahl.lingua.api.Language.ENGLISH;
+import static com.github.pemistahl.lingua.api.Language.GERMAN;
 
 
 /**
@@ -25,7 +25,6 @@ public class LanguageRecognizer implements QuestionAnnotator {
     private void init() {
         detector = LanguageDetectorBuilder.fromLanguages(ENGLISH, GERMAN).build();
     }
-
 
 
     @Override

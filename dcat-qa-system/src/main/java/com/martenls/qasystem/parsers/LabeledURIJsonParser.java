@@ -14,15 +14,16 @@ import java.util.stream.Collectors;
 
 
 @Log4j2
-public class OntologyJsonParser extends EntityRDFParser {
+public class LabeledURIJsonParser extends EntityRDFParser {
 
     private List<LabeledURI> parsedEntities;
+    private Set<String> languages;
 
-    public OntologyJsonParser(String[] languages) {
+    public LabeledURIJsonParser(String[] languages) {
         super(languages);
-        this.parsedEntities = new ArrayList<>();
     }
 
+    @Override
     public void parse(String path) {
         ObjectMapper mapper = new ObjectMapper();
         try {

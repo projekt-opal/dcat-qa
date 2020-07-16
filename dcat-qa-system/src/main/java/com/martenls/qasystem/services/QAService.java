@@ -37,6 +37,12 @@ public class QAService {
     private TimeEntityRecognizer timeEntityRecognizer;
 
     @Autowired
+    private FrequencyEntityRecognizer frequencyEntityRecognizer;
+
+    @Autowired
+    private FiletypeEntityRecognizer filetypeEntityRecognizer;
+
+    @Autowired
     private NLPAnnotator nlpAnnotator;
 
     @Autowired
@@ -59,13 +65,16 @@ public class QAService {
             nlpAnnotator.annotate(question);
             semanticAnalyzer.annotate(question);
 
+            // Entity Recognition
             timeEntityRecognizer.annotate(question);
             locationEntityRecognizer.annotate(question);
             languageEntityRecognizer.annotate(question);
             themeEntityRecognizer.annotate(question);
             licenseEntityRecognizer.annotate(question);
+            frequencyEntityRecognizer.annotate(question);
+            filetypeEntityRecognizer.annotate(question);
 
-
+            // Property recognition and inference from entities
             ontologyPropertyRecognizer.annotate(question);
 
             templateSelector.annotate(question);

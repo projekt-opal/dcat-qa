@@ -8,6 +8,8 @@ es:
   language_index: lang
   theme_index: themes
   license_index: licenses
+  frequency_index: frequencies
+  filetype_index: filetypes
 
 
 data-path: src/data
@@ -22,10 +24,14 @@ languageEntities: ${data-path}/languages-skos-ap-act.rdf
 
 themeEntities: ${data-path}/data-theme-skos-ap-act.rdf
 
-licenseEntities: ${data-path}/licences-skos-ap-act.rdf
+licenseEntities: ${data-path}/licences.json
+
+frequencyEntities: ${data-path}/frequencies-skos.rdf
+
+filetypeEntities: ${data-path}/filetypes.json
 
 sparql:
-  endpoint: https://openbot.cs.upb.de/fuseki/opal/query
+  endpoint: https://openbot.cs.upb.de/fuseki/opal2020-07/query
 
 properties:
   languages: "en, de"
