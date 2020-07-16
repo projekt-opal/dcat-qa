@@ -1,0 +1,30 @@
+@prefix theme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+theme:ECON  rdfs:label  "Economy and finance"@en , "Wirtschaft und Finanzen"@de .
+
+theme:GOVE  rdfs:label  "Regierung und öffentlicher Sektor"@de , "Government and public sector"@en .
+
+theme:AGRI  rdfs:label  "Landwirtschaft, Fischerei, Forstwirtschaft und Nahrungsmittel"@de , "Agriculture, fisheries, forestry and food"@en .
+
+theme:ENER  rdfs:label  "Energie"@de , "Energy"@en .
+
+theme:ENVI  rdfs:label  "Umwelt"@de , "Environment"@en .
+
+theme:EDUC  rdfs:label  "Bildung, Kultur und Sport"@de , "Education, culture and sport"@en .
+
+theme:JUST  rdfs:label  "Justiz, Rechtssystem und öffentliche Sicherheit"@de , "Justice, legal system and public safety"@en .
+
+theme:REGI  rdfs:label  "Regionen und Städte"@de , "Regions and cities"@en .
+
+theme:HEAL  rdfs:label  "Health"@en , "Gesundheit"@de .
+
+theme:INTR  rdfs:label  "International issues"@en , "Internationale Themen"@de .
+
+theme:SOCI  rdfs:label  "Population and society"@en , "Bevölkerung und Gesellschaft"@de .
+
+theme:OP_DATPRO  rdfs:label  "Vorläufige Daten"@de , "Provisional data"@en .
+
+theme:TECH  rdfs:label  "Science and technology"@en , "Wissenschaft und Technologie"@de .
+
+theme:TRAN  rdfs:label  "Transport"@en , "Verkehr"@de .

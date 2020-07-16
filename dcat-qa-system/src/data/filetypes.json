@@ -1,0 +1,1391 @@
+[
+  {
+    "uri": "http://projekt-opal.de/format/map_prvw",
+    "labels": {
+      "en": [
+        "map_prvw",
+        "arcgis map preview"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mbox",
+    "labels": {
+      "en": [
+        "mbox"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/shp",
+    "labels": {
+      "en": [
+        "shp",
+        "esri shape",
+        "environmental systems research institute shape"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tiff_fx",
+    "labels": {
+      "en": [
+        "tiff_fx",
+        "tiff fx",
+        "tagged image format file fax extended"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/docx",
+    "labels": {
+      "en": [
+        "docx",
+        "word docx",
+        "office open xml document"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/map_srvc",
+    "labels": {
+      "en": [
+        "map_srvc",
+        "arcgis map service"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/bwf",
+    "labels": {
+      "en": [
+        "bwf",
+        "broadcast wave file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfx1a",
+    "labels": {
+      "en": [
+        "pdfx1a",
+        "pdf/x-1a"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/jpeg2000",
+    "labels": {
+      "en": [
+        "jpeg2000",
+        "jpeg 2000",
+        "joint photographic experts group 2000"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/grid",
+    "labels": {
+      "en": [
+        "grid",
+        "esri binary grid",
+        "environmental systems research institute binary grid"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xlsm",
+    "labels": {
+      "en": [
+        "xlsm",
+        "excel macro-enabled workbook"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/atom",
+    "labels": {
+      "en": [
+        "atom",
+        "atom feed",
+        "atom syndication format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/psd",
+    "labels": {
+      "en": [
+        "psd",
+        "adobe photoshop document"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/gif",
+    "labels": {
+      "en": [
+        "gif",
+        "graphics interchange format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xlsb",
+    "labels": {
+      "en": [
+        "xlsb",
+        "excel binary workbook"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/skos_xml",
+    "labels": {
+      "en": [
+        "skos_xml",
+        "skos",
+        "simple knowledge organization system"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tsv",
+    "labels": {
+      "en": [
+        "tsv",
+        "tab-separated value"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xhtml",
+    "labels": {
+      "en": [
+        "xhtml",
+        "extensible hypertext markup language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/js",
+    "labels": {
+      "en": [
+        "js",
+        "javascript"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/immc_xml",
+    "labels": {
+      "en": [
+        "immc_xml",
+        "immc xml message"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/sql",
+    "labels": {
+      "en": [
+        "sql",
+        "structured query language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mets",
+    "labels": {
+      "en": [
+        "mets",
+        "mets xml",
+        "metadata encoding and transmission standard – logical mets container"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/dcr",
+    "labels": {
+      "en": [
+        "dcr",
+        "dcr file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/hdf",
+    "labels": {
+      "en": [
+        "hdf",
+        "hierarchical data format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfa3",
+    "labels": {
+      "en": [
+        "pdfa3",
+        "pdfa-3"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf_n_triples",
+    "labels": {
+      "en": [
+        "rdf_n_triples",
+        "rdf n-triples",
+        "resource description framework n-triples"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/epub",
+    "labels": {
+      "en": [
+        "epub",
+        "ebook standard of the international digital publishing forum (idpf)"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/hdt",
+    "labels": {
+      "en": [
+        "hdt",
+        "header dictionary triples"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/warc",
+    "labels": {
+      "en": [
+        "warc",
+        "web archive format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/dtd_xml",
+    "labels": {
+      "en": [
+        "dtd_xml",
+        "xml dtd",
+        "xml document type definition (dtd)"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tar_xz",
+    "labels": {
+      "en": [
+        "tar_xz",
+        "tar xz",
+        "xz compressed tar archive"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf_trig",
+    "labels": {
+      "en": [
+        "rdf_trig",
+        "rdf trig",
+        "resource description framework trig"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdf",
+    "labels": {
+      "en": [
+        "pdf",
+        "portable document format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/csv",
+    "labels": {
+      "en": [
+        "csv",
+        "comma-separated values"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/bin",
+    "labels": {
+      "en": [
+        "bin",
+        "binary data"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/dmp",
+    "labels": {
+      "en": [
+        "dmp",
+        "oracle dump"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf_n_quads",
+    "labels": {
+      "en": [
+        "rdf_n_quads",
+        "rdf n-quads",
+        "resource description framework n-quads"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pptx",
+    "labels": {
+      "en": [
+        "pptx",
+        "powerpoint pptx",
+        "office open xml presentation"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xls",
+    "labels": {
+      "en": [
+        "xls",
+        "excel xls",
+        "microsof excel workbook"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/css",
+    "labels": {
+      "en": [
+        "css",
+        "cascading style sheet"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/gzip",
+    "labels": {
+      "en": [
+        "gzip",
+        "gnu zip"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mrsid",
+    "labels": {
+      "en": [
+        "mrsid",
+        "multiresolution seamless image database"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ps",
+    "labels": {
+      "en": [
+        "ps",
+        "postscript file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xml",
+    "labels": {
+      "en": [
+        "xml",
+        "extensible markup language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mxd",
+    "labels": {
+      "en": [
+        "mxd",
+        "arcgis map document"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/leg",
+    "labels": {
+      "en": [
+        "leg"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mop",
+    "labels": {
+      "en": [
+        "mop",
+        "mopac input format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xlsx",
+    "labels": {
+      "en": [
+        "xlsx",
+        "excel xlsx",
+        "office open xml workbook"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/sparqlq",
+    "labels": {
+      "en": [
+        "sparqlq",
+        "sparql",
+        "sparql query"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/exe",
+    "labels": {
+      "en": [
+        "exe",
+        "executable file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/html_simpl",
+    "labels": {
+      "en": [
+        "html_simpl",
+        "html simplified",
+        "hypertext mark-up language, simplified"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdf1x",
+    "labels": {
+      "en": [
+        "pdf1x",
+        "pdf printing format extension"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tab_rstr",
+    "labels": {
+      "en": [
+        "tab_rstr",
+        "mapinfo tab raster file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/e00",
+    "labels": {
+      "en": [
+        "e00",
+        "esri arc/info interchange file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/gdb",
+    "labels": {
+      "en": [
+        "gdb",
+        "esri file geodatabase",
+        "environmental systems research institute file geodatabase"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfx2a",
+    "labels": {
+      "en": [
+        "pdfx2a",
+        "pdf/x-2a"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdfa",
+    "labels": {
+      "en": [
+        "rdfa",
+        "resource description framework in attributes"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/eps",
+    "labels": {
+      "en": [
+        "eps",
+        "encapsulated postscript"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/jpeg",
+    "labels": {
+      "en": [
+        "jpeg"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/indd",
+    "labels": {
+      "en": [
+        "indd",
+        "adobe indesign document"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/png",
+    "labels": {
+      "en": [
+        "png",
+        "portable network graphics"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf_turtle",
+    "labels": {
+      "en": [
+        "rdf_turtle",
+        "rdf turtle",
+        "terse rdf triple language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/octet",
+    "labels": {
+      "en": [
+        "octet",
+        "octet stream"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xslfo",
+    "labels": {
+      "en": [
+        "xslfo",
+        "xsl-fo",
+        "extensible stylesheet language – formatting objects"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ppsx",
+    "labels": {
+      "en": [
+        "ppsx",
+        "powerpoint ppsx",
+        "powerpoint open xml slide show"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/qgs",
+    "labels": {
+      "en": [
+        "qgs",
+        "quantum gis project"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/grid_ascii",
+    "labels": {
+      "en": [
+        "grid_ascii",
+        "esri ascii grid",
+        "environmental systems research institute ascii grid"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pl",
+    "labels": {
+      "en": [
+        "pl",
+        "perl script"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tar_gz",
+    "labels": {
+      "en": [
+        "tar_gz",
+        "tar gz",
+        "compressed tarball file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tmx",
+    "labels": {
+      "en": [
+        "tmx",
+        "translation memory exchange"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/zip",
+    "labels": {
+      "en": [
+        "zip"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mobi",
+    "labels": {
+      "en": [
+        "mobi",
+        "mobipocket ebook",
+        "mobipocket ebook format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rar",
+    "labels": {
+      "en": [
+        "rar",
+        "roshal archive"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/n3",
+    "labels": {
+      "en": [
+        "n3",
+        "notation3"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf_xml",
+    "labels": {
+      "en": [
+        "rdf_xml",
+        "rdf xml",
+        "resource description framework xml syntax"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/doc",
+    "labels": {
+      "en": [
+        "doc",
+        "word doc",
+        "microsoft word"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/sdmx",
+    "labels": {
+      "en": [
+        "sdmx",
+        "statistical data and metadata exchange"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/odc",
+    "labels": {
+      "en": [
+        "odc",
+        "opendocument chart"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/odb",
+    "labels": {
+      "en": [
+        "odb",
+        "opendocument database"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/wfs_srvc",
+    "labels": {
+      "en": [
+        "wfs_srvc",
+        "wfs",
+        "web feature service"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/odg",
+    "labels": {
+      "en": [
+        "odg",
+        "opendocument image"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/dtd_sgml",
+    "labels": {
+      "en": [
+        "dtd_sgml",
+        "sgml dtd",
+        "sgml document type definition (dtd)"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/odf",
+    "labels": {
+      "en": [
+        "odf",
+        "opendocument format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/gml",
+    "labels": {
+      "en": [
+        "gml",
+        "geography markup language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/arc_gz",
+    "labels": {
+      "en": [
+        "arc_gz",
+        "arc gz",
+        "compressed internet archive arc file format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/kml",
+    "labels": {
+      "en": [
+        "kml",
+        "keyhole markup language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pwp",
+    "labels": {
+      "en": [
+        "pwp",
+        "packaged web publications"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ods",
+    "labels": {
+      "en": [
+        "ods",
+        "opendocument spreadsheet"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfx",
+    "labels": {
+      "en": [
+        "pdfx",
+        "pdf/x",
+        "pdf printing format, blind exchange"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mpeg4_avc",
+    "labels": {
+      "en": [
+        "mpeg4_avc",
+        "mpeg-4 avc",
+        "moving picture experts group 4 advanced video coding"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/odt",
+    "labels": {
+      "en": [
+        "odt",
+        "open document text"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xslt",
+    "labels": {
+      "en": [
+        "xslt",
+        "extensible stylesheet language transformations"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xliff",
+    "labels": {
+      "en": [
+        "xliff",
+        "xml localisation interchange file format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/kmz",
+    "labels": {
+      "en": [
+        "kmz",
+        "keyhole markup language, zipped"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/schema_xml",
+    "labels": {
+      "en": [
+        "schema_xml",
+        "xml schema"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/arc",
+    "labels": {
+      "en": [
+        "arc",
+        "internet archive arc file format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rss",
+    "labels": {
+      "en": [
+        "rss",
+        "rss feed",
+        "really simple syndication"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/gmz",
+    "labels": {
+      "en": [
+        "gmz",
+        "zipped gml",
+        "zipped geography markup language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/sparqlqres",
+    "labels": {
+      "en": [
+        "sparqlqres",
+        "sparql results",
+        "sparql query results"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/world",
+    "labels": {
+      "en": [
+        "world",
+        "world file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/msg_http",
+    "labels": {
+      "en": [
+        "msg_http",
+        "http message",
+        "http message syntax and routing"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/azw",
+    "labels": {
+      "en": [
+        "azw",
+        "amazon kindle ebook",
+        "amazon kindle ebook format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ovf",
+    "labels": {
+      "en": [
+        "ovf",
+        "open virtualization format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rtf",
+    "labels": {
+      "en": [
+        "rtf",
+        "rich text format file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/svg",
+    "labels": {
+      "en": [
+        "svg",
+        "scalable vector graphics"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/html",
+    "labels": {
+      "en": [
+        "html",
+        "hypertext mark-up language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfx4",
+    "labels": {
+      "en": [
+        "pdfx4",
+        "pdf/x-4"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/jats",
+    "labels": {
+      "en": [
+        "jats",
+        "jats xml",
+        "journal article tag suite"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/geojson",
+    "labels": {
+      "en": [
+        "geojson",
+        "geographical javascript object notation"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/netcdf",
+    "labels": {
+      "en": [
+        "netcdf",
+        "network common data form"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/txt",
+    "labels": {
+      "en": [
+        "txt",
+        "plain text",
+        "text file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/sgml",
+    "labels": {
+      "en": [
+        "sgml",
+        "standard generalized mark-up language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ppt",
+    "labels": {
+      "en": [
+        "ppt",
+        "powerpoint ppt",
+        "microsoft powerpoint presentation"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rdf",
+    "labels": {
+      "en": [
+        "rdf",
+        "resource description framework (rdf)"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tiff",
+    "labels": {
+      "en": [
+        "tiff",
+        "tagged image format file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pps",
+    "labels": {
+      "en": [
+        "pps",
+        "powerpoint slide show",
+        "microsoft powerpoint slide show"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/bmp",
+    "labels": {
+      "en": [
+        "bmp",
+        "bitmap image file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/iso",
+    "labels": {
+      "en": [
+        "iso",
+        "iso image",
+        "iso disc image file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mhtml",
+    "labels": {
+      "en": [
+        "mhtml",
+        "mime html"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/warc_gz",
+    "labels": {
+      "en": [
+        "warc_gz",
+        "warc gz",
+        "compressed web archive format"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/bits",
+    "labels": {
+      "en": [
+        "bits",
+        "bits xml",
+        "book interchange tag suite"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfa2a",
+    "labels": {
+      "en": [
+        "pdfa2a",
+        "pdf/a-2a"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mets_zip",
+    "labels": {
+      "en": [
+        "mets_zip",
+        "mets package",
+        "metadata encoding and transmission standard – physical mets container"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/owl",
+    "labels": {
+      "en": [
+        "owl",
+        "web ontology language"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfa2b",
+    "labels": {
+      "en": [
+        "pdfa2b",
+        "pdf/a-2b"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tab",
+    "labels": {
+      "en": [
+        "tab",
+        "mapinfo tab file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xhtml_simpl",
+    "labels": {
+      "en": [
+        "xhtml_simpl",
+        "xhtml simplified",
+        "extensible hypertext markup language, simplified"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/iso_zip",
+    "labels": {
+      "en": [
+        "iso_zip",
+        "zipped iso image",
+        "zipped iso disc image file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ecw",
+    "labels": {
+      "en": [
+        "ecw",
+        "enhanced compressed wavelet"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/ics",
+    "labels": {
+      "en": [
+        "ics",
+        "icalendar"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/xyz",
+    "labels": {
+      "en": [
+        "xyz",
+        "xyz chemical file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/fmx2",
+    "labels": {
+      "en": [
+        "fmx2",
+        "formex 2",
+        "formalized exchange of electronic publications (formex), version 2"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/fmx3",
+    "labels": {
+      "en": [
+        "fmx3",
+        "formex 3",
+        "formalized exchange of electronic publications (formex), version 3"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/rest",
+    "labels": {
+      "en": [
+        "rest",
+        "esri rest",
+        "esri representational state transfer"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/op_datpro",
+    "labels": {
+      "de": [
+        "vorläufige daten"
+      ],
+      "en": [
+        "op_datpro",
+        "provisional data"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/laz",
+    "labels": {
+      "en": [
+        "laz",
+        "compressed las file",
+        "compressed laser file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/tar",
+    "labels": {
+      "en": [
+        "tar",
+        "tape archive"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/dbf",
+    "labels": {
+      "en": [
+        "dbf",
+        "dbase file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/json",
+    "labels": {
+      "en": [
+        "json",
+        "javascript object notation"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/wms_srvc",
+    "labels": {
+      "en": [
+        "wms_srvc",
+        "wms",
+        "web map service"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/fmx4",
+    "labels": {
+      "en": [
+        "fmx4",
+        "formex 4",
+        "formalized exchange of electronic publications (formex), version 4"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mdb",
+    "labels": {
+      "en": [
+        "mdb",
+        "microsoft access database"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/las",
+    "labels": {
+      "en": [
+        "las",
+        "laser file"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mpeg2",
+    "labels": {
+      "en": [
+        "mpeg2",
+        "mpeg-2",
+        "moving picture experts group 2"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/json_ld",
+    "labels": {
+      "en": [
+        "json_ld",
+        "json-ld",
+        "javascript object notation for linked data"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfa1a",
+    "labels": {
+      "en": [
+        "pdfa1a",
+        "pdf/a-1a",
+        "pdf archiving format, level a conformance"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/mpeg4",
+    "labels": {
+      "en": [
+        "mpeg4",
+        "mpeg-4",
+        "moving picture experts group 4"
+      ]
+    }
+  },
+  {
+    "uri": "http://projekt-opal.de/format/pdfa1b",
+    "labels": {
+      "en": [
+        "pdfa1b",
+        "pdf/a-1b",
+        "pdf archiving format, level b conformance"
+      ]
+    }
+  }
+]
