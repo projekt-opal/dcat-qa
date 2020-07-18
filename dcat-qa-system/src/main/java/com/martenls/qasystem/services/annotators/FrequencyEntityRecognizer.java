@@ -13,7 +13,7 @@ public class FrequencyEntityRecognizer extends EntityRecognizer {
 
     public FrequencyEntityRecognizer(ElasticSearchService searchService,
                                      @Value("${es.frequency_index}") String indexName,
-                                     @Value("${frequencyEntities}") String rdfFilePath,
+                                     @Value("${data.frequencyEntities}") String rdfFilePath,
                                      @Value("${properties.languages}") String[] languages
     ) {
         super(indexName, rdfFilePath, languages, new FrequencyRDFParser(languages));

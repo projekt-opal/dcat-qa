@@ -17,7 +17,7 @@ import java.util.*;
  * Fills templates with properties, entities, etc. and therefore builds valid queries.
  */
 @Service
-public class QueryBuilder implements QuestionAnnotator{
+public class QueryBuilder implements QuestionAnnotator {
 
 
     @Override
@@ -86,7 +86,7 @@ public class QueryBuilder implements QuestionAnnotator{
         }
 
 
-        if ( !question.getTimeIntervalEntities().isEmpty() && template.hasIntervalFilter()) {
+        if (!question.getTimeIntervalEntities().isEmpty() && template.hasIntervalFilter()) {
             List<String> queryStringsWithIntervalEntities = new ArrayList<>();
             for (String queryString : queryStrings) {
                 queryString = queryString.replaceAll("<lbound0>", Utils.calendarToXsdDate(question.getTimeIntervalEntities().get(0).first));
@@ -94,6 +94,33 @@ public class QueryBuilder implements QuestionAnnotator{
             }
             queryStrings = queryStringsWithIntervalEntities;
         }
+
+        // questions for singular superlatives e.g. "What is the biggest...?" -> LIMIT 1 in querystring
+        List<String> queryStringsWithLimits = new ArrayList<>();
+        for (String queryString : queryStrings) {
+            if (!queryString.toLowerCase().contains("limit")
+                    && (question.getAdditionalProperties().contains(Question.properties.DESC_ORDERED)
+                    || question.getAdditionalProperties().contains(Question.properties.ASC_ORDERED))
+                    && (template.hasOrderDescModifier()
+                    || template.hasOrderAscModifier())
+            ) {
+                switch (question.getLanguage()) {
+                    case GERMAN:
+                        if (question.getQuestionStr().contains("ist")) {
+                            queryString += " LIMIT 1";
+                        }
+                        break;
+                    case ENGLISH:
+                        if (question.getQuestionStr().contains("is")) {
+                            queryString += " LIMIT 1";
+                        }
+                        break;
+                }
+            }
+            queryStringsWithLimits.add(queryString);
+        }
+        queryStrings = queryStringsWithLimits;
+
 
         // create queries from all valid queryStrings
         for (String queryString : queryStrings) {
@@ -109,7 +136,6 @@ public class QueryBuilder implements QuestionAnnotator{
 
         return queries;
     }
-
 
 
 }

@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 public class LicenseEntityRecognizer extends EntityRecognizer {
 
 
-    public LicenseEntityRecognizer(@Value("${es.license_index}") String indexName, @Value("${licenseEntities}") String jsonFilePath, @Value("${properties.languages}") String[] languages) {
+    public LicenseEntityRecognizer(@Value("${es.license_index}") String indexName,
+                                   @Value("${data.licenseEntities}") String jsonFilePath,
+                                   @Value("${properties.languages}") String[] languages
+    ) {
         super(indexName, jsonFilePath, languages, new LabeledURIJsonParser(languages));
     }
 

@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SPARQLUtilsTest {
@@ -42,5 +44,43 @@ class SPARQLUtilsTest {
     @Test
     void getCountFromRS() {
         assertEquals(11368, SPARQLUtils.getCountFromRS(rs));
+    }
+
+
+    @Test
+    void increaseFrom10To20() {
+        String query = "SELECT ?var0\n" +
+                "WHERE {\n" +
+                "    ?var0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset>.\n" +
+                "}\n" +
+                "OFFSET 10\n" +
+                "LIMIT 10";
+        String expectedQuery = "SELECT ?var0\n" +
+                "WHERE {\n" +
+                "    ?var0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset>.\n" +
+                "}\n" +
+                "OFFSET 20\n" +
+                "LIMIT 10";
+
+        query = SPARQLUtils.increaseOffsetByX(query, 10);
+        assertThat(query, is(equalToCompressingWhiteSpace(expectedQuery)));
+    }
+
+    @Test
+    void increaseNoTo10() {
+        String query = "SELECT ?var0\n" +
+                "WHERE {\n" +
+                "    ?var0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset>.\n" +
+                "}\n" +
+                "LIMIT 10";
+        String expectedQuery = "SELECT ?var0\n" +
+                "WHERE {\n" +
+                "    ?var0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset>.\n" +
+                "}\n" +
+                "LIMIT 10\n" +
+                "OFFSET 10";
+
+        query = SPARQLUtils.increaseOffsetByX(query, 10);
+        assertThat(query, is(equalToCompressingWhiteSpace(expectedQuery)));
     }
 }

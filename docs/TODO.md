@@ -55,6 +55,7 @@ Templates:
 
 - parse templates from file and analyze properties✅
 - add more templates
+- sort templates
 
 Web-Bot:
 - better message formatting for results✅
@@ -70,18 +71,19 @@ Twitter-Bot:
 
 QA-Improvements:
 
-- add indexing and recognition of formats
+- add indexing and recognition of formats✅
 - add indexing and recognition of themes✅
 - add indexing and recognition of languages✅
-- add tests
-- add more comments
 - recognize temporal words like month, year etc (in english)✅
-- word stemming for better entity recognition
+- word stemming for better entity recognition (in english)✅
 - add more labels to dcat properties (dcat:modified -> modified)✅
 - removing stop words✅
+- recognition of german time entities✅
+- recognize 'how big/the biggest file/...' -> byte size✅
+
+- add more tests
+- add more comments
 - support for 'exists' queries
-- recognition of german time entities
-- recognize 'how big/the biggest file/...' -> byte size
 
 QA-Bugs:
 
@@ -95,3 +97,9 @@ Bot-Improvements:
   - design
   - language switch
   - input sanitation (html/js injection possible atm)
+
+
+Data-Improvements:
+
+- add catalogs to opal2020-07
+- add launuts to opal2020-07

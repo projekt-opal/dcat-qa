@@ -5,6 +5,7 @@ import com.martenls.qasystem.models.Answer;
 import com.martenls.qasystem.services.QAService;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.SPARQLService;
+import com.martenls.qasystem.utils.SPARQLUtils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,7 +58,7 @@ public class QAController {
     @GetMapping("/qa/results")
     public String getMoreResults(@RequestParam String query) throws JsonProcessingException {
         if (query != null && !query.isBlank()) {
-            query = sparqlService.increaseOffsetByX(query, 10);
+            query = SPARQLUtils.increaseOffsetByX(query, 10);
             Answer answer = new Answer(SPARQLService.resultSetToString(sparqlService.executeQuery(query)), query);
             if (answer.getAnswerJsonStr().isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);

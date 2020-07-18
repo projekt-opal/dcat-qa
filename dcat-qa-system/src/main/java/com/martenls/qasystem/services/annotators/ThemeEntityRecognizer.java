@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class ThemeEntityRecognizer extends EntityRecognizer {
 
-    public ThemeEntityRecognizer(@Value("${es.theme_index}") String indexName, @Value("${themeEntities}") String rdfFilePath, @Value("${properties.languages}") String[] languages) {
+    public ThemeEntityRecognizer(@Value("${es.theme_index}") String indexName,
+                                 @Value("${data.themeEntities}") String rdfFilePath,
+                                 @Value("${properties.languages}") String[] languages) {
         super(indexName, rdfFilePath, languages, new ThemesRDFParser(languages));
     }
 

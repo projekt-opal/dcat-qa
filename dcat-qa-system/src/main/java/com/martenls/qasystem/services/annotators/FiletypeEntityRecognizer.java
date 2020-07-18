@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 public class FiletypeEntityRecognizer extends EntityRecognizer {
 
     public FiletypeEntityRecognizer(@Value("${es.filetype_index}") String indexName,
-                                    @Value("${filetypeEntities}") String rdfFilePath,
+                                    @Value("${data.filetypeEntities}") String rdfFilePath,
                                     @Value("${properties.languages}") String[] languages
     ) {
         super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(languages));

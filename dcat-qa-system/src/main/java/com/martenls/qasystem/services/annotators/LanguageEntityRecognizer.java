@@ -14,7 +14,7 @@ public class LanguageEntityRecognizer extends EntityRecognizer {
 
     public LanguageEntityRecognizer(ElasticSearchService searchService,
                                     @Value("${es.language_index}") String indexName,
-                                    @Value("${languageEntities}") String rdfFilePath,
+                                    @Value("${data.languageEntities}") String rdfFilePath,
                                     @Value("${properties.languages}") String[] languages
     ) {
         super(indexName, rdfFilePath, languages, new FrequencyRDFParser(languages));

@@ -13,7 +13,7 @@
   $NUM_ORD = ( [ { numcomptype:ORDINAL } ] );
 
   $INT_TIMES = ( $INT/mal/ | einmal );
-  $REL_MOD = ( /der|die|das/? /nächste|folgende|letzte|vorherige/ | /der|die|das/ /kommende|vergangene/?);
+  $REL_MOD = ( /der|die|das/? /diese(n|s)?|kommende(n|s)?|nächste(n|s)?|folgende(n|s)?|vergangene(n|s)?|vorherige(n|s)?|letzte(n|s)?/ | /der|die|das/ /kommende|folgende|nächste|vergangene|vorherige|letzte/?);
   $FREQ_MOD = ( /each/ | /every/ $NUM_ORD | /every/ /other|alternate|alternating/? | /alternate|alternating/ );
   $EARLY_LATE_MOD = ( /late|early|mid-?/ | /the/? /beginning|start|dawn|middle|end/ /of/ | /late|early/ /in|on/ );
   $APPROX_MOD = ( /about|around|some|exactly|precisely/ );
@@ -165,15 +165,11 @@
   }
 
   # Operators
-  { pattern: ( /diese|diesen|dieses/ ),
+  { pattern: ( /diese(n|s)?/ ),
 	action: Tag($0, "TemporalOp", THIS) }
-  { pattern: ( /nächste|nächsten|nächstes/ ),
-	action: Tag($0, "TemporalOp", NEXT) }
-  { pattern: ( /folgende|folgenden|folgendes/ ),
+  { pattern: ( /kommende(n|s)?|nächste(n|s)?|folgende(n|s)?/ ),
 	action: Tag($0, "TemporalOp", NEXT)  }
-  { pattern: ( /vorherige|vorherigen|vorheriges/ ),
-	action: Tag($0, "TemporalOp", PREV) }
-  { pattern: ( /letzte|letzten|letztes/ ),
+  { pattern: ( /vergangene(n|s)?|vorherige(n|s)?|letzte(n|s)?/ ),
 	action: Tag($0, "TemporalOp", PREV) }
   { pattern: ( /der|die|das/ /kommende|folgende|nächste/ ),
 	action: Tag($0, "TemporalOp", NEXT_IMMEDIATE) }

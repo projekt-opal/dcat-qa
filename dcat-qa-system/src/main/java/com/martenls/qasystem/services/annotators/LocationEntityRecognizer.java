@@ -21,7 +21,9 @@ import java.util.List;
 public class LocationEntityRecognizer extends EntityRecognizer {
 
 
-    public LocationEntityRecognizer(@Value("${es.launuts_index}") String indexName, @Value("${launuts}") String rdfFilePath, @Value("${properties.languages}") String[] languages) {
+    public LocationEntityRecognizer(@Value("${es.launuts_index}") String indexName,
+                                    @Value("${data.launuts}") String rdfFilePath,
+                                    @Value("${properties.languages}") String[] languages) {
         super(indexName, rdfFilePath, languages, new LaunutsRDFParser());
     }
 

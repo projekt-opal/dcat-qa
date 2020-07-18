@@ -1,0 +1,5 @@
+src/data-sourcefiles
+src/main
+src/test
+target/
+!target/*.jar

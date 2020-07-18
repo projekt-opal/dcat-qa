@@ -1,5 +1,7 @@
 package com.martenls.qasystem.services.annotators;
 
+import com.github.pemistahl.lingua.api.Language;
+import com.martenls.qasystem.config.SemanticPropertyIndicators;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import lombok.extern.log4j.Log4j2;
@@ -13,8 +15,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class OntologyPropertyRecognizer extends EntityRecognizer {
 
+    @Value("${properties.noCatalogFix}")
+    private boolean noCatalogFix;
 
-    public OntologyPropertyRecognizer(@Value("${es.property_index}") String indexName, @Value("${ontology}") String ontologyFilePath, @Value("${properties.languages}") String[] languages) {
+
+    public OntologyPropertyRecognizer(@Value("${es.property_index}") String indexName,
+                                      @Value("${data.ontology}") String ontologyFilePath,
+                                      @Value("${properties.languages}") String[] languages) {
         super(indexName, ontologyFilePath, languages, new LabeledURIJsonParser(languages));
     }
 
@@ -27,10 +34,16 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
     @Override
     public Question annotate(Question question) {
         if (question.getWShingles() != null) {
+            // use lower fuzziness for english because english words are stemmed
+            String fuzziness = question.getLanguage() == Language.ENGLISH ? "1" : "2";
             for (String shingle : question.getWShingles()) {
-                question.getOntologyProperties().addAll(recognizeEntities(shingle, question.getLanguage(), 1, "2"));
+                question.getOntologyProperties().addAll(recognizeEntities(shingle, question.getLanguage(), 1, fuzziness));
             }
         }
+        if (question.getWShinglesWithStopwords().stream().anyMatch(SemanticPropertyIndicators.getBytesizePropetyIndicators(question.getLanguage())::contains)) {
+            question.getOntologyProperties().add("http://www.w3.org/ns/dcat#byteSize");
+        }
+
         // infer ontology properties from found entities
         if (!question.getLocationEntities().isEmpty()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/spatial");
@@ -58,12 +71,12 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
 
         // temporal entities -> dcat:issued/dct:modified
 
-        if (question.getOntologyProperties().contains("http://www.w3.org/ns/dcat#dataset")) {
+        // Fix for absence of dcat:Catalogs in opal2020-07 dataset
+        if (noCatalogFix && question.getOntologyProperties().contains("http://www.w3.org/ns/dcat#dataset")) {
             question.getOntologyProperties().remove("http://www.w3.org/ns/dcat#dataset");
             question.getOntologyProperties().add("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
             question.getOntologyClasses().add("http://www.w3.org/ns/dcat#Dataset");
         }
-
 
         return question;
     }

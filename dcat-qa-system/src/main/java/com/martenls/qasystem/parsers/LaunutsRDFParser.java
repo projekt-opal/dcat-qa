@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 
 @Log4j2
-public class LaunutsRDFParser extends EntityRDFParser{
+public class LaunutsRDFParser extends EntityRDFParser {
 
 
     public LaunutsRDFParser() {
