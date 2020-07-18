@@ -13,13 +13,18 @@ import java.util.List;
 public class SemanticPropertyIndicators {
 
     // copied from tebaqa
+    // english
     private static final List<String> ASC_INDICATORS_EN = List.of("first", "oldest", "smallest", "lowest", "shortest", "least");
     private static final List<String> DESC_INDICATORS_EN = List.of("largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent");
     private static final List<String> COUNT_INDICATORS_EN = List.of("how many", "how much");
+    private static final List<String> BYTESIZE_PROPERTY_INDICATORS_EN = List.of("how big", "how small", "biggest", "largest", "smallest");
 
+    // german
     private static final List<String> ASC_INDICATORS_DE = List.of("erste", "älteste", "kleinste", "niedrigste", "kürzeste", "wenigste");
     private static final List<String> DESC_INDICATORS_DE = List.of("letzte", "jüngste", "neueste", "größte", "höchste", "längste", "meiste", "zuletzt", "letztes", "neulich", "vor kurzem");
     private static final List<String> COUNT_INDICATORS_DE = List.of("wie viele", "wie viel");
+    private static final List<String> BYTESIZE_PROPERTY_INDICATORS_DE = List.of("wie groß", "wie klein", "größte", "kleinste");
+
 
 
     private SemanticPropertyIndicators() {
@@ -71,5 +76,19 @@ public class SemanticPropertyIndicators {
         return Collections.emptyList();
     }
 
+    /**
+     * Get list of indicators for question asking for the byteSize of dataset/distribution.
+     * @param language of the indicator words
+     * @return list of words indicating the byteSize property in the specified language
+     */
+    public static List<String> getBytesizePropetyIndicators(Language language) {
+        switch (language) {
+            case GERMAN:
+                return BYTESIZE_PROPERTY_INDICATORS_DE;
+            case ENGLISH:
+                return BYTESIZE_PROPERTY_INDICATORS_EN;
+        }
+        return Collections.emptyList();
+    }
 
 }

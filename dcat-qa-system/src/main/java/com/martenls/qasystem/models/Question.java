@@ -21,6 +21,7 @@ public class Question {
     private List<String> words;
     private Map<String, String> posTags;
     private List<String> wShingles;
+    private List<String> wShinglesWithStopwords;
     private Set<String> ontologyProperties;
     private Set<String> ontologyClasses;
     private Set<String> locationEntities;
@@ -55,6 +56,7 @@ public class Question {
         this.words = new ArrayList<>();
         this.posTags = new HashMap<>();
         this.wShingles = new ArrayList<>();
+        this.wShinglesWithStopwords = new ArrayList<>();
         this.ontologyProperties = new HashSet<>();
         this.ontologyClasses = new HashSet<>();
         this.locationEntities = new HashSet<>();
