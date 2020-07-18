@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class TemplateProvider {
 
-    @Value("${templates}")
+    @Value("${data.templates}")
     private String templateFilePath;
 
     private List<Template> templates;
@@ -31,7 +31,7 @@ public class TemplateProvider {
         } catch (IOException e) {
             log.error("Could not read template file: " + e.getMessage());
         }
-        this.templates = Arrays.stream(templateFile.replaceAll("\r", "").split("\n---\n"))
+        this.templates = Arrays.stream(templateFile.replaceAll("\r", "").replaceAll("#.*\n", "").split("\n---\n"))
                 .map(Template::new)
                 .collect(Collectors.toList());
         log.debug("Successfully loaded " + templates.size() + " templates");
