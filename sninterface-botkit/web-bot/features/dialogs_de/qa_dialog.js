@@ -50,13 +50,11 @@ module.exports = function(controller) {
             quick_replies: [
                 {
                     label: 'Mehr Ergebnisse',
-                    description: 'Zeig mir mehr Ergebnisse',
                     title: 'Mehr Ergebnisse',
                     payload: 'Zeig mir mehr Ergebnisse'
                 },
                 {
                     label: 'Alle Ergebnisse',
-                    description: 'Zeig mir alle Ergebnisse',
                     title: 'Alle Ergebnisse',
                     payload: 'Zeig mir alle Ergebnisse'
                 },

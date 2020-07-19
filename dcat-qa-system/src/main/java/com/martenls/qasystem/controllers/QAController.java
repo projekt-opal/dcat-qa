@@ -24,14 +24,14 @@ public class QAController {
     private SPARQLService sparqlService;
 
     @GetMapping("/qa")
-    public String answerQuestion(@RequestParam String question) {
+    public String answerQuestion(@RequestParam String question) throws JsonProcessingException {
         log.debug("Received question: " + question);
         if (question != null && !question.isBlank()) {
             Answer answer = this.qaService.answerQuestion(new Question(question)).getAnswer();
             if (answer == null || answer.getAnswerJsonStr().isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {
-                return answer.getAnswerJsonStr();
+                return answer.getAnswerAsJSON();
             }
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

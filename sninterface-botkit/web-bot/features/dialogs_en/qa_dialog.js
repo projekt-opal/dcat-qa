@@ -25,7 +25,7 @@ module.exports = function(controller) {
 
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
-        const answer = await qa.askQuestion(convo.vars.text).then(
+        await qa.askQuestion(convo.vars.text).then(
             answer => {
                 answer.answer = utils.formatAsPre('Results:\n' + answer.answer);
                 convo.setVar('qa_answer', answer);
@@ -53,13 +53,11 @@ module.exports = function(controller) {
             quick_replies: [
                 {
                     label: 'more results',
-                    description: 'show me more results',
                     title: 'more results',
                     payload: 'show me more results'
                 },
                 {
                     label: 'all results',
-                    description: 'show me all results',
                     title: 'all results',
                     payload: 'show me all results'
                 },
