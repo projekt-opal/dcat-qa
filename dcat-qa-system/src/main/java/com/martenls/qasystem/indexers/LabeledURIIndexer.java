@@ -46,7 +46,7 @@ public class LabeledURIIndexer {
     public void indexEntities(List<LabeledURI> labeledEntities) throws ESIndexUnavailableException {
         this.createIndex(indexName);
         for (LabeledURI labeledUri : labeledEntities) {
-            this.indexEntity(labeledUri, indexName);
+            this.indexEntity(labeledUri.getWithLowercasedLabels(), indexName);
         }
 
         log.debug("Added " + labeledEntities.size() + " entities to the index " + indexName);

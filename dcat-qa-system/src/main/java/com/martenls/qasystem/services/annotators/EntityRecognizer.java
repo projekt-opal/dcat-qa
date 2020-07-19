@@ -63,7 +63,7 @@ public abstract class EntityRecognizer implements QuestionAnnotator {
      */
     protected List<String> recognizeEntities(String word, Language language, int maxNumberOfResults, String fuzziness) {
         try {
-            return searchService.queryIndexForLabeledUri("labels" + language.getIsoCode639_1().toString().toUpperCase(), word, indexName, maxNumberOfResults, fuzziness);
+            return searchService.queryIndexForLabeledUri("labels" + language.getIsoCode639_1().toString().toUpperCase(), word.toLowerCase(), indexName, maxNumberOfResults, fuzziness);
         } catch (ESIndexUnavailableException e) {
             log.error("Could not fetch entities: ESIndex not available");
             return Collections.emptyList();

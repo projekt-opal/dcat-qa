@@ -78,12 +78,6 @@ WHERE {
 SELECT DISTINCT ?var0
 WHERE {
     ?var0 <prop0> ?var1.
-    ?var0 <prop1> <entity0>
-}
----
-SELECT DISTINCT ?var0
-WHERE {
-    ?var0 <prop0> ?var1.
     ?var1 <prop1> <entity0>
 }
 ---

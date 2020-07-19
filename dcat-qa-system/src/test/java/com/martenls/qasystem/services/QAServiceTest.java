@@ -42,7 +42,7 @@ class QAServiceTest {
         assertThat(question.getOntologyProperties(), hasSize(2));
         assertThat(question.getOntologyProperties(), hasItem("http://www.w3.org/ns/dcat#dataset"));
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/spatial"));
-        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>  }  ")))));
+        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT DISTINCT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>  }  ")))));
     }
 
     @Test
@@ -93,7 +93,7 @@ class QAServiceTest {
         assertThat(question.getOntologyProperties(), hasItem("http://www.w3.org/ns/dcat#dataset"));
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/spatial"));
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/language"));
-        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>.      ?var1 <http://purl.org/dc/terms/language> <http://publications.europa.eu/resource/authority/language/DEU>.  }")))));
+        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT DISTINCT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>.      ?var1 <http://purl.org/dc/terms/language> <http://publications.europa.eu/resource/authority/language/DEU>.  }")))));
     }
 
     @Test
@@ -118,7 +118,7 @@ class QAServiceTest {
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/issued"));
         assertThat(question.getOntologyProperties(), hasItem("http://www.w3.org/ns/dcat#theme"));
         assertThat(question.getOntologyProperties(), hasItem("http://www.w3.org/ns/dcat#dataset"));
-        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://www.w3.org/ns/dcat#theme> <http://publications.europa.eu/resource/authority/data-theme/TRAN>.      ?var1 <http://purl.org/dc/terms/issued> <var2>.      FILTER ( ?var2 >= \"2019-05-01\"^^<http://www.w3.org/2001/XMLSchema#date> && ?var2 <= \"2019-05-31\"^^<http://www.w3.org/2001/XMLSchema#date>)  }  ")))));
+        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT DISTINCT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://www.w3.org/ns/dcat#theme> <http://publications.europa.eu/resource/authority/data-theme/TRAN>.      ?var1 <http://purl.org/dc/terms/issued> <var2>.      FILTER ( ?var2 >= \"2019-05-01\"^^<http://www.w3.org/2001/XMLSchema#date> && ?var2 <= \"2019-05-31\"^^<http://www.w3.org/2001/XMLSchema#date>)  }  ")))));
     }
 
 }

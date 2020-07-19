@@ -60,13 +60,17 @@ public class TemplateSelector implements QuestionAnnotator {
         }
 
         // asc indicator -> template with order by and asc
-        if (template.hasOrderAscModifier() && question.hasProperty(Question.properties.ASC_ORDERED)) {
+        if (template.hasOrderAscModifier() == question.hasProperty(Question.properties.ASC_ORDERED)) {
             rating += 10;
+        } else {
+            rating -= 10;
         }
 
         // desc indicator -> template with order by and desc
-        if (template.hasOrderDescModifier() && question.hasProperty(Question.properties.DESC_ORDERED)) {
+        if (template.hasOrderDescModifier() == question.hasProperty(Question.properties.DESC_ORDERED)) {
             rating += 10;
+        } else {
+            rating -= 10;
         }
 
         // count indicator -> template with group by
@@ -78,19 +82,19 @@ public class TemplateSelector implements QuestionAnnotator {
         if (template.hasStringMatchingFilter() == !question.getStringLiterals().isEmpty()) {
             rating += 10;
         } else {
-            return 0;
+            rating -= 10;;
         }
         // temporal entity with interval -> template with interval filter
         if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
             rating += 10;
         } else {
-            return 0;
+            rating -= 10;;
         }
 
         if (template.hasValueFilter() == !question.getTimeEntities().isEmpty()) {
             rating += 10;
         } else {
-            return 0;
+            rating -= 10;;
         }
 
         // TODO: add more rules

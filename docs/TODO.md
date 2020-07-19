@@ -87,7 +87,7 @@ QA-Improvements:
 
 QA-Bugs:
 
-- recognition of relative time entities
+- recognition of relative time entities✅
 
 
 Bot-Improvements:
@@ -101,5 +101,5 @@ Bot-Improvements:
 
 Data-Improvements:
 
-- add catalogs to opal2020-07
+- add catalogs to opal2020-07✅
 - add launuts to opal2020-07
