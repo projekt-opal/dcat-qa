@@ -11,6 +11,7 @@ import com.martenls.qasystem.utils.Utils;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -22,7 +23,9 @@ public class QueryBuilder implements QuestionAnnotator {
 
     @Override
     public Question annotate(Question question) {
-        for (TemplateRated templateCandidate : question.getTemplateCandidates().subList(0, 2)) {
+        // consider all templates with top rating but a maximum of 5
+        int numberOfConsideredTemplates = Math.min(5, (int) question.getTemplateCandidates().stream().filter(t -> t.getRating() == question.getTemplateCandidates().get(0).getRating()).count());
+        for (TemplateRated templateCandidate : question.getTemplateCandidates().subList(0, numberOfConsideredTemplates)) {
             question.getQueryCandidates().addAll(buildQueriesfromTemplateQuestionPairs(templateCandidate.getTemplate(), question));
         }
         return question;
@@ -78,7 +81,7 @@ public class QueryBuilder implements QuestionAnnotator {
             for (String queryString : queryStrings) {
                 for (List<String> stringCombination : stringCombinations) {
                     for (int i = 0; i < template.getStringArrayCount(); i++) {
-                        queryStringsWithStringEntities.add(queryString.replaceAll("<stringArray" + i + ">", "\"" + stringCombination.get(i) + "\""));
+                        queryStringsWithStringEntities.add(queryString.replaceAll("<stringArray" + i + ">", stringCombination.get(i)));
                     }
                 }
             }

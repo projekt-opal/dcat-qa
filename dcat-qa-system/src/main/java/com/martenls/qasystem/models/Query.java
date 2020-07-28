@@ -12,7 +12,7 @@ public class Query {
 
     @NonNull private Template template;
     @NonNull private String queryStr;
-    private ResultSet resultSet;
-
+    private ResultSet selectResult;
+    private Boolean askResult;
 
 }

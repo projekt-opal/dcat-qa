@@ -47,6 +47,7 @@ public class Question {
         ASC_ORDERED,
         DESC_ORDERED,
         FILTER,
+        ASK_QUERY
     }
 
 

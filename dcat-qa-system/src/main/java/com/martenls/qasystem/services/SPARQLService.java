@@ -25,7 +25,7 @@ public class SPARQLService {
         return baos.toString();
     }
 
-    public ResultSet executeQuery(String queryStr) {
+    public ResultSet executeSelectQuery(String queryStr) {
         // limit all queries to 10 results
         if (!queryStr.toLowerCase().contains("limit")) {
             queryStr += " LIMIT 10";
@@ -50,6 +50,19 @@ public class SPARQLService {
         return null;
     }
 
-
+    public Boolean executeAskQuery(String queryStr) {
+        // add prefixes
+        queryStr = "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" + queryStr;
+        Query query = QueryFactory.create(queryStr);
+        try ( QueryExecution qexec = QueryExecutionFactory.sparqlService(endpoint, query) ) {
+            qexec.setTimeout(10000L);
+            return qexec.execAsk();
+        } catch (QueryExceptionHTTP e) {
+            log.error("Sparql endpoint timeout while executing {}", query);
+        } catch (Exception e) {
+            log.error(e);
+        }
+        return null;
+    }
 
 }

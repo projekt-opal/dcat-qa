@@ -21,7 +21,7 @@ public class TestConfig {
     @Primary
     public SPARQLService sparqlService() throws IOException {
         SPARQLService mockSparqlService = Mockito.mock(SPARQLService.class);
-        Mockito.when(mockSparqlService.executeQuery(anyString())).thenReturn(ResultSetFactory.fromJSON(IOUtils.toInputStream("{ \"head\": {\n" +
+        Mockito.when(mockSparqlService.executeSelectQuery(anyString())).thenReturn(ResultSetFactory.fromJSON(IOUtils.toInputStream("{ \"head\": {\n" +
                 "    \"vars\": [ \"var0\" ]\n" +
                 "  } ,\n" +
                 "  \"results\": {\n" +

@@ -304,7 +304,8 @@
     "labels": {
       "en": [
         "format",
-        "file format"
+        "file format",
+        "filetypes"
       ],
       "de": [
         "format",
@@ -578,13 +579,15 @@
     "uri": "http://www.w3.org/ns/dcat#distribution",
     "labels": {
       "en": [
-        "distribution"
+        "distribution",
+        "file"
       ],
       "de": [
         "distribution",
         "verteilung",
         "verbreitung",
-        "vertrieb"
+        "vertrieb",
+        "datei"
       ]
     }
   },

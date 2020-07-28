@@ -25,7 +25,8 @@ public class TemplateSelector implements QuestionAnnotator {
     @Override
     public Question annotate(Question question) {
         List<TemplateRated> candidates = new ArrayList<>();
-        for (Template template : templateProvider.getTemplates()) {
+        List<Template> templates = question.getAdditionalProperties().contains(Question.properties.ASK_QUERY) ? templateProvider.getAskTemplates() : templateProvider.getTemplates();
+        for (Template template : templates) {
             candidates.add(new TemplateRated(template, rateTemplateQuestionPair(template, question)));
         }
         candidates.sort(Comparator.comparing(TemplateRated::getRating));

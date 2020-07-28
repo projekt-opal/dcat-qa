@@ -98,8 +98,11 @@ Bot-Improvements:
   - language switch
   - input sanitation (html/js injection possible atm)
 
+Bot Bugs:
+
+- twitter bot answers tweets with dm when still in conversation ()
 
 Data-Improvements:
 
 - add catalogs to opal2020-07✅
-- add launuts to opal2020-07
+- add launuts to opal2020-07✅

@@ -18,12 +18,14 @@ public class SemanticPropertyIndicators {
     private static final List<String> DESC_INDICATORS_EN = List.of("largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent");
     private static final List<String> COUNT_INDICATORS_EN = List.of("how many", "how much");
     private static final List<String> BYTESIZE_PROPERTY_INDICATORS_EN = List.of("how big", "how small", "biggest", "largest", "smallest");
+    private static final List<String> ASK_QUERY_INDICATORS_EN = List.of("is", "are", "exist", "does");
 
     // german
     private static final List<String> ASC_INDICATORS_DE = List.of("erste", "älteste", "kleinste", "niedrigste", "kürzeste", "wenigste");
     private static final List<String> DESC_INDICATORS_DE = List.of("letzte", "jüngste", "neueste", "größte", "höchste", "längste", "meiste", "zuletzt", "letztes", "neulich", "vor kurzem");
     private static final List<String> COUNT_INDICATORS_DE = List.of("wie viele", "wie viel");
     private static final List<String> BYTESIZE_PROPERTY_INDICATORS_DE = List.of("wie groß", "wie klein", "größte", "kleinste");
+    private static final List<String> ASK_QUERY_INDICATORS_DE = List.of("gibt", "sind", "existieren", "ist");
 
 
 
@@ -87,6 +89,21 @@ public class SemanticPropertyIndicators {
                 return BYTESIZE_PROPERTY_INDICATORS_DE;
             case ENGLISH:
                 return BYTESIZE_PROPERTY_INDICATORS_EN;
+        }
+        return Collections.emptyList();
+    }
+
+    /**
+     * Get list of indicators that the question is a yes/no question.
+     * @param language of the indicator words
+     * @return list of words indicating that the question is a yes/no question.
+     */
+    public static List<String> getAskQueryIndicators(Language language) {
+        switch (language) {
+            case GERMAN:
+                return ASK_QUERY_INDICATORS_DE;
+            case ENGLISH:
+                return ASK_QUERY_INDICATORS_EN;
         }
         return Collections.emptyList();
     }

@@ -39,27 +39,11 @@ public class QAController {
 
     }
 
-    @PostMapping("/qa")
-    public String answerQuestion(@RequestBody Question question) throws JsonProcessingException {
-        if (question != null && !question.getQuestionStr().isBlank()) {
-            log.debug("Received question: " + question.getQuestionStr());
-            Answer answer = this.qaService.answerQuestion(question).getAnswer();
-            if (answer == null || answer.getAnswerJsonStr().isEmpty()) {
-                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
-            } else {
-                return answer.getAnswerAsJSON();
-            }
-        } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
-
-    }
-
     @GetMapping("/qa/results")
     public String getMoreResults(@RequestParam String query) throws JsonProcessingException {
         if (query != null && !query.isBlank()) {
             query = SPARQLUtils.increaseOffsetByX(query, 10);
-            Answer answer = new Answer(SPARQLService.resultSetToString(sparqlService.executeQuery(query)), query);
+            Answer answer = new Answer(SPARQLService.resultSetToString(sparqlService.executeSelectQuery(query)), query);
             if (answer.getAnswerJsonStr().isEmpty()) {
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
             } else {

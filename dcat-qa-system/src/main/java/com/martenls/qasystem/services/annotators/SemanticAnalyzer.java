@@ -78,6 +78,13 @@ public class SemanticAnalyzer implements QuestionAnnotator{
         for (String countIndicator : SemanticPropertyIndicators.getCountIndicators(question.getLanguage())) {
             if (question.getQuestionStr().toLowerCase().startsWith(countIndicator)) {
                 propertiesSet.add(Question.properties.COUNT);
+                break;
+            }
+        }
+        for (String askQueryIndicator : SemanticPropertyIndicators.getAskQueryIndicators(question.getLanguage())) {
+            if (question.getQuestionStr().toLowerCase().startsWith(askQueryIndicator)) {
+                propertiesSet.add(Question.properties.ASK_QUERY);
+                break;
             }
         }
         if (question.getWords().stream().anyMatch(SemanticPropertyIndicators.getAscIndicators(question.getLanguage())::contains)) {
@@ -95,15 +102,16 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      * @return list of extracted string literals
      */
     private List<String> getStringLiterals(String string) {
-        List<String> results = Pattern.compile("\"([^\"]*)\"")
+        List<String> results = Pattern.compile("\"([^\"]*)\"(@\\w{2})?")
                 .matcher(string)
                 .results()
-                .map(x -> x.group(1))
+                .map(x -> x.group(0))
                 .collect(Collectors.toList());
-        results.addAll(Pattern.compile("\'([^\"]*)\'")
+        results.addAll(Pattern.compile("\'([^\"]*)\'(@\\w{2})?")
                 .matcher(string)
                 .results()
-                .map(x -> x.group(1))
+                .map(x -> x.group(0))
+                .map(x -> x.replaceAll("'", "\""))
                 .collect(Collectors.toList()));
         return results;
     }

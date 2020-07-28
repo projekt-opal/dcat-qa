@@ -80,8 +80,14 @@ public class QAService {
             templateSelector.annotate(question);
             queryBuilder.annotate(question);
 
-            for (Query queryCandidate : question.getQueryCandidates()) {
-                queryCandidate.setResultSet(sparqlService.executeQuery(queryCandidate.getQueryStr()));
+            if (question.getAdditionalProperties().contains(Question.properties.ASK_QUERY)) {
+                for (Query queryCandidate : question.getQueryCandidates()) {
+                    queryCandidate.setAskResult(sparqlService.executeAskQuery(queryCandidate.getQueryStr()));
+                }
+            } else {
+                for (Query queryCandidate : question.getQueryCandidates()) {
+                    queryCandidate.setSelectResult(sparqlService.executeSelectQuery(queryCandidate.getQueryStr()));
+                }
             }
 
             resultSelector.annotate(question);
