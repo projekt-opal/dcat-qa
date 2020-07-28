@@ -54,7 +54,6 @@ module.exports = function(controller) {
 
     controller.on(['tweet'], async(bot, message) => {
         await bot.beginDialog('qa_tweet', message);
-
     });
 
     

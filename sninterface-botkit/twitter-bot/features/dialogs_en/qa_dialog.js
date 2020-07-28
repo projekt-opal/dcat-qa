@@ -2,9 +2,6 @@ const { BotkitConversation } = require('botkit');
 
 const qa = require('../../qa');
 
-const formatResults = (results) => {
-    return results;
-}
 
 module.exports = function(controller) {
 
@@ -28,17 +25,23 @@ module.exports = function(controller) {
 
     qa_dialog.before('answer_thread',  async (convo, bot) => {
         if (convo.vars.text) {
-            await qa.askQuestion(convo.vars.text).then(answer => {
-                answer.answer = formatResults(answer.answer);
-                convo.setVar('qa_answer', answer);
-            }).catch(err => {
-                if (err == 'noanswer') {
-                    convo.gotoThread('fail_noanswer_thread');
-                } else {
-                    convo.gotoThread('fail_noconnect_thread')
-                }
+            await qa.askQuestion(convo.vars.text).then(
+                answer => {
+                    if (answer.askQuery) {
+                        convo.setVar('qa_answer', answer);
+                        convo.gotoThread('ask_answer_thread')
+                    } else {
+                        convo.setVar('qa_answer', answer);
+                    }
+                }).catch(err => {
+                    if (err == 'noanswer') {
+                        convo.gotoThread('fail_noanswer_thread');
+                    } else {
+                        convo.gotoThread('fail_noconnect_thread')
+                    }
+                });            
             });
-            
+                });            
         }
     });
 
@@ -46,12 +49,15 @@ module.exports = function(controller) {
     qa_dialog.addMessage('Results:\n{{{vars.qa_answer.answer}}}', 'answer_thread');
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
+    qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'ask_answer_thread');
+    qa_dialog.addMessage('OK, do you have more questions?', 'ask_answer_thread');
+    qa_dialog.addAction('complete', 'ask_answer_thread');
 
 
     // success thread    
     qa_dialog.addQuestion(
         {
-            text: 'OK, do you have more questions or do want to see more results for your last question?',
+            text: 'OK, do you have more questions or do you want to see more results for your last question?',
             quick_replies: [
                 {
                     label: 'show me more results',
@@ -80,7 +86,6 @@ module.exports = function(controller) {
                     if (results.answer === '') {
                         await convo.gotoThread('fail_no_more_results_thread');
                     } else {
-                        results.answer = formatResults(results.answer)
                         convo.setVar('more_results', results);
                         await convo.gotoThread('more_results_thread');
                     }

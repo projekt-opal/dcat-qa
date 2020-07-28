@@ -27,8 +27,14 @@ module.exports = function(controller) {
     qa_dialog.before('answer_thread',  async (convo, bot) => {
         await qa.askQuestion(convo.vars.text).then(
             answer => {
-                answer.answer = utils.formatAsPre('Ergebnisse:\n' + answer.answer);
-                convo.setVar('qa_answer', answer);
+                if (answer.askQuery) {
+                    answer.answer = utils.formatAsPre(answer.answer);
+                    convo.setVar('qa_answer', answer);
+                    convo.gotoThread('ask_answer_thread')
+                } else {
+                    answer.answer = utils.formatAsPre('Ergebnisse:\n' + answer.answer);
+                    convo.setVar('qa_answer', answer);
+                }
             }).catch(err => {
                 if (err == 'noanswer') {
                     convo.gotoThread('fail_noanswer_thread');
@@ -42,6 +48,9 @@ module.exports = function(controller) {
     qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'answer_thread');
     qa_dialog.addAction('succ_thread', 'answer_thread');
 
+    qa_dialog.addMessage('{{{vars.qa_answer.answer}}}', 'ask_answer_thread');
+    qa_dialog.addMessage('OK, hast du noch weitere Fragen?', 'ask_answer_thread');
+    qa_dialog.addAction('complete', 'ask_answer_thread');
 
     // success thread    
     qa_dialog.addQuestion(
