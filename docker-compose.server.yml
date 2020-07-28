@@ -21,12 +21,22 @@ services:
       - QA_URL=http://qa-system:8080/qa
     networks:
       - compose_overlay
-  sninterface-web:
+  sninterface-web-en:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-web:latest
     container_name: sninterface-botkit-web
     restart: unless-stopped
     environment: 
       - QA_URL=http://qa-system:8080/qa
+      - BOT_LANG=en
+    networks:
+      - compose_overlay
+  sninterface-web-de:
+    image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-web:latest
+    container_name: sninterface-botkit-web
+    restart: unless-stopped
+    environment: 
+      - QA_URL=http://qa-system:8080/qa
+      - BOT_LANG=de
     networks:
       - compose_overlay
   qa-system:
