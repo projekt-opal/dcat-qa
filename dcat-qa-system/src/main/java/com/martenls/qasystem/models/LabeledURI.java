@@ -1,6 +1,7 @@
 package com.martenls.qasystem.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
@@ -23,6 +24,7 @@ public class LabeledURI {
         this.labels = new HashMap<>();
     }
 
+    @JsonIgnore
     public LabeledURI getWithLowercasedLabels() {
         return new LabeledURI(this.uri, this.labels.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().stream().map(String::toLowerCase).collect(Collectors.toList()))));
     }

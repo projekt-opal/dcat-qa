@@ -30,6 +30,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
         } else if (question.getLanguage() == Language.GERMAN) {
             words = question.getWords();
         }
+        // TODO: maybe only filter out shingles that are stopwords
         question.setWShinglesWithStopwords(getShingles(words, 5));
         // filter out stopwords
         words.removeIf(x -> Stopwords.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()));

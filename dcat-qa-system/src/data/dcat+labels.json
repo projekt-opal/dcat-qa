@@ -12,7 +12,8 @@
         "download-url",
         "download",
         "url",
-        "runterladen"
+        "runterladen",
+        "herunterladen"
       ]
     }
   },
@@ -31,7 +32,11 @@
     "uri": "http://purl.org/dc/terms/spatial",
     "labels": {
       "en": [
-        "spatial coverage"
+        "spatial coverage",
+        "place",
+        "location",
+        "city",
+        "town"
       ],
       "de": [
         "räumliche abdeckung",
@@ -218,7 +223,6 @@
         "modification",
         "change",
         "changed",
-        "changed",
         "altered"
       ],
       "de": [
@@ -274,6 +278,22 @@
         "identifizierung",
         "bezeichnung",
         "bezeichner"
+      ]
+    }
+  },
+  {
+    "uri": "http://www.w3.org/ns/dcat#keyword",
+    "labels": {
+      "en": [
+        "keyword",
+        "tag",
+        "descriptor"
+      ],
+      "de": [
+        "keyword",
+        "stichwort",
+        "stichpunkt",
+        "schlagwort"
       ]
     }
   },

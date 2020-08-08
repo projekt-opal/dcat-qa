@@ -2,6 +2,7 @@ package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
 import com.martenls.qasystem.models.Question;
+import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import com.martenls.qasystem.parsers.LaunutsRDFParser;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +16,7 @@ public class LocationEntityRecognizer extends EntityRecognizer {
     public LocationEntityRecognizer(@Value("${es.launuts_index}") String indexName,
                                     @Value("${data.launuts}") String rdfFilePath,
                                     @Value("${properties.languages}") String[] languages) {
-        super(indexName, rdfFilePath, languages, new LaunutsRDFParser());
+        super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(new String[]{"de"}));
     }
 
 

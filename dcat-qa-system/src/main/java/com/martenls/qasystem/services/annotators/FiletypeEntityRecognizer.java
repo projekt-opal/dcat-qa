@@ -1,7 +1,6 @@
 package com.martenls.qasystem.services.annotators;
 
-import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
-import com.martenls.qasystem.indexers.LabeledURIIndexer;
+
 import com.martenls.qasystem.models.Question;
 import com.github.pemistahl.lingua.api.Language;
 

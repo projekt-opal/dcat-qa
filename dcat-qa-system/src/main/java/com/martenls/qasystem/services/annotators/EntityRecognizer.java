@@ -45,7 +45,7 @@ public abstract class EntityRecognizer implements QuestionAnnotator {
                 }
 
             } else {
-                log.debug("Language-index present, nothing to be done");
+                log.debug("{}-index present, nothing to be done", indexName);
             }
         } catch (ESIndexUnavailableException e) {
             log.error("Could not init indices: ESIndex not available");

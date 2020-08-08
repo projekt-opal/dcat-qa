@@ -2,7 +2,7 @@ package com.martenls.qasystem.services.annotators;
 
 
 import com.martenls.qasystem.models.Question;
-import com.martenls.qasystem.parsers.FrequencyRDFParser;
+import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import com.martenls.qasystem.services.ElasticSearchService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class FrequencyEntityRecognizer extends EntityRecognizer {
                                      @Value("${data.frequencyEntities}") String rdfFilePath,
                                      @Value("${properties.languages}") String[] languages
     ) {
-        super(indexName, rdfFilePath, languages, new FrequencyRDFParser(languages));
+        super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(languages));
     }
 
 

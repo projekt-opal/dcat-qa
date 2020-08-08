@@ -11,6 +11,8 @@ import com.martenls.qasystem.utils.Utils;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 
@@ -63,9 +65,14 @@ public class QueryBuilder implements QuestionAnnotator {
             List<List<String>> entityCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(question.getEntities(), template.getEntityCount());
 
             for (String queryStr : queryStrings) {
+                combinationLoop:
                 for (List<String> entityCombination : entityCombinations) {
                     for (int i = 0; i < template.getEntityCount(); i++) {
-                        queryStr = queryStr.replaceAll("<entity" + i + ">", "<" + entityCombination.get(i) + ">");
+                        if (isEntityPlacementValid(question, queryStr, entityCombination.get(i), i)) {
+                            queryStr = queryStr.replaceAll("<entity" + i + ">", "<" + entityCombination.get(i) + ">");
+                        } else {
+                            continue combinationLoop;
+                        }
                     }
                     queryStringsWithEntities.add(queryStr);
                 }
@@ -124,6 +131,7 @@ public class QueryBuilder implements QuestionAnnotator {
         }
         queryStrings = queryStringsWithLimits;
 
+        queryStrings = queryStrings.stream().distinct().collect(Collectors.toList());
 
         // create queries from all valid queryStrings
         for (String queryString : queryStrings) {
@@ -140,5 +148,35 @@ public class QueryBuilder implements QuestionAnnotator {
         return queries;
     }
 
+    /**
+     * Checks if the entity is placed at the slot position (specified with pos)
+     * matches the property at that position.
+     * @param question for which the query is build
+     * @param queryStr where placement should be checked
+     * @param entity that should be placed
+     * @param pos of the entity slot that should be checked
+     * @return false if property and entity match, else true
+     */
+    private boolean isEntityPlacementValid(Question question, String queryStr, String entity, int pos) {
+        Matcher matcher = Pattern.compile("(<.*>)\\s*<entity"+ pos +">").matcher(queryStr);
+        if (matcher.find()) {
+            String prop = matcher.group(1);
+            if (question.getLanguageEntities().contains(entity)) {
+                return prop.equals("<http://purl.org/dc/terms/language>");
+            } else if (question.getLocationEntities().contains(entity)) {
+                return prop.equals("<http://purl.org/dc/terms/spatial>");
+            } else if (question.getThemeEntities().contains(entity)) {
+                return prop.equals("<http://www.w3.org/ns/dcat#theme>");
+            } else if (question.getLicenseEntities().contains(entity)) {
+                return prop.equals("<http://purl.org/dc/terms/license>");
+            } else if (question.getFiletypeEntities().contains(entity)) {
+                return prop.equals("<http://purl.org/dc/terms/format>");
+            } else if (question.getFrequencyEntities().contains(entity)) {
+                return prop.equals("<http://purl.org/dc/terms/accrualPeriodicity>");
+            }
+        }
+        return true;
+    }
 
 }
+

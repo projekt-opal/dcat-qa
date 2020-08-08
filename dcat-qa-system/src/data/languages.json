@@ -1,0 +1,3597 @@
+[
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YPK",
+    "labels": {
+      "en": [
+        "yupik languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HOS",
+    "labels": {
+      "en": [
+        "ho chi minh city sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HKS",
+    "labels": {
+      "en": [
+        "hong kong sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HMO",
+    "labels": {
+      "en": [
+        "hiri motu"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YSL",
+    "labels": {
+      "en": [
+        "yugoslavian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HRV",
+    "labels": {
+      "de": [
+        "kroatisch"
+      ],
+      "en": [
+        "croatian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HSH",
+    "labels": {
+      "en": [
+        "hungarian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HSB",
+    "labels": {
+      "de": [
+        "obersorbisch"
+      ],
+      "en": [
+        "upper sorbian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HSL",
+    "labels": {
+      "en": [
+        "hausa sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YUE",
+    "labels": {
+      "en": [
+        "yue chinese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HPS",
+    "labels": {
+      "de": [
+        "hawaiische gebärdensprache"
+      ],
+      "en": [
+        "hawai'i pidgin sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HDS",
+    "labels": {
+      "en": [
+        "honduran sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HEB",
+    "labels": {
+      "de": [
+        "hebräisch"
+      ],
+      "en": [
+        "hebrew"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YID",
+    "labels": {
+      "de": [
+        "jiddisch"
+      ],
+      "en": [
+        "yiddish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HIF",
+    "labels": {
+      "en": [
+        "fiji hindi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HIN",
+    "labels": {
+      "de": [
+        "hindi"
+      ],
+      "en": [
+        "hindi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HAT",
+    "labels": {
+      "en": [
+        "haitian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HBS",
+    "labels": {
+      "de": [
+        "serbokroatisch"
+      ],
+      "en": [
+        "serbo-croatian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HCA",
+    "labels": {
+      "de": [
+        "andamanen-kreol-hindi"
+      ],
+      "en": [
+        "andaman creole hindi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YAA",
+    "labels": {
+      "en": [
+        "yaminava"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HAF",
+    "labels": {
+      "en": [
+        "haiphong sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HAB",
+    "labels": {
+      "en": [
+        "hanoi sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GUG",
+    "labels": {
+      "en": [
+        "paraguayan guaraní"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GUS",
+    "labels": {
+      "en": [
+        "guinean sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GRN",
+    "labels": {
+      "en": [
+        "guarani"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GSG",
+    "labels": {
+      "de": [
+        "deutsche gebärdensprache"
+      ],
+      "en": [
+        "german sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GSE",
+    "labels": {
+      "de": [
+        "ghanaische gebärdensprache"
+      ],
+      "en": [
+        "ghanaian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GSM",
+    "labels": {
+      "en": [
+        "guatemalan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GSS",
+    "labels": {
+      "en": [
+        "greek sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GYR",
+    "labels": {
+      "en": [
+        "guarayu"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/INA",
+    "labels": {
+      "de": [
+        "interlingua"
+      ],
+      "en": [
+        "interlingua"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/INE",
+    "labels": {
+      "en": [
+        "indo-european languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/INC",
+    "labels": {
+      "en": [
+        "indic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IND",
+    "labels": {
+      "de": [
+        "indonesisch"
+      ],
+      "en": [
+        "indonesian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/INL",
+    "labels": {
+      "en": [
+        "indonesian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/INS",
+    "labels": {
+      "en": [
+        "indian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZUL",
+    "labels": {
+      "de": [
+        "zulu"
+      ],
+      "en": [
+        "zulu"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ITE",
+    "labels": {
+      "en": [
+        "itene"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ITA",
+    "labels": {
+      "de": [
+        "italienisch"
+      ],
+      "en": [
+        "italian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ITO",
+    "labels": {
+      "en": [
+        "itonama"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZSL",
+    "labels": {
+      "en": [
+        "zambian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IRA",
+    "labels": {
+      "en": [
+        "iranian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IRO",
+    "labels": {
+      "en": [
+        "iroquoian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ISG",
+    "labels": {
+      "en": [
+        "irish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ISE",
+    "labels": {
+      "de": [
+        "italienische gebärdensprache"
+      ],
+      "en": [
+        "italian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ISL",
+    "labels": {
+      "de": [
+        "isländisch"
+      ],
+      "en": [
+        "icelandic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ISR",
+    "labels": {
+      "en": [
+        "israeli sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZIB",
+    "labels": {
+      "en": [
+        "zimbabwean sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IGN",
+    "labels": {
+      "en": [
+        "ignaciano"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZHO",
+    "labels": {
+      "de": [
+        "chinesisch"
+      ],
+      "en": [
+        "chinese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZND",
+    "labels": {
+      "en": [
+        "zande languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IJO",
+    "labels": {
+      "en": [
+        "ijo languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZLM",
+    "labels": {
+      "de": [
+        "malaiisch"
+      ],
+      "en": [
+        "malay"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ICL",
+    "labels": {
+      "en": [
+        "icelandic sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/IBO",
+    "labels": {
+      "de": [
+        "igbo"
+      ],
+      "en": [
+        "igbo"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YUQ",
+    "labels": {
+      "en": [
+        "yuqui"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/YUZ",
+    "labels": {
+      "en": [
+        "yuracare"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HUN",
+    "labels": {
+      "de": [
+        "ungarisch"
+      ],
+      "en": [
+        "hungarian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/HYE",
+    "labels": {
+      "de": [
+        "armenisch"
+      ],
+      "en": [
+        "armenian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FIU",
+    "labels": {
+      "en": [
+        "finno-ugrian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/WLN",
+    "labels": {
+      "de": [
+        "wallonisch"
+      ],
+      "en": [
+        "walloon"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FIN",
+    "labels": {
+      "de": [
+        "finnisch"
+      ],
+      "en": [
+        "finnish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FIL",
+    "labels": {
+      "en": [
+        "filipino"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FIJ",
+    "labels": {
+      "en": [
+        "fijian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/WOL",
+    "labels": {
+      "de": [
+        "wolof"
+      ],
+      "en": [
+        "wolof"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FAO",
+    "labels": {
+      "de": [
+        "färöisch"
+      ],
+      "en": [
+        "faroese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FAS",
+    "labels": {
+      "de": [
+        "persisch"
+      ],
+      "en": [
+        "persian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/WAK",
+    "labels": {
+      "en": [
+        "wakashan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FCS",
+    "labels": {
+      "en": [
+        "quebec sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/WEN",
+    "labels": {
+      "en": [
+        "sorbian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/EWE",
+    "labels": {
+      "de": [
+        "ewe"
+      ],
+      "en": [
+        "ewe"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/EPO",
+    "labels": {
+      "de": [
+        "esperanto"
+      ],
+      "en": [
+        "esperanto"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VSI",
+    "labels": {
+      "en": [
+        "moldovan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ENG",
+    "labels": {
+      "de": [
+        "englisch"
+      ],
+      "en": [
+        "english"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ETH",
+    "labels": {
+      "en": [
+        "ethiopian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/EUS",
+    "labels": {
+      "de": [
+        "baskisch"
+      ],
+      "en": [
+        "basque"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VSL",
+    "labels": {
+      "en": [
+        "venezuelan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VSV",
+    "labels": {
+      "en": [
+        "valencian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ESE",
+    "labels": {
+      "en": [
+        "ese ejja"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ESN",
+    "labels": {
+      "en": [
+        "salvadoran sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ESO",
+    "labels": {
+      "en": [
+        "estonian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ESL",
+    "labels": {
+      "en": [
+        "egyptian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/EST",
+    "labels": {
+      "de": [
+        "estnisch"
+      ],
+      "en": [
+        "estonian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GLA",
+    "labels": {
+      "de": [
+        "schottisch-gälisch"
+      ],
+      "en": [
+        "scottish gaelic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/XML",
+    "labels": {
+      "en": [
+        "malaysian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GLG",
+    "labels": {
+      "de": [
+        "galicisch"
+      ],
+      "en": [
+        "galician"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GLE",
+    "labels": {
+      "de": [
+        "irisch"
+      ],
+      "en": [
+        "irish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/XMS",
+    "labels": {
+      "en": [
+        "moroccan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GLV",
+    "labels": {
+      "en": [
+        "manx"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/XKI",
+    "labels": {
+      "en": [
+        "kenyan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GEM",
+    "labels": {
+      "en": [
+        "germanic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/XHO",
+    "labels": {
+      "en": [
+        "xhosa"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FRA",
+    "labels": {
+      "de": [
+        "französisch"
+      ],
+      "en": [
+        "french"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FRY",
+    "labels": {
+      "de": [
+        "friesisch"
+      ],
+      "en": [
+        "frisian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FSE",
+    "labels": {
+      "en": [
+        "finnish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FSL",
+    "labels": {
+      "de": [
+        "französische gebärdensprache"
+      ],
+      "en": [
+        "french sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FSS",
+    "labels": {
+      "en": [
+        "finland-swedish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/FUR",
+    "labels": {
+      "de": [
+        "furnalnisch"
+      ],
+      "en": [
+        "friulan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/GER",
+    "labels": {
+      "de": [
+        "deutsch"
+      ],
+      "en": [
+        "german"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UGN",
+    "labels": {
+      "en": [
+        "ugandan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UGY",
+    "labels": {
+      "en": [
+        "uruguayan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DIV",
+    "labels": {
+      "de": [
+        "dhivehi"
+      ],
+      "en": [
+        "dhivehi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UKR",
+    "labels": {
+      "de": [
+        "ukrainisch"
+      ],
+      "en": [
+        "ukrainian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UKS",
+    "labels": {
+      "en": [
+        "urubú-kaapor sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UKL",
+    "labels": {
+      "en": [
+        "ukrainian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DAN",
+    "labels": {
+      "de": [
+        "dänisch"
+      ],
+      "en": [
+        "danish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DAY",
+    "labels": {
+      "en": [
+        "land dayak languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TUT",
+    "labels": {
+      "en": [
+        "altaic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TUR",
+    "labels": {
+      "de": [
+        "türkisch"
+      ],
+      "en": [
+        "turkish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TUP",
+    "labels": {
+      "en": [
+        "tupi languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TVL",
+    "labels": {
+      "en": [
+        "tuvaluan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CUS",
+    "labels": {
+      "en": [
+        "cushitic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSS",
+    "labels": {
+      "en": [
+        "taiwanese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSQ",
+    "labels": {
+      "en": [
+        "thai sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSO",
+    "labels": {
+      "en": [
+        "tsonga"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSM",
+    "labels": {
+      "de": [
+        "türkische gebärdensprache"
+      ],
+      "en": [
+        "turkish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSN",
+    "labels": {
+      "en": [
+        "tswana"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSY",
+    "labels": {
+      "en": [
+        "tebul sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CRS",
+    "labels": {
+      "en": [
+        "seselwa creole french"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSD",
+    "labels": {
+      "en": [
+        "chiangmai sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSE",
+    "labels": {
+      "en": [
+        "czech sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSB",
+    "labels": {
+      "de": [
+        "kaschubisch"
+      ],
+      "en": [
+        "kashubian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSC",
+    "labels": {
+      "de": [
+        "katalanische gebärdensprache"
+      ],
+      "en": [
+        "catalan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSL",
+    "labels": {
+      "en": [
+        "chinese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSF",
+    "labels": {
+      "en": [
+        "cuban sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSG",
+    "labels": {
+      "en": [
+        "chilean sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSR",
+    "labels": {
+      "en": [
+        "costa rican sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSQ",
+    "labels": {
+      "en": [
+        "croatian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CSN",
+    "labels": {
+      "en": [
+        "colombian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TUK",
+    "labels": {
+      "de": [
+        "turkmenisch"
+      ],
+      "en": [
+        "turkmen"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TZA",
+    "labels": {
+      "en": [
+        "tanzanian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CYB",
+    "labels": {
+      "en": [
+        "cayubaba"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CYM",
+    "labels": {
+      "de": [
+        "walisisch"
+      ],
+      "en": [
+        "welsh"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TNA",
+    "labels": {
+      "en": [
+        "tacana"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TNO",
+    "labels": {
+      "en": [
+        "toromono"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CMC",
+    "labels": {
+      "en": [
+        "chamic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CMN",
+    "labels": {
+      "de": [
+        "nordchinesischen dialekte"
+      ],
+      "en": [
+        "mandarin chinese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TKL",
+    "labels": {
+      "en": [
+        "tokelauan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CKB",
+    "labels": {
+      "en": [
+        "central kurdish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TRN",
+    "labels": {
+      "en": [
+        "trinitario"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TSE",
+    "labels": {
+      "en": [
+        "tunisian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TON",
+    "labels": {
+      "en": [
+        "tongan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TPI",
+    "labels": {
+      "en": [
+        "tok pisin"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CNR",
+    "labels": {
+      "de": [
+        "montenegrinisch"
+      ],
+      "en": [
+        "montenegrin"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TPJ",
+    "labels": {
+      "en": [
+        "tapieté"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/COR",
+    "labels": {
+      "de": [
+        "kornisch"
+      ],
+      "en": [
+        "cornish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/COS",
+    "labels": {
+      "de": [
+        "korsisch"
+      ],
+      "en": [
+        "corsican"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VIE",
+    "labels": {
+      "de": [
+        "vietnamesisch"
+      ],
+      "en": [
+        "vietnamese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ELL",
+    "labels": {
+      "de": [
+        "griechisch"
+      ],
+      "en": [
+        "greek"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VLS",
+    "labels": {
+      "de": [
+        "flämisch"
+      ],
+      "en": [
+        "flemish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ECS",
+    "labels": {
+      "en": [
+        "ecuadorian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/VEN",
+    "labels": {
+      "en": [
+        "venda"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DZO",
+    "labels": {
+      "en": [
+        "dzongkha"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UZB",
+    "labels": {
+      "de": [
+        "usbekisch"
+      ],
+      "en": [
+        "uzbek"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DOQ",
+    "labels": {
+      "en": [
+        "dominican sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/UND",
+    "labels": {
+      "de": [
+        "unbekannt"
+      ],
+      "en": [
+        "undetermined"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DRA",
+    "labels": {
+      "en": [
+        "dravidian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DSB",
+    "labels": {
+      "de": [
+        "niedersorbisch"
+      ],
+      "en": [
+        "lower sorbian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DSL",
+    "labels": {
+      "de": [
+        "dänische gebärdensprache"
+      ],
+      "en": [
+        "danish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/DSE",
+    "labels": {
+      "en": [
+        "dutch sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/URE",
+    "labels": {
+      "en": [
+        "uru"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/URD",
+    "labels": {
+      "de": [
+        "urdu"
+      ],
+      "en": [
+        "urdu"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BAT",
+    "labels": {
+      "en": [
+        "baltic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SCO",
+    "labels": {
+      "de": [
+        "scots"
+      ],
+      "en": [
+        "scots"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SDL",
+    "labels": {
+      "en": [
+        "saudi arabian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SDH",
+    "labels": {
+      "en": [
+        "southern kurdish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SAI",
+    "labels": {
+      "en": [
+        "south american indian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SAG",
+    "labels": {
+      "en": [
+        "sango"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SAL",
+    "labels": {
+      "en": [
+        "salishan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BAD",
+    "labels": {
+      "en": [
+        "banda languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BAI",
+    "labels": {
+      "en": [
+        "bamileke languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SGG",
+    "labels": {
+      "de": [
+        "deutschschweizer gebärdensprache"
+      ],
+      "en": [
+        "swiss-german sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BER",
+    "labels": {
+      "en": [
+        "berber languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SGN",
+    "labels": {
+      "de": [
+        "gebärdensprachen"
+      ],
+      "en": [
+        "sign languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SGX",
+    "labels": {
+      "en": [
+        "sierra leonean sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BFI",
+    "labels": {
+      "en": [
+        "british sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BFK",
+    "labels": {
+      "en": [
+        "ban khor sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SEM",
+    "labels": {
+      "en": [
+        "semitic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SFS",
+    "labels": {
+      "en": [
+        "south african sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BEN",
+    "labels": {
+      "de": [
+        "bengalisch"
+      ],
+      "en": [
+        "bengali"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BEL",
+    "labels": {
+      "de": [
+        "weißrussisch"
+      ],
+      "en": [
+        "belarusian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AYM",
+    "labels": {
+      "en": [
+        "aymara"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AYO",
+    "labels": {
+      "en": [
+        "ayoreo"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AZE",
+    "labels": {
+      "de": [
+        "aserbaidschanisch"
+      ],
+      "en": [
+        "azerbaijani"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/APA",
+    "labels": {
+      "en": [
+        "apache languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RSL",
+    "labels": {
+      "en": [
+        "russian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RSI",
+    "labels": {
+      "en": [
+        "rennellese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ROM",
+    "labels": {
+      "de": [
+        "romani"
+      ],
+      "en": [
+        "romani"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RON",
+    "labels": {
+      "de": [
+        "rumänisch"
+      ],
+      "en": [
+        "romanian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ATH",
+    "labels": {
+      "en": [
+        "athapascan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RUS",
+    "labels": {
+      "de": [
+        "russisch"
+      ],
+      "en": [
+        "russian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AUS",
+    "labels": {
+      "en": [
+        "australian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ARA",
+    "labels": {
+      "de": [
+        "arabisch"
+      ],
+      "en": [
+        "arabic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ART",
+    "labels": {
+      "en": [
+        "artificial languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ARO",
+    "labels": {
+      "en": [
+        "araona"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ASF",
+    "labels": {
+      "en": [
+        "australian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ASE",
+    "labels": {
+      "en": [
+        "american sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ASW",
+    "labels": {
+      "de": [
+        "gebärdensprachen der aborigines"
+      ],
+      "en": [
+        "australian aborigines sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ASP",
+    "labels": {
+      "en": [
+        "algerian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ASQ",
+    "labels": {
+      "de": [
+        "österreichische gebärdensprache"
+      ],
+      "en": [
+        "austrian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RUN",
+    "labels": {
+      "en": [
+        "kirundi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AFA",
+    "labels": {
+      "en": [
+        "afro-asiatic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/0E0",
+    "labels": {
+      "de": [
+        "montenegrinisch"
+      ],
+      "en": [
+        "montenegrin"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AFG",
+    "labels": {
+      "en": [
+        "afghan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AFR",
+    "labels": {
+      "en": [
+        "afrikaans"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ALG",
+    "labels": {
+      "en": [
+        "algonquian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RMS",
+    "labels": {
+      "en": [
+        "romanian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AMH",
+    "labels": {
+      "en": [
+        "amharic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ROA",
+    "labels": {
+      "en": [
+        "romance languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ROH",
+    "labels": {
+      "de": [
+        "rumantsch"
+      ],
+      "en": [
+        "romansh"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TET",
+    "labels": {
+      "en": [
+        "tetum"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CDS",
+    "labels": {
+      "en": [
+        "chadian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CEL",
+    "labels": {
+      "en": [
+        "celtic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAS",
+    "labels": {
+      "en": [
+        "chimane"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAO",
+    "labels": {
+      "en": [
+        "chacobo"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAL",
+    "labels": {
+      "en": [
+        "carolinian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAZ",
+    "labels": {
+      "en": [
+        "canichana"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAX",
+    "labels": {
+      "en": [
+        "chiquitano"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAV",
+    "labels": {
+      "en": [
+        "cavineña"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAW",
+    "labels": {
+      "en": [
+        "kallawaya"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAT",
+    "labels": {
+      "de": [
+        "katalanisch"
+      ],
+      "en": [
+        "catalan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAU",
+    "labels": {
+      "en": [
+        "caucasian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CHA",
+    "labels": {
+      "en": [
+        "chamorro"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TIR",
+    "labels": {
+      "de": [
+        "tigrinya"
+      ],
+      "en": [
+        "tigrinya"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CHN",
+    "labels": {
+      "en": [
+        "chinook jargon"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CES",
+    "labels": {
+      "de": [
+        "tschechisch"
+      ],
+      "en": [
+        "czech"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TGK",
+    "labels": {
+      "de": [
+        "tadschikisch"
+      ],
+      "en": [
+        "tajik"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/THA",
+    "labels": {
+      "de": [
+        "thailändisch"
+      ],
+      "en": [
+        "thai"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BZS",
+    "labels": {
+      "en": [
+        "brazilian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SYY",
+    "labels": {
+      "de": [
+        "al-sayyid-beduinen-gebärdensprache"
+      ],
+      "en": [
+        "al-sayyid bedouin sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TAI",
+    "labels": {
+      "en": [
+        "tai languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/TAM",
+    "labels": {
+      "de": [
+        "tamilisch"
+      ],
+      "en": [
+        "tamil"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/CAI",
+    "labels": {
+      "en": [
+        "central american indian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BRE",
+    "labels": {
+      "de": [
+        "bretonisch"
+      ],
+      "en": [
+        "breton"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SSR",
+    "labels": {
+      "en": [
+        "swiss-french sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SSP",
+    "labels": {
+      "en": [
+        "spanish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BRG",
+    "labels": {
+      "en": [
+        "baure"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SSW",
+    "labels": {
+      "en": [
+        "swazi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SQS",
+    "labels": {
+      "en": [
+        "sri lankan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SRQ",
+    "labels": {
+      "en": [
+        "sirionó"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SRP",
+    "labels": {
+      "de": [
+        "serbisch"
+      ],
+      "en": [
+        "serbian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SSA",
+    "labels": {
+      "en": [
+        "nilo-saharan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BQN",
+    "labels": {
+      "en": [
+        "bulgarian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BQY",
+    "labels": {
+      "en": [
+        "bengkala sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BVL",
+    "labels": {
+      "en": [
+        "bolivian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BTK",
+    "labels": {
+      "en": [
+        "batak languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SVK",
+    "labels": {
+      "en": [
+        "slovakian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SWA",
+    "labels": {
+      "de": [
+        "swahili"
+      ],
+      "en": [
+        "swahili"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BUL",
+    "labels": {
+      "de": [
+        "bulgarisch"
+      ],
+      "en": [
+        "bulgarian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SWE",
+    "labels": {
+      "de": [
+        "schwedisch"
+      ],
+      "en": [
+        "swedish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SWB",
+    "labels": {
+      "en": [
+        "comorian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SWL",
+    "labels": {
+      "de": [
+        "schwedische gebärdensprache"
+      ],
+      "en": [
+        "swedish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SLF",
+    "labels": {
+      "en": [
+        "swiss-italian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SLA",
+    "labels": {
+      "de": [
+        "slawische sprachen"
+      ],
+      "en": [
+        "slavic languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SLK",
+    "labels": {
+      "de": [
+        "slowakisch"
+      ],
+      "en": [
+        "slovak"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SLV",
+    "labels": {
+      "de": [
+        "slowenisch"
+      ],
+      "en": [
+        "slovenian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SLS",
+    "labels": {
+      "en": [
+        "singapore sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SME",
+    "labels": {
+      "de": [
+        "nordsamisch"
+      ],
+      "en": [
+        "northern sami"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SIP",
+    "labels": {
+      "en": [
+        "sikkimese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SIN",
+    "labels": {
+      "de": [
+        "singhalesisch"
+      ],
+      "en": [
+        "sinhala"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SIO",
+    "labels": {
+      "en": [
+        "siouan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SIT",
+    "labels": {
+      "en": [
+        "sino-tibetan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SJE",
+    "labels": {
+      "en": [
+        "pite sami"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BIS",
+    "labels": {
+      "en": [
+        "bislama"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SON",
+    "labels": {
+      "en": [
+        "songhai languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SOM",
+    "labels": {
+      "de": [
+        "somali"
+      ],
+      "en": [
+        "somali"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SOT",
+    "labels": {
+      "en": [
+        "southern sotho"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SPA",
+    "labels": {
+      "de": [
+        "spanisch"
+      ],
+      "en": [
+        "spanish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BNT",
+    "labels": {
+      "en": [
+        "bantu languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BOG",
+    "labels": {
+      "en": [
+        "bamako sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BOD",
+    "labels": {
+      "de": [
+        "tibetisch"
+      ],
+      "en": [
+        "tibetan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SQI",
+    "labels": {
+      "de": [
+        "albanisch"
+      ],
+      "en": [
+        "albanian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/BOS",
+    "labels": {
+      "de": [
+        "bosnisch"
+      ],
+      "en": [
+        "bosnian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SMO",
+    "labels": {
+      "en": [
+        "samoan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/SMI",
+    "labels": {
+      "en": [
+        "sami languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PUS",
+    "labels": {
+      "de": [
+        "paschtunisch"
+      ],
+      "en": [
+        "pashto"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSR",
+    "labels": {
+      "en": [
+        "portuguese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PUQ",
+    "labels": {
+      "en": [
+        "puquina"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/POL",
+    "labels": {
+      "de": [
+        "polnisch"
+      ],
+      "en": [
+        "polish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PKS",
+    "labels": {
+      "en": [
+        "pakistan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PRA",
+    "labels": {
+      "en": [
+        "prakrit languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PRL",
+    "labels": {
+      "en": [
+        "peruvian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PRS",
+    "labels": {
+      "de": [
+        "dari"
+      ],
+      "en": [
+        "dari"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PRZ",
+    "labels": {
+      "en": [
+        "providencia sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSG",
+    "labels": {
+      "en": [
+        "penang sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSC",
+    "labels": {
+      "en": [
+        "persian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSD",
+    "labels": {
+      "en": [
+        "plains indian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSO",
+    "labels": {
+      "en": [
+        "polish sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSP",
+    "labels": {
+      "en": [
+        "philippine sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSM",
+    "labels": {
+      "en": [
+        "pauserna"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PSL",
+    "labels": {
+      "en": [
+        "puerto rican sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/POR",
+    "labels": {
+      "de": [
+        "portugiesisch"
+      ],
+      "en": [
+        "portuguese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PCP",
+    "labels": {
+      "en": [
+        "pacahuara"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PIH",
+    "labels": {
+      "en": [
+        "pitcairn-norfolk"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PHI",
+    "labels": {
+      "en": [
+        "philippine languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/RAR",
+    "labels": {
+      "en": [
+        "rarotongan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/REY",
+    "labels": {
+      "en": [
+        "reyesano"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ADS",
+    "labels": {
+      "de": [
+        "adamorobe-gebärdensprache"
+      ],
+      "en": [
+        "adamorobe sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/0D0",
+    "labels": {
+      "de": [
+        "valencianisch"
+      ],
+      "en": [
+        "valencian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AED",
+    "labels": {
+      "en": [
+        "argentine sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/AEN",
+    "labels": {
+      "en": [
+        "armenian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/QUE",
+    "labels": {
+      "en": [
+        "quechua"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NZS",
+    "labels": {
+      "de": [
+        "neuseeländische gebärdensprache"
+      ],
+      "en": [
+        "new zealand sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NYA",
+    "labels": {
+      "en": [
+        "chewa"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NSI",
+    "labels": {
+      "en": [
+        "nigerian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NSR",
+    "labels": {
+      "en": [
+        "maritime sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NSO",
+    "labels": {
+      "en": [
+        "northern sotho"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NSP",
+    "labels": {
+      "en": [
+        "nepalese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NSL",
+    "labels": {
+      "en": [
+        "norwegian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NOR",
+    "labels": {
+      "de": [
+        "norwegisch"
+      ],
+      "en": [
+        "norwegian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NUB",
+    "labels": {
+      "en": [
+        "nubian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NIU",
+    "labels": {
+      "en": [
+        "niuean"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NIC",
+    "labels": {
+      "en": [
+        "niger-kordofanian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NNO",
+    "labels": {
+      "en": [
+        "norwegian nynorsk"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NOB",
+    "labels": {
+      "en": [
+        "norwegian bokmål"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NLD",
+    "labels": {
+      "de": [
+        "niederländisch"
+      ],
+      "en": [
+        "dutch"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NAH",
+    "labels": {
+      "en": [
+        "nahuatl languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NAI",
+    "labels": {
+      "en": [
+        "north american indian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NAU",
+    "labels": {
+      "en": [
+        "nauruan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NBL",
+    "labels": {
+      "en": [
+        "southhern ndebele"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NBS",
+    "labels": {
+      "en": [
+        "namibian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NEP",
+    "labels": {
+      "de": [
+        "nepali"
+      ],
+      "en": [
+        "nepali"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/NCS",
+    "labels": {
+      "de": [
+        "nicaraguanische gebärdensprache"
+      ],
+      "en": [
+        "nicaraguan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PAA",
+    "labels": {
+      "en": [
+        "papuan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PAN",
+    "labels": {
+      "de": [
+        "panjabi"
+      ],
+      "en": [
+        "punjabi"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PAU",
+    "labels": {
+      "en": [
+        "palauan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/PAP",
+    "labels": {
+      "en": [
+        "papiamento"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/OSS",
+    "labels": {
+      "de": [
+        "ossetisch"
+      ],
+      "en": [
+        "ossetic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/OTO",
+    "labels": {
+      "en": [
+        "otomian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/OCI",
+    "labels": {
+      "de": [
+        "okzitanisch"
+      ],
+      "en": [
+        "occitan"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LTZ",
+    "labels": {
+      "de": [
+        "luxemburgisch"
+      ],
+      "en": [
+        "luxembourgish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LUA",
+    "labels": {
+      "en": [
+        "luba-lulua"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LLS",
+    "labels": {
+      "en": [
+        "lithuanian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LSL",
+    "labels": {
+      "en": [
+        "latvian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LSG",
+    "labels": {
+      "en": [
+        "lyons sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LST",
+    "labels": {
+      "en": [
+        "trinidad and tobago sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LSO",
+    "labels": {
+      "en": [
+        "laotian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LSP",
+    "labels": {
+      "en": [
+        "panamanian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LEC",
+    "labels": {
+      "en": [
+        "leco"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LIN",
+    "labels": {
+      "en": [
+        "lingala"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LIT",
+    "labels": {
+      "de": [
+        "litauisch"
+      ],
+      "en": [
+        "lithuanian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LAO",
+    "labels": {
+      "de": [
+        "laotisch"
+      ],
+      "en": [
+        "lao"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LAV",
+    "labels": {
+      "de": [
+        "lettisch"
+      ],
+      "en": [
+        "latvian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LAT",
+    "labels": {
+      "de": [
+        "latein"
+      ],
+      "en": [
+        "latin"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/LBS",
+    "labels": {
+      "en": [
+        "libyan sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MYA",
+    "labels": {
+      "en": [
+        "burmese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MYN",
+    "labels": {
+      "en": [
+        "mayan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MZG",
+    "labels": {
+      "en": [
+        "monastic sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MZC",
+    "labels": {
+      "en": [
+        "madagascar sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MZP",
+    "labels": {
+      "en": [
+        "movima"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MZY",
+    "labels": {
+      "en": [
+        "mozambican sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MPD",
+    "labels": {
+      "en": [
+        "machinere"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MNK",
+    "labels": {
+      "de": [
+        "mandinka"
+      ],
+      "en": [
+        "mandinka"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MNO",
+    "labels": {
+      "en": [
+        "manobo languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MON",
+    "labels": {
+      "de": [
+        "mongolisch"
+      ],
+      "en": [
+        "mongolian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MOL",
+    "labels": {
+      "de": [
+        "moldauisch"
+      ],
+      "en": [
+        "moldavian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MTP",
+    "labels": {
+      "en": [
+        "wichí lhamtés nocten"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MUL",
+    "labels": {
+      "de": [
+        "mehrere sprachen"
+      ],
+      "en": [
+        "multiple languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MUN",
+    "labels": {
+      "en": [
+        "munda languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MRI",
+    "labels": {
+      "en": [
+        "māori"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MRE",
+    "labels": {
+      "de": [
+        "martha’s vineyards gebärdensprache"
+      ],
+      "en": [
+        "martha's vineyard sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MSA",
+    "labels": {
+      "de": [
+        "malaysisch"
+      ],
+      "en": [
+        "malaysian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MSD",
+    "labels": {
+      "en": [
+        "yucatec maya sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MSR",
+    "labels": {
+      "en": [
+        "mongolian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MFS",
+    "labels": {
+      "en": [
+        "mexican sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MLG",
+    "labels": {
+      "de": [
+        "malagasy"
+      ],
+      "en": [
+        "malagasy"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MLT",
+    "labels": {
+      "de": [
+        "maltesisch"
+      ],
+      "en": [
+        "maltese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MIN",
+    "labels": {
+      "de": [
+        "minangkabau"
+      ],
+      "en": [
+        "minangkabau"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MIS",
+    "labels": {
+      "de": [
+        "einzelne andere sprachen"
+      ],
+      "en": [
+        "uncoded languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MKH",
+    "labels": {
+      "en": [
+        "mon-khmer languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MKD",
+    "labels": {
+      "de": [
+        "mazedonisch"
+      ],
+      "en": [
+        "macedonian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MDL",
+    "labels": {
+      "en": [
+        "maltese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MAH",
+    "labels": {
+      "en": [
+        "marshallese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MAP",
+    "labels": {
+      "en": [
+        "austronesian languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/MAN",
+    "labels": {
+      "en": [
+        "manding"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JSL",
+    "labels": {
+      "de": [
+        "japanische gebärdensprache"
+      ],
+      "en": [
+        "japanese sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JOS",
+    "labels": {
+      "en": [
+        "jordanian sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JPN",
+    "labels": {
+      "de": [
+        "japanisch"
+      ],
+      "en": [
+        "japanese"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JUS",
+    "labels": {
+      "en": [
+        "jumla sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JHS",
+    "labels": {
+      "en": [
+        "jhankot sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/JCS",
+    "labels": {
+      "en": [
+        "jamaican country sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/ZXX",
+    "labels": {
+      "de": [
+        "kein linguistischer inhalt"
+      ],
+      "en": [
+        "no linguistic content"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KUR",
+    "labels": {
+      "de": [
+        "kurdisch"
+      ],
+      "en": [
+        "kurdish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KRO",
+    "labels": {
+      "en": [
+        "kru languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KXD",
+    "labels": {
+      "en": [
+        "brunei malay"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KVK",
+    "labels": {
+      "en": [
+        "korean sign language"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KIR",
+    "labels": {
+      "de": [
+        "kirgisisch"
+      ],
+      "en": [
+        "kyrgyz"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KIN",
+    "labels": {
+      "en": [
+        "kinyarwanda"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KOR",
+    "labels": {
+      "de": [
+        "koreanisch"
+      ],
+      "en": [
+        "korean"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KMR",
+    "labels": {
+      "en": [
+        "northern kurdish"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KON",
+    "labels": {
+      "en": [
+        "kikongo"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KAR",
+    "labels": {
+      "en": [
+        "karen languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KAL",
+    "labels": {
+      "de": [
+        "grönländisch"
+      ],
+      "en": [
+        "greenlandic"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KAZ",
+    "labels": {
+      "de": [
+        "kasachisch"
+      ],
+      "en": [
+        "kazakh"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KAT",
+    "labels": {
+      "de": [
+        "georgisch"
+      ],
+      "en": [
+        "georgian"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KHI",
+    "labels": {
+      "en": [
+        "khoisan languages"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KHM",
+    "labels": {
+      "de": [
+        "khmer"
+      ],
+      "en": [
+        "khmer"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/language/KGI",
+    "labels": {
+      "en": [
+        "selangor sign language"
+      ]
+    }
+  }
+]

@@ -53,7 +53,7 @@ public class Question {
 
     @JsonCreator
     public Question(@JsonProperty("question") String questionStr) {
-        this.questionStr = questionStr;
+        this.questionStr = questionStr.strip();
         this.words = new ArrayList<>();
         this.posTags = new HashMap<>();
         this.wShingles = new ArrayList<>();

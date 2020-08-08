@@ -85,7 +85,7 @@ class QAServiceTest {
         assertThat(question.getLocationEntities(), hasSize(1));
         assertThat(question.getLocationEntities(), hasItem("http://projekt-opal.de/launuts/lau/DE/13003000"));
         assertThat(question.getLanguageEntities(), hasSize(1));
-        assertThat(question.getLanguageEntities(), hasItem("http://publications.europa.eu/resource/authority/language/DEU"));
+        assertThat(question.getLanguageEntities(), hasItem("http://publications.europa.eu/resource/authority/language/GER"));
         assertThat(question.getThemeEntities(), hasSize(0));
         assertThat(question.getLicenseEntities(), hasSize(0));
         assertThat(question.getTimeEntities(), hasSize(0));

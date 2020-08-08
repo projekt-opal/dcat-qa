@@ -1,0 +1,377 @@
+[
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/ANNUAL",
+    "labels": {
+      "de": [
+        "jährlich",
+        "jährliche",
+        "jährliches"
+      ],
+      "en": [
+        "annual"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/ANNUAL_2",
+    "labels": {
+      "de": [
+        "halbjährlich",
+        "halbjährliche",
+        "halbjährliches"
+      ],
+      "en": [
+        "semiannual"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/ANNUAL_3",
+    "labels": {
+      "de": [
+        "dreimal im Jahr"
+      ],
+      "en": [
+        "three times a year"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/CONT",
+    "labels": {
+      "de": [
+        "kontinuierlich",
+        "kontinuierliche",
+        "kontinuierliches"
+      ],
+      "en": [
+        "continuous"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/UNKNOWN",
+    "labels": {
+      "de": [
+        "unbekannt",
+        "unbekannte",
+        "unbekanntes"
+      ],
+      "en": [
+        "unknown"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/DECENNIAL",
+    "labels": {
+      "de": [
+        "alle zehn Jahre"
+      ],
+      "en": [
+        "decennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/OP_DATPRO",
+    "labels": {
+      "de": [
+        "Vorläufige Daten"
+      ],
+      "en": [
+        "Provisional data"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/OTHER",
+    "labels": {
+      "de": [
+        "anderer",
+        "andere",
+        "anderes"
+      ],
+      "en": [
+        "other"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/BIHOURLY",
+    "labels": {
+      "de": [
+        "alle zwei Stunden"
+      ],
+      "en": [
+        "bihourly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/TRIDECENNIAL",
+    "labels": {
+      "de": [
+        "alle dreißig Jahre"
+      ],
+      "en": [
+        "tridecennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/WEEKLY_2",
+    "labels": {
+      "de": [
+        "zweimal in Woche"
+      ],
+      "en": [
+        "semiweekly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/TRIENNIAL",
+    "labels": {
+      "de": [
+        "dreijährlich",
+        "dreijährliche",
+        "dreijährliches"
+      ],
+      "en": [
+        "triennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/WEEKLY_3",
+    "labels": {
+      "de": [
+        "dreimal in Woche"
+      ],
+      "en": [
+        "three times a week"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/WEEKLY",
+    "labels": {
+      "de": [
+        "wöchentlich",
+        "wöchentliche",
+        "wöchentliches"
+      ],
+      "en": [
+        "weekly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/MONTHLY",
+    "labels": {
+      "de": [
+        "monatlich",
+        "monatliche",
+        "monatliches"
+      ],
+      "en": [
+        "monthly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/NEVER",
+    "labels": {
+      "de": [
+        "niemals"
+      ],
+      "en": [
+        "never"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/QUINQUENNIAL",
+    "labels": {
+      "de": [
+        "fünfjährlich",
+        "fünfjährliche",
+        "fünfjährliches"
+      ],
+      "en": [
+        "quinquennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/MONTHLY_3",
+    "labels": {
+      "de": [
+        "dreimal im Monat"
+      ],
+      "en": [
+        "three times a month"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/MONTHLY_2",
+    "labels": {
+      "de": [
+        "zweimal im Monat"
+      ],
+      "en": [
+        "semimonthly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/BIWEEKLY",
+    "labels": {
+      "de": [
+        "zweiwöchentlich",
+        "zweiwöchentliche",
+        "zweiwöchentliches"
+      ],
+      "en": [
+        "biweekly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/BIENNIAL",
+    "labels": {
+      "de": [
+        "zweijährlich",
+        "zweijährliche",
+        "zweijährliches"
+      ],
+      "en": [
+        "biennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/BIDECENNIAL",
+    "labels": {
+      "de": [
+        "alle zwanzig Jahre"
+      ],
+      "en": [
+        "bidecennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/QUADRENNIAL",
+    "labels": {
+      "de": [
+        "vierjährlich",
+        "vierjährliche",
+        "vierjährliches"
+      ],
+      "en": [
+        "quadrennial"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/HOURLY",
+    "labels": {
+      "de": [
+        "stündlich",
+        "stündliche",
+        "stündliches"
+      ],
+      "en": [
+        "hourly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/TRIHOURLY",
+    "labels": {
+      "de": [
+        "alle drei Stunden"
+      ],
+      "en": [
+        "trihourly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/DAILY",
+    "labels": {
+      "de": [
+        "täglich",
+        "tägliche",
+        "tägliches"
+      ],
+      "en": [
+        "daily"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/QUARTERLY",
+    "labels": {
+      "de": [
+        "vierteljährlich",
+        "vierteljährliche",
+        "vierteljährliches"
+      ],
+      "en": [
+        "quarterly"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/UPDATE_CONT",
+    "labels": {
+      "de": [
+        "ständige Aktualisierung"
+      ],
+      "en": [
+        "continuously updated"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/DAILY_2",
+    "labels": {
+      "de": [
+        "zweimal täglich"
+      ],
+      "en": [
+        "twice a day"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/IRREG",
+    "labels": {
+      "de": [
+        "unregelmäßig",
+        "unregelmäßige",
+        "unregelmäßiges"
+      ],
+      "en": [
+        "irregular"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/frequency/BIMONTHLY",
+    "labels": {
+      "de": [
+        "zweimonatlich",
+        "zweimonatliche",
+        "zweimonatliches"
+      ],
+      "en": [
+        "bimonthly"
+      ]
+    }
+  }
+]

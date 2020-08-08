@@ -9,21 +9,21 @@ WHERE {
     ?var0 <prop0> ?var1
 }
 ---
-SELECT DISTINCT ?var0 ?var1
+SELECT DISTINCT ?var0
 WHERE {
     ?var0 <prop0> ?var1.
 }
 ORDER BY DESC(?var1)
 ---
-SELECT DISTINCT ?var0 ?var1
+SELECT DISTINCT ?var0
 WHERE {
     ?var0 <prop0> ?var1.
 }
 ORDER BY ASC(?var1)
 ---
-SELECT DISTINCT ( str(?var0) as ?var1)
+SELECT DISTINCT ?var1
 WHERE {
-    ?var2 <prop0> ?var0
+    ?var0 <prop0> ?var1
 }
 ---
 SELECT DISTINCT ?var0
@@ -87,7 +87,7 @@ WHERE {
     ?var1 <prop1> <entity0>
 }
 ---
-SELECT DISTINCT ?var0 ?var1
+SELECT DISTINCT ?var0
 WHERE {
     ?var0 <prop0> ?var1.
     ?var0 <prop1> <entity0>
@@ -155,13 +155,13 @@ WHERE {
     FILTER ( ?var2 IN (<stringArray0>) )
 }
 ---
-SELECT ?var0 (COUNT(DISTINCT ?var1) AS ?count)
+SELECT ?var0
 WHERE {
      ?var1 <prop0> ?var0.
      ?var1 <prop1> <entity0>.
 }
 GROUP BY ?var0
-ORDER BY DESC(?count)
+ORDER BY DESC(COUNT(DISTINCT ?var1))
 ---
 SELECT DISTINCT ?var0
 WHERE {
@@ -215,7 +215,7 @@ WHERE {
     ?var2 <prop2> <entity0>.
 }
 ---
-SELECT DISTINCT ?var1 ?var2
+SELECT DISTINCT ?var1
 WHERE {
     ?var0 <prop0> ?var1.
     ?var1 <prop1> <entity0>.

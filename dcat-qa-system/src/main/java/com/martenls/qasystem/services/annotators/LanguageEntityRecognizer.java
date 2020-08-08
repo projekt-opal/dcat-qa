@@ -2,7 +2,7 @@ package com.martenls.qasystem.services.annotators;
 
 
 import com.martenls.qasystem.models.Question;
-import com.martenls.qasystem.parsers.FrequencyRDFParser;
+import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ public class LanguageEntityRecognizer extends EntityRecognizer {
                                     @Value("${data.languageEntities}") String rdfFilePath,
                                     @Value("${properties.languages}") String[] languages
     ) {
-        super(indexName, rdfFilePath, languages, new FrequencyRDFParser(languages));
+        super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(languages));
     }
 
     /**

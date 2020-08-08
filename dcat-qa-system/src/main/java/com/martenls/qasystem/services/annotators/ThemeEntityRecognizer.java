@@ -1,7 +1,7 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.martenls.qasystem.models.Question;
-import com.martenls.qasystem.parsers.ThemesRDFParser;
+import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class ThemeEntityRecognizer extends EntityRecognizer {
     public ThemeEntityRecognizer(@Value("${es.theme_index}") String indexName,
                                  @Value("${data.themeEntities}") String rdfFilePath,
                                  @Value("${properties.languages}") String[] languages) {
-        super(indexName, rdfFilePath, languages, new ThemesRDFParser(languages));
+        super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(languages));
     }
 
     /**

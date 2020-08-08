@@ -1,0 +1,181 @@
+[
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/ECON",
+    "labels": {
+      "de": [
+        "wirtschaft",
+        "finanzen"
+      ],
+      "en": [
+        "economy",
+        "finance"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/AGRI",
+    "labels": {
+      "de": [
+        "landwirtschaft",
+        "fischerei",
+        "forstwirtschaft",
+        "nahrungsmittel"
+      ],
+      "en": [
+        "agriculture",
+        "fisheries",
+        "forestry",
+        "food"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/ENVI",
+    "labels": {
+      "de": [
+        "umwelt"
+      ],
+      "en": [
+        "environment"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+    "labels": {
+      "de": [
+        "bevölkerung",
+        "gesellschaft"
+      ],
+      "en": [
+        "population",
+        "society"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    "labels": {
+      "de": [
+        "regierung",
+        "öffentlicher sektor"
+      ],
+      "en": [
+        "government",
+        "public sector"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/ENER",
+    "labels": {
+      "de": [
+        "energie"
+      ],
+      "en": [
+        "energy"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+    "labels": {
+      "de": [
+        "justiz",
+        "rechtssystem",
+        "öffentliche sicherheit"
+      ],
+      "en": [
+        "justice",
+        "legal system",
+        "public safety"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/TRAN",
+    "labels": {
+      "de": [
+        "verkehr"
+      ],
+      "en": [
+        "transport"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    "labels": {
+      "de": [
+        "bildung",
+        "kultur",
+        "sport"
+      ],
+      "en": [
+        "education",
+        "culture",
+        "sport"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    "labels": {
+      "de": [
+        "wissenschaft",
+        "technologie"
+      ],
+      "en": [
+        "science",
+        "technology"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    "labels": {
+      "de": [
+        "regionen",
+        "städte"
+      ],
+      "en": [
+        "regions",
+        "cities"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+    "labels": {
+      "de": [
+        "ges",
+        "heit"
+      ],
+      "en": [
+        "health"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/OP_DATPRO",
+    "labels": {
+      "de": [
+        "vorläufige daten"
+      ],
+      "en": [
+        "provisional data"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/data-theme/INTR",
+    "labels": {
+      "de": [
+        "internationale themen"
+      ],
+      "en": [
+        "international issues"
+      ]
+    }
+  }
+]
