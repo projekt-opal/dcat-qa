@@ -93,7 +93,7 @@ class QAServiceTest {
         assertThat(question.getOntologyProperties(), hasItem("http://www.w3.org/ns/dcat#dataset"));
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/spatial"));
         assertThat(question.getOntologyProperties(), hasItem("http://purl.org/dc/terms/language"));
-        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT DISTINCT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>.      ?var1 <http://purl.org/dc/terms/language> <http://publications.europa.eu/resource/authority/language/DEU>.  }")))));
+        assertThat(question.getQueryCandidates(), hasItem(hasProperty("queryStr", is(equalToCompressingWhiteSpace("  SELECT DISTINCT ?var1  WHERE {      ?var0 <http://www.w3.org/ns/dcat#dataset> ?var1.      ?var1 <http://purl.org/dc/terms/spatial> <http://projekt-opal.de/launuts/lau/DE/13003000>.      ?var1 <http://purl.org/dc/terms/language> <http://publications.europa.eu/resource/authority/language/GER>.  }")))));
     }
 
     @Test
