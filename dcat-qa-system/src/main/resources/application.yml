@@ -12,12 +12,12 @@ es:
 data:
   dir: src/data
   ontology: ${data.dir}/dcat+labels.json
-  launuts: ${data.dir}/launuts.ttl
+  launuts: ${data.dir}/launuts.json
   templates: ${data.dir}/templates.txt
-  languageEntities: ${data.dir}/languages-skos-ap-act.rdf
-  themeEntities: ${data.dir}/data-theme-skos-ap-act.rdf
+  languageEntities: ${data.dir}/languages.json
+  themeEntities: ${data.dir}/themes.json
   licenseEntities: ${data.dir}/licences.json
-  frequencyEntities: ${data.dir}/frequencies-skos.rdf
+  frequencyEntities: ${data.dir}/frequencies.json
   filetypeEntities: ${data.dir}/filetypes.json
 
 sparql:
