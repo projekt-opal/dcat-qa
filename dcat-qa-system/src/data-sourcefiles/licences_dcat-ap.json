@@ -1,0 +1,410 @@
+[
+  {
+    "uri": "http://dcat-ap.de/def/licenses/dl-zero-de/2.0",
+    "labels": {
+      "de": [
+        "dl-zero-de/2.0",
+        "datenlizenz deutschland – zero – version 2.0"
+      ],
+      "en": [
+        "dl-zero-de/2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/bsd",
+    "labels": {
+      "de": [
+        "bsd",
+        "bsd lizenz"
+      ],
+      "en": [
+        "bsd"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/odcpddl",
+    "labels": {
+      "de": [
+        "odcpddl",
+        "open data commons public domain dedication and licence (odc pddl)"
+      ],
+      "en": [
+        "odcpddl"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nc/4.0",
+    "labels": {
+      "de": [
+        "cc-by-nc/4.0",
+        "creative commons namensnennung - nicht kommerziell 4.0 international (cc by-nc 4.0)"
+      ],
+      "en": [
+        "cc-by-nc/4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-zero",
+    "labels": {
+      "de": [
+        "cc-zero",
+        "creative commons cc zero license (cc-zero)"
+      ],
+      "en": [
+        "cc-zero"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/odbl",
+    "labels": {
+      "de": [
+        "odbl",
+        "open data commons open database license (odbl)"
+      ],
+      "en": [
+        "odbl"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nc",
+    "labels": {
+      "de": [
+        "cc-by-nc",
+        "creative commons namensnennung - nicht kommerziell (cc by-nc)"
+      ],
+      "en": [
+        "cc-by-nc"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-de/3.0",
+    "labels": {
+      "de": [
+        "cc-by-de/3.0",
+        "creative commons namensnennung 3.0 deutschland (cc by 3.0 de)"
+      ],
+      "en": [
+        "cc-by-de/3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nd",
+    "labels": {
+      "de": [
+        "cc-by-nd",
+        "creative commons namensnennung - keine bearbeitung (cc by-nd)"
+      ],
+      "en": [
+        "cc-by-nd"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/apache",
+    "labels": {
+      "de": [
+        "apache",
+        "freie softwarelizenz der apache software foundation"
+      ],
+      "en": [
+        "apache"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/mozilla",
+    "labels": {
+      "de": [
+        "mozilla",
+        "mozilla public license 2.0 (mpl)"
+      ],
+      "en": [
+        "mozilla"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/dl-by-nc-de/1.0",
+    "labels": {
+      "de": [
+        "dl-by-nc-de/1.0",
+        "datenlizenz deutschland namensnennung nicht-kommerziell 1.0"
+      ],
+      "en": [
+        "dl-by-nc-de/1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nc-de/3.0",
+    "labels": {
+      "de": [
+        "cc-by-nc-de/3.0",
+        "creative commons namensnennung-nicht kommerziell 3.0 deutschland (cc by-nc 3.0 de)"
+      ],
+      "en": [
+        "cc-by-nc-de/3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nd/3.0",
+    "labels": {
+      "de": [
+        "cc-by-nd/3.0",
+        "creative commons namensnennung -- keine bearbeitung 3.0 unported (cc by-nd 3.0)"
+      ],
+      "en": [
+        "cc-by-nd/3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/other-commercial",
+    "labels": {
+      "de": [
+        "other-commercial",
+        "andere kommerzielle lizenz"
+      ],
+      "en": [
+        "other-commercial"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-nd/4.0",
+    "labels": {
+      "de": [
+        "cc-by-nd/4.0",
+        "creative commons namensnennung - - keine bearbeitung 4.0 international (cc by-nd 4.0)"
+      ],
+      "en": [
+        "cc-by-nd/4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/other-closed",
+    "labels": {
+      "de": [
+        "other-closed",
+        "andere geschlossene lizenz"
+      ],
+      "en": [
+        "other-closed"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/gpl/3.0",
+    "labels": {
+      "de": [
+        "gpl/3.0",
+        "gnu general public license version 3.0 (gplv3)"
+      ],
+      "en": [
+        "gpl/3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/geonutz/20131001",
+    "labels": {
+      "de": [
+        "geonutz/20131001",
+        "nutzungsbestimmungen für die bereitstellung von geodaten des landes berlin"
+      ],
+      "en": [
+        "geonutz/20131001"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-sa/4.0",
+    "labels": {
+      "de": [
+        "cc-by-sa/4.0",
+        "creative commons namensnennung - weitergabe unter gleichen bedingungen 4.0 international (cc-by-sa 4.0)"
+      ],
+      "en": [
+        "cc-by-sa/4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/ccpdm/1.0",
+    "labels": {
+      "de": [
+        "ccpdm/1.0",
+        "public domain mark 1.0 (pdm)"
+      ],
+      "en": [
+        "ccpdm/1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/other-open",
+    "labels": {
+      "de": [
+        "other-open",
+        "andere offene lizenz"
+      ],
+      "en": [
+        "other-open"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/dl-by-de/1.0",
+    "labels": {
+      "de": [
+        "dl-by-de/1.0",
+        "datenlizenz deutschland namensnennung 1.0"
+      ],
+      "en": [
+        "dl-by-de/1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/dl-by-de/2.0",
+    "labels": {
+      "de": [
+        "dl-by-de/2.0",
+        "datenlizenz deutschland namensnennung 2.0"
+      ],
+      "en": [
+        "dl-by-de/2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by",
+    "labels": {
+      "de": [
+        "cc-by",
+        "creative commons namensnennung (cc-by)"
+      ],
+      "en": [
+        "cc-by"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/other-opensource",
+    "labels": {
+      "de": [
+        "other-opensource",
+        "andere open source lizenz"
+      ],
+      "en": [
+        "other-opensource"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by/4.0",
+    "labels": {
+      "de": [
+        "cc-by/4.0",
+        "creative commons namensnennung – 4.0 international (cc by 4.0)"
+      ],
+      "en": [
+        "cc-by/4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/officialwork",
+    "labels": {
+      "de": [
+        "officialwork",
+        "amtliches werk, lizenzfrei nach §5 abs. 1 urhg"
+      ],
+      "en": [
+        "officialwork"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/odby",
+    "labels": {
+      "de": [
+        "odby",
+        "open data commons attribution license (odc-by 1.0)"
+      ],
+      "en": [
+        "odby"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/gfdl",
+    "labels": {
+      "de": [
+        "gfdl",
+        "gnu free documentation license (gfdl)"
+      ],
+      "en": [
+        "gfdl"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-sa-de/3.0",
+    "labels": {
+      "de": [
+        "cc-by-sa-de/3.0",
+        "creative commons namensnennung - weitergabe unter gleichen bedingungen 3.0 deutschland (cc by-sa 3.0 de) "
+      ],
+      "en": [
+        "cc-by-sa-de/3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/other-freeware",
+    "labels": {
+      "de": [
+        "other-freeware",
+        "andere freeware lizenz"
+      ],
+      "en": [
+        "other-freeware"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/cc-by-sa",
+    "labels": {
+      "de": [
+        "cc-by-sa",
+        "creative commons namensnennung - weitergabe unter gleichen bedingungen (cc-by-sa)"
+      ],
+      "en": [
+        "cc-by-sa"
+      ]
+    }
+  },
+  {
+    "uri": "http://dcat-ap.de/def/licenses/geonutz/20130319",
+    "labels": {
+      "de": [
+        "geonutz/20130319",
+        "nutzungsbestimmungen für die bereitstellung von geodaten des bundes"
+      ],
+      "en": [
+        "geonutz/20130319"
+      ]
+    }
+  }
+]

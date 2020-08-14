@@ -3,7 +3,7 @@ es:
   port: 3030
   property_index: dcatprops
   launuts_index: launuts
-  language_index: lang
+  language_index: languages
   theme_index: themes
   license_index: licenses
   frequency_index: frequencies

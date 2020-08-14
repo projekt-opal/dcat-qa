@@ -41,7 +41,8 @@
       "de": [
         "räumliche abdeckung",
         "ort",
-        "stadt"
+        "stadt",
+        "orte"
       ]
     }
   },
@@ -256,11 +257,14 @@
         "temporal coverage",
         "period",
         "timescale",
-        "stretch of time"
+        "stretch of time",
+        "cover"
       ],
       "de": [
         "abgedeckter zeitraum",
-        "zeitraum"
+        "zeitraum",
+        "abdecken",
+        "decken ab"
       ]
     }
   },

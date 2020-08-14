@@ -1,0 +1,696 @@
+[
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa_2_0",
+    "labels": {
+      "de": [
+        "cc_byncsa_2_0",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 2.0 generic",
+        "cc by-nc-sa 2.0"
+      ],
+      "en": [
+        "cc_byncsa_2_0",
+        "creative commons attribution–noncommercial–sharealike 2.0 generic",
+        "cc by-nc-sa 2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa_3_0",
+    "labels": {
+      "de": [
+        "cc_byncsa_3_0",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 3.0 unported",
+        "cc by-nc-sa 3.0"
+      ],
+      "en": [
+        "cc_byncsa_3_0",
+        "creative commons attribution–noncommercial–sharealike 3.0 unported",
+        "cc by-nc-sa 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa_1_0",
+    "labels": {
+      "de": [
+        "cc_byncsa_1_0",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 1.0 generic",
+        "cc by-nc-sa 1.0"
+      ],
+      "en": [
+        "cc_byncsa_1_0",
+        "creative commons attribution–noncommercial–sharealike 1.0 generic",
+        "cc by-nc-sa 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd_2_0",
+    "labels": {
+      "de": [
+        "cc_bynd_2_0",
+        "creative commons namensnennung – keine bearbeitung 2.0 generic",
+        "cc by-nd 2.0"
+      ],
+      "en": [
+        "cc_bynd_2_0",
+        "creative commons attribution–noderivs 2.0 generic",
+        "cc by-nd 2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd_1_0",
+    "labels": {
+      "de": [
+        "cc_byncnd_1_0",
+        "creative commons namensnennung – keine bearbeitungen – nicht-kommerziell 1.0 generic",
+        "cc by-nd-nc 1.0"
+      ],
+      "en": [
+        "cc_byncnd_1_0",
+        "creative commons attribution–noderivs–noncommercial 1.0 generic",
+        "cc by-nd-nc 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa_2_5",
+    "labels": {
+      "de": [
+        "cc_byncsa_2_5",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 2.5 generic",
+        "cc by-nc-sa 2.5"
+      ],
+      "en": [
+        "cc_byncsa_2_5",
+        "creative commons attribution–noncommercial–sharealike 2.5 generic",
+        "cc by-nc-sa 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd_1_0",
+    "labels": {
+      "de": [
+        "cc_bynd_1_0",
+        "creative commons namensnennung – keine bearbeitung 1.0 generic",
+        "cc by-nd 1.0"
+      ],
+      "en": [
+        "cc_bynd_1_0",
+        "creative commons attribution–noderivs 1.0 generic",
+        "cc by-nd 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd_2_0",
+    "labels": {
+      "de": [
+        "cc_byncnd_2_0",
+        "creative commons namensnennung – nicht-kommerziell – keine bearbeitung 2.0 generic",
+        "cc by-nc-nd 2.0"
+      ],
+      "en": [
+        "cc_byncnd_2_0",
+        "creative commons attribution–noncommercial–noderivs 2.0 generic",
+        "cc by-nc-nd 2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa_4_0",
+    "labels": {
+      "de": [
+        "cc_byncsa_4_0",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 4.0 international",
+        "cc by-nc-sa 4.0"
+      ],
+      "en": [
+        "cc_byncsa_4_0",
+        "creative commons attribution–noncommercial–sharealike 4.0 international",
+        "cc by-nc-sa 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd_4_0",
+    "labels": {
+      "de": [
+        "cc_bynd_4_0",
+        "creative commons namensnennung – keine bearbeitungen 4.0 international",
+        "cc by-nd 4.0"
+      ],
+      "en": [
+        "cc_bynd_4_0",
+        "creative commons attribution–noderivatives 4.0 international",
+        "cc by-nd 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa",
+    "labels": {
+      "de": [
+        "cc_bysa",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 4.0 international",
+        "cc by-sa 4.0"
+      ],
+      "en": [
+        "cc_bysa",
+        "creative commons attribution–sharealike 4.0 international",
+        "cc by-sa 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd_3_0",
+    "labels": {
+      "de": [
+        "cc_byncnd_3_0",
+        "creative commons namensnennung – nicht-kommerziell – keine bearbeitung 3.0 unported",
+        "cc by-nc-nd 3.0"
+      ],
+      "en": [
+        "cc_byncnd_3_0",
+        "creative commons attribution–noncommercial–noderivs 3.0 unported",
+        "cc by-nc-nd 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd_3_0",
+    "labels": {
+      "de": [
+        "cc_bynd_3_0",
+        "creative commons namensnennung – keine bearbeitung 3.0 unported",
+        "cc by-nd 3.0"
+      ],
+      "en": [
+        "cc_bynd_3_0",
+        "creative commons attribution–noderivs 3.0 unported",
+        "cc by-nd 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd_2_5",
+    "labels": {
+      "de": [
+        "cc_bynd_2_5",
+        "creative commons namensnennung – keine bearbeitung 2.5 generic",
+        "cc by-nd 2.5"
+      ],
+      "en": [
+        "cc_bynd_2_5",
+        "creative commons attribution–noderivs 2.5 generic",
+        "cc by-nd 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/isa_oml",
+    "labels": {
+      "de": [
+        "isa_oml",
+        "isa omdl 1.1"
+      ],
+      "en": [
+        "isa_oml",
+        "isa open metadata licence 1.1",
+        "isa open metadata licence 1.0",
+        "isa omdl 1.1"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bynd",
+    "labels": {
+      "de": [
+        "cc_bynd",
+        "creative commons namensnennung – keine bearbeitungen 4.0 international",
+        "cc by-nd 4.0"
+      ],
+      "en": [
+        "cc_bynd",
+        "creative commons attribution–noderivatives 4.0 international",
+        "cc by-nd 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync",
+    "labels": {
+      "de": [
+        "cc_bync",
+        "creative commons namensnennung – nicht kommerziell 4.0 international",
+        "cc by-nc 4.0"
+      ],
+      "en": [
+        "cc_bync",
+        "creative commons attribution–noncommercial 4.0 international",
+        "cc by-nc 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by_2_5",
+    "labels": {
+      "de": [
+        "cc_by_2_5",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 2.5 generic",
+        "cc by 2.5"
+      ],
+      "en": [
+        "cc_by_2_5",
+        "creative commons attribution 2.5 generic",
+        "cc by 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc0",
+    "labels": {
+      "de": [
+        "cc0",
+        "creative commons cc0 1.0 universell",
+        "cc0 1.0"
+      ],
+      "en": [
+        "cc0",
+        "creative commons cc0 1.0 universal",
+        "cc0 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by_2_0",
+    "labels": {
+      "de": [
+        "cc_by_2_0",
+        "creative commons namensnennung 2.0 generic",
+        "cc by 2.0"
+      ],
+      "en": [
+        "cc_by_2_0",
+        "creative commons attribution 2.0 generic",
+        "cc by 2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by_1_0",
+    "labels": {
+      "de": [
+        "cc_by_1_0",
+        "creative commons namensnennung 1.0 generic",
+        "cc by 1.0"
+      ],
+      "en": [
+        "cc_by_1_0",
+        "creative commons attribution 1.0 generic",
+        "cc by 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd",
+    "labels": {
+      "de": [
+        "cc_byncnd",
+        "creative commons namensnennung – nicht kommerziell – keine bearbeitungen 4.0 international",
+        "cc by-nc-nd 4.0"
+      ],
+      "en": [
+        "cc_byncnd",
+        "creative commons attribution–noncommercial–noderivatives 4.0 international",
+        "cc by-nc-nd 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by_4_0",
+    "labels": {
+      "de": [
+        "cc_by_4_0",
+        "creative commons namensnennung 4.0 international",
+        "cc by 4.0"
+      ],
+      "en": [
+        "cc_by_4_0",
+        "creative commons attribution 4.0 international",
+        "cc by 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by_3_0",
+    "labels": {
+      "de": [
+        "cc_by_3_0",
+        "creative commons namensnennung 3.0 unported",
+        "cc by 3.0"
+      ],
+      "en": [
+        "cc_by_3_0",
+        "creative commons attribution 3.0 unported",
+        "cc by 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/odc_bl",
+    "labels": {
+      "de": [
+        "odc_bl",
+        "odbl"
+      ],
+      "en": [
+        "odc_bl",
+        "open data commons open database license v1.0",
+        "odbl"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/gnu_fdl",
+    "labels": {
+      "de": [
+        "gnu_fdl",
+        "gfdl"
+      ],
+      "en": [
+        "gnu_fdl",
+        "gnu free documentation license",
+        "gfdl"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/odc_by",
+    "labels": {
+      "de": [
+        "odc_by"
+      ],
+      "en": [
+        "odc_by",
+        "open data commons attribution license v1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/op_datpro",
+    "labels": {
+      "de": [
+        "op_datpro",
+        "vorläufige daten"
+      ],
+      "en": [
+        "op_datpro",
+        "provisional data"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_by",
+    "labels": {
+      "de": [
+        "cc_by",
+        "creative commons namensnennung 4.0 international",
+        "cc by 4.0"
+      ],
+      "en": [
+        "cc_by",
+        "creative commons attribution 4.0 international",
+        "cc by 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/odc_pddl",
+    "labels": {
+      "de": [
+        "odc_pddl",
+        "pddl"
+      ],
+      "en": [
+        "odc_pddl",
+        "open data commons public domain dedication and license 1.0",
+        "pddl"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd_4_0",
+    "labels": {
+      "de": [
+        "cc_byncnd_4_0",
+        "creative commons namensnennung – nicht kommerziell – keine bearbeitungen 4.0 international",
+        "cc by-nc-nd 4.0"
+      ],
+      "en": [
+        "cc_byncnd_4_0",
+        "creative commons attribution–noncommercial–noderivatives 4.0 international",
+        "cc by-nc-nd 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/eupl_1_0",
+    "labels": {
+      "de": [
+        "eupl_1_0",
+        "open-source-lizenz für die europäische union v.1.0",
+        "eupl v.1.0"
+      ],
+      "en": [
+        "eupl_1_0",
+        "european union public licence v.1.0",
+        "eupl v.1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync_1_0",
+    "labels": {
+      "de": [
+        "cc_bync_1_0",
+        "creative commons namensnennung – nicht kommerziell 1.0 generic",
+        "cc_by-nc 1.0"
+      ],
+      "en": [
+        "cc_bync_1_0",
+        "creative commons attribution–noncommercial 1.0 generic",
+        "cc_by-nc 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/eupl_1_1",
+    "labels": {
+      "de": [
+        "eupl_1_1",
+        "open-source-lizenz für die europäische union v.1.1",
+        "eupl v.1.1"
+      ],
+      "en": [
+        "eupl_1_1",
+        "european union public licence v. 1.1",
+        "eupl v.1.1"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncsa",
+    "labels": {
+      "de": [
+        "cc_byncsa",
+        "creative commons namensnennung – nicht-kommerziell – weitergabe unter gleichen bedingungen 4.0 international",
+        "cc by-nc-sa 4.0"
+      ],
+      "en": [
+        "cc_byncsa",
+        "creative commons attribution–noncommercial–sharealike 4.0 international",
+        "cc by-nc-sa 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_byncnd_2_5",
+    "labels": {
+      "de": [
+        "cc_byncnd_2_5",
+        "creative commons namensnennung – nicht-kommerziell – keine bearbeitung 2.5 generic",
+        "cc by-nc-nd 2.5"
+      ],
+      "en": [
+        "cc_byncnd_2_5",
+        "creative commons attribution–noncommercial–noderivs 2.5 generic",
+        "cc by-nc-nd 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/com_reuse",
+    "labels": {
+      "de": [
+        "com_reuse"
+      ],
+      "en": [
+        "com_reuse",
+        "european commission reuse notice"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync_4_0",
+    "labels": {
+      "de": [
+        "cc_bync_4_0",
+        "creative commons namensnennung – nicht kommerziell 4.0 international",
+        "cc by-nc 4.0"
+      ],
+      "en": [
+        "cc_bync_4_0",
+        "creative commons attribution–noncommercial 4.0 international",
+        "cc by-nc 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa_2_5",
+    "labels": {
+      "de": [
+        "cc_bysa_2_5",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 2.5 generic",
+        "cc by-sa 2.5"
+      ],
+      "en": [
+        "cc_bysa_2_5",
+        "creative commons attribution–sharealike 2.5 generic",
+        "cc by-sa 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync_2_0",
+    "labels": {
+      "de": [
+        "cc_bync_2_0",
+        "creative commons namensnennung – nicht kommerziell 2.0 generic",
+        "cc by-nc 2.0"
+      ],
+      "en": [
+        "cc_bync_2_0",
+        "creative commons attribution–noncommercial 2.0 generic",
+        "cc by-nc 2.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/eupl_1_2",
+    "labels": {
+      "de": [
+        "eupl_1_2",
+        "open-source-lizenz für die europäische union v.1.2",
+        "eupl v1.2"
+      ],
+      "en": [
+        "eupl_1_2",
+        "european union public licence v. 1.2",
+        "eupl v1.2"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync_3_0",
+    "labels": {
+      "de": [
+        "cc_bync_3_0",
+        "creative commons namensnennung – nicht kommerziell 3.0 unported",
+        "cc by-nc 3.0"
+      ],
+      "en": [
+        "cc_bync_3_0",
+        "creative commons attribution–noncommercial 3.0 unported",
+        "cc by-nc 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa_4_0",
+    "labels": {
+      "de": [
+        "cc_bysa_4_0",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 4.0 international",
+        "cc by-sa 4.0"
+      ],
+      "en": [
+        "cc_bysa_4_0",
+        "creative commons attribution–sharealike 4.0 international",
+        "cc by-sa 4.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa_3_0",
+    "labels": {
+      "de": [
+        "cc_bysa_3_0",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 3.0 unported",
+        "cc by-sa 3.0"
+      ],
+      "en": [
+        "cc_bysa_3_0",
+        "creative commons attribution–sharealike 3.0 unported",
+        "cc by-sa 3.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa_1_0",
+    "labels": {
+      "de": [
+        "cc_bysa_1_0",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 1.0 generic",
+        "cc by-sa 1.0"
+      ],
+      "en": [
+        "cc_bysa_1_0",
+        "creative commons attribution–sharealike 1.0 generic",
+        "cc by-sa 1.0"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bync_2_5",
+    "labels": {
+      "de": [
+        "cc_bync_2_5",
+        "creative commons namensnennung – nicht kommerziell 2.5 generic",
+        "cc by-nc 2.5"
+      ],
+      "en": [
+        "cc_bync_2_5",
+        "creative commons attribution–noncommercial 2.5 generic",
+        "cc by-nc 2.5"
+      ]
+    }
+  },
+  {
+    "uri": "http://publications.europa.eu/resource/authority/licence/cc_bysa_2_0",
+    "labels": {
+      "de": [
+        "cc_bysa_2_0",
+        "creative commons namensnennung – weitergabe unter gleichen bedingungen 2.0 generic",
+        "cc by-sa 2.0"
+      ],
+      "en": [
+        "cc_bysa_2_0",
+        "creative commons attribution–sharealike 2.0 generic",
+        "cc by-sa 2.0"
+      ]
+    }
+  }
+]

@@ -23,6 +23,8 @@ public class QAController {
     @Autowired
     private SPARQLService sparqlService;
 
+    static int id = 0;
+
     @GetMapping("/qa")
     public String answerQuestion(@RequestParam String question) throws JsonProcessingException {
         log.debug("Received question: " + question);
@@ -37,6 +39,35 @@ public class QAController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
+    }
+
+    @PostMapping("/qa")
+    public String gerbilQAEndpoint(@RequestParam String query, @RequestParam String lang) throws JsonProcessingException {
+        log.debug("Received question: " + query);
+        id++;
+        if (query != null && !query.isBlank()) {
+            Question question =  this.qaService.answerQuestion(new Question(query));
+            Answer answer = question.getAnswer();
+            return "{\n" +
+                    "    \"questions\": [\n" +
+                    "      {\n" +
+                    "        \"id\": \""+ id +"\",\n" +
+                    "        \"question\": [\n" +
+                    "            {\n" +
+                    "                \"language\": \"" + lang + "\",\n" +
+                    "                \"string\": \"" + query + "\"\n" +
+                    "            }\n" +
+                    "        ],\n" +
+                    "        \"query\": {\n" +
+                    "            \"sparql\": \"" + (answer == null ? "" : answer.getQueryStr().replaceAll("\n", " ")) + "\"\n" +
+                    "        },\n" +
+                    "        \"answers\": ["+ (answer == null ? "" : answer.getAnswerJsonStr()) + "]\n" +
+                    "      }\n" +
+                    "    ]\n" +
+                    "}";
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/qa/results")
