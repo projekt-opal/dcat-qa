@@ -1,0 +1,111 @@
+
+{
+    "greetings": [
+        "Hello, I am the OPAL open data bot! You can ask me questions about the metadata in the OPAL database.",
+        "Hi! I am the OPAL open data bot and answer question about the metadata in the OPAL database.",
+        "Hey 👋 The OPAL open data bot here. I answer question about the metadata in the OPAL database."
+    ],
+    "example_questions": [
+        "What datasets exist for Rostock?",
+        "What datasets exist with the topic transport?",
+        "How many datasets exist for Bonn?",
+        "For what cities is data available?"
+    ],
+    "themes" : [
+        "- Econonmy, finance",
+        "- Agriculture, fisheries, forestry and food",
+        "- Education, culture and sport",
+        "- Energy",
+        "- Environment",
+        "- Government and public sector",
+        "- Health",
+        "- International issues",
+        "- Justice, legal system and public safety",
+        "- Regions and cities",
+        "- Population and society",
+        "- Science and technology",
+        "- Transport"
+    ],
+    "intro_quick_reply": {
+        "opal": "opal?",
+        "open_data": "open data?",
+        "example": "for example?",
+        "themes": "themes?"
+    },
+    "intro_answer": {
+        "opal": "OPAL is the name of the 'Open Data Portal Germany' and is a central platform that provides open data published by various german government agencies\nhttp://projekt-opal.de/",
+        "open_data": "Open Data is data that can be used, processed and redistributed  by everbody for whatever purpose.\nhttps://en.wikipedia.org/wiki/Open_Data",
+        "themes": "Available themes:",
+        "themes_explanation": "You can ask for datasets with a certain theme with just the keyword like 'transport?' or you can ask more complex questions like 'What datasets exist about transport in Rostock?'"
+    },
+    "error": {
+        "qa_not_available": "Sorry unfortunately the QA system is currently unavailable.",
+        "no_more_results": "Sorry apparently there are no more results.",
+        "further_questions_anyway": "Do you have other questions anyway?",
+        "no_answer": "Sorry unfortunately I could not answer your question.",
+        "try_again_later": "'Maybe try again later."
+
+    },
+    "trigger": {
+        "greeting": [
+            "^hi$",
+            "^hello$",
+            "^howdy$",
+            "^hey$",
+            "^aloha$",
+            "^hola$",
+            "^bonjour$",
+            "^oi$",
+            "^hallo$",
+            "^moin$"
+        ],
+        "intro": {
+            "opal": [
+                "^opal\\??$",
+                "^what is opal\\??$",
+                "^what does opal mean\\??$",
+                "^what does opal stand for\\??$",
+                "^what do you mean with opal\\??$",
+                "^what is the meaning of opal\\??$"
+            ],
+            "open_data": [
+                "^open data\\??$",
+                "^what is open data\\??$",
+                "^what does open data mean\\??$",
+                "^what does open data stand for\\??$",
+                "^what do you mean with open data\\??$",
+                "^what is the meaning of open data\\??$"
+            ],
+            "example": [
+                "^for example\\?$",
+                "^show me an example\\?$",
+                "^can you give me an example\\?$"
+            ],
+            "themes": [
+                "^themes\\??$",
+                "^what (themes|topics) does the data cover\\??$",
+                "^for what (themes|topics) is data available\\??$"
+            ]
+        }
+    },
+    "qa_stalling_phrases" : [
+        "I'll look that up",
+        "Give me a moment...",
+        "Wait a second...",
+        "Good question! I'll look that up.",
+        "Let me look that up..."
+    ],
+    "further_questions": "OK, do you have more questions?",
+    "further_questions_or_more_results": "OK, do you have more questions or do you want to see more results for your last question?",
+    "qa_quick_reply": {
+        "more_results_label": "more results",
+        "more_results_payload": "show me more results",
+        "all_results_label": "all results",
+        "all_results_payload": "show me all results"
+    },
+    "results": "Results:\n",
+    "fuseki_link": "Link to Fuseki with Query",
+    "ask_query_yes": "Answer: Yes",
+    "ask_query_no": "Answer: No"
+     
+}

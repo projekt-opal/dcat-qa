@@ -1,9 +1,9 @@
 const axios = require('axios');
 require('dotenv').config();
+const i18n = require('./i18n/i18n');
 
 
 const qaURL = process.env.QA_URL;
-
 const fusekiURL = process.env.FUSEKI_URL;
 const fusekiDatasetName = process.env.FUSEKI_DATASET_NAME;
 
@@ -23,8 +23,8 @@ async function askQuestion(question) {
   return new Promise((resolve, reject) => {
     axios.get(qaURL, requestConfig)
       .then(res => {
-        res.data.askQuery = res.data.answer.boolean ? true : false;
-        res.data.answer = stringfyResultsJSON(res.data.answer);
+        res.data.askQuery = 'boolean' in res.data.answer ? true : false;
+        res.data.answer = stringifyJSONResults(res.data.answer);
         resolve(res.data);
       })
       .catch(err => {
@@ -47,7 +47,7 @@ async function getMoreResults(query) {
   return new Promise((resolve, reject) => {
     axios.get(qaURL + '/results', requestConfig)
       .then(res => {
-          res.data.answer = stringfyResultsJSON(res.data.answer);
+          res.data.answer = stringifyJSONResults(res.data.answer);
           resolve(res.data);
       })
       .catch(err => {
@@ -73,16 +73,16 @@ async function getLinkToFusekiWithQuery(query) {
 /**
  * Formats SPARQL 1.1 Query Results JSON as string.
  */
-function stringfyResultsJSON(results) {
-  if (results.boolean) {
-    return results.boolean ? "yes" : "no";
+function stringifyJSONResults(results) {
+  if ('boolean' in results) {
+    return results.boolean ? i18n.ask_query_yes : i18n.ask_query_no;
   }
   answersString = '';
   for (let binding of results.results.bindings) {
     for (let varName of results.head.vars) {
       if (binding[varName] !== undefined) {
         answersString += 
-        `${varName}: ${binding[varName].value}` + '\n'
+        `- ${varName}: ${binding[varName].value}` + '\n'
       }
     }
 

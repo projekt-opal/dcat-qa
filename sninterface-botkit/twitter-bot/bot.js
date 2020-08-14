@@ -40,11 +40,7 @@ const controller = new Botkit({
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
-    if (process.env.BOT_LANG && process.env.BOT_LANG === 'en') {
-        controller.loadModules(path.join(__dirname, 'features', 'dialogs_en'))
-    } else {
-        controller.loadModules(path.join(__dirname, 'features', 'dialogs_de'))
-    }
+    controller.loadModules(path.join(__dirname, 'features'))
 
 
 });

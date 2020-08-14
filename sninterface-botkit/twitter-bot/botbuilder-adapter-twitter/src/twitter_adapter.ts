@@ -214,7 +214,7 @@ export class TwitterAdapter extends BotAdapter {
         while (startIndex < activity.text.length - 1) {
             validEndIndex = twitter_text.parseTweet(text.substring(startIndex)).validRangeEnd + startIndex
             endIndex = text.substring(startIndex, validEndIndex).lastIndexOf('\n') + startIndex;
-            if (endIndex === -1 || endIndex === startIndex) {
+            if (validEndIndex === activity.text.length - 1 || endIndex === -1 || endIndex === startIndex) {
                 endIndex = validEndIndex;
             }
             texts.push(text.substring(startIndex, endIndex + 1));
