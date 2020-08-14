@@ -1,5 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
+const i18n = require('./i18n/i18n');
+
 
 const qaURL = process.env.QA_URL;
 const fusekiURL = process.env.FUSEKI_URL;
@@ -20,8 +22,8 @@ async function askQuestion(question) {
   return new Promise((resolve, reject) => {
     axios.get(qaURL, requestConfig)
       .then(res => {
-        res.data.askQuery = res.data.answer.boolean ? true : false;
-        res.data.answer = stringfyResultsJSON(res.data.answer);
+        res.data.askQuery = 'boolean' in res.data.answer ? true : false;
+        res.data.answer = stringifyResultsJSON(res.data.answer);
         resolve(res.data);
       })
       .catch(err => {
@@ -47,7 +49,7 @@ async function getMoreResults(query) {
   return new Promise((resolve, reject) => {
     axios.get(qaURL + '/results', requestConfig)
       .then(res => {
-        res.data.answer = stringfyResultsJSON(res.data.answer);
+        res.data.answer = stringifyResultsJSON(res.data.answer);
         resolve(res.data);
       })
       .catch(err => {
@@ -73,18 +75,18 @@ async function getLinkToFusekiWithQuery(query) {
 /**
  * Formats SPARQL 1.1 Query Results JSON as string.
  */
-function stringfyResultsJSON(results) {
-  if (results.boolean) {
-    return results.boolean ? "yes" : "no";
+function stringifyResultsJSON(results) {
+  if ('boolean' in results) {
+    return results.boolean ? i18n.ask_query_yes : i18n.ask_query_no;
   }
   answersString = '';
   for (let binding of results.results.bindings) {
     for (let varName of results.head.vars) {
       if (binding[varName] !== undefined) {
         if (binding[varName].value.startsWith('http://projekt-opal.de/dataset/')) {
-          answersString += `* ${varName}: [${binding[varName].value}](https://opal.demos.dice-research.org/view/datasetView?uri=${encodeURIComponent(binding[varName].value)})` + '\n'
+          answersString += `- ${varName}: [${binding[varName].value}](https://opal.demos.dice-research.org/view/datasetView?uri=${encodeURIComponent(binding[varName].value)})` + '\n'
         } else {
-          answersString += `* ${varName}: ${binding[varName].value}` + '\n'
+          answersString += `- ${varName}: ${binding[varName].value}` + '\n'
         }
         
       }

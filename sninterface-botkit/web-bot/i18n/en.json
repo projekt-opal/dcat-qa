@@ -104,6 +104,8 @@
         "all_results_payload": "show me all results"
     },
     "results": "Results:\n",
-    "fuseki_link": "Link to Fuseki with Query"
+    "fuseki_link": "Link to Fuseki with Query",
+    "ask_query_yes": "Answer: Yes",
+    "ask_query_no": "Answer: No"
      
 }

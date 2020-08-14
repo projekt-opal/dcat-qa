@@ -102,10 +102,11 @@ module.exports = function(controller) {
         ],
         'answer', 'succ_thread'); 
 
-   
+    // more results thread
     qa_dialog.addMessage('{{{vars.more_results.answer}}}', 'more_results_thread');
     qa_dialog.addAction('succ_thread', 'more_results_thread')
 
+    // all results thread
     qa_dialog.addMessage('[' + i18n.fuseki_link + ']({{{vars.all_results_link}}})', 'all_results_thread');
     qa_dialog.addAction('complete', 'all_results_thread')
 
@@ -114,25 +115,19 @@ module.exports = function(controller) {
     qa_dialog.addMessage(i18n.error.further_questions_anyway, 'fail_no_more_results_thread');
     qa_dialog.addAction('complete', 'fail_no_more_results_thread')
 
-
     // noanswer failure thread
     qa_dialog.addMessage(i18n.error.no_answer, 'fail_noanswer_thread');
     qa_dialog.addMessage(i18n.error.further_questions_anyway, 'fail_noanswer_thread');
     qa_dialog.addAction('complete', 'fail_noanswer_thread')
-
 
     // noconnect failure thread
     qa_dialog.addMessage(i18n.error.qa_not_available,'fail_noconnect_thread');
     qa_dialog.addMessage(i18n.error.try_again_later,'fail_noconnect_thread');
     qa_dialog.addAction('complete', 'fail_noconnect_thread')
 
-
     controller.addDialog(qa_dialog);
 
     controller.on(['message', 'tweet'], async(bot, message) => {
         await bot.beginDialog('qa', message);
     });
-
-    
-
 }

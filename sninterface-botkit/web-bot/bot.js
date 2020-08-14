@@ -30,7 +30,6 @@ const controller = new Botkit({
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
-    // load traditional developer-created local custom feature modules
 
     // make public/index.html available as localhost/index.html
     // by making the /public folder a static/public asset
