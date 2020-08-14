@@ -9,7 +9,7 @@ html {
   padding: 0;
   font-size: 18px;
   background-color: #FFF;
-  font-family: "helvetica", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .wrapper {
@@ -53,7 +53,7 @@ footer {
 }
 
 a {
-  color: #a795ef;
+  color: #4FABE3;
 }
 
 .copyurl {
@@ -92,7 +92,7 @@ div.input label {
 }
 .addon button:hover {
   background: #FFF;
-  color: #a795ef;
+  color: #4FABE3;
 }
 
 div.hr {
@@ -103,7 +103,7 @@ div.hr {
 }
 
 a.button {
-  border: 2px solid #a795ef;
+  border: 2px solid #4FABE3;
   font-weight: bold;
   margin: 0;
   border-radius: 3px;
@@ -121,17 +121,16 @@ a.button:hover {
 
 /* chat client */
 #message_window {
-  background: #FFFFFF;
+  background: #FFF;
   border-left: 1px solid #CCC;
   border-right: 1px solid #CCC;
+  box-shadow: 0px 0px 20px -10px #000000;
   /*height: 500px;
   width: 320px;*/
   height: 100%;
   width: 100%;
-  /*margin: 2rem auto;*/
   display: flex;
   flex-direction: column;
-  font-family: "helvetica", sans-serif;
 }
 #message_window .disconnected {
   background: #FFFFCC;
@@ -152,19 +151,23 @@ a.button:hover {
   padding: 0.25rem;
   display: block;
 }
-#message_window .powered_by {
+#message_window .header {
   flex-shrink: 0;
   text-align: center;
   border-bottom: 1px solid #CCC;
   font-size: 14px;
   padding: 0.25rem;
-  color: #666;
+  color: #FFF;
+  background-color: #343A40;
 }
-#message_window .powered_by a {
+#message_window .header span {
+  font-size: 32px;
+}
+#message_window .header a {
   text-decoration: none;
   color: #666;
 }
-#message_window .powered_by img {
+#message_window .header img {
   position: relative;
   top: 2px;
 }
@@ -189,12 +192,17 @@ a.button:hover {
   border: none;
 }
 #message_window footer button {
-  width: 50px;
-  background: none;
+  width: 40px;
+  height: 40px;
+  background-color: #35AB9C;
   border: 0;
+  border-radius: 100%;
   cursor: pointer;
-  color: blue;
-  font-weight: bold;
+}
+#message_window #send_button svg {
+  width: 20px;
+  height: 20px;
+  fill: #FFF;
 }
 #message_window form {
   display: flex;
@@ -205,7 +213,7 @@ a.button:hover {
   display: none;
 }
 #message_window .message {
-  font-size: 14px;
+  font-size: 16px;
   padding: 0.5rem;
   background: #F0F0F0;
   color: #333;
@@ -247,7 +255,8 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: #a795ef;
+  box-shadow: -5px 5px 31px -20px #000000;
+  background: #7FCA26;
   color: white;
 }
 #message_window #message_replies {
@@ -270,15 +279,15 @@ a.button:hover {
 #message_window #message_replies a {
   text-decoration: none;
   display: block;
-  border: 1px solid #a795ef;
-  color: #a795ef;
+  border: 1px solid #4FABE3;
+  color: #4FABE3;
   border-radius: 16px;
   padding: 0.25rem 1rem;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
 }
 #message_window #message_replies a:hover {
-  background: #a795ef;
+  background: #4FABE3;
   color: #FFF;
 }
 

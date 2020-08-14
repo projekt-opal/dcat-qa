@@ -1,4 +1,4 @@
-$botkit_purple: #a795ef;
+$opal_blue: #4FABE3;
 @mixin clearfix {
     &:after {
         content: "";
@@ -17,7 +17,7 @@ html {
     padding: 0;
     font-size: 18px;
     background-color: #FFF;
-    font-family: 'helvetica', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .wrapper {
@@ -56,7 +56,7 @@ footer {
 }
 
 a {
-    color: $botkit_purple;
+    color: $opal_blue;
 }
 
 .copyurl {
@@ -99,7 +99,7 @@ div.input {
 
         &:hover {
             background: #FFF;
-            color: $botkit_purple;
+            color: $opal_blue;
         }
     }
 }
@@ -112,7 +112,7 @@ div.hr {
 }
 
 a.button {
-    border: 2px solid $botkit_purple;
+    border: 2px solid $opal_blue;
     font-weight: bold;
     // font-size: 4rem;
     margin: 0;

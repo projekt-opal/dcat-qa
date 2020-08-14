@@ -1,23 +1,23 @@
 $action_color: orange;
-$background: #FFFFFF;
+$background: #FFF;
 $bot_message_background: #F0F0F0;
 $bot_message_text: #333;
-$human_message_background: $botkit_purple;
+$human_message_background: #7FCA26;
 $human_message_text: white;
 
 #message_window {
     background: $background;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
-
+    box-shadow: 0px 0px 20px -10px #000000;
     /*height: 500px;
     width: 320px;*/
     height: 100%;
     width: 100%;
-    /*margin: 2rem auto;*/
+    // margin: 2rem;
     display: flex;
     flex-direction: column;
-    font-family: 'helvetica', sans-serif;
+    // font-family: 'helvetica', sans-serif;
 
     .disconnected {
         background: #FFFFCC;
@@ -42,14 +42,19 @@ $human_message_text: white;
       }
     }
 
-    .powered_by {
+    .header {
       flex-shrink: 0;
       text-align: center;
 
       border-bottom: 1px solid #CCC;
       font-size: 14px;
       padding: 0.25rem;
-      color: #666;
+      color: #FFF;
+      background-color: #343A40;
+
+      span {
+        font-size: 32px;
+      }
 
       a {
         text-decoration: none;
@@ -84,13 +89,19 @@ $human_message_text: white;
           border: none;
       }
       button {
-         width: 50px;
-         background: none;
+         width: 40px;
+         height: 40px;
+         background-color: #35AB9C;
          border: 0;
+         border-radius: 100%;
          cursor: pointer;
-         color: blue;
-         font-weight: bold;
      }
+  }
+
+  #send_button svg {
+    width: 20px;
+    height: 20px;
+    fill: #FFF;
   }
 
   form {
@@ -99,12 +110,13 @@ $human_message_text: white;
       padding: 0.25rem;
   }
 
+
   #message_template {
       display: none;
   }
 
   .message {
-      font-size: 14px;
+      font-size: 16px;
       padding: 0.5rem;
       background: $bot_message_background;
       color: $bot_message_text;
@@ -156,7 +168,7 @@ $human_message_text: white;
 
   .message.outgoing {
       float: right;
-
+      box-shadow: -5px 5px 31px -20px #000000;
       background: $human_message_background;
       color: $human_message_text;
 
@@ -182,15 +194,15 @@ $human_message_text: white;
       a {
          text-decoration: none;
          display: block;
-         border: 1px solid $botkit_purple;
-         color: $botkit_purple;
+         border: 1px solid $opal_blue;
+         color: $opal_blue;
          border-radius: 16px;
          padding: 0.25rem 1rem;
-         font-size: 14px;
+         font-size: 16px;
          cursor: pointer;
 
          &:hover {
-           background: $botkit_purple;
+           background: $opal_blue;
            color: #FFF;
          }
      }
