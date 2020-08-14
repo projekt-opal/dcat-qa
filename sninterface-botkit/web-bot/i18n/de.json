@@ -1,0 +1,111 @@
+
+{
+    "greetings": [
+        "Hallo! Ich bin der OPAL Open Data Bot. Du kannst mir Fragen zu Metadaten in der OPAL Datenbank fragen.",
+        "Hi! Ich bin der OPAL Open Data Bot und beantworte Fragen zu Metadaten in der OPAL Datenbank.",
+        "Hey 👋 Der OPAL Open Data Bot hier. Ich beantworte Fragen zu Metadaten in der OPAL Datenbank."
+    ],
+    "example_questions": [
+        "Was für Datensätze existieren für Rostock?",
+        "Was für Datensätze gibt es mit dem Thema Verkehr?",
+        "Wie viele Datensätze gibt es für Bonn?",
+        "Zu welchen Orten gibt es Daten?"
+    ],
+    "themes" : [
+        "* Wirtschaft, Finanzen",
+        "* Landwirtschaft, Fischerei, Forstwirtschaft, Nahrungsmittel",
+        "* Umwelt",
+        "* Bevölkerung, Gesellschaft",
+        "* Regierung, öffentlicher Sektor",
+        "* Energie",
+        "* Justiz, Rechtssystem, öffentliche Sicherheit",
+        "* Verkehr",
+        "* Bildung, Kultur, Sport",
+        "* Regionen, Städte",
+        "* Gesundheit",
+        "* Internationale Themen"
+    ],
+    "intro_quick_reply": {
+        "opal": "opal?",
+        "open_data": "open data?",
+        "example": "zum beispiel?",
+        "themes": "themen?"
+    },
+    "intro_answer": {
+        "opal": "[OPAL](http://projekt-opal.de/) steht für 'Open Data Portal Germany' und ist ein ganzheitliches Portal für offene Daten.",
+        "open_data": "Als [Open Data](https://de.wikipedia.org/wiki/Open_Data) (aus englisch open data ‚offene Daten‘) werden Daten bezeichnet, die von jedermann zu jedem Zweck genutzt, weiterverbreitet und weiterverwendet werden dürfen.",
+        "themes": "Verfügbare Themen:",
+        "themes_explanation": "Du kannst nach Datensätzen eines Themas fragen mit 'Verkehr?' oder komplexere Fragen stellen wie zum Beispiel 'Was gibt es zum Thema Verkehr in Rostock?'"
+    },
+    "error": {
+        "qa_not_available": "Sorry anscheinend ist das QA-System gerade nicht erreichbar.",
+        "no_more_results": "Sorry anscheinend gibt es keine weiteren Ergebnisse.",
+        "further_questions_anyway": "Hast du trotzdem noch andere Fragen?",
+        "no_answer": "Sorry leider konnte ich die Frage nicht beantworten.",
+        "try_again_later": "Versuch es später noch einmal."
+
+    },
+    "trigger": {
+        "greeting": [
+            "^hi$",
+            "^hello$",
+            "^howdy$",
+            "^hey$",
+            "^aloha$",
+            "^hola$",
+            "^bonjour$",
+            "^oi$",
+            "^hallo$",
+            "^moin$"
+        ],
+        "intro": {
+            "opal": [
+                "^opal\\??$",
+                "^was ist opal\\??$",
+                "^was heißt opal\\??$",
+                "^wofür steht opal\\??$",
+                "^was (meinst du|meinen sie) mit opal\\??$",
+                "^was ist mit opal gemeint\\??$"
+            ],
+            "open_data": [
+                "^open data\\??$",
+                "^was ist open data\\??$",
+                "^was heißt open data\\??$",
+                "^wofür steht open data\\??$",
+                "^was (meinst du|meinen sie) mit open data\\??$",
+                "^was ist mit open data gemeint\\??$"
+            ],
+            "example": [
+                "^zum beispiel\\?$",
+                "^zeig mir ein beispiel\\?$",
+                "^was wäre ein beispiel\\?$",
+                "^kannst du mir ein beispiel zeigen\\?$"
+            ],
+            "themes": [
+                "^themen\\??$",
+                "^zu was für themen gibt es daten\\??$",
+                "^was für themenbereiche gibt es\\??$",
+                "^was für themen gibt es\\??$"
+            ]
+        }
+    },
+    "qa_stalling_phrases" : [
+        "Ich schaue mal nach...",
+        "Gib mir einen Moment...",
+        "Ich gucke mal eben...",
+        "Warte eine Sekunde...",
+        "Gute Frage! Lass mich das nachschlagen...",
+        "Lass mich das nachschlagen..."
+    ],
+    "further_questions": "OK, hast du noch weitere Fragen?",
+    "further_questions_or_more_results": "OK, hast du noch weitere Fragen oder willst mehr Ergebnisse für deine letzte Frage sehen?",
+    "qa_quick_reply": {
+        "more_results_label": "Mehr Ergebnisse",
+        "more_results_payload": "Zeig mir mehr Ergebnisse",
+        "all_results_label": "Alle Ergebnisse",
+        "all_results_payload": "Zeig mir alle Ergebnisse"
+    },
+    "results": "Ergebnisse:\n",
+    "fuseki_link": "Link zu Fuseki mit Query"
+     
+}

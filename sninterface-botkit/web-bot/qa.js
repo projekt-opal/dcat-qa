@@ -1,12 +1,9 @@
 const axios = require('axios');
 require('dotenv').config();
 
-
 const qaURL = process.env.QA_URL;
-
 const fusekiURL = process.env.FUSEKI_URL;
 const fusekiDatasetName = process.env.FUSEKI_DATASET_NAME;
-
 
 
 /**
@@ -36,7 +33,10 @@ async function askQuestion(question) {
       })
   });
 }
-
+/**
+ * Fetches the next 10 results for the give query if they exist.
+ * @param {string} query to fetch more results for
+ */
 async function getMoreResults(query) {
   const requestConfig = {
     timeout: 10000,
@@ -81,8 +81,12 @@ function stringfyResultsJSON(results) {
   for (let binding of results.results.bindings) {
     for (let varName of results.head.vars) {
       if (binding[varName] !== undefined) {
-        answersString += 
-        `${varName}: ${binding[varName].value}` + '\n'
+        if (binding[varName].value.startsWith('http://projekt-opal.de/dataset/')) {
+          answersString += `* ${varName}: [${binding[varName].value}](https://opal.demos.dice-research.org/view/datasetView?uri=${encodeURIComponent(binding[varName].value)})` + '\n'
+        } else {
+          answersString += `* ${varName}: ${binding[varName].value}` + '\n'
+        }
+        
       }
     }
 
