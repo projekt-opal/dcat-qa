@@ -42,7 +42,8 @@ public class NLPAnnotator implements QuestionAnnotator {
     }
 
     public Question annotate(Question question) {
-        CoreDocument document = new CoreDocument(question.getQuestionStr().replaceAll("[\\-.?¿!,;\"']", ""));
+
+        CoreDocument document = new CoreDocument(question.getCleanQuestionStr());
         try {
             getPipelineByLang(question.getLanguage()).annotate(document);
         } catch (LanguageNotSupportedException e) {

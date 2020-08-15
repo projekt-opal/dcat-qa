@@ -17,6 +17,7 @@ import java.util.stream.Stream;
 @Data
 public class Question {
     @NonNull private String questionStr;
+    private String cleanQuestionStr;
     private Language language;
     private List<String> words;
     private Map<String, String> posTags;
@@ -47,13 +48,16 @@ public class Question {
         ASC_ORDERED,
         DESC_ORDERED,
         FILTER,
-        ASK_QUERY
+        ASK_QUERY,
+        ORDER_BY_BYTESIZE,
+        ORDER_BY_ISSUED
     }
 
 
     @JsonCreator
     public Question(@JsonProperty("question") String questionStr) {
         this.questionStr = questionStr.strip();
+        this.cleanQuestionStr = this.questionStr.replaceAll("\".*\"", "").replaceAll("'.*'","").replaceAll("[\\-.?¿!,;\"']", "");
         this.words = new ArrayList<>();
         this.posTags = new HashMap<>();
         this.wShingles = new ArrayList<>();

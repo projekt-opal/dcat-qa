@@ -3373,14 +3373,6 @@
     }
   },
   {
-    "uri": "http://publications.europa.eu/resource/authority/language/MAN",
-    "labels": {
-      "en": [
-        "manding"
-      ]
-    }
-  },
-  {
     "uri": "http://publications.europa.eu/resource/authority/language/JSL",
     "labels": {
       "de": [

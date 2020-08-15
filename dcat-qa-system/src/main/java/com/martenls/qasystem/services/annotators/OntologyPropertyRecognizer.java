@@ -1,10 +1,11 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
-import com.martenls.qasystem.config.SemanticPropertyIndicators;
+import com.martenls.qasystem.services.AdditionalPropertyIndicatorsProvider;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.parsers.LabeledURIJsonParser;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
     @Value("${properties.noCatalogFix}")
     private boolean noCatalogFix;
 
+    @Autowired
+    private AdditionalPropertyIndicatorsProvider indicatorsProvider;
 
     public OntologyPropertyRecognizer(@Value("${es.property_index}") String indexName,
                                       @Value("${data.ontology}") String ontologyFilePath,
@@ -39,9 +42,6 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
             for (String shingle : question.getWShingles()) {
                 question.getOntologyProperties().addAll(recognizeEntities(shingle, question.getLanguage(), 1, fuzziness));
             }
-        }
-        if (question.getWShinglesWithStopwords().stream().anyMatch(SemanticPropertyIndicators.getBytesizePropetyIndicators(question.getLanguage())::contains)) {
-            question.getOntologyProperties().add("http://www.w3.org/ns/dcat#byteSize");
         }
 
         // infer ontology properties from found entities
@@ -67,9 +67,15 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
         if (!question.getFrequencyEntities().isEmpty()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/accrualPeriodicity");
         }
-        // TODO: more inference rules like this
 
-        // temporal entities -> dcat:issued/dct:modified
+        // infer ontology properties from additional properties
+        if (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_BYTESIZE) ||
+                indicatorsProvider.getBytesizePropertyIndicators(question.getLanguage()).stream().anyMatch(question.getQuestionStr().toLowerCase()::startsWith)) {
+            question.getOntologyProperties().add("http://www.w3.org/ns/dcat#byteSize");
+        }
+        if (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_ISSUED)) {
+            question.getOntologyProperties().add("http://purl.org/dc/terms/issued");
+        }
 
         // Fix for absence of dcat:Catalogs in opal2020-07 dataset
         if (noCatalogFix && question.getOntologyProperties().contains("http://www.w3.org/ns/dcat#dataset")) {

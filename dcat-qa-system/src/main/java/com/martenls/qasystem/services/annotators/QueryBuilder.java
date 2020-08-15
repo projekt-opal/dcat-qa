@@ -105,6 +105,27 @@ public class QueryBuilder implements QuestionAnnotator {
             queryStrings = queryStringsWithIntervalEntities;
         }
 
+        List<String> queriesToBePruned = new ArrayList<>();
+
+        // prune queries ordered by wrong property
+        if ((template.hasOrderAscModifier() || template.hasOrderDescModifier())
+                && (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_BYTESIZE) || question.getAdditionalProperties().contains(Question.properties.ORDER_BY_ISSUED))) {
+            Pattern pattern;
+            if (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_BYTESIZE)) {
+                pattern = Pattern.compile("<http://www.w3.org/ns/dcat#byteSize>\\s\\?var(\\d)");
+            } else {
+                pattern = Pattern.compile("<http://purl.org/dc/terms/issued>\\s\\?var(\\d)");
+            }
+            for (String queryString : queryStrings) {
+                Matcher matcher = pattern.matcher(queryString);
+                if (matcher.find() && !Pattern.compile("ORDER BY (ASC|DESC)\\(\\?var" + matcher.group(1) + "\\)").matcher(queryString).find()) {
+                    queriesToBePruned.add(queryString);
+                }
+            }
+        }
+        queryStrings.removeAll(queriesToBePruned);
+
+
         // questions for singular superlatives e.g. "What is the biggest...?" -> LIMIT 1 in querystring
         List<String> queryStringsWithLimits = new ArrayList<>();
         for (String queryString : queryStrings) {
@@ -116,12 +137,12 @@ public class QueryBuilder implements QuestionAnnotator {
             ) {
                 switch (question.getLanguage()) {
                     case GERMAN:
-                        if (question.getQuestionStr().contains("ist")) {
+                        if (question.getWords().stream().anyMatch(x -> x.equals("ist") || x.equals("wurde"))) {
                             queryString += " LIMIT 1";
                         }
                         break;
                     case ENGLISH:
-                        if (question.getQuestionStr().contains("is")) {
+                        if (question.getWords().stream().anyMatch(x -> x.equals("is") || x.equals("was"))) {
                             queryString += " LIMIT 1";
                         }
                         break;

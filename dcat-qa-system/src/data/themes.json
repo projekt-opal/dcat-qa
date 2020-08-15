@@ -96,10 +96,12 @@
     "uri": "http://publications.europa.eu/resource/authority/data-theme/TRAN",
     "labels": {
       "de": [
-        "verkehr"
+        "verkehr",
+        "transport"
       ],
       "en": [
-        "transport"
+        "transport",
+        "traffic"
       ]
     }
   },

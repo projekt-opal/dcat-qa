@@ -19,6 +19,8 @@ data:
   licenseEntities: ${data.dir}/licences.json
   frequencyEntities: ${data.dir}/frequencies.json
   filetypeEntities: ${data.dir}/filetypes.json
+  stopwords: ${data.dir}/stopwords.json
+  additionalPropertyIndicators: ${data.dir}/additionalPropertyIndicators.json
 
 sparql:
   endpoint: https://openbot.cs.upb.de/fuseki/opal2020-07/query

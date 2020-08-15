@@ -1,0 +1,30 @@
+{
+  "asc_order": {
+    "en": ["first", "oldest", "smallest", "lowest", "shortest", "least"],
+    "de": ["erste", "ersten", "älteste", "ältesten", "kleinste", "kleinsten", "niedrigste", "niedrigsten", "kürzeste", "kürzesten", "wenigste", "wenigsten"]
+  },
+  "desc_order": {
+    "en": ["largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent", "latest", "newest"],
+    "de": ["letzte", "letzten", "jüngste", "jüngsten", "neueste", "neuesten", "größte", "größten", "höchste", "höchsten", "längste", "längsten", "meiste", "meisten", "zuletzt", "letztes", "neulich", "vor kurzem"]
+  },
+  "count_query": {
+    "en": ["how many", "how much"],
+    "de": ["wie viele", "wie viel"]
+  },
+  "ask_query": {
+    "en": ["is", "are", "exist", "does"],
+    "de": ["gibt", "sind", "existieren", "ist"]
+  },
+  "order_by_byteSize": {
+    "en": ["biggest", "largest", "smallest"],
+    "de": ["größte", "kleinste"]
+  },
+  "order_by_issued": {
+    "en": ["newest", "latest", "most recent"],
+    "de": ["jüngste", "jüngsten", "neueste", "neuesten"]
+  },
+  "byteSize_property": {
+    "en": ["how big", "how small", "how large", "how little"],
+    "de": ["wie groß", "wie klein"]
+  }
+}

@@ -1,10 +1,11 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
-import com.martenls.qasystem.config.SemanticPropertyIndicators;
-import com.martenls.qasystem.config.Stopwords;
+import com.martenls.qasystem.services.AdditionalPropertyIndicatorsProvider;
+import com.martenls.qasystem.services.StopwordsProvider;
 import com.martenls.qasystem.models.Question;
 import edu.stanford.nlp.ling.CoreLabel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -16,6 +17,11 @@ import static java.lang.String.join;
 @Service
 public class SemanticAnalyzer implements QuestionAnnotator{
 
+    @Autowired
+    private StopwordsProvider stopwordsProvider;
+
+    @Autowired
+    private AdditionalPropertyIndicatorsProvider indicatorsProvider;
 
     public SemanticAnalyzer() { }
 
@@ -33,7 +39,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
         // TODO: maybe only filter out shingles that are stopwords
         question.setWShinglesWithStopwords(getShingles(words, 5));
         // filter out stopwords
-        words.removeIf(x -> Stopwords.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()));
+        words.removeIf(x -> stopwordsProvider.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()));
         question.setWShingles(getShingles(words, 5));
         question.getAdditionalProperties().addAll(getAdditionalProperties(question));
         question.getStringLiterals().addAll(getStringLiterals(question.getQuestionStr()));
@@ -46,7 +52,10 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      * @return list of single words from string
      */
     public List<String> getWordsFromString(String string) {
-        return new ArrayList<>(Arrays.asList(string.replaceAll("[\\-.?¿!,;\"']", "").split("\\s+")));
+        String s = string.replaceAll("\".*\"", "");
+        s = s.replaceAll("'.*'","");
+        s = s.replaceAll("[\\-.?¿!,;\"']", "");
+        return new ArrayList<>(Arrays.asList(s.split("\\s+")));
     }
 
     /**
@@ -76,24 +85,31 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      */
     private Set<Question.properties> getAdditionalProperties(Question question) {
         Set<Question.properties> propertiesSet = new HashSet<>();
-        for (String countIndicator : SemanticPropertyIndicators.getCountIndicators(question.getLanguage())) {
+        for (String countIndicator : indicatorsProvider.getCountIndicators(question.getLanguage())) {
             if (question.getQuestionStr().toLowerCase().startsWith(countIndicator)) {
                 propertiesSet.add(Question.properties.COUNT);
                 break;
             }
         }
-        for (String askQueryIndicator : SemanticPropertyIndicators.getAskQueryIndicators(question.getLanguage())) {
+        for (String askQueryIndicator : indicatorsProvider.getAskQueryIndicators(question.getLanguage())) {
             if (question.getQuestionStr().toLowerCase().startsWith(askQueryIndicator)) {
                 propertiesSet.add(Question.properties.ASK_QUERY);
                 break;
             }
         }
-        if (question.getWords().stream().anyMatch(SemanticPropertyIndicators.getAscIndicators(question.getLanguage())::contains)) {
+        if (question.getWords().stream().anyMatch(indicatorsProvider.getAscIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.ASC_ORDERED);
         }
-        if (question.getWords().stream().anyMatch(SemanticPropertyIndicators.getDescIndicators(question.getLanguage())::contains)) {
+        if (question.getWords().stream().anyMatch(indicatorsProvider.getDescIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.DESC_ORDERED);
         }
+        if (question.getWords().stream().anyMatch(indicatorsProvider.getOrderByByteSizeIndicators(question.getLanguage())::contains)) {
+            propertiesSet.add(Question.properties.ORDER_BY_BYTESIZE);
+        }
+        if (question.getWords().stream().anyMatch(indicatorsProvider.getOrderByIssuedIndicators(question.getLanguage())::contains)) {
+            propertiesSet.add(Question.properties.ORDER_BY_ISSUED);
+        }
+
         return propertiesSet;
     }
 
