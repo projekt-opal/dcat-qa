@@ -1,9 +1,9 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
+import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.services.AdditionalPropertyIndicatorsProvider;
 import com.martenls.qasystem.services.StopwordsProvider;
-import com.martenls.qasystem.models.Question;
 import edu.stanford.nlp.ling.CoreLabel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static java.lang.String.join;
 
 @Service
-public class SemanticAnalyzer implements QuestionAnnotator{
+public class SemanticAnalyzer implements QuestionAnnotator {
 
     @Autowired
     private StopwordsProvider stopwordsProvider;
@@ -23,7 +23,8 @@ public class SemanticAnalyzer implements QuestionAnnotator{
     @Autowired
     private AdditionalPropertyIndicatorsProvider indicatorsProvider;
 
-    public SemanticAnalyzer() { }
+    public SemanticAnalyzer() {
+    }
 
     @Override
     public Question annotate(Question question) {
@@ -36,24 +37,31 @@ public class SemanticAnalyzer implements QuestionAnnotator{
         } else if (question.getLanguage() == Language.GERMAN) {
             words = question.getWords();
         }
-        // TODO: maybe only filter out shingles that are stopwords
-        question.setWShinglesWithStopwords(getShingles(words, 5));
-        // filter out stopwords
+        // wshingles including stopwords but without shingles that are just a stopword
+        question.setWShinglesWithStopwords(
+                getShingles(words, 5).stream()
+                        .filter(x -> !stopwordsProvider.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()))
+                        .collect(Collectors.toList())
+        );
+
+        // wshingles completely without stopwords
         words.removeIf(x -> stopwordsProvider.getStopwordsForLang(question.getLanguage()).contains(x.toLowerCase()));
         question.setWShingles(getShingles(words, 5));
+
         question.getAdditionalProperties().addAll(getAdditionalProperties(question));
-        question.getStringLiterals().addAll(getStringLiterals(question.getQuestionStr()));
+        question.getLiterals().addAll(getStringLiterals(question.getQuestionStr()));
         return question;
     }
 
     /**
      * Removes punctuation and splits string at whitespace.
+     *
      * @param string to get words from
      * @return list of single words from string
      */
     public List<String> getWordsFromString(String string) {
         String s = string.replaceAll("\".*\"", "");
-        s = s.replaceAll("'.*'","");
+        s = s.replaceAll("'.*'", "");
         s = s.replaceAll("[\\-.?¿!,;\"']", "");
         return new ArrayList<>(Arrays.asList(s.split("\\s+")));
     }
@@ -62,8 +70,9 @@ public class SemanticAnalyzer implements QuestionAnnotator{
      * Returns list of all w-shingles for w in [0, n].
      * For example for ["How", "many", "datasets"] and n=2 it returns:
      * ["How", "How many", "many", "many datasets", "datasets"]
+     *
      * @param strings list of words to get shingles from
-     * @param n maximum size of shingle
+     * @param n       maximum size of shingle
      * @return list of all w-shingles for w in [0, n] where one shingle is one string
      */
     private List<String> getShingles(List<String> strings, int n) {
@@ -80,6 +89,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
 
     /**
      * Checks question for additional property indicators like the phrase "how many" which would indicate count query.
+     *
      * @param question to analyze
      * @return Set of found properties
      */
@@ -115,6 +125,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
 
     /**
      * Extracts string literals enclosed with "" or '' from the string.
+     *
      * @param string to extract literals from
      * @return list of extracted string literals
      */
@@ -124,7 +135,7 @@ public class SemanticAnalyzer implements QuestionAnnotator{
                 .results()
                 .map(x -> x.group(0))
                 .collect(Collectors.toList());
-        results.addAll(Pattern.compile("\'([^\"]*)\'(@\\w{2})?")
+        results.addAll(Pattern.compile("'([^\"]*)'(@\\w{2})?")
                 .matcher(string)
                 .results()
                 .map(x -> x.group(0))
@@ -132,8 +143,6 @@ public class SemanticAnalyzer implements QuestionAnnotator{
                 .collect(Collectors.toList()));
         return results;
     }
-
-
 
 
 }

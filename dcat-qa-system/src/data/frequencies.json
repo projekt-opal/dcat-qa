@@ -5,10 +5,13 @@
       "de": [
         "jährlich",
         "jährliche",
-        "jährliches"
+        "jährliches",
+        "jedes jahr"
       ],
       "en": [
-        "annual"
+        "annual",
+        "annually",
+        "every year"
       ]
     }
   },
@@ -18,10 +21,13 @@
       "de": [
         "halbjährlich",
         "halbjährliche",
-        "halbjährliches"
+        "halbjährliches",
+        "jedes halbe jahr"
       ],
       "en": [
-        "semiannual"
+        "semiannual",
+        "semiannually",
+        "every half year"
       ]
     }
   },
@@ -32,7 +38,8 @@
         "dreimal im Jahr"
       ],
       "en": [
-        "three times a year"
+        "three times a year",
+        "three times per year"
       ]
     }
   },
@@ -69,7 +76,9 @@
         "alle zehn Jahre"
       ],
       "en": [
-        "decennial"
+        "decennial",
+        "every ten years",
+        "every 10 years"
       ]
     }
   },
@@ -104,7 +113,9 @@
         "alle zwei Stunden"
       ],
       "en": [
-        "bihourly"
+        "bihourly",
+        "every two hours",
+        "every 2 hours"
       ]
     }
   },
@@ -115,7 +126,9 @@
         "alle dreißig Jahre"
       ],
       "en": [
-        "tridecennial"
+        "tridecennial",
+        "every thirty years",
+        "every 30 years"
       ]
     }
   },
@@ -126,7 +139,9 @@
         "zweimal in Woche"
       ],
       "en": [
-        "semiweekly"
+        "semiweekly",
+        "two times a week",
+        "two times per week"
       ]
     }
   },
@@ -136,10 +151,14 @@
       "de": [
         "dreijährlich",
         "dreijährliche",
-        "dreijährliches"
+        "dreijährliches",
+        "alle drei jahre",
+        "alle 3 jahre"
       ],
       "en": [
-        "triennial"
+        "triennial",
+        "every three years",
+        "every 3 years"
       ]
     }
   },
@@ -160,10 +179,12 @@
       "de": [
         "wöchentlich",
         "wöchentliche",
-        "wöchentliches"
+        "wöchentliches",
+        "jede woche"
       ],
       "en": [
-        "weekly"
+        "weekly",
+        "every week"
       ]
     }
   },
@@ -173,10 +194,12 @@
       "de": [
         "monatlich",
         "monatliche",
-        "monatliches"
+        "monatliches",
+        "jeden monat"
       ],
       "en": [
-        "monthly"
+        "monthly",
+        "every month"
       ]
     }
   },
@@ -197,7 +220,9 @@
       "de": [
         "fünfjährlich",
         "fünfjährliche",
-        "fünfjährliches"
+        "fünfjährliches",
+        "alle fünf jahre",
+        "alle 5 jahre"
       ],
       "en": [
         "quinquennial"
@@ -232,7 +257,8 @@
       "de": [
         "zweiwöchentlich",
         "zweiwöchentliche",
-        "zweiwöchentliches"
+        "zweiwöchentliches",
+        "alle zwei wochen"
       ],
       "en": [
         "biweekly"
@@ -245,7 +271,8 @@
       "de": [
         "zweijährlich",
         "zweijährliche",
-        "zweijährliches"
+        "zweijährliches",
+        "alle zwei jahre"
       ],
       "en": [
         "biennial"
@@ -282,10 +309,12 @@
       "de": [
         "stündlich",
         "stündliche",
-        "stündliches"
+        "stündliches",
+        "jede stunde"
       ],
       "en": [
-        "hourly"
+        "hourly",
+        "every hour"
       ]
     }
   },

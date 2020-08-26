@@ -1438,33 +1438,6 @@
     }
   },
   {
-    "uri": "http://publications.europa.eu/resource/authority/language/DSL",
-    "labels": {
-      "de": [
-        "dänische gebärdensprache"
-      ],
-      "en": [
-        "danish sign language"
-      ]
-    }
-  },
-  {
-    "uri": "http://publications.europa.eu/resource/authority/language/DSE",
-    "labels": {
-      "en": [
-        "dutch sign language"
-      ]
-    }
-  },
-  {
-    "uri": "http://publications.europa.eu/resource/authority/language/URE",
-    "labels": {
-      "en": [
-        "uru"
-      ]
-    }
-  },
-  {
     "uri": "http://publications.europa.eu/resource/authority/language/URD",
     "labels": {
       "de": [

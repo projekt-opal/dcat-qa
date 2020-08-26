@@ -22,12 +22,12 @@ class TemplateTest {
         assertFalse(template.hasOrderDescModifier());
         assertFalse(template.hasHavingAggregate());
         assertFalse(template.hasLimitModifier());
-        assertFalse(template.hasStringMatchingFilter());
-        assertFalse(template.hasValueFilter());
+        assertFalse(template.hasLiteralArrayFilter());
+        assertFalse(template.hasLiteralFilter());
         assertEquals(1, template.getPropertyCount());
         assertEquals(1, template.getEntityCount());
-        assertEquals(0, template.getStringArrayCount());
-        assertEquals(0, template.getValueCount());
+        assertEquals(0, template.getLiteralArrayCount());
+        assertEquals(0, template.getLiteralCount());
     }
 
     @Test
@@ -36,7 +36,7 @@ class TemplateTest {
                 "WHERE {\n" +
                 "    ?var0 <prop0> ?var1.\n" +
                 "    ?var1 <prop1> ?var2\n" +
-                "    FILTER ( ?var2 IN (<stringArray0>) )\n" +
+                "    FILTER ( ?var2 IN (<literalArray0>) )\n" +
                 "}");
         assertTrue(template.hasCountAggregate());
         assertTrue(template.hasDistinctModifier());
@@ -46,12 +46,12 @@ class TemplateTest {
         assertFalse(template.hasOrderDescModifier());
         assertFalse(template.hasHavingAggregate());
         assertFalse(template.hasLimitModifier());
-        assertTrue(template.hasStringMatchingFilter());
-        assertFalse(template.hasValueFilter());
+        assertTrue(template.hasLiteralArrayFilter());
+        assertFalse(template.hasLiteralFilter());
         assertEquals(2, template.getPropertyCount());
         assertEquals(0, template.getEntityCount());
-        assertEquals(1, template.getStringArrayCount());
-        assertEquals(0, template.getValueCount());
+        assertEquals(1, template.getLiteralArrayCount());
+        assertEquals(0, template.getLiteralCount());
     }
 
     @Test
@@ -72,12 +72,12 @@ class TemplateTest {
         assertTrue(template.hasOrderDescModifier());
         assertFalse(template.hasHavingAggregate());
         assertTrue(template.hasLimitModifier());
-        assertFalse(template.hasStringMatchingFilter());
-        assertFalse(template.hasValueFilter());
+        assertFalse(template.hasLiteralArrayFilter());
+        assertFalse(template.hasLiteralFilter());
         assertEquals(2, template.getPropertyCount());
         assertEquals(1, template.getEntityCount());
-        assertEquals(0, template.getStringArrayCount());
-        assertEquals(0, template.getValueCount());
+        assertEquals(0, template.getLiteralArrayCount());
+        assertEquals(0, template.getLiteralCount());
     }
 
     @Test
@@ -97,12 +97,12 @@ class TemplateTest {
         assertFalse(template.hasOrderDescModifier());
         assertFalse(template.hasHavingAggregate());
         assertFalse(template.hasLimitModifier());
-        assertFalse(template.hasStringMatchingFilter());
-        assertFalse(template.hasValueFilter());
+        assertFalse(template.hasLiteralArrayFilter());
+        assertFalse(template.hasLiteralFilter());
         assertEquals(3, template.getPropertyCount());
         assertEquals(1, template.getEntityCount());
-        assertEquals(0, template.getStringArrayCount());
-        assertEquals(0, template.getValueCount());
+        assertEquals(0, template.getLiteralArrayCount());
+        assertEquals(0, template.getLiteralCount());
     }
 
     @Test
@@ -111,7 +111,7 @@ class TemplateTest {
                 "WHERE {\n" +
                 "    ?var0 <prop0> ?var1.\n" +
                 "    ?var0 <prop1> <entity0>.\n" +
-                "    FILTER ( ?var1 = <value0> )\n" +
+                "    FILTER ( ?var1 = <literal0> )\n" +
                 "}");
         assertFalse(template.hasCountAggregate());
         assertFalse(template.hasDistinctModifier());
@@ -121,12 +121,12 @@ class TemplateTest {
         assertFalse(template.hasOrderDescModifier());
         assertFalse(template.hasHavingAggregate());
         assertFalse(template.hasLimitModifier());
-        assertFalse(template.hasStringMatchingFilter());
-        assertTrue(template.hasValueFilter());
+        assertFalse(template.hasLiteralArrayFilter());
+        assertTrue(template.hasLiteralFilter());
         assertEquals(2, template.getPropertyCount());
         assertEquals(1, template.getEntityCount());
-        assertEquals(0, template.getStringArrayCount());
-        assertEquals(1, template.getValueCount());
+        assertEquals(0, template.getLiteralArrayCount());
+        assertEquals(1, template.getLiteralCount());
     }
 
 }

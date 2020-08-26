@@ -1,4 +1,4 @@
 package com.martenls.qasystem.exceptions;
 
-public class LanguageNotSupportedException extends Exception{
+public class LanguageNotSupportedException extends Exception {
 }

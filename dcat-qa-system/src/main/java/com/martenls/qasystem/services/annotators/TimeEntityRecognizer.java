@@ -1,7 +1,6 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.martenls.qasystem.models.Question;
-
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.CoreEntityMention;
 import edu.stanford.nlp.time.TimeAnnotations;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Log4j2
 @Service
-public class TimeEntityRecognizer implements QuestionAnnotator{
+public class TimeEntityRecognizer implements QuestionAnnotator {
 
 
     @Override
@@ -30,7 +29,6 @@ public class TimeEntityRecognizer implements QuestionAnnotator{
         }
         return question;
     }
-
 
 
 }

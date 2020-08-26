@@ -8,6 +8,7 @@ import com.martenls.qasystem.utils.SPARQLUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,7 +25,8 @@ public class ResultSelector implements QuestionAnnotator {
                     .collect(Collectors.toList());
 
             if (!question.getQueryCandidates().isEmpty() && !resultCanditates.isEmpty()) {
-                question.setAnswer(new Answer("{ \"boolean\": " + resultCanditates.stream().anyMatch(Query::getAskResult) + " }", resultCanditates.get(0).getQueryStr()));
+                Optional<Query> result = resultCanditates.stream().filter(Query::getAskResult).findFirst();
+                question.setAnswer(new Answer("{ \"boolean\": " + result.isPresent() + " }", result.orElseGet(() -> resultCanditates.get(0)).getQueryStr()));
             }
         } else {
             List<Query> resultCanditates;

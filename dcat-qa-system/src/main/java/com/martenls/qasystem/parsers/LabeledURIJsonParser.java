@@ -3,13 +3,14 @@ package com.martenls.qasystem.parsers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.martenls.qasystem.models.LabeledURI;
-
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 

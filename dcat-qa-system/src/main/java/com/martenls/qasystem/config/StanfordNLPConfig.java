@@ -1,4 +1,3 @@
-
 package com.martenls.qasystem.config;
 
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -23,7 +22,7 @@ public class StanfordNLPConfig {
     @Bean
     public StanfordCoreNLP getEnPipeline() {
         Properties properties = new Properties();
-        properties.setProperty("tokenizer.language","en");
+        properties.setProperty("tokenizer.language", "en");
         properties.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner");
         properties.setProperty("ner.docdate.usePresent", "true");
         return new StanfordCoreNLP(properties);
@@ -36,7 +35,7 @@ public class StanfordNLPConfig {
             // load a properties file
             properties.load(input);
         } catch (IOException e) {
-           log.error("Could not load property file for german Stanford NLP pipeline", e);
+            log.error("Could not load property file for german Stanford NLP pipeline", e);
         }
         properties.setProperty("sutime.rules", "edu/stanford/nlp/models/sutime/defs.sutime.txt," + dataDirPath + "/german.sutime.txt");
         properties.setProperty("ner.docdate.usePresent", "true");

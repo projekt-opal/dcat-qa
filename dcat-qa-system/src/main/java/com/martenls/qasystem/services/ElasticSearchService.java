@@ -14,7 +14,6 @@ import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.common.unit.ByteSizeUnit;
 import org.elasticsearch.common.unit.ByteSizeValue;
 import org.elasticsearch.common.unit.TimeValue;
-import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -49,6 +48,7 @@ public class ElasticSearchService {
     /**
      * Establishes connection to ES instance. Retries if it is not available and terminates app after ten failed attempts.
      * Inits bulkprocessor.
+     *
      * @throws InterruptedException if thread sleep is interrupted.
      */
     @PostConstruct
@@ -60,14 +60,16 @@ public class ElasticSearchService {
                 elasticSearchClient.ping(RequestOptions.DEFAULT);
                 esUnavailable = false;
             } catch (IOException e) {
-                log.error("ElasticSearch index can not be reached. Will try again in 2 seconds... ");
+                log.error("Elasticsearch index can not be reached. Will try again in 2 seconds... ");
                 i++;
                 Thread.sleep(2000);
             }
         }
         if (esUnavailable) {
-            log.error("ElasticSearch index can not be reached. Shutting down...");
+            log.error("Elasticsearch index can not be reached. Shutting down...");
             System.exit(1);
+        } else {
+            log.info("Elasticsearch connection successful");
         }
 
         BulkProcessor.Builder builder = BulkProcessor.builder(
@@ -92,9 +94,10 @@ public class ElasticSearchService {
 
     /**
      * Query index with given name for given key and value pair and return list of uris
-     * @param key of key value pair that is wanted
-     * @param value of key value pair that is wanted
-     * @param index name of the index to query
+     *
+     * @param key                of key value pair that is wanted
+     * @param value              of key value pair that is wanted
+     * @param index              name of the index to query
      * @param maxNumberOfResults maximum number of results that should be returned
      * @return list of uris
      * @throws ESIndexUnavailableException when index not available
@@ -107,16 +110,18 @@ public class ElasticSearchService {
                 .collect(Collectors.toList());
     }
 
+
     /**
      * Query index with given name for given key and value pair.
-     * @param key of key value pair that is wanted
-     * @param value of key value pair that is wanted
-     * @param index name of the index to query
+     *
+     * @param key                of key value pair that is wanted
+     * @param value              of key value pair that is wanted
+     * @param index              name of the index to query
      * @param maxNumberOfResults maximum number of results that should be returned
      * @return list of result mappings
      * @throws ESIndexUnavailableException when index not available
      */
-    public List<Map<String,Object>> queryIndex(String key, String value, String index, int maxNumberOfResults, String fuzziness) throws ESIndexUnavailableException {
+    public List<Map<String, Object>> queryIndex(String key, String value, String index, int maxNumberOfResults, String fuzziness) throws ESIndexUnavailableException {
         QueryBuilder queryBuilder = QueryBuilders.matchQuery(key, value)
                 .fuzziness(fuzziness)
                 .fuzzyTranspositions(false)
@@ -139,7 +144,7 @@ public class ElasticSearchService {
         if (hits.getHits().length == 0)
             return Collections.emptyList();
 
-        List<Map<String,Object>> results = new ArrayList<>();
+        List<Map<String, Object>> results = new ArrayList<>();
 
         for (SearchHit hit : hits.getHits()) {
             Map<String, Object> hitMap = new HashMap<>();
@@ -156,6 +161,7 @@ public class ElasticSearchService {
 
     /**
      * Checks if an index with the given name exists.
+     *
      * @param index name of the index to check
      * @return if index exists
      * @throws ESIndexUnavailableException if es instance not available
@@ -173,7 +179,8 @@ public class ElasticSearchService {
 
     /**
      * Sends an index creation request with the given name and mapping to the ES instance.
-     * @param index name of the index that should be created
+     *
+     * @param index   name of the index that should be created
      * @param mapping with properties of the index
      * @throws ESIndexUnavailableException if ES index can not be reached
      */
@@ -189,27 +196,11 @@ public class ElasticSearchService {
 
     }
 
-    /**
-     * Sends an index creation request with the given name and mapping to the ES instance.
-     * @param index name of the index that should be created
-     * @param mapping with properties of the index
-     * @throws ESIndexUnavailableException if ES index can not be reached
-     */
-    public void createIndexXContent(String index, XContentBuilder mapping) throws ESIndexUnavailableException {
-        CreateIndexRequest request = new CreateIndexRequest(index);
-        request.mapping(mapping);
-        try {
-            elasticSearchClient.indices().create(request, RequestOptions.DEFAULT);
-        } catch (IOException e) {
-            throw new ESIndexUnavailableException();
-        }
-        log.debug("Index " + index + " was created with response");
-
-    }
 
     /**
      * Adds a new IndexRequest for the given index and mapping and adds it to the bulkProcessor.
-     * @param index name of the index where the mapping should be indexed
+     *
+     * @param index   name of the index where the mapping should be indexed
      * @param mapping that should be indexed
      */
     public void makeIndexRequest(String index, String mapping) {

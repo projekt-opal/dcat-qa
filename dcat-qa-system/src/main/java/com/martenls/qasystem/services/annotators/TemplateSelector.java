@@ -54,7 +54,6 @@ public class TemplateSelector implements QuestionAnnotator {
         }
 
 
-
         // count indicator -> template with count
         if (template.hasCountAggregate() != question.hasProperty(Question.properties.COUNT)) {
             return 0;
@@ -80,32 +79,33 @@ public class TemplateSelector implements QuestionAnnotator {
         }
 
         // string literals -> template with filter
-        if (template.hasStringMatchingFilter() == !question.getStringLiterals().isEmpty()) {
+        if (template.hasLiteralArrayFilter() && question.getLiterals().isEmpty()) {
+            return 0;
+        } else if (template.hasLiteralArrayFilter() == !question.getLiterals().isEmpty()) {
             rating += 10;
         } else {
-            rating -= 10;;
+            rating -= 10;
         }
         // temporal entity with interval -> template with interval filter
-        if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
+        if (template.hasIntervalFilter() && question.getTimeIntervalEntities().isEmpty()) {
+            return 0;
+        } else if (template.hasIntervalFilter() == !question.getTimeIntervalEntities().isEmpty()) {
             rating += 10;
         } else {
-            rating -= 10;;
+            rating -= 10;
         }
 
-        if (template.hasValueFilter() == !question.getTimeEntities().isEmpty()) {
+        if (template.hasLiteralFilter() && question.getTimeEntities().isEmpty()) {
+            return 0;
+        } else if (template.hasLiteralFilter() == !question.getTimeEntities().isEmpty()) {
             rating += 10;
         } else {
-            rating -= 10;;
+            rating -= 10;
         }
-
-        // TODO: add more rules
-
-        // "how many, the most, the least" -> count() / group by + order by
 
 
         return rating;
     }
-
 
 
 }

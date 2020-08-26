@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
 
 @Log4j2
 @Service
@@ -21,7 +22,8 @@ public class StopwordsProvider {
     public StopwordsProvider(@Value("${data.stopwords}") String stopwordsFilePath) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            stopwords = mapper.readValue(Files.readAllBytes(Paths.get(stopwordsFilePath)), new TypeReference<Map<String, Set<String>>>(){});
+            stopwords = mapper.readValue(Files.readAllBytes(Paths.get(stopwordsFilePath)), new TypeReference<Map<String, Set<String>>>() {
+            });
         } catch (IOException e) {
             log.error("Could not read stopwords file: {}", e.getMessage());
         }

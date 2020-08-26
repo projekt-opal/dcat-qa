@@ -58,8 +58,11 @@ public class QAService {
     private ResultSelector resultSelector;
 
 
-
     public Question answerQuestion(Question question) {
+        return answerQuestion(question, 0);
+    }
+
+    public Question answerQuestion(Question question, int resultLimit) {
         try {
             languageRecognizer.annotate(question);
             nlpAnnotator.annotate(question);
@@ -86,16 +89,14 @@ public class QAService {
                 }
             } else {
                 for (Query queryCandidate : question.getQueryCandidates()) {
-                    queryCandidate.setSelectResult(sparqlService.executeSelectQuery(queryCandidate.getQueryStr()));
+                    queryCandidate.setSelectResult(sparqlService.executeSelectQuery(queryCandidate.getQueryStr(), resultLimit));
                 }
             }
 
             resultSelector.annotate(question);
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error(question.toString(), e);
         }
-
-
 
         return question;
     }

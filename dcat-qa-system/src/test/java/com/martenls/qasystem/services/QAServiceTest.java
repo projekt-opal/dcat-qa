@@ -30,7 +30,7 @@ class QAServiceTest {
         assertThat(question.getWords(), equalTo(List.of("What", "datasets", "exist", "for", "Rostock")));
         assertThat(question.getWShingles(), hasSize(6));
         assertThat(question.getWShingles(), equalTo(List.of("dataset", "dataset exist", "dataset exist Rostock", "exist", "exist Rostock", "Rostock")));
-        assertThat(question.getStringLiterals(), hasSize(0));
+        assertThat(question.getLiterals(), hasSize(0));
         assertThat(question.getTimeEntities(), hasSize(0));
         assertThat(question.getTimeIntervalEntities(), hasSize(0));
         assertThat(question.getLocationEntities(), hasSize(1));
@@ -55,7 +55,7 @@ class QAServiceTest {
         assertThat(question.getWShingles(), equalTo(List.of("dataset", "dataset exist", "dataset exist Bonn", "exist", "exist Bonn", "Bonn")));
         assertThat(question.getAdditionalProperties(), hasSize(1));
         assertThat(question.getAdditionalProperties(), hasItem(Question.properties.COUNT));
-        assertThat(question.getStringLiterals(), hasSize(0));
+        assertThat(question.getLiterals(), hasSize(0));
         assertThat(question.getTimeEntities(), hasSize(0));
         assertThat(question.getTimeIntervalEntities(), hasSize(0));
         assertThat(question.getLocationEntities(), hasSize(1));
@@ -79,7 +79,7 @@ class QAServiceTest {
         assertThat(question.getWShingles(), hasSize(10));
         assertThat(question.getWShingles(), equalTo(List.of("german", "german dataset", "german dataset exist", "german dataset exist Rostock", "dataset", "dataset exist", "dataset exist Rostock", "exist", "exist Rostock", "Rostock")));
         assertThat(question.getAdditionalProperties(), hasSize(0));
-        assertThat(question.getStringLiterals(), hasSize(0));
+        assertThat(question.getLiterals(), hasSize(0));
         assertThat(question.getTimeEntities(), hasSize(0));
         assertThat(question.getTimeIntervalEntities(), hasSize(0));
         assertThat(question.getLocationEntities(), hasSize(1));
@@ -105,7 +105,7 @@ class QAServiceTest {
         assertThat(question.getWShingles(), hasSize(10));
         assertThat(question.getWShingles(), equalTo(List.of("dataset", "dataset transport", "dataset transport publish", "dataset transport publish 2019", "transport", "transport publish", "transport publish 2019", "publish", "publish 2019", "2019")));
         assertThat(question.getAdditionalProperties(), hasSize(0));
-        assertThat(question.getStringLiterals(), hasSize(0));
+        assertThat(question.getLiterals(), hasSize(0));
         assertThat(question.getTimeEntities(), hasSize(0));
         assertThat(question.getTimeIntervalEntities(), hasSize(1));
         assertThat(question.getLocationEntities(), hasSize(0));

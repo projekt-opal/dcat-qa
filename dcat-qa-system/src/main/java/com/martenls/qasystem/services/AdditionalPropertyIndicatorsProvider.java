@@ -4,14 +4,15 @@ package com.martenls.qasystem.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pemistahl.lingua.api.Language;
-import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Defines lists of words that can be indicators that the correct SPARQL query for the question has to contain certain properties.
@@ -22,12 +23,13 @@ import java.util.*;
 public class AdditionalPropertyIndicatorsProvider {
 
 
-    private Map<String,Map<String,List<String>>> indicators;
+    private Map<String, Map<String, List<String>>> indicators;
 
     public AdditionalPropertyIndicatorsProvider(@Value("${data.additionalPropertyIndicators}") String indicatorsFilePath) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            indicators = mapper.readValue(Files.readAllBytes(Paths.get(indicatorsFilePath)), new TypeReference<Map<String, Map<String, List<String>>>>(){});
+            indicators = mapper.readValue(Files.readAllBytes(Paths.get(indicatorsFilePath)), new TypeReference<Map<String, Map<String, List<String>>>>() {
+            });
         } catch (IOException e) {
             log.error("Could not read indicators file: {}", e.getMessage());
         }
@@ -35,6 +37,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators for an ascending order of results.
+     *
      * @param language of the indicator words
      * @return list of words indicating an asc order in the specified language
      */
@@ -44,6 +47,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators for an descending order of results.
+     *
      * @param language of the indicator words
      * @return list of words indicating an desc order in the specified language
      */
@@ -53,6 +57,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators for a count operator in the query.
+     *
      * @param language of the indicator words
      * @return list of words indicating a count operator in the specified language
      */
@@ -62,6 +67,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators for question asking for the byteSize of dataset/distribution.
+     *
      * @param language of the indicator words
      * @return list of words indicating the byteSize property in the specified language
      */
@@ -71,6 +77,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators for question asking for the byteSize of dataset/distribution.
+     *
      * @param language of the indicator words
      * @return list of words indicating the byteSize property in the specified language
      */
@@ -81,6 +88,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators that the question is a yes/no question.
+     *
      * @param language of the indicator words
      * @return list of words indicating that the question is a yes/no question.
      */
@@ -90,6 +98,7 @@ public class AdditionalPropertyIndicatorsProvider {
 
     /**
      * Get list of indicators that the question asks for the byteSize of a distribution.
+     *
      * @param language of the indicator words
      * @return list of words indicating that the question asks for the byteSize of a distribution.
      */

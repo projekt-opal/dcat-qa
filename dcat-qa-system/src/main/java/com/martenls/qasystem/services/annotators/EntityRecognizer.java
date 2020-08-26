@@ -54,10 +54,10 @@ public abstract class EntityRecognizer implements QuestionAnnotator {
     }
 
 
-
     /**
      * Queries the language index for the given word in the given language.
-     * @param word to query
+     *
+     * @param word     to query
      * @param language to query in
      * @return list of matched properties
      */

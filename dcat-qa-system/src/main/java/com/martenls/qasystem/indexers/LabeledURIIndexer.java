@@ -1,21 +1,15 @@
 package com.martenls.qasystem.indexers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.martenls.qasystem.exceptions.ESIndexUnavailableException;
 import com.martenls.qasystem.models.LabeledURI;
 import com.martenls.qasystem.services.ElasticSearchService;
 import lombok.extern.log4j.Log4j2;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.common.xcontent.XContentBuilder;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
 @Log4j2
 public class LabeledURIIndexer {
@@ -40,6 +34,7 @@ public class LabeledURIIndexer {
     /**
      * Creates a new index for languages and sends index requests to the elastic search index for all
      * given languages.
+     *
      * @param labeledEntities that should be indexed
      * @throws ESIndexUnavailableException if ES index can not be reached
      */
@@ -54,6 +49,7 @@ public class LabeledURIIndexer {
 
     /**
      * Creates index with the given name and the ontology specific properties.
+     *
      * @param index name of the index
      * @throws ESIndexUnavailableException if ES index can not be reached
      */
@@ -81,8 +77,9 @@ public class LabeledURIIndexer {
 
     /**
      * Builds an IndexRequest for a DCAT property or class according to the properties set in createIndex().
+     *
      * @param labeledUri DCAT property or class
-     * @param index name of the index
+     * @param index      name of the index
      * @return IndexRequest for the DCAT property or class
      */
     private void indexEntity(LabeledURI labeledUri, String index) {

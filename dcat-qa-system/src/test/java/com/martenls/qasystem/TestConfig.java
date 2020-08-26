@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 
 import java.io.IOException;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @Profile("test")
@@ -21,7 +22,7 @@ public class TestConfig {
     @Primary
     public SPARQLService sparqlService() throws IOException {
         SPARQLService mockSparqlService = Mockito.mock(SPARQLService.class);
-        Mockito.when(mockSparqlService.executeSelectQuery(anyString())).thenReturn(ResultSetFactory.fromJSON(IOUtils.toInputStream("{ \"head\": {\n" +
+        Mockito.when(mockSparqlService.executeSelectQuery(anyString(),anyInt())).thenReturn(ResultSetFactory.fromJSON(IOUtils.toInputStream("{ \"head\": {\n" +
                 "    \"vars\": [ \"var0\" ]\n" +
                 "  } ,\n" +
                 "  \"results\": {\n" +

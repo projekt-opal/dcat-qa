@@ -23,7 +23,8 @@ data:
   additionalPropertyIndicators: ${data.dir}/additionalPropertyIndicators.json
 
 sparql:
-  endpoint: https://openbot.cs.upb.de/fuseki/opal2020-07/query
+  endpoint: https://openbot.cs.upb.de/fuseki
+  queryPath: /opal2020-07/query
 
 properties:
   languages: "en, de"

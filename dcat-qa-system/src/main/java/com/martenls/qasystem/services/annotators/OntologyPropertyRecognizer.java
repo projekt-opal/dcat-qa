@@ -1,9 +1,10 @@
 package com.martenls.qasystem.services.annotators;
 
 import com.github.pemistahl.lingua.api.Language;
-import com.martenls.qasystem.services.AdditionalPropertyIndicatorsProvider;
 import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.parsers.LabeledURIJsonParser;
+import com.martenls.qasystem.services.AdditionalPropertyIndicatorsProvider;
+import com.martenls.qasystem.utils.Utils;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,52 +37,52 @@ public class OntologyPropertyRecognizer extends EntityRecognizer {
      */
     @Override
     public Question annotate(Question question) {
-        if (question.getWShingles() != null) {
-            // use lower fuzziness for english because english words are stemmed
-            String fuzziness = question.getLanguage() == Language.ENGLISH ? "1" : "2";
-            for (String shingle : question.getWShingles()) {
-                question.getOntologyProperties().addAll(recognizeEntities(shingle, question.getLanguage(), 1, fuzziness));
-            }
-        }
+
 
         // infer ontology properties from found entities
-        if (!question.getLocationEntities().isEmpty()) {
+        for (String ignored : question.getLocationEntities()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/spatial");
         }
         if (!question.getFiletypeEntities().isEmpty()) {
-            question.getOntologyProperties().add("http://purl.org/dc/terms/format");
+            for (String ignored : question.getFiletypeEntities()) {
+                question.getOntologyProperties().add("http://purl.org/dc/terms/format");
+            }
             question.getOntologyProperties().add("http://www.w3.org/ns/dcat#distribution");
         }
-        if (!question.getLanguageEntities().isEmpty()) {
+        for (String ignored : question.getLanguageEntities()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/language");
         }
-        if (!question.getThemeEntities().isEmpty()) {
+        for (String ignored : question.getThemeEntities()) {
             question.getOntologyProperties().add("http://www.w3.org/ns/dcat#theme");
         }
-        if (!question.getLicenseEntities().isEmpty()) {
+        for (String ignored : question.getLicenseEntities()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/license");
         }
-        if (!question.getTimeEntities().isEmpty() || !question.getTimeIntervalEntities().isEmpty()) {
-            question.getOntologyProperties().add("http://purl.org/dc/terms/issued");
-        }
-        if (!question.getFrequencyEntities().isEmpty()) {
+
+        for (String ignored : question.getFrequencyEntities()) {
             question.getOntologyProperties().add("http://purl.org/dc/terms/accrualPeriodicity");
         }
 
         // infer ontology properties from additional properties
         if (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_BYTESIZE) ||
                 indicatorsProvider.getBytesizePropertyIndicators(question.getLanguage()).stream().anyMatch(question.getQuestionStr().toLowerCase()::startsWith)) {
-            question.getOntologyProperties().add("http://www.w3.org/ns/dcat#byteSize");
+            Utils.addIfNotPresent(question.getOntologyProperties(), "http://www.w3.org/ns/dcat#byteSize");
         }
         if (question.getAdditionalProperties().contains(Question.properties.ORDER_BY_ISSUED)) {
-            question.getOntologyProperties().add("http://purl.org/dc/terms/issued");
+            Utils.addIfNotPresent(question.getOntologyProperties(), "http://purl.org/dc/terms/issued");
         }
-
-        // Fix for absence of dcat:Catalogs in opal2020-07 dataset
-        if (noCatalogFix && question.getOntologyProperties().contains("http://www.w3.org/ns/dcat#dataset")) {
-            question.getOntologyProperties().remove("http://www.w3.org/ns/dcat#dataset");
-            question.getOntologyProperties().add("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
-            question.getOntologyClasses().add("http://www.w3.org/ns/dcat#Dataset");
+        // query property index with shingles
+        if (question.getWShingles() != null) {
+            // use lower fuzziness for english because english words are stemmed
+            String fuzziness = question.getLanguage() == Language.ENGLISH ? "1" : "2";
+            for (String shingle : question.getWShingles()) {
+                Utils.addAllIfNotPresent(question.getOntologyProperties(), recognizeEntities(shingle, question.getLanguage(), 1, fuzziness));
+            }
+        }
+        // if only a date is present and neither issued nor modified was recognized the meant property is probably issued
+        // for example "Give me datasets from May 2018"
+        if ((!question.getTimeEntities().isEmpty() || !question.getTimeIntervalEntities().isEmpty()) && !question.getOntologyProperties().contains("http://purl.org/dc/terms/modified")) {
+            Utils.addIfNotPresent(question.getOntologyProperties(), "http://purl.org/dc/terms/issued");
         }
 
         return question;

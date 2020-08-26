@@ -12,7 +12,7 @@
     "de": ["wie viele", "wie viel"]
   },
   "ask_query": {
-    "en": ["is", "are", "exist", "does"],
+    "en": ["is", "are", "exist", "does", "do"],
     "de": ["gibt", "sind", "existieren", "ist"]
   },
   "order_by_byteSize": {

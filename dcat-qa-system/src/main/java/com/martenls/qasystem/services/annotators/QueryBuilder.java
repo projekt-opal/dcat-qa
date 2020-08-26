@@ -6,11 +6,11 @@ import com.martenls.qasystem.models.Question;
 import com.martenls.qasystem.models.Template;
 import com.martenls.qasystem.models.TemplateRated;
 import com.martenls.qasystem.utils.Combinatorics;
-
 import com.martenls.qasystem.utils.Utils;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -81,14 +81,14 @@ public class QueryBuilder implements QuestionAnnotator {
         }
 
         // create queryStings with all possible combinations and permutations of filling in stringLiterals
-        if (!question.getStringLiterals().isEmpty() && template.getStringArrayCount() > 0) {
+        if (!question.getLiterals().isEmpty() && template.getLiteralArrayCount() > 0) {
             List<String> queryStringsWithStringEntities = new ArrayList<>();
-            List<List<String>> stringCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(question.getStringLiterals(), template.getStringArrayCount());
+            List<List<String>> stringCombinations = Combinatorics.getAllCombsAndPermsOfKListElements(question.getLiterals(), template.getLiteralArrayCount());
 
             for (String queryString : queryStrings) {
                 for (List<String> stringCombination : stringCombinations) {
-                    for (int i = 0; i < template.getStringArrayCount(); i++) {
-                        queryStringsWithStringEntities.add(queryString.replaceAll("<stringArray" + i + ">", stringCombination.get(i)));
+                    for (int i = 0; i < template.getLiteralArrayCount(); i++) {
+                        queryStringsWithStringEntities.add(queryString.replaceAll("<literalArray" + i + ">", stringCombination.get(i)));
                     }
                 }
             }
@@ -158,7 +158,8 @@ public class QueryBuilder implements QuestionAnnotator {
         for (String queryString : queryStrings) {
             if (!queryString.contains("<prop")
                     && !queryString.contains("<entity")
-                    && !queryString.contains("<stringArray")
+                    && !queryString.contains("<literal")
+                    && !queryString.contains("<literalArray")
                     && !queryString.contains("<lbound")
                     && !queryString.contains("<rbound")
             ) {
@@ -170,16 +171,17 @@ public class QueryBuilder implements QuestionAnnotator {
     }
 
     /**
-     * Checks if the entity is placed at the slot position (specified with pos)
-     * matches the property at that position.
+     * Checks if the entity if placed at the slot position (specified with pos)
+     * would match the property at that position.
+     *
      * @param question for which the query is build
      * @param queryStr where placement should be checked
-     * @param entity that should be placed
-     * @param pos of the entity slot that should be checked
+     * @param entity   that should be placed
+     * @param pos      of the entity slot that should be checked
      * @return false if property and entity match, else true
      */
     private boolean isEntityPlacementValid(Question question, String queryStr, String entity, int pos) {
-        Matcher matcher = Pattern.compile("(<.*>)\\s*<entity"+ pos +">").matcher(queryStr);
+        Matcher matcher = Pattern.compile("(<.*>)\\s*<entity" + pos + ">").matcher(queryStr);
         if (matcher.find()) {
             String prop = matcher.group(1);
             if (question.getLanguageEntities().contains(entity)) {

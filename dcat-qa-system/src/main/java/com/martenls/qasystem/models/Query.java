@@ -10,8 +10,10 @@ import org.apache.jena.query.ResultSet;
 @Data
 public class Query {
 
-    @NonNull private Template template;
-    @NonNull private String queryStr;
+    @NonNull
+    private Template template;
+    @NonNull
+    private String queryStr;
     private ResultSet selectResult;
     private Boolean askResult;
 

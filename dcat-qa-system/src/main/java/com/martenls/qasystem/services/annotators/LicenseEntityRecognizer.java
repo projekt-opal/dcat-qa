@@ -21,6 +21,7 @@ public class LicenseEntityRecognizer extends EntityRecognizer {
 
     /**
      * Annotates the question with all properties and classes that match at least one of the w-shingles.
+     *
      * @param question to be annotated
      * @return annotated question
      */

@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 
 public class SPARQLUtils {
 
-    private SPARQLUtils() { }
+    private SPARQLUtils() {
+    }
 
     /**
      * Transforms a result set to a map of the result variables and their values.
+     *
      * @param resultSet to transform
      * @return map of result variables and their values
      */
@@ -28,6 +30,7 @@ public class SPARQLUtils {
 
     /**
      * Extracts the number from a result set of a count query.
+     *
      * @param resultSet to extract number from
      * @return the result of the count query as number
      */
@@ -37,8 +40,9 @@ public class SPARQLUtils {
 
     /**
      * Increases the offset value in a query string by x.
+     *
      * @param queryStr to increase the offset of
-     * @param x to increase the offset by
+     * @param x        to increase the offset by
      * @return query string with increased offset
      */
     public static String increaseOffsetByX(String queryStr, int x) {

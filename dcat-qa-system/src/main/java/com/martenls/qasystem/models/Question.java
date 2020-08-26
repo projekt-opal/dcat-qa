@@ -6,7 +6,6 @@ import com.github.pemistahl.lingua.api.Language;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.util.Pair;
 import lombok.Data;
-
 import lombok.NonNull;
 
 import java.util.*;
@@ -16,14 +15,14 @@ import java.util.stream.Stream;
 
 @Data
 public class Question {
-    @NonNull private String questionStr;
+    @NonNull
+    private String questionStr;
     private String cleanQuestionStr;
     private Language language;
     private List<String> words;
-    private Map<String, String> posTags;
     private List<String> wShingles;
     private List<String> wShinglesWithStopwords;
-    private Set<String> ontologyProperties;
+    private List<String> ontologyProperties;
     private Set<String> ontologyClasses;
     private Set<String> locationEntities;
     private Set<String> languageEntities;
@@ -34,7 +33,7 @@ public class Question {
     private List<Pair<Calendar, Calendar>> timeIntervalEntities;
     private Set<String> frequencyEntities;
     private Set<Question.properties> additionalProperties;
-    private List<String> stringLiterals;
+    private List<String> literals;
 
     private CoreDocument nlpAnnotations;
 
@@ -57,12 +56,11 @@ public class Question {
     @JsonCreator
     public Question(@JsonProperty("question") String questionStr) {
         this.questionStr = questionStr.strip();
-        this.cleanQuestionStr = this.questionStr.replaceAll("\".*\"", "").replaceAll("'.*'","").replaceAll("[\\-.?¿!,;\"']", "");
+        this.cleanQuestionStr = this.questionStr.replaceAll("\".*\"", "").replaceAll("'.*'", "").replaceAll("[\\-.?¿!,;\"']", "");
         this.words = new ArrayList<>();
-        this.posTags = new HashMap<>();
         this.wShingles = new ArrayList<>();
         this.wShinglesWithStopwords = new ArrayList<>();
-        this.ontologyProperties = new HashSet<>();
+        this.ontologyProperties = new ArrayList<>();
         this.ontologyClasses = new HashSet<>();
         this.locationEntities = new HashSet<>();
         this.languageEntities = new HashSet<>();
@@ -73,7 +71,7 @@ public class Question {
         this.timeIntervalEntities = new ArrayList<>();
         this.frequencyEntities = new HashSet<>();
         this.additionalProperties = new HashSet<>();
-        this.stringLiterals = new ArrayList<>();
+        this.literals = new ArrayList<>();
 
 
         this.templateCandidates = new ArrayList<>();
@@ -96,18 +94,24 @@ public class Question {
     public String toString() {
         return "Question{" +
                 "questionStr='" + questionStr + '\'' +
-                ",\n language='" + language + '\'' +
-                ",\n words=" + words +
-                ",\n posTags=" + posTags +
-                ",\n wShingles=" + wShingles +
-                ",\n ontologyProperties=" + ontologyProperties +
-                ",\n ontologyClasses=" + ontologyClasses +
-                ",\n locationEntities=" + locationEntities +
-                ",\n additionalProperties=" + additionalProperties +
-                ",\n stringLiterals=" + stringLiterals +
-                ",\n templateCandidates=" + templateCandidates +
-                ",\n queryCandidates=" + queryCandidates +
-                ",\n answer='" + answer + '\'' +
+                ", cleanQuestionStr='" + cleanQuestionStr + '\'' +
+                ", language=" + language +
+                ", words=" + words +
+                ", wShingles=" + wShingles +
+                ", wShinglesWithStopwords=" + wShinglesWithStopwords +
+                ", ontologyProperties=" + ontologyProperties +
+                ", ontologyClasses=" + ontologyClasses +
+                ", locationEntities=" + locationEntities +
+                ", languageEntities=" + languageEntities +
+                ", themeEntities=" + themeEntities +
+                ", licenseEntities=" + licenseEntities +
+                ", filetypeEntities=" + filetypeEntities +
+                ", timeEntities=" + timeEntities +
+                ", timeIntervalEntities=" + timeIntervalEntities +
+                ", frequencyEntities=" + frequencyEntities +
+                ", additionalProperties=" + additionalProperties +
+                ", stringLiterals=" + literals +
+                ", answer=" + answer +
                 '}';
     }
 }

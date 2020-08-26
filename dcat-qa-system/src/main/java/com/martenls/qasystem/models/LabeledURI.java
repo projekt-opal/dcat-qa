@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
