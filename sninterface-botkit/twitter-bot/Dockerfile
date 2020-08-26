@@ -14,6 +14,7 @@ RUN npm install
 COPY bot.js .
 COPY qa.js .
 
+COPY i18n i18n
 COPY features features
 
 ENTRYPOINT ["node", "/app/bot.js"]

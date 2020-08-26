@@ -9,8 +9,8 @@ RUN npm install
 
 COPY bot.js .
 COPY qa.js .
-COPY utils.js .
 
+COPY i18n i18n
 COPY public public
 COPY sass sass
 COPY features features
