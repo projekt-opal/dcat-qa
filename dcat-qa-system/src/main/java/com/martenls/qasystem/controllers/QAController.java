@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+import java.util.regex.Matcher;
+
 @Log4j2
 @RestController
 public class QAController {
@@ -45,29 +48,31 @@ public class QAController {
     }
 
     @PostMapping("/qa")
-    public String gerbilQAEndpoint(@RequestParam String query, @RequestParam String lang) throws JsonProcessingException {
+    public String gerbilQAEndpoint(@RequestParam String query, @RequestParam String lang, @RequestParam Optional<Integer> qId ) {
         log.debug("Received question: " + query);
         id++;
         if (query != null && !query.isBlank()) {
             Question question = this.qaService.answerQuestion(new Question(query));
             Answer answer = question.getAnswer();
-            return "{\n" +
+            String answerBody = "{\n" +
                     "    \"questions\": [\n" +
                     "      {\n" +
-                    "        \"id\": \"" + id + "\",\n" +
+                    "        \"id\": \"" + qId.orElse(id) + "\",\n" +
                     "        \"question\": [\n" +
                     "            {\n" +
                     "                \"language\": \"" + lang + "\",\n" +
-                    "                \"string\": \"" + query + "\"\n" +
+                    "                \"string\": \"" + query.replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"\n" +
                     "            }\n" +
                     "        ],\n" +
                     "        \"query\": {\n" +
-                    "            \"sparql\": \"" + (answer == null ? "" : answer.getQueryStr().replaceAll("\n", " ")) + "\"\n" +
+                    (answer == null ? "": "\"sparql\": \"" + answer.getQueryStr().replaceAll("\n", " ").replaceAll("\\\"", "'") + "\"") + "\n" +
                     "        },\n" +
                     "        \"answers\": [" + (answer == null ? "" : answer.getAnswerJsonStr()) + "]\n" +
                     "      }\n" +
                     "    ]\n" +
                     "}";
+            log.debug(answerBody);
+            return answerBody;
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

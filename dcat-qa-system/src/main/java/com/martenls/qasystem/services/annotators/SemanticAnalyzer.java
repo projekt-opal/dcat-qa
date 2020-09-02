@@ -107,16 +107,20 @@ public class SemanticAnalyzer implements QuestionAnnotator {
                 break;
             }
         }
-        if (question.getWords().stream().anyMatch(indicatorsProvider.getAscIndicators(question.getLanguage())::contains)) {
+        if (question.getWShinglesWithStopwords().stream().anyMatch(indicatorsProvider.getAscIndicators(question.getLanguage())::contains) ||
+        question.getWords().stream().anyMatch(indicatorsProvider.getAscIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.ASC_ORDERED);
         }
-        if (question.getWords().stream().anyMatch(indicatorsProvider.getDescIndicators(question.getLanguage())::contains)) {
+        if (question.getWShinglesWithStopwords().stream().anyMatch(indicatorsProvider.getDescIndicators(question.getLanguage())::contains) ||
+                question.getWords().stream().anyMatch(indicatorsProvider.getDescIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.DESC_ORDERED);
         }
-        if (question.getWords().stream().anyMatch(indicatorsProvider.getOrderByByteSizeIndicators(question.getLanguage())::contains)) {
+        if (question.getWShinglesWithStopwords().stream().anyMatch(indicatorsProvider.getOrderByByteSizeIndicators(question.getLanguage())::contains) ||
+                question.getWords().stream().anyMatch(indicatorsProvider.getOrderByByteSizeIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.ORDER_BY_BYTESIZE);
         }
-        if (question.getWords().stream().anyMatch(indicatorsProvider.getOrderByIssuedIndicators(question.getLanguage())::contains)) {
+        if (question.getWShinglesWithStopwords().stream().anyMatch(indicatorsProvider.getOrderByIssuedIndicators(question.getLanguage())::contains) ||
+                question.getWords().stream().anyMatch(indicatorsProvider.getOrderByIssuedIndicators(question.getLanguage())::contains)) {
             propertiesSet.add(Question.properties.ORDER_BY_ISSUED);
         }
 

@@ -44,11 +44,10 @@ services:
     container_name: qa-system
     restart: unless-stopped
     environment:
-      - TEMPLATES_FILE=/qa/data/templates.txt
-      - ONTOLOGY_FILE=/qa/data/dcat2+german-labels.rdf
-      - LAUNUTS_FILE=/qa/data/launuts.ttl
-      - SPARQL_ENDPOINT=http://fuseki:3030/opal/query
+      - DATA_DIR=/qa/data/
+      - SPARQL_ENDPOINT=http://fuseki:3030
       - ES_HOST=elastic
+      - ES_PORT=9200
     networks:
       - compose_overlay
   fuseki:

@@ -127,6 +127,7 @@ public class QueryBuilder implements QuestionAnnotator {
 
 
         // questions for singular superlatives e.g. "What is the biggest...?" -> LIMIT 1 in querystring
+        // questions for plurar superlatives e.g. "What are the biggest...?" -> LIMIT 10 in querystring
         List<String> queryStringsWithLimits = new ArrayList<>();
         for (String queryString : queryStrings) {
             if (!queryString.toLowerCase().contains("limit")
@@ -135,18 +136,20 @@ public class QueryBuilder implements QuestionAnnotator {
                     && (template.hasOrderDescModifier()
                     || template.hasOrderAscModifier())
             ) {
+                int limit = 10;
                 switch (question.getLanguage()) {
                     case GERMAN:
                         if (question.getWords().stream().anyMatch(x -> x.equals("ist") || x.equals("wurde"))) {
-                            queryString += " LIMIT 1";
+                            limit = 1;
                         }
                         break;
                     case ENGLISH:
                         if (question.getWords().stream().anyMatch(x -> x.equals("is") || x.equals("was"))) {
-                            queryString += " LIMIT 1";
+                            limit = 1;
                         }
                         break;
                 }
+                queryString += "\nLIMIT " + limit;
             }
             queryStringsWithLimits.add(queryString);
         }

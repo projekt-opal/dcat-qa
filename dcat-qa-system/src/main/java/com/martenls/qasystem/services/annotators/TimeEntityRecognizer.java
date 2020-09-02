@@ -20,10 +20,15 @@ public class TimeEntityRecognizer implements QuestionAnnotator {
         for (CoreEntityMention entityMention : document.entityMentions()) {
             if ("DATE".equals(entityMention.entityType())) {
                 Timex timex = entityMention.coreMap().get(TimeAnnotations.TimexAnnotation.class);
-                if (timex.getRange() != null) {
-                    question.getTimeIntervalEntities().add(timex.getRange());
-                } else if (timex.getDate() != null) {
-                    question.getTimeEntities().add(timex.getDate());
+                try {
+                    if (timex.getRange() != null) {
+                        question.getTimeIntervalEntities().add(timex.getRange());
+                    } else if (timex.getDate() != null) {
+                        question.getTimeEntities().add(timex.getDate());
+                    }
+                } catch (RuntimeException e) {
+                    // skip if timex could not be read
+                    continue;
                 }
             }
         }

@@ -75,6 +75,9 @@ public class SPARQLService {
             return rs;
         } catch (QueryExceptionHTTP e) {
             log.error("Sparql endpoint timeout while executing {}", query);
+            if (!queryStr.toLowerCase().contains("limit")) {
+                return this.executeSelectQuery(queryStr, 100);
+            }
         } catch (Exception e) {
             log.error(e);
         }

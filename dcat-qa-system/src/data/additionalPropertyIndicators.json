@@ -4,7 +4,7 @@
     "de": ["erste", "ersten", "älteste", "ältesten", "kleinste", "kleinsten", "niedrigste", "niedrigsten", "kürzeste", "kürzesten", "wenigste", "wenigsten"]
   },
   "desc_order": {
-    "en": ["largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent", "latest", "newest"],
+    "en": ["largest", "last", "highest", "most", "biggest", "youngest", "longest", "tallest", "recently", "most recent", "most recently", "latest", "newest"],
     "de": ["letzte", "letzten", "jüngste", "jüngsten", "neueste", "neuesten", "größte", "größten", "höchste", "höchsten", "längste", "längsten", "meiste", "meisten", "zuletzt", "letztes", "neulich", "vor kurzem"]
   },
   "count_query": {
@@ -20,8 +20,8 @@
     "de": ["größte", "kleinste"]
   },
   "order_by_issued": {
-    "en": ["newest", "latest", "most recent"],
-    "de": ["jüngste", "jüngsten", "neueste", "neuesten"]
+    "en": ["newest", "latest", "most recent", "most recently publish", "last publish"],
+    "de": ["jüngste", "jüngsten", "neueste", "neuesten", "zuletzt veröffentlichte", "zuletzt veröffentlichten"]
   },
   "byteSize_property": {
     "en": ["how big", "how small", "how large", "how little"],
