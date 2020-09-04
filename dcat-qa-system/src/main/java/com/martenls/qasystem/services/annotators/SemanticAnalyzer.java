@@ -28,7 +28,7 @@ public class SemanticAnalyzer implements QuestionAnnotator {
 
     @Override
     public Question annotate(Question question) {
-        question.setWords(getWordsFromString(question.getQuestionStr()));
+        question.setWords(getWordsFromString(question.getCleanQuestionStr()));
         List<String> words = Collections.emptyList();
         if (question.getLanguage() == Language.ENGLISH) {
             words = question.getNlpAnnotations().tokens().stream()
@@ -60,10 +60,7 @@ public class SemanticAnalyzer implements QuestionAnnotator {
      * @return list of single words from string
      */
     public List<String> getWordsFromString(String string) {
-        String s = string.replaceAll("\".*\"", "");
-        s = s.replaceAll("'.*'", "");
-        s = s.replaceAll("[\\-.?¿!,;\"']", "");
-        return new ArrayList<>(Arrays.asList(s.split("\\s+")));
+        return new ArrayList<>(Arrays.asList(string.split("\\s+")));
     }
 
     /**

@@ -29,7 +29,7 @@ public class LanguageRecognizer implements QuestionAnnotator {
 
     @Override
     public Question annotate(Question question) {
-        question.setLanguage(detector.detectLanguageOf(question.getQuestionStr()));
+        question.setLanguage(detector.detectLanguageOf(question.getCleanQuestionStr()));
         return question;
     }
 

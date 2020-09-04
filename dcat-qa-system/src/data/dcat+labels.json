@@ -3,16 +3,17 @@
     "uri": "http://www.w3.org/ns/dcat#downloadURL",
     "labels": {
       "en": [
-        "download url",
-        "download",
-        "load",
-        "url"
-      ],
-      "de": [
+        "downloadurl",
         "download-url",
         "download url",
         "download",
-        "url",
+        "load"
+      ],
+      "de": [
+        "downloadurl",
+        "download-url",
+        "download url",
+        "download",
         "runterladen",
         "herunterladen"
       ]
@@ -69,7 +70,10 @@
       ],
       "de": [
         "datensatz",
-        "datensätze"
+        "datensätze",
+        "dataset",
+        "datenset",
+        "daten"
       ]
     }
   },
@@ -480,16 +484,20 @@
     "uri": "http://www.w3.org/ns/dcat#accessURL",
     "labels": {
       "en": [
-        "access address",
+        "accessurl",
+        "access-url",
         "access url",
+        "access address",
         "access website",
         "access"
       ],
       "de": [
+        "accessurl",
+        "access-url",
+        "access url",
         "zugangs-url",
         "zugang",
-        "zugangs website",
-        "access url"
+        "zugangs website"
       ]
     }
   },

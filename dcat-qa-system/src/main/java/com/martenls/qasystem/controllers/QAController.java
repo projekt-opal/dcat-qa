@@ -48,11 +48,11 @@ public class QAController {
     }
 
     @PostMapping("/qa")
-    public String gerbilQAEndpoint(@RequestParam String query, @RequestParam String lang, @RequestParam Optional<Integer> qId ) {
+    public String gerbilQAEndpoint(@RequestParam String query, @RequestParam String lang, @RequestParam Optional<Integer> qId,  @RequestParam Optional<Integer> resultLimit) {
         log.debug("Received question: " + query);
         id++;
         if (query != null && !query.isBlank()) {
-            Question question = this.qaService.answerQuestion(new Question(query));
+            Question question = resultLimit.isPresent() ? this.qaService.answerQuestion(new Question(query), resultLimit.get()) : this.qaService.answerQuestion(new Question(query));
             Answer answer = question.getAnswer();
             String answerBody = "{\n" +
                     "    \"questions\": [\n" +
@@ -71,7 +71,7 @@ public class QAController {
                     "      }\n" +
                     "    ]\n" +
                     "}";
-            log.debug(answerBody);
+//            log.debug(answerBody);
             return answerBody;
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);

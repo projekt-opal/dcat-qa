@@ -3,7 +3,7 @@
   tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
   numtokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NumerizedTokensAnnotation" }
 
-  $TIMEOFDAY = "/morgen|nachmittag|abend|nacht|mittag|mitternacht|teezeit|mittagszeit|essenszeit|abendbrotzeit|nachmittag|mittag|abenddämmerung|morgendämmerung|sonnenaufgang|sunrise|sundown|zwielicht|tagesanbruch/";
+  $TIMEOFDAY = "/morgen|nachmittag|abend|nacht|mittag|mitternacht|teezeit|mittagszeit|essenszeit|abendbrotzeit|nachmittag|mittag|abenddämmerung|morgendämmerung|sonnenaufgang|sonnenuntergang|zwielicht|tagesanbruch/";
 
   $NUM = ( [ { numcomptype:NUMBER } ] );
   $INT = ( [ { numcomptype:NUMBER } & !{ word:/.*\.\d+.*/} & !{ word:/.*,.*/ } ] );
@@ -13,7 +13,7 @@
   $NUM_ORD = ( [ { numcomptype:ORDINAL } ] );
 
   $INT_TIMES = ( $INT/mal/ | einmal );
-  $REL_MOD = ( /der|die|das/? /diese(n|s)?|kommende(n|s)?|nächste(n|s)?|folgende(n|s)?|vergangene(n|s)?|vorherige(n|s)?|letzte(n|s)?/ | /der|die|das/ /kommende|folgende|nächste|vergangene|vorherige|letzte/?);
+  $REL_MOD = ( /dieses|diesen|dieser|kommende(n|s)?|nächste(n|s)?|folgende(n|s)?|vergangene(n|s)?|vorherige(n|s)?|letzte(n|s)?/ | /der|die|das/ /kommende|folgende|nächste|vergangene|vorherige|letzte/);
   $FREQ_MOD = ( /each/ | /every/ $NUM_ORD | /every/ /other|alternate|alternating/? | /alternate|alternating/ );
   $EARLY_LATE_MOD = ( /late|early|mid-?/ | /the/? /beginning|start|dawn|middle|end/ /of/ | /late|early/ /in|on/ );
   $APPROX_MOD = ( /about|around|some|exactly|precisely/ );
@@ -165,7 +165,7 @@
   }
 
   # Operators
-  { pattern: ( /diese(n|s)?/ ),
+  { pattern: ( /dieses|dieser|diesen?/ ),
 	action: Tag($0, "TemporalOp", THIS) }
   { pattern: ( /kommende(n|s)?|nächste(n|s)?|folgende(n|s)?/ ),
 	action: Tag($0, "TemporalOp", NEXT)  }
@@ -179,11 +179,11 @@
   # Modifiers
 
   # Early late modifiers
-  { pattern: ( /late/ | /end/ ),
+  { pattern: ( /ende/ ),
 	action: Tag($0, "Modifier", "LATE") }
-  { pattern: ( /early/ | /beginning|start|dawn/ ),
+  { pattern: ( /frühen/ | /anfang/ ),
 	action: Tag($0, "Modifier", "EARLY") }
-  { pattern: ( /mid-?/ | /middle/ ),
+  { pattern: ( /mitte/ ),
 	action: Tag($0, "Modifier", "MID") }
 
   # Frequency modifiers
@@ -245,20 +245,20 @@
   { (/morgen|morgende/) => MORNING }
   { (/nachmittage?/) => AFTERNOON }
   { (/abende?/) => EVENING }
-  { (/dusks?/) => DUSK }
-  { (/twilights?/) => TWILIGHT }
-  { (/dawns?|daybreaks?/) => DAWN }
-  { (/sunrises?|sunups?/) => SUNRISE }
-  { (/sundowns?|sunsets?/) => SUNSET }
-  { (/middays?|noons?/) => NOON }
-  { (/midnights?/) => MIDNIGHT }
-  { (/teatimes?/) => TEATIME }
-  { (/lunchtimes?/) => LUNCHTIME }
-  { (/dinnertimes?/) => DINNERTIME }
-  { (/suppertimes?/) => SUPPERTIME }
-  { (/daylights?|days?|daytimes?/) => DAYTIME }
-  { (/nighttimes?|nights?|overnights?/) => NIGHT }
-  { (/workday|work day|business hours/) => WORKDAY }
+  { (/abenddämmerung?/) => DUSK }
+  { (/zwilicht?/) => TWILIGHT }
+  { (/morgendämmerung?/) => DAWN }
+  { (/sonnenaufgang|sonnenaufgänge/) => SUNRISE }
+  { (/sonnenuntergang|sonnenuntergänge/) => SUNSET }
+  { (/mittage?/) => NOON }
+  { (/mitternacht|mitternächte/) => MIDNIGHT }
+  { (/teezeite|teezeiten/) => TEATIME }
+  { (/mittagszeit/) => LUNCHTIME }
+  { (/essenszeit/) => DINNERTIME }
+  { (/abendbrotzeit/) => SUPPERTIME }
+  { (/tags?/) => DAYTIME }
+  { (/nachts?/) => NIGHT }
+  { (/werktags?|wochentags?/) => WORKDAY }
 
   # Seasons
   { (/sommer/) => SUMMER }
@@ -467,7 +467,7 @@
   # some interval expressions
   { text: /\b(\d{4})\s*(?:-)\s*(\d{4})\b/ =>
           TimeRange( IsoDate($1, NIL, NIL), IsoDate($2, NIL, NIL) ) }
-  { ( /the/ /weekend/ ) => WEEKEND }
+  { ( /das/ /wochenende/ ) => WEEKEND }
 
   # Now a few time expressions
   { ( (/\d\d\d\d/) /hours?/? (/universal|zulu/ | /[a-z]+/ /standard|daylight/) /time/ ) => IsoTime($1[0].word, NIL, NIL) }
@@ -483,7 +483,7 @@
   { ( (?: /the/ /hour/ /of/?)? ([ $INT & { numcompvalue<=24 } ]) /o(’|')?clock/ ) => IsoTime($1[0].numcompvalue, 0, NIL) }
 
   # Year
-  { ( /the/? /year/ ($POSSIBLE_YEAR) )
+  { ( /das/? /jahr/ ($POSSIBLE_YEAR) )
       => :case {
             $1[0].word =~ /'.*/ => IsoDate( GetTag($1[0], "YEAR"), NIL, NIL ),
             :else => IsoDate( GetTag($1[0], "YEAR"), NIL, NIL, GetTag($1[0], "YEAR_ERA"), TRUE)
@@ -497,9 +497,9 @@
          }
   }
 
-  { ( /the/ ($TIMEOFDAY) ) => $1[0].temporal.value }
+  { ( /der|die|das/ ($TIMEOFDAY) ) => $1[0].temporal.value }
 
-  { ( /good/ /morning|evening|day|afternoon|night/ ) => NON_TEMPORAL }
+  { ( /guten?/ /morgen|abend|tag|nachmittag|nacht/ ) => NON_TEMPORAL }
 
   ########################################################################################################################
   # Compositional rules
@@ -521,11 +521,11 @@
   # Duration (start, end, unit, range_start, range_end)
   # Duration rules
   # i.e. "the past twenty four years"
-  { pattern: ( /the/ /past|last|previous/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
+  { pattern: ( /die/ /letzten|vergangenen/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
 	result: Duration($1,$2,$3,TIME_UNKNOWN,TIME_REF)
   }
 
-  { pattern: ( /the/ /next|following/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
+  { pattern: ( /die/ /nächsten|folgenden/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
 	result: Duration($1,$2,$3,TIME_REF,TIME_UNKNOWN)
   }
 
@@ -540,9 +540,9 @@
 	result: Duration($1, $2, $3) }
 
   # i.e. "the first 9 months of 1997"
-  { pattern: ( /the/ /first|initial|last|final|latest/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
+  { pattern: ( /die/ /ersten|initialen|letzten|finalen/ (?: ($NUM) /to|-/ )? ($NUM)? ([ { temporal::IS_TIME_UNIT } ]) ),
 	result: Duration( $1, $2, $3 ) }
-  { pattern: ( /the/ /first|initial|last|final|latest/ /half/ /of/ ([ { temporal::IS_TIME_UNIT } ]) ),
+  { pattern: ( /die/ /erste|initiale|letzte|finale/ /hälfte/ /von/ ([ { temporal::IS_TIME_UNIT } ]) ),
 	result: Duration( $1, $2, $3 ) }
 
   # i.e. "the fifth straight year", "the third straight month in a row", "the ninth day consecutively"
@@ -575,11 +575,11 @@
   { pattern: ( (?: /the/ /past|next|following|coming|last|first|final/ | /a|an/ )? (/few/) ([ { temporal::IS_TIME_UNIT } ]) ),
  	result: InexactDuration ( Duration( NIL, NIL, $2 ) ) }
 
-  { pattern: ( /the/ [ { tag:JJ } ]? ([ { temporal::IS_TIME_UNIT } & { word:/.*s/ } ]) ),
+  { pattern: ( /der|die|das/ [ { tag:JJ } ]? ([ { temporal::IS_TIME_UNIT } & { word:/.*s/ } ]) ),
     priority: -1,
     result:	InexactDuration( $1[0].temporal.value ) }
 
-  { pattern: ( /a|an/ ([ { temporal::IS_TIME_UNIT } ]) ),
+  { pattern: ( /ein/ ([ { temporal::IS_TIME_UNIT } ]) ),
     result: Duration( $1[0].temporal.value, 1) }
 
   ######################################################################################################################
@@ -587,7 +587,7 @@
 
   ENV.defaults["priority"] = 0
 
-  { ( ($FREQ_MOD|/the/)? ($NUM_ORD) ([ { temporal::IS_TIME_UNIT } | { temporal::DAYOFWEEK } ]) ) =>
+  { ( ($FREQ_MOD|/der|die|das/)? ($NUM_ORD) ([ { temporal::IS_TIME_UNIT } | { temporal::DAYOFWEEK } ]) ) =>
     :case{
         # Only attach ordinal to time if not prefixed by frequency modifier (e.g. every)
         ($1 == NIL || $1 =~ ( /the/ ) ) => OrdinalTime($3[0].temporal.value, $2[0].numcompvalue),
@@ -610,14 +610,14 @@
 
   { name: "composite-date-expression-1a",
 	priority: 1,
-	pattern: ( (/every/ $NUM_ORD) (?$month [ { temporal::MONTH }]) ),
+	pattern: ( (/jede(s|r)?/ $NUM_ORD) (?$month [ { temporal::MONTH }]) ),
 	result: MakePeriodicTemporalSet(
 	            $month[0].temporal,
 	            GetTag($1[0], "PTS.quant"), GetTag($1[0], "PTS.multiple") ) }
 
   { name: "composite-date-expression-1",
 	priority: 1,
-	pattern: ( ( /the/? (?$day $NUM_ORD & $INT1TO31) /of/? | (?$day /\d\d?/ & $INT1TO31) )?
+	pattern: ( ( /der|die|das/? (?$day $NUM_ORD & $INT1TO31) /vom/? | (?$day /\d\d?/ & $INT1TO31) )?
 	           (?$month [ { temporal::MONTH } ])
 			   (?$day $NUM_ORD|/\d\d?/ & $INT1TO31)?
 			   (?: /of|,/? (?$year $POSSIBLE_YEAR))? ),
@@ -658,23 +658,23 @@
    }
 
   { name: "composite-date-expression-2",
-	pattern: ( /the/? (?$mod /beginning|start|middle|mid-?|end/ ) /of|in/? (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
+	pattern: ( /der|die|das/? (?$mod /anfang|start|mitte|ende/ ) /of|in/? (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
 	result: TemporalCompose(ADD_MODIFIER, $date[0].temporal, GetTag($mod[0], "Modifier") ) }
 
   { name: "composite-date-expression-2a1",
-	pattern: ( /the/? (?$mod /first/ /half/) /of/ (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
+	pattern: ( /der|die|das/? (?$mod /erste/ /hälfte/) /von|vom/ (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
 	result: TemporalCompose(ADD_MODIFIER, $date[0].temporal, "EARLY" ) }
 
   { name: "composite-date-expression-2a2",
-	pattern: ( /the/? (?$mod /second|last|latter/ /half/) /of/ (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
+	pattern: ( /der|die|das/? (?$mod /zweite|letzte/ /hälfte/) /von|vom/ (?$date [ { temporal::IS_TIMEX_DATE } ]) ),
 	result: TemporalCompose(ADD_MODIFIER, $date[0].temporal, "LATE" ) }
 
   { name: "composite-date-expression-2b",
-	pattern: ( /the/? (?$date [ { temporal::IS_TIMEX_DATE } ]) (/'/ /s/ | /'s/ | /’/ /s/ | /’s/ )? (?$mod /beginning|end/) ),
+	pattern: ( /der|die|das/? (?$date [ { temporal::IS_TIMEX_DATE } ]) (/'/ /s/ | /'s/ | /’/ /s/ | /’s/ )? (?$mod /beginning|end/) ),
 	result: TemporalCompose(ADD_MODIFIER, $date[0].temporal, GetTag($mod[0], "Modifier") ) }
 
   { name: "composite-date-expression-3",
-	pattern: ( /the/? (?$weeknum ($NUM_ORD|last)) (?$week /week(end)?/ ) /of|in/? [ { temporal::IS_TIMEX_DATE } ] ),
+	pattern: ( /der|die|das/? (?$weeknum ($NUM_ORD|last)) (?$week /woche(nende)?/ ) /vom|von|im|in/? [ { temporal::IS_TIMEX_DATE } ] ),
 	result: TemporalCompose(
               IN,
 			  $0[-1].temporal,
@@ -688,7 +688,7 @@
   }
 
   { name: "composite-date-expression-3b",
-	pattern: ( /the/? (?$week /week(end)?/ ) /of|in/? [ { temporal::IS_TIMEX_DATE } ] ),
+	pattern: ( /der|die|das/? (?$week /week(end)?/ ) /of|in/? [ { temporal::IS_TIMEX_DATE } ] ),
 	result: TemporalCompose(
               INTERSECT,
 			  $0[-1].temporal,
@@ -696,7 +696,7 @@
   }
 
   { name: "composite-date-expression-3c",
-	pattern: ( ( [ { temporal::DAYOFWEEK } ] ) /the/? (?$day $NUM_ORD) ),
+	pattern: ( ( [ { temporal::DAYOFWEEK } ] ) /der|die|das/? (?$day $NUM_ORD) ),
 	result: TemporalCompose(
               INTERSECT,
 			  $1[0].temporal,
@@ -704,12 +704,12 @@
   }
 
   { name: "composite-date-expression-6",
-    pattern: ( ([ { temporal::IS_TIMEX_DATE } ]) (morning|afternoon|evening|night) ),
+    pattern: ( ([ { temporal::IS_TIMEX_DATE } ]) (morgen|nachmittag|abend|nacht) ),
 	result: TemporalCompose(INTERSECT, $1[0].temporal, $2[0].temporal)
   }
 
   { name: "composite-date-expression-7a",
-    pattern: ( (?: /the/? /day/ (/before/|/prior/ /to/) ([ { temporal::IS_TIMEX_DATE } ]) ) ),
+    pattern: ( (?: /der|den/? /tag/ (/bevor/) ([ { temporal::IS_TIMEX_DATE } ]) ) ),
 	result: TemporalCompose(
 	          PLUS,
 			  $2[0].temporal,
@@ -720,7 +720,7 @@
   }
 
   { name: "composite-date-expression-7b",
-    pattern: ( (?: /the/? /day/ (/after/) ([ { temporal::IS_TIMEX_DATE } ]) ) ),
+    pattern: ( (?: /der|den/? /tag/ (/bevor/) ([ { temporal::IS_TIMEX_DATE } ]) ) ),
 	result: TemporalCompose(
 	          PLUS,
 			  $2[0].temporal,
@@ -728,7 +728,7 @@
   }
 
   { name: "composite-date-expression-8",
-    pattern: ( /the/ [ { tag:JJ } ]* ([ { temporal::IS_TIME_UNIT }
+    pattern: ( /der|die|das/ [ { tag:JJ } ]* ([ { temporal::IS_TIME_UNIT }
 	                                     & !{ word:/.*s/ } ] )),
 	result: RelativeTime( THIS, $1[0].temporal.value )
   }
@@ -820,8 +820,8 @@
   }
 
   { name: "temporal-composite-1",
-    pattern: ( /the/?
-	 (( [ $hasTemporal ] ) /,|of|in/? ( [ { temporal::IS_TIMEX_DATE } | { temporal::IS_TIMEX_TIME } ] ) |
+    pattern: ( /der|die|das/?
+	 (( [ $hasTemporal ] ) /,|von|vom|in|im/? ( [ { temporal::IS_TIMEX_DATE } | { temporal::IS_TIMEX_TIME } ] ) |
       ( [ { temporal::IS_TIMEX_DATE } ] ) /at/  ( [ { temporal::IS_TIMEX_TIME } ] ) |
       ( [ { temporal::IS_TIMEX_TIME } | { temporal::IS_TIMEX_DURATION } ] ) /on/  ( [ { temporal::IS_TIMEX_DATE } ] | [ { temporal::IS_TIMEX_SET } ]) |
       ( [ { temporal::IS_TIMEX_DATE } | { temporal::IS_TIMEX_TIME } ] ) (/'s/ | /'/ /s/ | /’s/ | /’/ /s/) ( [ $hasTemporal ] )) ),
@@ -900,16 +900,16 @@
     result: TemporalCompose( ADD_MODIFIER, $0[-1].temporal.value, "LESS_THAN" )
   }
 
-  # expand: (the|this|about|nearly|early|later|earlier|late) timex => one timex
+  # expand: (der|die|das|diese|dieser|dieses|about|nearly|early|later|earlier|late) timex => one timex
   # expand: more than| up to| less than timex => one timex
   { name: "temporal-composite-6c",
-    pattern: ( ( /this|about|nearly|early|later|earlier|late/ )
+    pattern: ( ( /diese|dieser|dieses|früher|später|frühere|spätere/ )
 	           ( [ $hasTemporal & !{ temporal::IS_TIMEX_SET } ] ) ),
     result: $0[-1].temporal.value
   }
 
   { name: "temporal-composite-7a",
-    pattern: ( /every/ ( [ $hasTemporal & !{ temporal::IS_TIMEX_SET } ] ) ),
+    pattern: ( /jeder|jede|jedes/ ( [ $hasTemporal & !{ temporal::IS_TIMEX_SET } ] ) ),
 	result: MakePeriodicTemporalSet($1[0].temporal, "every", 1 )
   }
 
@@ -921,7 +921,7 @@
 
   { name: "temporal-composite-8:ranges",
 	active: options."markTimeRanges",
-    pattern: ( /from/? ( [ { temporal::IS_TIMEX_TIME } | { temporal::IS_TIMEX_DATE } ] ) /to|-/ ( [ { temporal::IS_TIMEX_TIME } |   {   temporal::IS_TIMEX_DATE } ] ) ),
+    pattern: ( /von|vom/? ( [ { temporal::IS_TIMEX_TIME } | { temporal::IS_TIMEX_DATE } ] ) /bis|-/ ( [ { temporal::IS_TIMEX_TIME } |   {   temporal::IS_TIMEX_DATE } ] ) ),
 	result: TimeRange( $1[0].temporal.value, $2[0].temporal.value ) }
 
   { name: "temporal-composite-9",

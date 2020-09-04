@@ -56,7 +56,7 @@ public class Question {
     @JsonCreator
     public Question(@JsonProperty("question") String questionStr) {
         this.questionStr = questionStr.strip();
-        this.cleanQuestionStr = this.questionStr.replaceAll("\".*\"", "").replaceAll("'.*'", "").replaceAll("[\\-.?¿!,;\"']", "");
+        this.cleanQuestionStr = this.questionStr.replaceAll("'.*'(@[\\w]*)?", "").replaceAll("\".*\"(@[\\w]*)?", "").replaceAll("[\\-.?¿!,;\"']", "");
         this.words = new ArrayList<>();
         this.wShingles = new ArrayList<>();
         this.wShinglesWithStopwords = new ArrayList<>();
