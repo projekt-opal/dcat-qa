@@ -35,7 +35,7 @@ public class SemanticAnalyzer implements QuestionAnnotator {
                     .map(CoreLabel::lemma)
                     .collect(Collectors.toList());
         } else if (question.getLanguage() == Language.GERMAN) {
-            words = question.getWords();
+            words = new ArrayList<>(question.getWords());
         }
         // wshingles including stopwords but without shingles that are just a stopword
         question.setWShinglesWithStopwords(

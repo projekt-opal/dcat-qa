@@ -383,6 +383,14 @@ WHERE {
     ?var1 <prop3> <entity1>.
 }
 ---
+SELECT DISTINCT ?var2
+WHERE {
+    ?var0 <prop0> ?var1.
+    ?var1 <prop1> ?var2.
+    ?var2 <prop2> <entity0>.
+    ?var2 <prop3> <entity1>.
+}
+---
 SELECT DISTINCT ?var1
 WHERE {
     ?var0 <prop0> ?var1.

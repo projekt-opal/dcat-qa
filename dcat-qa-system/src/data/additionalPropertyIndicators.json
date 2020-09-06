@@ -17,7 +17,7 @@
   },
   "order_by_byteSize": {
     "en": ["biggest", "largest", "smallest"],
-    "de": ["größte", "kleinste"]
+    "de": ["größte", "größten", "kleinste", "kleinsten"]
   },
   "order_by_issued": {
     "en": ["newest", "latest", "most recent", "most recently publish", "last publish"],
