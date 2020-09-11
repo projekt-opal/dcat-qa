@@ -69,7 +69,7 @@ build-qasystem:
     - mvn $MAVEN_CLI_OPTS -DskipTests package
   artifacts:
     paths:
-      - dcat-qa-system/target/dcat-qa-system-0.0.1-SNAPSHOT.jar
+      - dcat-qa-system/target/*.jar
   tags:
     - shared
 
@@ -88,7 +88,7 @@ test-qasystem:
     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/",instructions, "instructions covered"; print 100*covered/instructions, "%covered" }' target/site/jacoco/jacoco.csv
   artifacts:
     paths:
-      - dcat-qa-system/target/dcat-qa-system-0.0.1-SNAPSHOT.jar
+      - dcat-qa-system/target/*.jar
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
