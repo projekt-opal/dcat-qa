@@ -49,8 +49,12 @@ async function getMoreResults(query) {
   return new Promise((resolve, reject) => {
     axios.get(qaURL + '/results', requestConfig)
       .then(res => {
-        res.data.answer = stringifyResultsJSON(res.data.answer);
-        resolve(res.data);
+        if (res.data && res.data.answer && res.data.answer.results.bindings.length > 0){
+          res.data.answer = stringifyResultsJSON(res.data.answer);
+          resolve(res.data);
+        } else {
+          reject('noanswer');
+        }
       })
       .catch(err => {
         if (err.response && err.response.status == 500) {

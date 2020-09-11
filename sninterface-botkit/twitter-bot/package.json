@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node bot.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-adapter": "npm --prefix botbuilder-adapter-twitter run build && npm i"
+    "build-adapter": "cd botbuilder-adapter-twitter && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.19.2",

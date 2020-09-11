@@ -73,9 +73,11 @@ module.exports = function(controller) {
                             convo.gotoThread('fail_noconnect_thread')
                         }
                     });
-                    results.answer = i18n.results + results.answer
-                    convo.setVar('more_results', results);
-                    await convo.gotoThread('more_results_thread');
+                    if (results) {
+                        results.answer = i18n.results + results.answer
+                        convo.setVar('more_results', results);
+                        await convo.gotoThread('more_results_thread');
+                    }
                 },
             },
             {

@@ -1,13 +1,12 @@
 FROM node:lts-alpine
 WORKDIR /app
 
-EXPOSE 4001
+EXPOSE 3000
+
+COPY package*.json ./
 
 COPY botbuilder-adapter-twitter botbuilder-adapter-twitter
 RUN cd botbuilder-adapter-twitter && npm install && npm run build
-
-
-COPY package*.json ./
 
 RUN npm install
 
