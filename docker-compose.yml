@@ -1,27 +1,24 @@
 # docker-compose file intended for deployment of nginx and sninterface on openbot vm
-version: "3.5"
+version: "3"
 services:
-  sninterface-twitter:
-    image: sninterface-botkit-twitter
-    container_name: sninterface-botkit-twitter
+  twitter-bot:
+    image: twitter-bot
+    container_name: twitter-bot
     env_file: .env-templates/twitter.env
-    environment: 
-      - QA_URL=http://qa-system:8080/qa
     ports:
       - "3000:3000"
     networks:
       - compose_overlay
-  sninterface-web:
-    image: sninterface-botkit-web
-    container_name: sninterface-botkit-web
+  web-bot:
+    image: web-bot
+    container_name: web-bot
     env_file: .env-templates/web.env
-    environment: 
-      - QA_URL=http://qa-system:8080/qa
     ports:
       - "3030:3030"
     networks:
       - compose_overlay
   qa-system:
+    depends_on: [elastic]
     image: qa-system
     container_name: qa-system
     env_file: .env-templates/qa.env
@@ -46,5 +43,5 @@ services:
 
 networks:
   compose_overlay:
-    name: compose_overlay
+    
     

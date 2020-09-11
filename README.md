@@ -1,81 +1,83 @@
 # bachelor-thesis-code
 
-A Question and Answering system for the DCAT vocabulary with a Social Media Bot as user interface.
+A Question and Answering system for the DCAT vocabulary with a Social Media Bot as user interface developed as part of a bachelor thesis.
 [Thesis Repository](https://git.cs.upb.de/martenls/bachelor-thesis)
 
-# nginx-config
-
-Config files for nginx reverse proxy on the openbot vm.
-Including Dockerfile to build custom nginx container.
-
-## Build
-
-Build yourself with (run in `nginx-config` folder)
-```
-docker build  -t nginx-openbot .
-```
- or pull from gitlab container registry with 
-```
-docker login hub.cs.upb.de
-docker pull hub.cs.upb.de/martenls/bachelor-thesis-code/nginx-openbot
-```
-
-## Run
-
-On openbot vm with
-```
-docker run --restart unless-stoped --name nginx -p '80:80' -p '443:443' -v '/etc/nginx/ssl:/etc/nginx/ssl' nginx-openbot
-```
- or use provided `docker-compose.yml`.
 
 
 
-# qa-system
 
-See [qa-system readme](qa-system/README.md)
+# DCAT QA System
 
-
-# sninterface-botkit
-
-See [sninterface readme](sninterface-botkit/README.md)
+See [qa-system readme](dcat-qa-system/README.md)
 
 
-# Local Deployment of all components with Docker Compose
+# Twitter Bot
+
+See [twitter-bot readme](sninterface-botkit/twitter-bot/README.md)
+
+## Botkit Twitter Adapter
+
+The code for the Twitter adapter for botkit can be found on [Github](https://github.com/martenls/botkit/tree/twitter-adapter/packages/botbuilder-adapter-twitter) but a local copy is provided as well under `sninterface-botkit/twitter-bot/botbuilder-adapter-twitter`
+
+# Web Bot
+
+See [web-bot readme](sninterface-botkit/web-bot/README.md)
+
+# Nginx Reverse Proxy Config
+
+See [nginx config](nginx-config/README.md)
+
+
+# Local Deployment of all Components
 
 Prerequisites:
   - Docker
   - Docker-Compose
   - maven
   - ngrok (only for twitter bot)
+  - npm
 
 
 Steps:
 
-## 1. Build docker container
+## 1. Build docker containers
 
-qa-system:
+### qa-system:
 
-    cd qa-system
-    mvn package
+Run in `dcat-qa-system`:
+
+
+    mvn clean package -DskipTests
     docker build -t qa-system .
 
-sninterface-twitter:
+See [qa-system readme](dcat-qa-system/README.md)
 
-    cd sninterface-botkit/twitter-bot
-    docker build -t sninterface-botkit-twitter . 
+### sninterface-twitter:
 
-sninterface-web:
+Run in `sninterface-botkit/twitter-bot`:
 
-    cd sninterface-botkit/web-bot
-    docker build -t sninterface-botkit-web .
+    
+    docker build -t twitter-bot .
+
+See [twitter-bot readme](sninterface-botkit/twitter-bot/README.md). 
+
+### sninterface-web:
+
+Run in `sninterface-botkit/web-bot`:
+
+    docker build -t web-bot .
+
+See [web-bot readme](sninterface-botkit/web-bot/README.md)
+
 
 ## 2. Copy and fill out .env templates
 
-qa-system:
+**qa-system**:
 
 change `SPARQL_ENDPOINT` when running your own Fuseki instance (see [Running your own fuseki triplestore instance](#running-your-own-fuseki-triplestore-instance))
 
-twitter-bot (can be skipped if web interface is sufficient):
+**twitter-bot** (can be skipped if web interface is sufficient):
 
 fill in (see [Twitter Bot Setup](docs/twitter-bot-account.md) for how to obtain these values)
 - `TWITTER_CONSUMER_KEY`
@@ -91,7 +93,7 @@ start ngrok with
 
 and fill in the generated https address at `WEBHOOK_URL` (this will expose your local port 3000 to the internet so Twitter can send events to your application)
 
-web-bot:
+**web-bot:**
 
 *nothing to be done*
 
@@ -100,16 +102,18 @@ web-bot:
 
 run 
 
-    docker-compose -f docker-compose.local.yml up
+    docker-compose up
 
 run 
 
-    docker-compose -f docker-compose.local.yml up sninterface-web qa-system elastic
+    docker-compose up sninterface-web qa-system elastic
 
 to run everything except the twitter bot 
 
 
 ## 4. ask bot questions via web interface or the registered twitter account
+
+The web interface should be available under http://localhost:3000 (unless the port was changed)
 
 ## Running your own fuseki triplestore instance
 
@@ -117,4 +121,4 @@ If the fuseki endpoint at <https://openbot.cs.upb.de/fuseki/> is not available a
 
 The docker page of the [Jena Fuseki 2 image](https://hub.docker.com/r/stain/jena-fuseki) explains how to set up a fuseki instance as docker container and import data. The `docker-compose.local.yml` also contains a comment with configuration for the fuseki docker, which can be used as a starting point.
 
-The current opal graph data is available at <https://hobbitdata.informatik.uni-leipzig.de/OPAL/OpalGraph/>.
+The current opal graph data is available at <https://hobbitdata.informatik.uni-leipzig.de/OPAL/OpalGraph/DCAT-QA/>.

@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
             "type": "node",
             "request": "launch",
@@ -12,7 +13,8 @@
                 "<node_internals>/**"
             ],
             "envFile": "${workspaceFolder}\\sninterface-botkit\\web-bot\\.env",
-            "program": "${workspaceFolder}\\sninterface-botkit\\web-bot\\bot.js"
+            "program": "${workspaceFolder}\\sninterface-botkit\\web-bot\\bot.js",
+            "outputCapture": "console"
         },
         {
             "type": "node",
@@ -21,8 +23,19 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
+            // "preLaunchTask": "Build adapter",
             "envFile": "${workspaceFolder}\\sninterface-botkit\\twitter-bot\\.env",
-            "program": "${workspaceFolder}\\sninterface-botkit\\twitter-bot\\bot.js"
+            "program": "${workspaceFolder}\\sninterface-botkit\\twitter-bot\\bot.js",
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug fix_ids",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            // "preLaunchTask": "Build adapter",
+            "program": "${workspaceFolder}\\benchmark\\fix_ids.js",
         }
     ]
 }

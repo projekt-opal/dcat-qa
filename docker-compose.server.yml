@@ -1,5 +1,5 @@
 # docker-compose file intended for deployment of nginx and sninterface on openbot vm
-version: "3.5"
+version: "3"
 services:
   nginx:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/nginx-openbot:latest
@@ -17,25 +17,30 @@ services:
     container_name: sninterface-botkit-twitter
     restart: unless-stopped
     env_file: .env
-    environment: 
+    environment:
       - QA_URL=http://qa-system:8080/qa
+      - FUSEKI_DATASET_NAME=opal2020-07
     networks:
       - compose_overlay
   sninterface-web-en:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-web:latest
-    container_name: sninterface-botkit-web
+    container_name: sninterface-botkit-web-en
     restart: unless-stopped
-    environment: 
+    environment:
       - QA_URL=http://qa-system:8080/qa
+      - FUSEKI_URL=https://openbot.cs.upb.de/fuseki
+      - FUSEKI_DATASET_NAME=opal2020-07
       - BOT_LANG=en
     networks:
       - compose_overlay
   sninterface-web-de:
     image: hub.cs.upb.de/martenls/bachelor-thesis-code/sninterface-botkit-web:latest
-    container_name: sninterface-botkit-web
+    container_name: sninterface-botkit-web-de
     restart: unless-stopped
-    environment: 
+    environment:
       - QA_URL=http://qa-system:8080/qa
+      - FUSEKI_URL=https://openbot.cs.upb.de/fuseki
+      - FUSEKI_DATASET_NAME=opal2020-07
       - BOT_LANG=de
     networks:
       - compose_overlay
@@ -44,8 +49,9 @@ services:
     container_name: qa-system
     restart: unless-stopped
     environment:
-      - DATA_DIR=/qa/data/
+      - DATA_DIR=/qa/data
       - SPARQL_ENDPOINT=http://fuseki:3030
+      - SPARQL_QUERYPATH=/opal2020-07/query
       - ES_HOST=elastic
       - ES_PORT=9200
     networks:
@@ -54,8 +60,9 @@ services:
     image: stain/jena-fuseki:latest
     container_name: fuseki
     volumes:
-      - "/srv/fuseki:/fuseki"
-    environment: 
+      - "/data/fuseki:/fuseki"
+      - "/data/fuseki-staging:/staging"
+    environment:
       - ADMIN_PASSWORD=pw123
     networks:
       - compose_overlay
@@ -63,12 +70,11 @@ services:
     image: elasticsearch:7.7.0
     container_name: elastic
     restart: unless-stopped
-    environment: 
+    environment:
       - "discovery.type=single-node"
-    networks: 
+    networks:
       - compose_overlay
 
 networks:
   compose_overlay:
     name: compose_overlay
-    
