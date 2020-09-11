@@ -54,7 +54,7 @@ public class QAController {
         if (query != null && !query.isBlank()) {
             Question question = resultLimit.isPresent() ? this.qaService.answerQuestion(new Question(query), resultLimit.get()) : this.qaService.answerQuestion(new Question(query));
             Answer answer = question.getAnswer();
-            String answerBody = "{\n" +
+            return "{\n" +
                     "    \"questions\": [\n" +
                     "      {\n" +
                     "        \"id\": \"" + qId.orElse(id) + "\",\n" +
@@ -71,8 +71,6 @@ public class QAController {
                     "      }\n" +
                     "    ]\n" +
                     "}";
-//            log.debug(answerBody);
-            return answerBody;
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

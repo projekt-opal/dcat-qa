@@ -28,7 +28,6 @@ sparql:
 
 properties:
   languages: "en, de"
-  noCatalogFix: false
 
 logging:
   level:

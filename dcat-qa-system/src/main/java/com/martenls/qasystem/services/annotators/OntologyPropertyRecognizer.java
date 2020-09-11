@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class OntologyPropertyRecognizer extends EntityRecognizer {
 
-    @Value("${properties.noCatalogFix}")
-    private boolean noCatalogFix;
 
     @Autowired
     private AdditionalPropertyIndicatorsProvider indicatorsProvider;

@@ -1,10 +1,23 @@
 # qa-system
 
+A Question and Answering system for the DCAT vocabulary developed 
+
 A Spring Boot application that:
   - implements a question and answering system for the dcat vocabulary
   - provides a rest endpoint for sending questions
-  - needs an elastic search instance for entity recognition
-  - needs a sparql endpoint for querying data
+  
+## Requirements
+
+  - elastic search instance for entity recognition
+  - sparql endpoint for querying data
+
+## Overview of the Architecture
+
+![Overview of the Architecture](docs/img/qa_overview.svg)
+
+## API
+
+see [API Documentation](docs/api.md)
 
 ## Build
 
@@ -14,12 +27,14 @@ Prerequisites:
 
 Run
 
-    mvn package
+    mvn clean package -DskipTests
 
 to build jar
 
 
 ## Build Docker
+
+The docker container can only be built if before the application was build with maven.
 
 Run
 
@@ -27,21 +42,27 @@ Run
 
 to build a docker image
 
-## Environments
+## Environment Variables
 
-The following environment variables can be set to overwrite the default values in the `application.yml`
+In general, all values from the `application.yml` can be overwritten by environment variables.
+The following environment variables have to be set to overwrite the default values in the `application.yml`.
 
-    ES_HOST=localhost
-    ES_PORT=9200
-    ES_PROPERTY_INDEX=propdcat3
-    ES_CLASS_INDEX=classdcat3
-    ES_LAUNUTS_INDEX=launuts
 
-    SPARQL_ENDPOINT=https://openbot.cs.upb.de/fuseki/opal/query
+| variable         | default | example                          | description                                                                                                             |
+| ---------------- | ------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `ES_HOST`           | localhost    | https://openbot.cs.upb.de/es                             | defines the port where the web interface should be delivered.                                                           |
+| `ES_PORT`       | 3000      | 9200                              | defines in which language the bot responds but not the language in which questions can be asked.                        |
+| `SPARQL_ENDPOINT`         |      https://openbot.cs.upb.de/fuseki    | https://openbot.cs.upb.de/fuseki     | the URL of the Apache Jena Fuseki instance, that is used to execute the SPARQL queries                                                                 |
+| `SPARQL_QUERYPATH`     |    /opal2020-07/query     |/opal2020-07/query | path of the query endpoint of the fuseki instance |
+| `DATA_DIR` |    src/data     |      /qa/data                 | path to the directory with labeled entities, properties, etc. |
 
-    ONTOLOGY_FILE=src/data/dcat2+german-labels.rdf
-    LAUNUTS_FILE=src/data/launuts.ttl
-    TEMPLATES_FILE=src/data/templates.txt
+## Run Docker
+
+Run
+
+    docker run -p 8080:8080 -e DATA_DIR=/qa/data qa-system
+
+or use provided `docker-compose.yml`
 
 ## Run Locally
 
@@ -50,11 +71,11 @@ Prerequisites:
   - elastic search index
   - apache jena fuseki triplestore holding data described with the dcat vocabulary
 
-
+set env variables and
 
 Run
 
-    java -jar target/qa-system-0.0.1-SNAPSHOT.jar
+    java -jar target/dcat-qa-system-1.0.0.jar
 
 the rest endpoint should then be available under `http://localhost:8080/qa`
 
@@ -63,10 +84,3 @@ questions can be sent, for example, with curl:
     curl -G --data-urlencode "question=Which formats are available?" localhost:8080/qa
 
 
-Run Docker
-
-Run
-
-    docker run -p 8080:8080 qa_system
-
-or use provided `docker-compose.yml`
