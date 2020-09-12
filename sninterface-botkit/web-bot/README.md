@@ -1,15 +1,27 @@
 # Web Bot
 
-A nodejs app that:
- - provides a web chat interface
- - implements introductory dialogs
- - passes questions to the qa-system
- - replies with formatted results fetched from qa-system
+This project implements a chatbot connected to a webapp chatinterface that provides a conversational interface for the DCAT QA system. It was developed as part of the bachelorthesis "A Question Answering (QA) System for the Data Catalog Vocabulary (DCAT)".
+ 
+In particular the project consists of nodejs app that:
+- serves a web chat interface
+- consumes all messages users send through the chat inteface
+- uses botkit to manage conversations and implement all dialogs
+- passes all questions to the specified QA system endpoint
+- presents the results from the QA system to the user
   
+The web bot is a part of the social network interface for the DCAT QA system. The following shows an overview of all components of the interface and how they communicate:
+
+![Bot Architecture Overview](docs/img/bot_overview.png)
+
+More info on the implementation details can be found in the [thesis](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis/-/blob/dev/thesis/thesis.pdf).
 
 ## Demo of the Web Bot
 
 ![Webbot Demo](docs/img/webbotdemo.gif)
+
+## Live Demo
+
+A live demo can be found [here](https://openbot.cs.upb.de/sninterface/web/en/).
 
 ## Build Docker
 

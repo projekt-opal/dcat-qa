@@ -1,19 +1,24 @@
-# qa-system
+# DCAT QA System
 
-A Question and Answering system for the DCAT vocabulary developed 
+ This project implements Question and Answering system for the DCAT vocabulary developed as part of the bachelorthesis "A Question Answering (QA) System for the Data Catalog Vocabulary (DCAT)".
 
-A Spring Boot application that:
+In particular the project consists of a Spring Boot application that:
   - implements a question and answering system for the dcat vocabulary
   - provides a rest endpoint for sending questions
-  
-## Requirements
+  - connects to a Triplestore endpoint to execute SPARQL queries and thereby fetch results for a question from the OPAL database
+  - connects to a Elasticsearch index for the recognition of named entities and properties in quesion sentences
 
-  - elastic search instance for entity recognition
-  - sparql endpoint for querying data
 
-## Overview of the Architecture
+The following shows an overview of all components of the system and how they communicate:
 
 ![Overview of the Architecture](docs/img/qa_overview.svg)
+
+
+The QA system employs a multistep pipeline to answer questions. An example of the process can be seen in the following overview:
+
+![Example of the QA process](docs/img/qa_process_example.png)
+
+More info on the implementation details can be found in the [thesis](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis/-/blob/dev/thesis/thesis.pdf).
 
 ## API
 

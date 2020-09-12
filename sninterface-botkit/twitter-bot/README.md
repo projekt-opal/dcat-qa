@@ -1,10 +1,19 @@
 # Twitter Bot
 
-A nodejs app that:
+This project implements a chatbot connected to Twitter that provides a conversational interface for the DCAT QA system. It was developed as part of the bachelorthesis "A Question Answering (QA) System for the Data Catalog Vocabulary (DCAT)".
+
+In particular the project consists of a nodejs app that:
 - subscribes to Twitters account-activity api
-- implements introductory dialogs
-- passes all questions asked in tweets or direct-messages to the qa-system
-- replies to tweets and dms with answers fetched from the qa-system
+- consumes all tweets and direct messages from twitter
+- uses botkit to manage conversations and implement all dialogs
+- passes all questions to the specified QA system endpoint
+- presents the results from the QA system to the user
+
+The Twitter bot is a part of the social network interface for the DCAT QA system. The following shows an overview of all components of the interface and how they communicate:
+
+![Bot Architecture Overview](docs/img/bot_overview.png)
+
+More info on the implementation details can be found in the [thesis](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis/-/blob/dev/thesis/thesis.pdf).
 
 ## Twitter Bot Direct Message Demo
 
@@ -14,13 +23,12 @@ A nodejs app that:
 
 ![Twitter Bot Tweet Demo](docs/img/twitterbotdemotweet.png)
 
+## Twitter Bot Live Demo
+
+Tweet at or send a direct message to [@opalbottest](https://twitter.com/opalbottest).
+
 ## Build Docker
 
-
-!Warning because the botbuilder-adapter-twitter packages is not yet publised on npmjs.com you need to provide a Github Personal Access Token in the .npmrc to install the package likes this
-```
-//npm.pkg.github.com/:_authToken=******
-```
 
 Build yourself with (run in `twitter-bot` folder)
 ```

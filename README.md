@@ -18,7 +18,7 @@ See [twitter-bot readme](sninterface-botkit/twitter-bot/README.md)
 
 ## Botkit Twitter Adapter
 
-The code for the Twitter adapter for botkit can be found on [Github](https://github.com/martenls/botkit/tree/twitter-adapter/packages/botbuilder-adapter-twitter) but a local copy is provided as well under `sninterface-botkit/twitter-bot/botbuilder-adapter-twitter`
+The code for the Twitter adapter for botkit can be found on [Github](https://github.com/martenls/botkit/tree/twitter-adapter/packages/botbuilder-adapter-twitter) but a copy is included in the project as well under `sninterface-botkit/twitter-bot/botbuilder-adapter-twitter`
 
 # Web Bot
 
