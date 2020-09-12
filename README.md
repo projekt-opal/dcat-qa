@@ -5,8 +5,6 @@ A Question and Answering system for the DCAT vocabulary with a Social Media Bot 
 
 
 
-
-
 # DCAT QA System
 
 See [qa-system readme](dcat-qa-system/README.md)
@@ -29,7 +27,7 @@ See [web-bot readme](sninterface-botkit/web-bot/README.md)
 See [nginx config](nginx-config/README.md)
 
 
-# Local Deployment of all Components
+# Local Building and Deployment of all Components
 
 Prerequisites:
   - Docker
@@ -41,7 +39,7 @@ Prerequisites:
 
 Steps:
 
-## 1. Build docker containers
+## 1. Build Docker Images
 
 ### qa-system:
 
@@ -71,7 +69,7 @@ Run in `sninterface-botkit/web-bot`:
 See [web-bot readme](sninterface-botkit/web-bot/README.md)
 
 
-## 2. Copy and fill out .env templates
+## 2. Copy and Fill out .env Templates
 
 **qa-system**:
 
@@ -79,7 +77,7 @@ change `SPARQL_ENDPOINT` when running your own Fuseki instance (see [Running you
 
 **twitter-bot** (can be skipped if web interface is sufficient):
 
-fill in (see [Twitter Bot Setup](docs/twitter-bot-account.md) for how to obtain these values)
+fill in (see [Twitter Bot Setup](docs/twitter-bot-account-creation.md) for how to obtain these values)
 - `TWITTER_CONSUMER_KEY`
 - `TWITTER_CONSUMER_SECRET`
 - `TWITTER_TOKEN`
@@ -98,7 +96,7 @@ and fill in the generated https address at `WEBHOOK_URL` (this will expose your 
 *nothing to be done*
 
 
-## 3. create and start all containers
+## 3. Create and Start All Containers
 
 run 
 
@@ -111,14 +109,18 @@ run
 to run everything except the twitter bot 
 
 
-## 4. ask bot questions via web interface or the registered twitter account
+## 4. Ask Bot Questions via Web Interface or the Registered Twitter Account
 
 The web interface should be available under http://localhost:3000 (unless the port was changed)
 
-## Running your own fuseki triplestore instance
+## Running Your Own Fuseki Triplestore Instance
 
 If the fuseki endpoint at <https://openbot.cs.upb.de/fuseki/> is not available anymore, it may be required to locally deploy a fuseki instance providing the data that should be queried by the qa-system.
 
 The docker page of the [Jena Fuseki 2 image](https://hub.docker.com/r/stain/jena-fuseki) explains how to set up a fuseki instance as docker container and import data. The `docker-compose.local.yml` also contains a comment with configuration for the fuseki docker, which can be used as a starting point.
 
 The current opal graph data is available at <https://hobbitdata.informatik.uni-leipzig.de/OPAL/OpalGraph/DCAT-QA/>.
+
+# Deployment without Building
+
+The `docker-compose.server.yml` contains the docker-compose configuration that is currently running on the openbotvm. It can be adjusted to deploy all components without building the images. The images are then pulled directly from the Gitlab repository. This requires a login via `docker login hub.cs.upb.de`. The available images can be found [here](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis-code/container_registry).
