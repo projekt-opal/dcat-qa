@@ -20,11 +20,11 @@ The QA system employs a multistep pipeline to answer questions. An example of th
 
 More info on the implementation details can be found in the [thesis](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis/-/blob/dev/thesis/thesis.pdf).
 
-## API
+# API
 
 see [API Documentation](docs/api.md)
 
-## Build
+# Build
 
 Prerequisites:
   - maven
@@ -47,7 +47,7 @@ Run
 
 to build a docker image
 
-## Environment Variables
+# Environment Variables
 
 In general, all values from the `application.yml` can be overwritten by environment variables.
 The following environment variables have to be set to overwrite the default values in the `application.yml`.
@@ -61,7 +61,14 @@ The following environment variables have to be set to overwrite the default valu
 | `SPARQL_QUERYPATH`     |    /opal2020-07/query     |/opal2020-07/query | path of the query endpoint of the fuseki instance |
 | `DATA_DIR` |    src/data     |      /qa/data                 | path to the directory with labeled entities, properties, etc. |
 
+# Run
+
+To run the QA system, the labeled entities and other configuration files have to be provided. There all located in the `src/data` folder.
+Furthermore, it needs running elasticsearch and fuseki+triplestore instances it can connect to. These can be setup with docker-compose as explained [here](../README.md).
+
+
 ## Run Docker
+
 
 Run
 

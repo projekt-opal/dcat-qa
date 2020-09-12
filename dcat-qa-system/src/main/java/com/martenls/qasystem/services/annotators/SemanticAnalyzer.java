@@ -26,6 +26,11 @@ public class SemanticAnalyzer implements QuestionAnnotator {
     public SemanticAnalyzer() {
     }
 
+    /**
+     *
+     * @param question
+     * @return
+     */
     @Override
     public Question annotate(Question question) {
         question.setWords(getWordsFromString(question.getCleanQuestionStr()));

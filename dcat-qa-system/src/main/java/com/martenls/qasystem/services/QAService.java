@@ -62,6 +62,7 @@ public class QAService {
         return answerQuestion(question, 0);
     }
 
+
     public Question answerQuestion(Question question, int resultLimit) {
         try {
             languageRecognizer.annotate(question);

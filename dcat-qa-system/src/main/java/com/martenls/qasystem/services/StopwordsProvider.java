@@ -19,6 +19,10 @@ public class StopwordsProvider {
 
     private Map<String, Set<String>> stopwords;
 
+    /**
+     * Reads in stopwords from the specified file.
+     * @param stopwordsFilePath path to the stopwords file.
+     */
     public StopwordsProvider(@Value("${data.stopwords}") String stopwordsFilePath) {
         ObjectMapper mapper = new ObjectMapper();
         try {

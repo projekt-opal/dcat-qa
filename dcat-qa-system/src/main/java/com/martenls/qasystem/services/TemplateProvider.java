@@ -22,6 +22,10 @@ public class TemplateProvider {
 
     private List<Template> askTemplates;
 
+    /**
+     * Loads all templates from the template file and generates ASK variants for all of them.
+     * @param templateFilePath path to the template file
+     */
     public TemplateProvider(@Value("${data.templates}") String templateFilePath) {
         String templateFile = "";
         try {

@@ -15,6 +15,14 @@ import java.util.stream.Collectors;
 public class ResultSelector implements QuestionAnnotator {
 
 
+    /**
+     * Selects a query and its results based on the number of results and the type of results.
+     * If the question indicates an ASK query the first query with a positive result is picked. If all are negative the first is picked.
+     * If the question indicates a COUNT query the query with the highest result is picked.
+     * Else the first query with results is picked.
+     * @param question for which a results should be selected
+     * @return the question annotated with the selected query and its results
+     */
     @Override
     public Question annotate(Question question) {
         if (question.getAdditionalProperties().contains(Question.properties.ASK_QUERY)) {

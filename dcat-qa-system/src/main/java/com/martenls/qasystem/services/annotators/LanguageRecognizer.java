@@ -27,6 +27,11 @@ public class LanguageRecognizer implements QuestionAnnotator {
     }
 
 
+    /**
+     * Annotates the question with the detected language.
+     * @param question to be annotated
+     * @return annotated question
+     */
     @Override
     public Question annotate(Question question) {
         question.setLanguage(detector.detectLanguageOf(question.getCleanQuestionStr()));

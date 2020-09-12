@@ -18,7 +18,12 @@ public class LocationEntityRecognizer extends EntityRecognizer {
         super(indexName, rdfFilePath, languages, new LabeledURIJsonParser(new String[]{"de"}));
     }
 
-
+    /**
+     * Annotates the question with all location entities that match at least one of the w-shingles.
+     *
+     * @param question to be annotated
+     * @return annotated question
+     */
     @Override
     public Question annotate(Question question) {
         if (question.getWShingles() != null) {

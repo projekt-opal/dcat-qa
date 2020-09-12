@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 public class TimeEntityRecognizer implements QuestionAnnotator {
 
 
+    /**
+     * Extracts the time entities from the NLP annotations and adds them to the question.
+     * @param question to be annotated
+     * @return annotated question
+     */
     @Override
     public Question annotate(Question question) {
         CoreDocument document = question.getNlpAnnotations();

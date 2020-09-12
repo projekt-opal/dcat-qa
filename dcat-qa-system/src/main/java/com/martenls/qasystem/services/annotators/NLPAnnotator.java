@@ -35,6 +35,11 @@ public class NLPAnnotator implements QuestionAnnotator {
         throw new LanguageNotSupportedException();
     }
 
+    /**
+     * Runs the NLP pipeline for the question and adds all annotations to the question object.
+     * @param question for which the NLP pipeline should be executed
+     * @return annotated question
+     */
     public Question annotate(Question question) {
 
         CoreDocument document = new CoreDocument(question.getCleanQuestionStr());

@@ -23,6 +23,11 @@ import java.util.stream.Collectors;
 public class QueryBuilder implements QuestionAnnotator {
 
 
+    /**
+     * Builds queries with the top rated templates and adds them to the question object.
+     * @param question for which queries should be build
+     * @return annotated question
+     */
     @Override
     public Question annotate(Question question) {
         // consider all templates with top rating but a maximum of 5

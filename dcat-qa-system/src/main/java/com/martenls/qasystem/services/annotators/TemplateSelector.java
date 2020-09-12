@@ -22,6 +22,11 @@ public class TemplateSelector implements QuestionAnnotator {
     @Autowired
     private TemplateProvider templateProvider;
 
+    /**
+     * Rates all templates. Orders them by their rating and adds them to the question object.
+     * @param question for which a template should be selected
+     * @return annotated question
+     */
     @Override
     public Question annotate(Question question) {
         List<TemplateRated> candidates = new ArrayList<>();
@@ -35,7 +40,18 @@ public class TemplateSelector implements QuestionAnnotator {
         return question;
     }
 
-
+    /**
+     * Rates a template-question pair based on:
+     * - the number of property slots and properties
+     * - the number of entity slots and entities
+     * - if a count modifier is present and the question indicates one
+     * - if a order by modifier is present and the question indicates one
+     * - if a filter for literals is present and the question has literals
+     * - if a filter for temporal entities is present and the question has temporal entities
+     * @param template to be rated
+     * @param question to base the rating on
+     * @return a rating of how well the specified template fits the specified question
+     */
     private int rateTemplateQuestionPair(Template template, Question question) {
         int rating = 0;
 

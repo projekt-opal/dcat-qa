@@ -23,6 +23,11 @@ public class SPARQLService {
 
     private final String queryPath;
 
+    /**
+     * Establishes connection to the Fuseki instance. Retries if it is not available and terminates app after ten failed attempts.
+     *
+     * @throws InterruptedException if thread sleep is interrupted.
+     */
     public SPARQLService(@Value("${sparql.endpoint}") String endpoint, @Value("${sparql.queryPath}") String queryPath) throws InterruptedException {
         this.endpoint = endpoint;
         this.queryPath = queryPath;
@@ -55,6 +60,13 @@ public class SPARQLService {
         return baos.toString();
     }
 
+    /**
+     * Executes the specified SPARQL SELECT query against the Fuseki instance.
+     * The result limit is only added if the query does not already have one.
+     * @param queryStr SPARQL query to execute
+     * @param resultLimit limit that should be added to the query
+     * @return results from the executed query
+     */
     public ResultSet executeSelectQuery(String queryStr, int resultLimit) {
         // limit all queries to 10 results
         if (!queryStr.toLowerCase().contains("limit") && resultLimit > 0) {
