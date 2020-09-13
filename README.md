@@ -1,8 +1,4 @@
-# bachelor-thesis-code
-
 A Question and Answering system for the DCAT vocabulary with a Social Media Bot as user interface developed as part of a bachelor thesis.
-[Thesis Repository](https://git.cs.upb.de/martenls/bachelor-thesis)
-
 
 
 # DCAT QA System
@@ -121,6 +117,3 @@ The docker page of the [Jena Fuseki 2 image](https://hub.docker.com/r/stain/jena
 
 The current opal graph data is available at <https://hobbitdata.informatik.uni-leipzig.de/OPAL/OpalGraph/DCAT-QA/>.
 
-# Deployment without Building
-
-The `docker-compose.server.yml` contains the docker-compose configuration that is currently running on the openbotvm. It can be adjusted to deploy all components without building the images. The images are then pulled directly from the Gitlab repository. This requires a login via `docker login hub.cs.upb.de`. The available images can be found [here](https://git.cs.uni-paderborn.de/martenls/bachelor-thesis-code/container_registry).
