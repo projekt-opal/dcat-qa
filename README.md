@@ -1,4 +1,4 @@
-A Question and Answering system for the DCAT vocabulary with a Social Media Bot as user interface developed as part of a bachelor thesis.
+A Question and Answering system for the DCAT vocabulary with a Social Media Bot as user interface developed as part of a [bachelor thesis](thesis.pdf).
 
 
 # DCAT QA System
@@ -108,6 +108,10 @@ to run everything except the twitter bot
 ## 4. Ask Bot Questions via Web Interface or the Registered Twitter Account
 
 The web interface should be available under http://localhost:3000 (unless the port was changed)
+
+## Deployment without Building
+
+Already built docker images of the qa-system, twitter-bot and web-bot can be downloaded from the [repository's registry](https://github.com/martenls/dcat-qa-system/packages).
 
 ## Running Your Own Fuseki Triplestore Instance
 
