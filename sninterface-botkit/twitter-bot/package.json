@@ -9,7 +9,7 @@
     "build-adapter": "cd botbuilder-adapter-twitter && npm install && npm run build"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "botbuilder-adapter-twitter": "file:botbuilder-adapter-twitter",
     "botkit": "^4.9.0",
     "dotenv": "^7.0.0"
