@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "botbuilder-adapter-web": "^1.0.8",
     "dotenv": "^8.2.0"
   }
